@@ -11,6 +11,7 @@
       {
         "9mount" = pkgs.callPackage ./packages/9mount { };
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
+        XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
