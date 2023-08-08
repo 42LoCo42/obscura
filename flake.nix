@@ -13,6 +13,7 @@
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
+        mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
       }
     );
 
