@@ -9,8 +9,9 @@
         pkgs = import nixpkgs { inherit system; };
       in
       {
-        SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         "9mount" = pkgs.callPackage ./packages/9mount { };
+        SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
+        certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
       }
     );
 
