@@ -8,7 +8,7 @@
       let
         pkgs = import nixpkgs { inherit system; };
       in
-      {
+      rec {
         "9mount" = pkgs.callPackage ./packages/9mount { };
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
@@ -16,6 +16,9 @@
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
+        wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix {
+          inherit gtk4-layer-shell;
+        };
       }
     );
 
