@@ -3,15 +3,22 @@
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs = { self, nixpkgs, ... }: rec {
     packages = self.inputs.flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
       in
       {
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
+        "9mount" = pkgs.callPackage ./packages/9mount { };
       }
     );
+
+    nixosModules = {
+      "9mount" = import ./packages/9mount/module.nix {
+        pkgs9mount = packages."9mount";
+      };
+    };
 
     templates =
       let
