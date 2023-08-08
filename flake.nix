@@ -22,13 +22,13 @@
 
     templates =
       let
-        dir = ./templates;
+        dir = "${self}/templates";
 
         mkPair = name: {
           inherit name;
           value = {
             description = "A flake template for ${name}";
-            path = ./${dir}/${name};
+            path = "${dir}/${name}";
           };
         };
 
