@@ -30,4 +30,10 @@
     wayland
     wayland-protocols
   ];
+
+  meta = {
+    description = "Prevent swayidle from sleeping while any application is outputting or receiving audio";
+    homepage = "https://github.com/ErikReider/SwayAudioIdleInhibit";
+    mainProgram = "sway-audio-idle-inhibit";
+  };
 }

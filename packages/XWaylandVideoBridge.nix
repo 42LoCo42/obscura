@@ -38,4 +38,10 @@ stdenv.mkDerivation rec {
     qt5.qtx11extras.dev
     wrapQtAppsHook
   ];
+
+  meta = {
+    description = "Utility to allow streaming Wayland windows to X applications";
+    homepage = "https://invent.kde.org/system/xwaylandvideobridge";
+    mainProgram = "xwaylandvideobridge";
+  };
 }

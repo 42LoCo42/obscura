@@ -23,4 +23,9 @@
     rmdir "$dir"
     rm "$out/"*"_uninstaller."{dat,run}
   '';
+
+  meta = {
+    description = "MSP430 code generation tools";
+    homepage = "https://www.ti.com/tool/MSP-CGT";
+  };
 }

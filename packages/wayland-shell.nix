@@ -37,4 +37,9 @@
     harfbuzz
     pango
   ];
+
+  meta = {
+    description = "Small-scale replacement of the GNOME Shell";
+    homepage = "https://github.com/nilsherzig/wayland-shell";
+  };
 }

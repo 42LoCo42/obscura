@@ -33,5 +33,10 @@
 
   mesonFlags = [ "-Dexamples=true" ];
 
-  meta.pkgConfigModules = [ "gtk4-layer-shell-0" ];
+  meta = {
+    description = "A library to desktop components for Wayland using the Layer Shell protocol and GTK4";
+    homepage = "https://github.com/wmww/gtk4-layer-shell";
+    pkgConfigModules = [ "gtk4-layer-shell-0" ];
+    mainProgram = "gtk4-layer-demo";
+  };
 }

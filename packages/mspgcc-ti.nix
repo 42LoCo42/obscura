@@ -27,4 +27,9 @@ stdenv.mkDerivation {
     cp -ar toolchain/* headers/* $out/
     mv $out/include/*.ld $out/msp430-elf/lib/
   '';
+
+  meta = {
+    description = "Open Source Compiler for MSP Microcontrollers";
+    homepage = "https://www.ti.com/tool/MSP430-GCC-OPENSOURCE";
+  };
 }

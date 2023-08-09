@@ -21,4 +21,9 @@ python3.pkgs.buildPythonApplication rec {
   doCheck = false;
 
   buildInputs = [ pyenv ];
+
+  meta = {
+    description = "Plugin for certbot for a DNS-01 challenge with a DuckDNS domain";
+    homepage = "https://github.com/infinityofspace/certbot_dns_duckdns";
+  };
 }

@@ -11,4 +11,9 @@
 
   patches = [ ./unpriv.patch ];
   installPhase = "make prefix=$out install";
+
+  meta = {
+    description = "A set of SUID tools for mounting 9p filesystems via v9fs";
+    homepage = "https://sqweek.net/code/9mount";
+  };
 }
