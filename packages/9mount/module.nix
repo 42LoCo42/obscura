@@ -1,6 +1,4 @@
-{ config
-, pkgs9mount
-}:
+{ pkgs9mount }: { config, ... }:
 let
   system = config.nixpkgs.system;
   pkg = pkgs9mount.${system};
