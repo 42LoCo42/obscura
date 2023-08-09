@@ -13,6 +13,7 @@
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
+        flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
