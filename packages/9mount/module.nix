@@ -1,7 +1,7 @@
-{ pkgs9mount }: { config, ... }:
+{ packages }: { config, ... }:
 let
   system = config.nixpkgs.system;
-  pkg = pkgs9mount.${system};
+  pkg = packages.${system}."9mount";
   mkWrapper = name: {
     inherit name;
     value = {
