@@ -1,7 +1,9 @@
 {
   description = "A personal collection of unusual things";
 
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.argon-kg.url = "github:42loco42/argon-kg";
+  inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
   outputs = { self, nixpkgs, flake-utils, ... }:
     (flake-utils.lib.eachDefaultSystem (system:
@@ -13,6 +15,7 @@
           "9mount" = pkgs.callPackage ./packages/9mount { };
           SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
+          argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
           certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
