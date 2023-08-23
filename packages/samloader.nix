@@ -1,5 +1,4 @@
 { fetchFromGitHub
-, stdenv
 
 , python3
 }: python3.pkgs.buildPythonApplication {

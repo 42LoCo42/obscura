@@ -5,17 +5,23 @@
   inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
   inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  inputs.flake-utils.url = "github:numtide/flake-utils";
+
+  inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
+
+  outputs = { self, nixpkgs, nimble, flake-utils, ... }:
     (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+        nimblePkgs = nimble.packages.${system};
       in
-      rec {
+      {
         packages = rec {
           "9mount" = pkgs.callPackage ./packages/9mount { };
           SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
+          boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
           certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
