@@ -27,6 +27,7 @@
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
           mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
+          musializer = pkgs.callPackage ./packages/musializer.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix {
             inherit gtk4-layer-shell;
