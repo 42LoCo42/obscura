@@ -25,6 +25,7 @@
           certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
+          m9u = pkgs.callPackage ./packages/m9u.nix { };
           msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
           mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
           musializer = pkgs.callPackage ./packages/musializer.nix { };
