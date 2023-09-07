@@ -30,6 +30,7 @@
           mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
           musializer = pkgs.callPackage ./packages/musializer.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
+          vulnix = pkgs.callPackage ./packages/vulnix.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix {
             inherit gtk4-layer-shell;
           };
