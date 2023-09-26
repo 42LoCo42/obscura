@@ -23,6 +23,7 @@
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         fusepod = pkgs.callPackage ./packages/fusepod.nix { };
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
+        k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
         m9u = pkgs.callPackage ./packages/m9u.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
