@@ -3,10 +3,11 @@
 
   inputs.argon-kg.url = "github:42loco42/argon-kg";
   inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
   inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, nimble, ... }:
+  outputs = { self, nixpkgs, nimble, flake-utils, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
