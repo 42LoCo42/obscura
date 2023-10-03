@@ -2,7 +2,9 @@
   "nodes": {
     "argon-kg": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -34,9 +36,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "id": "flake-utils",
+        "type": "indirect"
       }
     },
     "nimble": {
@@ -75,6 +76,7 @@
     "root": {
       "inputs": {
         "argon-kg": "argon-kg",
+        "flake-utils": "flake-utils",
         "nimble": "nimble",
         "nixpkgs": "nixpkgs"
       }
