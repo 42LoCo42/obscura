@@ -7,7 +7,7 @@ defmodule Example do
 
   @impl true
   def start(_type, _args) do
-    IO.puts("Hello, #{:hello()}!")
+    IO.puts("Hello, #{hello()}!")
     {:ok, self()}
   end
 
