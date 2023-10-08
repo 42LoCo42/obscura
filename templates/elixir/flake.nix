@@ -11,6 +11,10 @@
           pname = "example";
           version = "0.1.0";
           src = ./.;
+
+          nativeBuildInputs = with pkgs; [
+            elixir_1_15
+          ];
         };
 
         devShell = pkgs.mkShell {
