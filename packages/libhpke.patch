@@ -1,0 +1,13 @@
+diff --git a/src/hpke/hpke.c b/src/hpke/hpke.c
+index 59cc3c3..1f87425 100644
+--- a/src/hpke/hpke.c
++++ b/src/hpke/hpke.c
+@@ -1,6 +1,7 @@
++#include <assert.h>
++#include <stdarg.h>
+ #include <stdio.h>
+ #include <string.h>
+-#include <assert.h>
+ 
+ #include <hpke/utils.h>
+ #include <hpke/hkdf.h>

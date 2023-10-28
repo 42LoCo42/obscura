@@ -25,15 +25,14 @@
         fusepod = pkgs.callPackage ./packages/fusepod.nix { };
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
         k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
+        libhpke = pkgs.callPackage ./packages/libhpke.nix { };
         m9u = pkgs.callPackage ./packages/m9u.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
         musializer = pkgs.callPackage ./packages/musializer.nix { };
         samloader = pkgs.callPackage ./packages/samloader.nix { };
         vulnix = pkgs.callPackage ./packages/vulnix.nix { };
-        wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix {
-          inherit gtk4-layer-shell;
-        };
+        wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
       };
 
       nixosModules = {
