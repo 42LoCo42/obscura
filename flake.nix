@@ -3,15 +3,14 @@
 
   inputs.argon-kg.url = "github:42loco42/argon-kg";
   inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
   inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, nimble, flake-utils, ... }:
+  outputs = { self, nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      nimblePkgs = nimble.packages.${system};
+      nimblePkgs = self.inputs.nimble.packages.${system};
     in
     {
       packages.${system} = rec {
@@ -42,23 +41,17 @@
         };
       };
 
-      templates =
-        let
-          dir = "${self}/templates";
-
-          mkPair = name: {
-            inherit name;
-            value = {
-              description = "A flake template for ${name}";
-              path = "${dir}/${name}";
-            };
+      templates = let dir = ./templates; in nixpkgs.lib.pipe dir [
+        builtins.readDir
+        builtins.attrNames
+        (map (name: {
+          inherit name;
+          value = {
+            description = "A flake template for ${name}";
+            path = "${dir}/${name}";
           };
-
-          subdirs = builtins.readDir dir;
-          names = builtins.attrNames subdirs;
-          pairs = builtins.map mkPair names;
-          result = builtins.listToAttrs pairs;
-        in
-        result;
+        }))
+        builtins.listToAttrs
+      ];
     };
 }
