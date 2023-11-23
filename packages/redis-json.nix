@@ -26,4 +26,9 @@
     clang
     rustPlatform.bindgenHook
   ];
+
+  meta = {
+    description = "RedisJSON - a JSON data type for Redis";
+    homepage = "https://github.com/RedisJSON/RedisJSON";
+  };
 }

@@ -16,10 +16,12 @@
     {
       packages.${system} = rec {
         "9mount" = pkgs.callPackage ./packages/9mount { };
+        # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
         boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
+        capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         fusepod = pkgs.callPackage ./packages/fusepod.nix { };
@@ -32,7 +34,6 @@
         musializer = pkgs.callPackage ./packages/musializer.nix { };
         redis-json = pkgs.callPackage ./packages/redis-json.nix { };
         samloader = pkgs.callPackage ./packages/samloader.nix { };
-        # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
         wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
       };
 
