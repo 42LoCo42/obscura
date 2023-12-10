@@ -1,0 +1,14 @@
+name: build-all
+on: [push]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Install nixci
+        uses: yaxitech/nix-install-pkgs-action@v3
+        with:
+          packages: "nixpkgs#nixci"
+      - name: Run nixci
+        run: nixci
