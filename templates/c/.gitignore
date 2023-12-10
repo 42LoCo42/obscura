@@ -1,5 +1,5 @@
 /.cache
 /.direnv
+/build
 /compile_commands.json
-/main
 /result
