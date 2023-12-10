@@ -1,51 +1,50 @@
 { fetchFromGitHub
 , stdenv
 
-, pkg-config
+, autoPatchelfHook
+, makeBinaryWrapper
 
-, glfw
-, raylib
+, libglvnd
+, xorg
 }: stdenv.mkDerivation rec {
   pname = "musializer";
-  version = "be42432";
+  version = "d971539";
 
   src = fetchFromGitHub {
     owner = "tsoding";
     repo = pname;
     rev = version;
-    hash = "sha256-1uxsgG8t6WhgkHe2QhdyYeALP2e6+4to7LWu0OK8qmg=";
+    hash = "sha256-s2NnoSNNe0iWAPfIgfUNqLp6ArbRHGNsicm/bHE5EPU=";
   };
 
   nativeBuildInputs = [
-    pkg-config
+    autoPatchelfHook
+    makeBinaryWrapper
   ];
 
   buildInputs = [
-    glfw
-    raylib
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXinerama
+    xorg.libXrandr
   ];
 
-  patchPhase = ''
-    substituteInPlace build.sh \
-      --replace clang gcc
+  runtimeDependencies = [
+    xorg.libX11
+    libglvnd
+  ];
 
-    substituteInPlace src/plug.c              \
-      --replace                               \
-        '"./fonts/Alegreya-Regular.ttf"'      \
-        '"${src}/fonts/Alegreya-Regular.ttf"' \
-      --replace                               \
-        '"./shaders/circle.fs"'               \
-        '"${src}/shaders/circle.fs"'          \
-      --replace                               \
-        '"./shaders/smear.fs"'                \
-        '"${src}/shaders/smear.fs"'
+  buildPhase = ''
+    cc -Wall -Wextra nob.c -o nob
+    ./nob
   '';
 
-  buildPhase = "./build.sh";
-
   installPhase = ''
-    mkdir $out
-    cp -r build $out/bin
+    mkdir -p $out/bin
+    cp -r resources $out
+    cp build/musializer $out/bin
+    wrapProgram $out/bin/musializer --chdir $out/resources
   '';
 
   meta = {
