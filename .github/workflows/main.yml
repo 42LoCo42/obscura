@@ -4,6 +4,8 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - name: Install nixci
