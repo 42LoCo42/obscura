@@ -1,0 +1,33 @@
+diff --git a/go.mod b/go.mod
+new file mode 100644
+index 0000000..b7798bd
+--- /dev/null
++++ b/go.mod
+@@ -0,0 +1,13 @@
++module github.com/novus0rdo/e2eirc
++
++go 1.21
++
++require (
++	github.com/Novus0rdo/e2eirc v0.0.0-20171031184345-0e3198a20cd6
++	golang.org/x/crypto v0.16.0
++)
++
++require (
++	golang.org/x/sys v0.15.0 // indirect
++	golang.org/x/term v0.15.0 // indirect
++)
+diff --git a/go.sum b/go.sum
+new file mode 100644
+index 0000000..e95f70c
+--- /dev/null
++++ b/go.sum
+@@ -0,0 +1,8 @@
++github.com/Novus0rdo/e2eirc v0.0.0-20171031184345-0e3198a20cd6 h1:DkKHS9nPweuOR9aS2aOLwJWqAQVGELLyvP7ByOp2ao0=
++github.com/Novus0rdo/e2eirc v0.0.0-20171031184345-0e3198a20cd6/go.mod h1:bF+aVdwKfkdParV9nC/JqtfOHUxEKLgjZxndMt3PFfA=
++golang.org/x/crypto v0.16.0 h1:mMMrFzRSCF0GvB7Ne27XVtVAaXLrPmgPC7/v0tkwHaY=
++golang.org/x/crypto v0.16.0/go.mod h1:gCAAfMLgwOJRpTjQ2zCCt2OcSfYMTeZVSRtQlPC7Nq4=
++golang.org/x/sys v0.15.0 h1:h48lPFYpsTvQJZF4EKyI4aLHaev3CxivZmv7yZig9pc=
++golang.org/x/sys v0.15.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
++golang.org/x/term v0.15.0 h1:y/Oo/a/q3IXu26lQgl04j/gjuBDOBlx7X6Om1j2CPW4=
++golang.org/x/term v0.15.0/go.mod h1:BDl952bC7+uMoWR75FIrCDx79TPU9oHkTZ9yRbYOrX0=

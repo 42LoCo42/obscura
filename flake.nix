@@ -23,6 +23,7 @@
         boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
+        e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         fusepod = pkgs.callPackage ./packages/fusepod.nix { };
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
