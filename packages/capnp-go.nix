@@ -11,7 +11,7 @@
     hash = "sha256-f3fiVf3ihZOrTMZUPwSy+v4EX4cuIvJXaYMvLKzPgSg=";
   };
 
-  vendorSha256 = "sha256-ggZqhFEbqP4UHb1FDgFgVVIngE7c6c3F+PTgXO5nyXs=";
+  vendorHash = "sha256-ggZqhFEbqP4UHb1FDgFgVVIngE7c6c3F+PTgXO5nyXs=";
 
   preBuild = ''
     rm -rf example

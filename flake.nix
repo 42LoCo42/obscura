@@ -5,7 +5,7 @@
   inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
   inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
-  inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
+  # inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { self, nixpkgs, flake-utils, ... }:
     let
@@ -20,9 +20,9 @@
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
-        boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
+        # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
-        certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
+        # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
@@ -33,7 +33,7 @@
         m9u = pkgs.callPackage ./packages/m9u.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
-        musializer = pkgs.callPackage ./packages/musializer.nix { };
+        # musializer = pkgs.callPackage ./packages/musializer.nix { };
         redis-json = pkgs.callPackage ./packages/redis-json.nix { };
         samloader = pkgs.callPackage ./packages/samloader.nix { };
         wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
