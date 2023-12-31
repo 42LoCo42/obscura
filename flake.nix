@@ -25,6 +25,7 @@
         certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
+        foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
         fusepod = pkgs.callPackage ./packages/fusepod.nix { };
         gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
         k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
