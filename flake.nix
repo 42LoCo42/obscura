@@ -23,6 +23,7 @@
         "9mount" = pkgs.callPackage ./packages/9mount { };
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
+        agregore = pkgs.callPackage ./packages/agregore { };
         argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
         capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
         e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };

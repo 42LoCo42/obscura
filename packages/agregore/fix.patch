@@ -1,0 +1,80 @@
+diff --git a/app/extensions/builtins.json b/app/extensions/builtins.json
+index 98151b6..840efc6 100644
+--- a/app/extensions/builtins.json
++++ b/app/extensions/builtins.json
+@@ -1,23 +1,27 @@
+ {
+   "agregore-history": {
+     "version": "1.1.1",
+-    "url": "https://github.com/AgregoreWeb/extension-agregore-history/releases/download/v{version}/agregore-history-v{version}.zip"
++    "url": "https://github.com/AgregoreWeb/extension-agregore-history/releases/download/v{version}/agregore-history-v{version}.zip",
++	"hash": "sha256-1LULPhRVb1M34cJrWwhjOh+W9kKBjj8xOrn2vOL3H7k="
+   },
+   "agregore-renderer": {
+     "version": "2.1.1",
+-    "url": "https://github.com/AgregoreWeb/extension-agregore-renderer/releases/download/v{version}/agregore-renderer-v{version}.zip"
++    "url": "https://github.com/AgregoreWeb/extension-agregore-renderer/releases/download/v{version}/agregore-renderer-v{version}.zip",
++	"hash": "sha256-Xyg/oVRpdNeCfSKhgms7Ws/68j+MdnX3Dn1Peb/lNtE="
+   },
+   "agregore-qr-share": {
+     "version": "1.0.1",
+-    "url": "https://github.com/AgregoreWeb/extension-agregore-qr-share/releases/download/v{version}/agregore-qr-share-v{version}.zip"
++    "url": "https://github.com/AgregoreWeb/extension-agregore-qr-share/releases/download/v{version}/agregore-qr-share-v{version}.zip",
++	"hash": "sha256-QP8EjDCUElTUuIB5R5TNL2CZ3lvxIn099atSt9WYnt8="
+   },
+   "archiveweb.page": {
+     "version": "0.10.0",
+-    "url": "https://github.com/webrecorder/archiveweb.page/releases/download/v{version}/ArchiveWeb.page-{version}-extension.zip"
++    "url": "https://github.com/webrecorder/archiveweb.page/releases/download/v{version}/ArchiveWeb.page-{version}-extension.zip",
++	"hash": "sha256-ek8u87PxEmrvzygKluSjwrf34q4iS4ePNGKkEttcgqw="
+   },
+   "ublock": {
+     "version": "1.47.4",
+     "url": "https://github.com/gorhill/uBlock/releases/download/{version}/uBlock0_{version}.chromium.zip",
+-    "stripPrefix": "uBlock0.chromium/"
++	"hash": "sha256-MphO4sLzZV2LSJUq7XsZWY38CzI6913m1VeK0k/iAlk="
+   }
+ }
+diff --git a/app/ui/omni-box.js b/app/ui/omni-box.js
+index 8eaee7f..e832dd3 100644
+--- a/app/ui/omni-box.js
++++ b/app/ui/omni-box.js
+@@ -1,7 +1,7 @@
+ /* global HTMLElement, CustomEvent, customElements */
+
+ const { looksLikeLegacySSB, convertLegacySSB: makeSSB } = require('ssb-fetch')
+-const { CID } = require('multiformats/cid')
++const { CID } = import('multiformats/src')
+
+ const IPNS_PREFIX = '/ipns/'
+ const IPFS_PREFIX = '/ipfs/'
+diff --git a/package.json b/package.json
+index 3a5ea83..bf50bcf 100644
+--- a/package.json
++++ b/package.json
+@@ -212,7 +212,7 @@
+     "scoped-fs": "^1.4.1",
+     "semver": "^7.5.2",
+     "ssb-fetch": "^1.5.2",
+-    "whatwg-mimetype": "https://github.com/jsdom/whatwg-mimetype#v2.3.0",
++    "whatwg-mimetype": "^2.3.0",
+     "wrtc": "^0.4.7"
+   }
+ }
+diff --git a/yarn.lock b/yarn.lock
+index 528dd77..360449b 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -7348,9 +7348,10 @@ webtorrent@^1.8.1:
+   optionalDependencies:
+     utp-native "^2.5.3"
+
+-"whatwg-mimetype@https://github.com/jsdom/whatwg-mimetype#v2.3.0":
++whatwg-mimetype@^2.3.0:
+   version "2.3.0"
+-  resolved "https://github.com/jsdom/whatwg-mimetype#7eadb26d8e02f9d95bc2f6e272df7eb653d7a903"
++  resolved "https://registry.yarnpkg.com/whatwg-mimetype/-/whatwg-mimetype-2.3.0.tgz#3d4b1e0312d2079879f826aff18dbeeca5960fbf"
++  integrity sha512-M4yMwr6mAnQz76TbJm914+gPpB/nCwvZbJU28cUD6dR004SAxDLOOSUaB1JDRqLtaOV/vi0IC5lEAGFgrjGv/g==
+
+ whatwg-url@^5.0.0:
+   version "5.0.0"
