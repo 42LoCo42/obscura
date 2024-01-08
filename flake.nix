@@ -11,18 +11,20 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      nimblePkgs = self.inputs.nimble.packages.${system};
+      # nimblePkgs = self.inputs.nimble.packages.${system};
     in
     {
       packages.${system} = rec {
-        "9mount" = pkgs.callPackage ./packages/9mount { };
+        # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
+        # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
+        # musializer = pkgs.callPackage ./packages/musializer.nix { };
         # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
+
+        "9mount" = pkgs.callPackage ./packages/9mount { };
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
-        # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
-        # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
         foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
@@ -33,7 +35,7 @@
         m9u = pkgs.callPackage ./packages/m9u.nix { };
         msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
         mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
-        # musializer = pkgs.callPackage ./packages/musializer.nix { };
+        prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
         redis-json = pkgs.callPackage ./packages/redis-json.nix { };
         samloader = pkgs.callPackage ./packages/samloader.nix { };
         wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
