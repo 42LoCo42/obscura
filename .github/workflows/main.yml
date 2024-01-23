@@ -3,7 +3,7 @@ name: build-all
 on:
   push:
     paths:
-      - packages
+      - "packages/**"
 
 jobs:
   main:

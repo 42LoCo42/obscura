@@ -28,4 +28,9 @@
     mkdir -p $out/bin
     cp build/x86_64/{lone,tools/lone-embed} $out/bin
   '';
+
+  meta = {
+    description = "The standalone Linux Lisp";
+    homepage = "https://github.com/lone-lang/lone";
+  };
 }
