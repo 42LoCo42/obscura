@@ -13,7 +13,7 @@
       pkgs = import nixpkgs { inherit system; };
       # nimblePkgs = self.inputs.nimble.packages.${system};
     in
-    {
+    rec {
       packages.${system} = rec {
         inherit (pkgs) nixci; # expose nixci to reduce nixpkgs lookup
 
@@ -62,6 +62,13 @@
           };
         }))
         builtins.listToAttrs
+      ];
+
+      readme = nixpkgs.lib.pipe packages.${system} [
+        (nixpkgs.lib.mapAttrsToList (name: p:
+          "- ${name}: ${p.meta.description or "no description"} - ${p.meta.homepage or "no homepage"}"))
+        (builtins.concatStringsSep "\n")
+        (s: "# Packages\n" + s)
       ];
     };
 }
