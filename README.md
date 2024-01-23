@@ -2,10 +2,9 @@
 - 9mount: A set of SUID tools for mounting 9p filesystems via v9fs - https://sqweek.net/code/9mount
 - SwayAudioIdleInhibit: Prevent swayidle from sleeping while any application is outputting or receiving audio - https://github.com/ErikReider/SwayAudioIdleInhibit
 - XWaylandVideoBridge: Utility to allow streaming Wayland windows to X applications - https://invent.kde.org/system/xwaylandvideobridge
-- agregore: no description - no homepage
-- argon-kg: no description - no homepage
+- agregore: A minimal browser for the distributed web - https://github.com/AgregoreWeb/agregore-browser
 - capnp-go: Cap'n Proto library and code generator for Go - https://github.com/capnproto/go-capnp
-- e2eirc: no description - no homepage
+- e2eirc: E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client. - https://github.com/novus0rdo/e2eirc
 - flameshot-fixed: A fork of Flameshot without selection lag, configured to work with Wayland - https://github.com/lbatalha/flameshot
 - foot-transparent: A fast, lightweight and minimalistic Wayland terminal emulator - https://codeberg.org/dnkl/foot/
 - fusepod: A userspace filesystem which mounts your iPod. - https://github.com/keegancsmith/FUSEPod
@@ -17,7 +16,7 @@
 - msp-cgt: MSP430 code generation tools - https://www.ti.com/tool/MSP-CGT
 - mspgcc-ti: Open Source Compiler for MSP Microcontrollers - https://www.ti.com/tool/MSP430-GCC-OPENSOURCE
 - nixci: Define and build CI for Nix projects anywhere - https://github.com/srid/nixci
-- prettier-plugin-go-template: no description - no homepage
+- prettier-plugin-go-template: Fixes prettier formatting for go templates - https://github.com/NiklasPor/prettier-plugin-go-template
 - redis-json: RedisJSON - a JSON data type for Redis - https://github.com/RedisJSON/RedisJSON
 - samloader: Download Samsung firmware from official servers - https://github.com/samloader/samloader
 - wayland-shell: Small-scale replacement of the GNOME Shell - https://github.com/nilsherzig/wayland-shell

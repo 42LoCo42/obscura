@@ -1,9 +1,9 @@
 {
   description = "A personal collection of unusual things";
 
-  inputs.argon-kg.url = "github:42loco42/argon-kg";
-  inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
+  # inputs.argon-kg.url = "github:42loco42/argon-kg";
+  # inputs.argon-kg.inputs.nixpkgs.follows = "nixpkgs";
+  # inputs.argon-kg.inputs.flake-utils.follows = "flake-utils";
 
   # inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -17,6 +17,7 @@
       packages.${system} = rec {
         inherit (pkgs) nixci; # expose nixci to reduce nixpkgs lookup
 
+        # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
         # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         # musializer = pkgs.callPackage ./packages/musializer.nix { };
@@ -26,7 +27,6 @@
         SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
         XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
         agregore = pkgs.callPackage ./packages/agregore { };
-        argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
         capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
         e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
         flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };

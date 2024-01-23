@@ -20,4 +20,9 @@
     | grep -Exv "\./(ulid|prettier)" \
     | xargs rm -rf
   '';
+
+  meta = {
+    description = "Fixes prettier formatting for go templates";
+    homepage = "https://github.com/NiklasPor/prettier-plugin-go-template";
+  };
 }

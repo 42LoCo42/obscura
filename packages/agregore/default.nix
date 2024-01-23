@@ -76,4 +76,9 @@ stdenvNoCC.mkDerivation {
     makeWrapper "${getExe electron}" $out/bin/agregore \
       --chdir $out/agregore --add-flags "."
   '';
+
+  meta = {
+    description = "A minimal browser for the distributed web";
+    homepage = "https://github.com/AgregoreWeb/agregore-browser";
+  };
 }

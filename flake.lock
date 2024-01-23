@@ -1,28 +1,5 @@
 {
   "nodes": {
-    "argon-kg": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1692632726,
-        "narHash": "sha256-duhNLNxnycftLUATmjriI/1BXBonRhxmugXMcRE17TU=",
-        "owner": "42loco42",
-        "repo": "argon-kg",
-        "rev": "bb221b999b7c298dda2021d19ab4e695837f10ca",
-        "type": "github"
-      },
-      "original": {
-        "owner": "42loco42",
-        "repo": "argon-kg",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -56,7 +33,6 @@
     },
     "root": {
       "inputs": {
-        "argon-kg": "argon-kg",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
