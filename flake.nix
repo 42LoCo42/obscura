@@ -15,6 +15,8 @@
     in
     {
       packages.${system} = rec {
+        inherit (pkgs) nixci; # expose nixci to reduce nixpkgs lookup
+
         # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
         # musializer = pkgs.callPackage ./packages/musializer.nix { };
