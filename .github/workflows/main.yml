@@ -1,5 +1,10 @@
 name: build-all
-on: [push]
+
+on:
+  push:
+    paths:
+      - packages
+
 jobs:
   main:
     runs-on: ubuntu-latest
