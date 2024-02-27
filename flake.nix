@@ -43,6 +43,10 @@
         redis-json = pkgs.callPackage ./packages/redis-json.nix { };
         samloader = pkgs.callPackage ./packages/samloader.nix { };
         wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
+
+        my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs {
+          patches = [ ./packages/my-ncmpcpp.patch ];
+        };
       };
 
       nixosModules = {
