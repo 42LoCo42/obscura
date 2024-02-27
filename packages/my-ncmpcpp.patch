@@ -51,29 +51,3 @@ index 558458d..f873704 100644
  
  	Tags.clear();
  	Albums.clear();
-diff --git a/src/settings.cpp b/src/settings.cpp
-index 80a2b4e..d86e26e 100644
---- a/src/settings.cpp
-+++ b/src/settings.cpp
-@@ -444,9 +444,11 @@ bool Configuration::read(const std::vector<std::string> &config_paths, bool igno
- 	p.add("user_interface", &design, "classic");
- 	p.add("data_fetching_delay", &data_fetching_delay, "yes", yes_no);
- 	p.add("media_library_hide_album_dates", &media_lib_hide_album_dates, "no", yes_no);
--	p.add("media_library_primary_tag", &media_lib_primary_tag, "artist", [](std::string v) {
-+	p.add("media_library_primary_tag", &media_lib_primary_tag, "album", [](std::string v) {
- 			if (v == "artist")
- 				return MPD_TAG_ARTIST;
-+			else if (v == "album")
-+				return MPD_TAG_ALBUM;
- 			else if (v == "album_artist")
- 				return MPD_TAG_ALBUM_ARTIST;
- 			else if (v == "date")
-@@ -507,7 +509,7 @@ bool Configuration::read(const std::vector<std::string> &config_paths, bool igno
- 					});
- 			}
- 		});
--	p.add("startup_screen", &startup_screen_type, "playlist", [](std::string v) {
-+	p.add("startup_screen", &startup_screen_type, "media_library", [](std::string v) {
- 			auto screen = stringtoStartupScreenType(v);
- 			if (screen == ScreenType::Unknown)
- 				invalid_value(v);

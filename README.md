@@ -15,6 +15,7 @@
 - m9u: A 9P music server - https://sqweek.net/code/m9u/
 - msp-cgt: MSP430 code generation tools - https://www.ti.com/tool/MSP-CGT
 - mspgcc-ti: Open Source Compiler for MSP Microcontrollers - https://www.ti.com/tool/MSP430-GCC-OPENSOURCE
+- my-htop: htop with sorting in tree mode fixed - https://htop.dev
 - my-ncmpcpp: ncmpcpp except the media library always shows Albums - Songs - https://rybczak.net/ncmpcpp/
 - nixci: Define and build CI for Nix projects anywhere - https://github.com/srid/nixci
 - prettier-plugin-go-template: Fixes prettier formatting for go templates - https://github.com/NiklasPor/prettier-plugin-go-template
