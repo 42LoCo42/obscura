@@ -44,13 +44,6 @@
         samloader = pkgs.callPackage ./packages/samloader.nix { };
         wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
 
-        my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs (old: {
-          patches = [ ./packages/my-ncmpcpp.patch ];
-          meta = old.meta // {
-            description = "ncmpcpp except the media library always shows Albums - Songs";
-          };
-        });
-
         my-htop = pkgs.htop.overrideAttrs (old: rec {
           version = "5d778ea";
           src = pkgs.fetchFromGitHub {
@@ -60,6 +53,15 @@
           };
           meta = old.meta // {
             description = "htop with sorting in tree mode fixed";
+          };
+        });
+
+        # my-lanza = null;
+
+        my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs (old: {
+          patches = [ ./packages/my-ncmpcpp.patch ];
+          meta = old.meta // {
+            description = "ncmpcpp except the media library always shows Albums - Songs";
           };
         });
       };
@@ -85,7 +87,7 @@
 
       readme = nixpkgs.lib.pipe packages.${system} [
         (nixpkgs.lib.mapAttrsToList (name: p:
-          "- ${name}: ${p.meta.description or "no description"} - ${p.meta.homepage or "no homepage"}"))
+          "- `${name}`: ${p.meta.description or "no description"} - ${p.meta.homepage or "no homepage"}"))
         (builtins.concatStringsSep "\n")
         (s: "# Packages\n" + s + "\n")
       ];
