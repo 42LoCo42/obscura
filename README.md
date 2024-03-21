@@ -18,7 +18,6 @@
 - `my-htop`: htop with sorting in tree mode fixed - https://htop.dev
 - `my-lzbt`: Secure Boot for NixOS - pinned to v0.3.0 - https://github.com/nix-community/lanzaboote
 - `my-ncmpcpp`: ncmpcpp except the media library always shows Albums - Songs - https://rybczak.net/ncmpcpp/
-- `nixci`: Define and build CI for Nix projects anywhere - https://github.com/srid/nixci
 - `prettier-plugin-go-template`: Fixes prettier formatting for go templates - https://github.com/NiklasPor/prettier-plugin-go-template
 - `redis-json`: RedisJSON - a JSON data type for Redis - https://github.com/RedisJSON/RedisJSON
 - `samloader`: Download Samsung firmware from official servers - https://github.com/samloader/samloader
