@@ -7,11 +7,18 @@
 
   # inputs.nimble.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       # nimblePkgs = self.inputs.nimble.packages.${system};
+
+      lanza030 = import (pkgs.fetchFromGitHub {
+        owner = "nix-community";
+        repo = "lanzaboote";
+        rev = "v0.3.0";
+        hash = "sha256-Fb5TeRTdvUlo/5Yi2d+FC8a6KoRLk2h1VE0/peMhWPs=";
+      });
     in
     rec {
       packages.${system} = rec {
@@ -56,7 +63,12 @@
           };
         });
 
-        # my-lanza = null;
+        my-lzbt = lanza030.packages.${system}.lzbt.overrideAttrs (_: {
+          meta = {
+            description = "Secure Boot for NixOS - pinned to v0.3.0";
+            homepage = "https://github.com/nix-community/lanzaboote";
+          };
+        });
 
         my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs (old: {
           patches = [ ./packages/my-ncmpcpp.patch ];
@@ -70,6 +82,8 @@
         "9mount" = import ./packages/9mount/module.nix {
           packages = self.outputs.packages;
         };
+
+        inherit (lanza030.nixosModules) lanzaboote;
       };
 
       templates = let dir = ./templates; in nixpkgs.lib.pipe dir [
