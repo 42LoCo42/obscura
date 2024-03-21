@@ -16,6 +16,7 @@
 - `msp-cgt`: MSP430 code generation tools - https://www.ti.com/tool/MSP-CGT
 - `mspgcc-ti`: Open Source Compiler for MSP Microcontrollers - https://www.ti.com/tool/MSP430-GCC-OPENSOURCE
 - `my-htop`: htop with sorting in tree mode fixed - https://htop.dev
+- `my-lzbt`: Secure Boot for NixOS - pinned to v0.3.0 - https://github.com/nix-community/lanzaboote
 - `my-ncmpcpp`: ncmpcpp except the media library always shows Albums - Songs - https://rybczak.net/ncmpcpp/
 - `nixci`: Define and build CI for Nix projects anywhere - https://github.com/srid/nixci
 - `prettier-plugin-go-template`: Fixes prettier formatting for go templates - https://github.com/NiklasPor/prettier-plugin-go-template
