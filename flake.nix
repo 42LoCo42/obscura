@@ -22,8 +22,6 @@
     in
     rec {
       packages.${system} = rec {
-        inherit (pkgs) nixci; # expose nixci to reduce nixpkgs lookup
-
         # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
         # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
         # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
@@ -98,6 +96,10 @@
         }))
         builtins.listToAttrs
       ];
+
+      ci = pkgs.writeShellScriptBin "ci" ''
+        ${pkgs.nixci}/bin/nixci | ${pkgs.cachix}/bin/cachix push 42loco42
+      '';
 
       readme = nixpkgs.lib.pipe packages.${system} [
         (nixpkgs.lib.mapAttrsToList (name: p:
