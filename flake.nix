@@ -15,68 +15,68 @@
           pkgs = import nixpkgs { inherit system; };
           lanza030 = mkLanza030 pkgs;
         in
-        {
-          packages.${system} = rec {
-            # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
-            # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
-            # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
-            # musializer = pkgs.callPackage ./packages/musializer.nix { };
-            # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
+        rec {
+          # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
+          # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
+          # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
+          # musializer = pkgs.callPackage ./packages/musializer.nix { };
+          # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
 
-            "9mount" = pkgs.callPackage ./packages/9mount { };
-            SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
-            XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
-            agregore = pkgs.callPackage ./packages/agregore { };
-            capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
-            e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
-            flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
-            foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
-            fusepod = pkgs.callPackage ./packages/fusepod.nix { };
-            gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
-            k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
-            libhpke = pkgs.callPackage ./packages/libhpke.nix { };
-            lone = pkgs.callPackage ./packages/lone.nix { };
-            m9u = pkgs.callPackage ./packages/m9u.nix { };
-            msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
-            mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
-            prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
-            redis-json = pkgs.callPackage ./packages/redis-json.nix { };
-            samloader = pkgs.callPackage ./packages/samloader.nix { };
-            wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
+          "9mount" = pkgs.callPackage ./packages/9mount { };
+          SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
+          XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
+          agregore = pkgs.callPackage ./packages/agregore { };
+          capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
+          e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
+          flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
+          foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
+          fusepod = pkgs.callPackage ./packages/fusepod.nix { };
+          gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
+          k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
+          libhpke = pkgs.callPackage ./packages/libhpke.nix { };
+          lone = pkgs.callPackage ./packages/lone.nix { };
+          m9u = pkgs.callPackage ./packages/m9u.nix { };
+          msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
+          mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
+          prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
+          redis-json = pkgs.callPackage ./packages/redis-json.nix { };
+          samloader = pkgs.callPackage ./packages/samloader.nix { };
+          wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
 
-            my-htop = pkgs.htop.overrideAttrs (old: rec {
-              version = "5d778ea";
-              src = pkgs.fetchFromGitHub {
-                inherit (old.src) owner repo;
-                rev = version;
-                hash = "sha256-EAqirkDle0VbG4VEaiWwIAgISP8JsUAkgfkGQWAAXkc=";
-              };
-              meta = old.meta // {
-                description = "htop with sorting in tree mode fixed";
-              };
-            });
+          my-htop = pkgs.htop.overrideAttrs (old: rec {
+            version = "5d778ea";
+            src = pkgs.fetchFromGitHub {
+              inherit (old.src) owner repo;
+              rev = version;
+              hash = "sha256-EAqirkDle0VbG4VEaiWwIAgISP8JsUAkgfkGQWAAXkc=";
+            };
+            meta = old.meta // {
+              description = "htop with sorting in tree mode fixed";
+            };
+          });
 
-            my-lzbt = lanza030.packages.${system}.lzbt.overrideAttrs (_: {
-              meta = {
-                description = "Secure Boot for NixOS - pinned to v0.3.0";
-                homepage = "https://github.com/nix-community/lanzaboote";
-              };
-            });
+          my-lzbt = lanza030.packages.${system}.lzbt.overrideAttrs (_: {
+            meta = {
+              description = "Secure Boot for NixOS - pinned to v0.3.0";
+              homepage = "https://github.com/nix-community/lanzaboote";
+            };
+          });
 
-            my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs (old: {
-              patches = [ ./packages/my-ncmpcpp.patch ];
-              meta = old.meta // {
-                description = "ncmpcpp except the media library always shows Albums - Songs";
-              };
-            });
-          };
+          my-ncmpcpp = pkgs.ncmpcpp.overrideAttrs (old: {
+            patches = [ ./packages/my-ncmpcpp.patch ];
+            meta = old.meta // {
+              description = "ncmpcpp except the media library always shows Albums - Songs";
+            };
+          });
         };
+
+      mkPackageSet = system: { packages.${system} = mkPackages system; };
 
       pkgs = import nixpkgs { system = "x86_64-linux"; };
       merge = builtins.foldl' nixpkgs.lib.recursiveUpdate { };
     in
     merge [
-      (mkPackages "x86_64-linux")
+      (mkPackageSet "x86_64-linux")
 
       (
         let
@@ -85,7 +85,9 @@
         in
         {
           packages.${system} = {
-            inherit (packages) my-htop;
+            inherit (packages)
+              my-htop
+              ;
           };
         }
       )
