@@ -88,6 +88,7 @@
           packages.${system} = {
             inherit (packages)
               my-htop
+              pug
               ;
           };
         }
