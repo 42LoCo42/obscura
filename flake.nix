@@ -116,6 +116,7 @@
         ];
 
         ci = pkgs.writeShellScriptBin "ci" ''
+          set -euo pipefail
           ${pkgs.nixci}/bin/nixci | ${pkgs.cachix}/bin/cachix push 42loco42
         '';
 
