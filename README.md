@@ -19,6 +19,7 @@
 - `my-lzbt`: Secure Boot for NixOS - pinned to v0.3.0 - https://github.com/nix-community/lanzaboote
 - `my-ncmpcpp`: ncmpcpp except the media library always shows Albums - Songs - https://rybczak.net/ncmpcpp/
 - `prettier-plugin-go-template`: Fixes prettier formatting for go templates - https://github.com/NiklasPor/prettier-plugin-go-template
+- `pug`: Pug 3 CLI interface - https://github.com/tokilabs/pug3-cli
 - `redis-json`: RedisJSON - a JSON data type for Redis - https://github.com/RedisJSON/RedisJSON
 - `samloader`: Download Samsung firmware from official servers - https://github.com/samloader/samloader
 - `wayland-shell`: Small-scale replacement of the GNOME Shell - https://github.com/nilsherzig/wayland-shell
