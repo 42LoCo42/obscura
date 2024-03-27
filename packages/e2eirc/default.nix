@@ -9,7 +9,7 @@
     rev = version;
     hash = "sha256-qaLNd40NUIi4ox4jIkzkotUBl0NUuR/0UsmhIOnKaz8=";
   };
-  patches = [ ./e2eirc.patch ];
+  patches = [ ./go-mod-sum.patch ];
   vendorHash = "sha256-TUjjxOsP7tmIaT7M9alaz1Of4uD+kda1Z9qUSdSwf7s=";
 
   meta = {

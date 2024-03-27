@@ -20,7 +20,7 @@
     };
   };
 
-  patches = [ ./redis-json.patch ];
+  patches = [ ./rustflags.patch ];
 
   nativeBuildInputs = [
     clang

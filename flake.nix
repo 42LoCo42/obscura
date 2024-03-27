@@ -27,19 +27,19 @@
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
           capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
-          e2eirc = pkgs.callPackage ./packages/e2eirc.nix { };
+          e2eirc = pkgs.callPackage ./packages/e2eirc { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
-          foot-transparent = pkgs.callPackage ./packages/foot-transparent.nix { };
+          foot-transparent = pkgs.callPackage ./packages/foot-transparent { };
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
-          libhpke = pkgs.callPackage ./packages/libhpke.nix { };
-          lone = pkgs.callPackage ./packages/lone.nix { };
+          libhpke = pkgs.callPackage ./packages/libhpke { };
+          lone = pkgs.callPackage ./packages/lone { };
           m9u = pkgs.callPackage ./packages/m9u.nix { };
           msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
           mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
           prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
-          redis-json = pkgs.callPackage ./packages/redis-json.nix { };
+          redis-json = pkgs.callPackage ./packages/redis-json { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
 

@@ -17,7 +17,7 @@
     hash = "sha256-Sd/Ih3EWNEo3JrWejd51b6t/TStK+ZYlSEgAz48Pc5Y=";
   };
 
-  patches = [ ./libhpke.patch ];
+  patches = [ ./fix-include.patch ];
 
   nativeBuildInputs = [
     meson
