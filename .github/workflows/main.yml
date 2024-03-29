@@ -17,7 +17,6 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v25
         with:
-          nix_path: nixpkgs=github:nixos/nixpkgs/e1fa12d4f6c6fe19ccb59cac54b5b3f25e160870
           extra_nix_config: |
             substituters = https://42loco42.cachix.org https://cache.nixos.org
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ=
