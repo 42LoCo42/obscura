@@ -143,13 +143,8 @@
           (nixpkgs.lib.mapAttrsToList (name: p:
             "|`${name}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
           (builtins.concatStringsSep "\n")
-          (s: pkgs.writeText "readme" ''
-            # Packages
-
-            | Name | Description | Homepage |
-            |------|-------------|----------|
-            ${s}
-          '')
+          (s: pkgs.writeText "readme"
+            (builtins.readFile ./README.md.in + s + "\n"))
           (s: pkgs.writeShellScriptBin "readme" ''
             install -m644 ${s} README.md
           '')
