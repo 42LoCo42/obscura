@@ -52,8 +52,15 @@
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
 
-          inherit (nce.packages.${system}) nixos-conf-editor;
-          inherit (nsc.packages.${system}) nix-software-center;
+          nixos-conf-editor = nce.packages.${system}.nixos-conf-editor // {
+            meta.description = "A libadwaita/gtk4 app for editing NixOS configurations";
+            meta.homepage = "https://github.com/snowfallorg/nixos-conf-editor";
+          };
+
+          nix-software-center = nsc.packages.${system}.nix-software-center // {
+            meta.description = "A simple gtk4/libadwaita software center to easily install and manage nix packages";
+            meta.homepage = "https://github.com/snowfallorg/nix-software-center";
+          };
 
           my-htop = pkgs.htop.overrideAttrs (old: rec {
             version = "5d778ea";
