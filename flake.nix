@@ -141,13 +141,17 @@
 
         readme = nixpkgs.lib.pipe self.packages.${pkgs.system} [
           (nixpkgs.lib.mapAttrsToList (name: p:
-            "- `${name}`: ${p.meta.description or "no description"} - ${p.meta.homepage or "no homepage"}"))
+            "|`${name}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
           (builtins.concatStringsSep "\n")
-          (s: "# Packages\n" + s + "\n")
-          (s: pkgs.writeShellScriptBin "readme" ''
-            cat <<\EOF | grep . > README.md
+          (s: pkgs.writeText "readme" ''
+            # Packages
+
+            | Name | Description | Homepage |
+            |------|-------------|----------|
             ${s}
-            EOF
+          '')
+          (s: pkgs.writeShellScriptBin "readme" ''
+            install -m644 ${s} README.md
           '')
         ];
       }
