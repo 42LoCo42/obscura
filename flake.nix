@@ -1,7 +1,15 @@
 {
   description = "A personal collection of unusual things";
 
-  outputs = { self, nixpkgs }:
+  inputs = {
+    nce.url = "github:snowfallorg/nixos-conf-editor";
+    nce.inputs.nixpkgs.follows = "nixpkgs";
+
+    nsc.url = "github:snowfallorg/nix-software-center";
+    nsc.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, nce, nsc }:
     let
       mkLanza030 = pkgs: import (pkgs.fetchFromGitHub {
         owner = "nix-community";
@@ -43,6 +51,9 @@
           redis-json = pkgs.callPackage ./packages/redis-json { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
+
+          inherit (nce.packages.${system}) nixos-conf-editor;
+          inherit (nsc.packages.${system}) nix-software-center;
 
           my-htop = pkgs.htop.overrideAttrs (old: rec {
             version = "5d778ea";
