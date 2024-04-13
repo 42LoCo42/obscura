@@ -135,11 +135,6 @@
           builtins.listToAttrs
         ];
 
-        ci = pkgs.writeShellScriptBin "ci" ''
-          set -euo pipefail
-          ${pkgs.nixci}/bin/nixci | ${pkgs.cachix}/bin/cachix push 42loco42
-        '';
-
         readme = nixpkgs.lib.pipe self.packages.${pkgs.system} [
           (nixpkgs.lib.mapAttrsToList (name: p:
             "|`${name}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
@@ -150,6 +145,25 @@
             install -m644 ${s} README.md
           '')
         ];
+
+        ci = pkgs.writeShellApplication {
+          name = "ci";
+          runtimeInputs = with pkgs; [
+            cachix
+            jq
+            nix-eval-jobs
+          ];
+          text = ''
+            nix-eval-jobs                                       \
+              --check-cache-status                              \
+              --force-recurse                                   \
+              --workers "$(nproc)"                              \
+              --flake .#packages.${pkgs.system}                 \
+            | jq -r 'if .isCached then empty else .drvPath end' \
+            | xargs -P "$(nproc)" -I% nix-store --realise %     \
+            | cachix push 42loco42
+          '';
+        };
       }
     ];
 }
