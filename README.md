@@ -19,6 +19,7 @@ A personal collection of unusual things
 |`foot-transparent`|A fast, lightweight and minimalistic Wayland terminal emulator|https://codeberg.org/dnkl/foot/|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`gtk4-layer-shell`|A library to desktop components for Wayland using the Layer Shell protocol and GTK4|https://github.com/wmww/gtk4-layer-shell|
+|`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`k0s-bin`|The Zero Friction Kubernetes|https://k0sproject.io|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|

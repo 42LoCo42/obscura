@@ -40,6 +40,7 @@
           foot-transparent = pkgs.callPackage ./packages/foot-transparent { };
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
+          jade = pkgs.callPackage ./packages/jade.nix { };
           k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
           libhpke = pkgs.callPackage ./packages/libhpke { };
           lone = pkgs.callPackage ./packages/lone { };
