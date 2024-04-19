@@ -11,6 +11,8 @@
 
   outputs = { self, nixpkgs, nce, nsc }:
     let
+      inherit (nixpkgs.lib) mapAttrsToList pipe recursiveUpdate;
+
       mkLanza030 = pkgs: import (pkgs.fetchFromGitHub {
         owner = "nix-community";
         repo = "lanzaboote";
@@ -50,6 +52,7 @@
           prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
           pug = pkgs.callPackage ./packages/pug { };
           redis-json = pkgs.callPackage ./packages/redis-json { };
+          sae_pk_gen = pkgs.callPackage ./packages/sae_pk_gen.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
 
@@ -93,7 +96,7 @@
       mkPackageSet = system: { packages.${system} = mkPackages system; };
 
       pkgs = import nixpkgs { system = "x86_64-linux"; };
-      merge = builtins.foldl' nixpkgs.lib.recursiveUpdate { };
+      merge = builtins.foldl' recursiveUpdate { };
     in
     merge [
       (mkPackageSet "x86_64-linux")
@@ -122,7 +125,7 @@
           inherit ((mkLanza030 pkgs).nixosModules) lanzaboote;
         };
 
-        templates = let dir = ./templates; in nixpkgs.lib.pipe dir [
+        templates = let dir = ./templates; in pipe dir [
           builtins.readDir
           builtins.attrNames
           (map (name: {
@@ -135,8 +138,8 @@
           builtins.listToAttrs
         ];
 
-        readme = nixpkgs.lib.pipe self.packages.${pkgs.system} [
-          (nixpkgs.lib.mapAttrsToList (name: p:
+        readme = pipe self.packages.${pkgs.system} [
+          (mapAttrsToList (name: p:
             "|`${name}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
           (builtins.concatStringsSep "\n")
           (s: pkgs.writeText "readme"
@@ -164,6 +167,8 @@
             | cachix push 42loco42
           '';
         };
+
+        foo = nixpkgs.lib.getExe self.packages.${pkgs.system}.sae_pk_gen;
       }
     ];
 }

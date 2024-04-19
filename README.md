@@ -34,5 +34,6 @@ A personal collection of unusual things
 |`prettier-plugin-go-template`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
 |`pug`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
+|`sae_pk_gen`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
