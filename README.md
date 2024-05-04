@@ -16,7 +16,7 @@ A personal collection of unusual things
 |`capnp-go`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`e2eirc`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`flameshot-fixed`|A fork of Flameshot without selection lag, configured to work with Wayland|https://github.com/lbatalha/flameshot|
-|`foot-transparent`|A fast, lightweight and minimalistic Wayland terminal emulator|https://codeberg.org/dnkl/foot/|
+|`foot-transparent`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`gtk4-layer-shell`|A library to desktop components for Wayland using the Layer Shell protocol and GTK4|https://github.com/wmww/gtk4-layer-shell|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|

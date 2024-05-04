@@ -20,6 +20,8 @@
         hash = "sha256-Fb5TeRTdvUlo/5Yi2d+FC8a6KoRLk2h1VE0/peMhWPs=";
       });
 
+      nyx = builtins.getFlake "github:notashelf/nyxpkgs/a9c2ef2ea7c4b7e5036f7c60108df2bbcfc9a3c4?narHash=sha256-NiL7KfpHhUx7zLVFKtwPz7d9uJq/ABQEqf1y/lTWSGI=";
+
       mkPackages = system:
         let
           pkgs = import nixpkgs { inherit system; };
@@ -39,7 +41,6 @@
           capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
           e2eirc = pkgs.callPackage ./packages/e2eirc { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
-          foot-transparent = pkgs.callPackage ./packages/foot-transparent { };
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           jade = pkgs.callPackage ./packages/jade.nix { };
@@ -55,6 +56,11 @@
           sae_pk_gen = pkgs.callPackage ./packages/sae_pk_gen.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
+
+          foot-transparent = nyx.packages.${system}.foot-transparent // {
+            meta.description = "A patched version of the foot terminal emulator that brings back fullscreen transparency";
+            meta.homepage = "https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix";
+          };
 
           nixos-conf-editor = nce.packages.${system}.nixos-conf-editor // {
             meta.description = "A libadwaita/gtk4 app for editing NixOS configurations";
@@ -167,8 +173,6 @@
             | cachix push 42loco42
           '';
         };
-
-        foo = nixpkgs.lib.getExe self.packages.${pkgs.system}.sae_pk_gen;
       }
     ];
 }
