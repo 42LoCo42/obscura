@@ -1,8 +1,8 @@
 {
-  outputs = { nixpkgs, flake-utils, ... }:
+  outputs = { flake-utils, nixpkgs, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; }; in rec {
-        defaultPackage = pkgs.stdenv.mkDerivation {
+        packages.default = pkgs.stdenv.mkDerivation {
           pname = "example";
           version = "0.0.1";
           src = ./.;
@@ -12,8 +12,8 @@
           ];
         };
 
-        devShell = pkgs.mkShell {
-          inputsFrom = [ defaultPackage ];
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [ packages.default ];
           packages = with pkgs; [
             bear
             clang-tools

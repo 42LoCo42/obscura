@@ -1,16 +1,18 @@
 {
-  description = "pdflatex environment";
-
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { flake-utils, nixpkgs, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
         tex-env = pkgs.texlive.combine {
-          inherit (pkgs.texlive) scheme-small wrapfig capt-of;
+          inherit (pkgs.texlive)
+            capt-of
+            scheme-small
+            wrapfig
+            ;
         };
       in
       {
-        defaultPackage = pkgs.stdenvNoCC.mkDerivation {
+        packages.default = pkgs.stdenvNoCC.mkDerivation {
           name = "pdf";
           src = ./.;
 
@@ -35,11 +37,8 @@
           '';
         };
 
-        devShell = pkgs.mkShell {
-          packages = with pkgs; [
-            bashInteractive
-            tex-env
-          ];
+        devShells.default = pkgs.mkShell {
+          packages = [ tex-env ];
         };
       });
 }

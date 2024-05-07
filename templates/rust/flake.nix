@@ -1,24 +1,21 @@
 {
-  description = "Example Rust flake";
-
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { flake-utils, nixpkgs, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
         toml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
       in
       rec {
-        defaultPackage = pkgs.rustPlatform.buildRustPackage {
+        packages.default = pkgs.rustPlatform.buildRustPackage {
           pname = toml.package.name;
           version = toml.package.version;
           src = ./.;
           cargoLock.lockFile = ./Cargo.lock;
         };
 
-        devShell = pkgs.mkShell {
-          inputsFrom = [ defaultPackage ];
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [ packages.default ];
           packages = with pkgs; [
-            bashInteractive
             clippy
             rust-analyzer
             rustfmt
