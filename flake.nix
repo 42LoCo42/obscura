@@ -7,9 +7,12 @@
 
     # nsc.url = "github:snowfallorg/nix-software-center";
     # nsc.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixpkgs.url = "github:nixos/nixpkgs/a0c9e3aee1000ac2bfb0e5b98c94c946a5d180a9";
+    nixpkgs-new.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, nixpkgs-new }:
     let
       inherit (nixpkgs.lib) mapAttrsToList pipe recursiveUpdate;
 
@@ -173,6 +176,33 @@
             | cachix push 42loco42
           '';
         };
+
+        nvidia =
+          let
+            targets = with (import nixpkgs-new { inherit (pkgs) system; }); [
+              linuxPackages.nvidiaPackages.stable
+              linuxPackages.nvidiaPackages.stable.persistenced
+              linuxPackages.nvidiaPackages.stable.settings
+              nvtopPackages.nvidia
+            ];
+
+            paths = pipe targets [
+              (pkgs.linkFarmFromDrvs "nvidia")
+              (x: pipe x [
+                builtins.readDir
+                builtins.attrNames
+                (map (n: x + "/" + n))
+                (builtins.concatStringsSep " ")
+              ])
+            ];
+          in
+          pkgs.writeShellApplication {
+            name = "nvidia";
+            runtimeInputs = with pkgs; [ cachix ];
+            text = ''
+              cachix push 42loco42 ${paths}
+            '';
+          };
       }
     ];
 }

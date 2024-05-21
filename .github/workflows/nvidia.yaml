@@ -1,0 +1,42 @@
+name: Build NVIDIA stuff every day at 3:00
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+        with:
+          extra_nix_config: |
+            substituters = https://42loco42.cachix.org https://cache.nixos.org
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ=
+
+      - name: Update, build, push
+        run: |
+          old="$(sha256sum flake.lock)"
+          nix flake update nixpkgs-new
+          new="$(sha256sum flake.lock)"
+
+          if [ "$old" != "$new" ]; then
+            export NIXPKGS_ALLOW_UNFREE=1
+            nix run -L --impure .#nvidia
+          fi
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Commit flake updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Automatic update of nixpkgs-new"
