@@ -2,14 +2,14 @@
   description = "A personal collection of unusual things";
 
   inputs = {
-    nce.url = "github:snowfallorg/nixos-conf-editor";
-    nce.inputs.nixpkgs.follows = "nixpkgs";
+    # nce.url = "github:snowfallorg/nixos-conf-editor";
+    # nce.inputs.nixpkgs.follows = "nixpkgs";
 
-    nsc.url = "github:snowfallorg/nix-software-center";
-    nsc.inputs.nixpkgs.follows = "nixpkgs";
+    # nsc.url = "github:snowfallorg/nix-software-center";
+    # nsc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nce, nsc }:
+  outputs = { self, nixpkgs }:
     let
       inherit (nixpkgs.lib) mapAttrsToList pipe recursiveUpdate;
 
@@ -44,7 +44,7 @@
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           jade = pkgs.callPackage ./packages/jade.nix { };
-          k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
+          # k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
           libhpke = pkgs.callPackage ./packages/libhpke { };
           lone = pkgs.callPackage ./packages/lone { };
           m9u = pkgs.callPackage ./packages/m9u.nix { };
@@ -62,15 +62,15 @@
             meta.homepage = "https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix";
           };
 
-          nixos-conf-editor = nce.packages.${system}.nixos-conf-editor // {
-            meta.description = "A libadwaita/gtk4 app for editing NixOS configurations";
-            meta.homepage = "https://github.com/snowfallorg/nixos-conf-editor";
-          };
+          # nixos-conf-editor = nce.packages.${system}.nixos-conf-editor // {
+          #   meta.description = "A libadwaita/gtk4 app for editing NixOS configurations";
+          #   meta.homepage = "https://github.com/snowfallorg/nixos-conf-editor";
+          # };
 
-          nix-software-center = nsc.packages.${system}.nix-software-center // {
-            meta.description = "A simple gtk4/libadwaita software center to easily install and manage nix packages";
-            meta.homepage = "https://github.com/snowfallorg/nix-software-center";
-          };
+          # nix-software-center = nsc.packages.${system}.nix-software-center // {
+          #   meta.description = "A simple gtk4/libadwaita software center to easily install and manage nix packages";
+          #   meta.homepage = "https://github.com/snowfallorg/nix-software-center";
+          # };
 
           my-htop = pkgs.htop.overrideAttrs (old: rec {
             version = "5d778ea";

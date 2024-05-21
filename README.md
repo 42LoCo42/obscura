@@ -20,7 +20,6 @@ A personal collection of unusual things
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`gtk4-layer-shell`|A library to desktop components for Wayland using the Layer Shell protocol and GTK4|https://github.com/wmww/gtk4-layer-shell|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
-|`k0s-bin`|The Zero Friction Kubernetes|https://k0sproject.io|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`m9u`|A 9P music server|https://sqweek.net/code/m9u/|
@@ -29,8 +28,6 @@ A personal collection of unusual things
 |`my-htop`|htop with sorting in tree mode fixed|https://htop.dev|
 |`my-lzbt`|Secure Boot for NixOS - pinned to v0.3.0|https://github.com/nix-community/lanzaboote|
 |`my-ncmpcpp`|ncmpcpp except the media library always shows Albums - Songs|https://rybczak.net/ncmpcpp/|
-|`nix-software-center`|A simple gtk4/libadwaita software center to easily install and manage nix packages|https://github.com/snowfallorg/nix-software-center|
-|`nixos-conf-editor`|A libadwaita/gtk4 app for editing NixOS configurations|https://github.com/snowfallorg/nixos-conf-editor|
 |`prettier-plugin-go-template`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
 |`pug`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
