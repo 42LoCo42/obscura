@@ -179,28 +179,23 @@
 
         nvidia =
           let
-            targets = with (import nixpkgs-new { inherit (pkgs) system; }); [
+            targets = with (import nixpkgs-new {
+              inherit (pkgs) system;
+              config.allowUnfree = true;
+            }); [
               linuxPackages.nvidiaPackages.stable
               linuxPackages.nvidiaPackages.stable.persistenced
               linuxPackages.nvidiaPackages.stable.settings
               nvtopPackages.nvidia
             ];
 
-            paths = pipe targets [
-              (pkgs.linkFarmFromDrvs "nvidia")
-              (x: pipe x [
-                builtins.readDir
-                builtins.attrNames
-                (map (n: x + "/" + n))
-                (builtins.concatStringsSep " ")
-              ])
-            ];
+            out = pkgs.linkFarmFromDrvs "nvidia" targets;
           in
           pkgs.writeShellApplication {
             name = "nvidia";
             runtimeInputs = with pkgs; [ cachix ];
             text = ''
-              cachix push 42loco42 ${paths}
+              realpath ${out}/* | tee /dev/stderr | cachix push 42loco42
             '';
           };
       }

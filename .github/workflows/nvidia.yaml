@@ -30,8 +30,7 @@ jobs:
           new="$(sha256sum flake.lock)"
 
           if [ "$old" != "$new" ]; then
-            export NIXPKGS_ALLOW_UNFREE=1
-            nix run -L --impure .#nvidia
+            nix run -L .#nvidia
           fi
         env:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
