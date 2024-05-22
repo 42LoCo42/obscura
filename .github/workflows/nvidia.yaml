@@ -36,6 +36,10 @@ jobs:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Commit flake updates
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: planetscale/ghcommit-action@v0.1.39
         with:
-          commit_message: "Automatic update of nixpkgs-new"
+          commit_message: "🤖 Update nixpkgs-new"
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
