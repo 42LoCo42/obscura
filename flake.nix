@@ -169,14 +169,18 @@
 
         nvidia =
           let
-            targets = with (import nixpkgs-new {
+            pkgs-new = import nixpkgs-new {
               inherit (pkgs) system;
               config.allowUnfree = true;
-            }); [
-              linuxPackages.nvidiaPackages.stable
-              linuxPackages.nvidiaPackages.stable.persistenced
-              linuxPackages.nvidiaPackages.stable.settings
-              nvtopPackages.nvidia
+            };
+
+            nvidia = pkgs-new.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
+
+            targets = [
+              nvidia.stable
+              nvidia.stable.persistenced
+              nvidia.stable.settings
+              pkgs-new.nvtopPackages.nvidia
             ];
 
             out = pkgs.linkFarmFromDrvs "nvidia" targets;
