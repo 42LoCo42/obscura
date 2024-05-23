@@ -150,12 +150,10 @@
 
         ci = pkgs.writeShellApplication {
           name = "ci";
-          runtimeInputs = with pkgs; [
-            cachix
-            jq
-            nix-eval-jobs
-          ];
+          runtimeInputs = with pkgs; [ attic-client jq nix-eval-jobs ];
           text = ''
+            attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
+
             nix-eval-jobs                                       \
               --check-cache-status                              \
               --force-recurse                                   \
@@ -163,7 +161,8 @@
               --flake .#packages.${pkgs.system}                 \
             | jq -r 'if .isCached then empty else .drvPath end' \
             | xargs -P "$(nproc)" -I% nix-store --realise %     \
-            | cachix push 42loco42
+            | tee /dev/stderr                                   \
+            | xargs attic push default
           '';
         };
 
@@ -187,9 +186,13 @@
           in
           pkgs.writeShellApplication {
             name = "nvidia";
-            runtimeInputs = with pkgs; [ cachix ];
+            runtimeInputs = with pkgs; [ attic-client ];
             text = ''
-              realpath ${out}/* | tee /dev/stderr | cachix push 42loco42
+              attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
+
+              realpath ${out}/* \
+              | tee /dev/stderr \
+              | xargs attic push default
             '';
           };
       }

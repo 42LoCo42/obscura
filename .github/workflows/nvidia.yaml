@@ -20,8 +20,8 @@ jobs:
         uses: cachix/install-nix-action@v25
         with:
           extra_nix_config: |
-            substituters = https://42loco42.cachix.org https://cache.nixos.org
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ=
+            substituters = https://cache.nixos.org https://42loco42.cachix.org https://attic.eleonora.gay/default
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ= default:XPg5h4CW7EI+JTHIwsCTDSw+KxNHQoujFcUoc7a0mDQ=
 
       - name: Update, build, push
         run: |
@@ -33,7 +33,7 @@ jobs:
             nix run -L .#nvidia
           fi
         env:
-          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
 
       - name: Commit flake updates
         uses: planetscale/ghcommit-action@v0.1.39
@@ -42,4 +42,4 @@ jobs:
           repo: ${{ github.repository }}
           branch: ${{ github.head_ref || github.ref_name }}
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

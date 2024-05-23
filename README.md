@@ -2,8 +2,8 @@
 A personal collection of unusual things
 
 ## Enable binary cache
-  * substituter: https://42loco42.cachix.org
-  * public key:  `42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ=`
+  * substituter: https://attic.eleonora.gay/default (public)
+  * public key:  `default:XPg5h4CW7EI+JTHIwsCTDSw+KxNHQoujFcUoc7a0mDQ=`
 
 ## Packages
 
