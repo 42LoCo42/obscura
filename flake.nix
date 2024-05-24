@@ -108,6 +108,7 @@
         {
           packages.${system} = {
             inherit (packages)
+              jade
               my-htop
               pug
               ;
