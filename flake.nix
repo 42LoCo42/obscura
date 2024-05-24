@@ -8,19 +8,19 @@
     # nsc.url = "github:snowfallorg/nix-software-center";
     # nsc.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs.url = "github:nixos/nixpkgs/a0c9e3aee1000ac2bfb0e5b98c94c946a5d180a9";
+    nixpkgs-pin.url = "github:nixos/nixpkgs/a0c9e3aee1000ac2bfb0e5b98c94c946a5d180a9";
     nixpkgs-new.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-new }:
+  outputs = { self, nixpkgs-pin, nixpkgs-new }:
     let
-      inherit (nixpkgs.lib) mapAttrsToList pipe recursiveUpdate;
+      inherit (nixpkgs-pin.lib) mapAttrsToList pipe recursiveUpdate;
 
       nyx = builtins.getFlake "github:notashelf/nyxpkgs/a9c2ef2ea7c4b7e5036f7c60108df2bbcfc9a3c4?narHash=sha256-NiL7KfpHhUx7zLVFKtwPz7d9uJq/ABQEqf1y/lTWSGI=";
       lanza030 = builtins.getFlake "github:nix-community/lanzaboote/64b903ca87d18cef2752c19c098af275c6e51d63?narHash=sha256-Fb5TeRTdvUlo/5Yi2d%2BFC8a6KoRLk2h1VE0/peMhWPs%3D";
 
       mkPackages = system:
-        let pkgs = import nixpkgs { inherit system; }; in rec {
+        let pkgs = import nixpkgs-pin { inherit system; }; in rec {
           # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
           # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
           # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
@@ -94,7 +94,7 @@
 
       mkPackageSet = system: { packages.${system} = mkPackages system; };
 
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
+      pkgs = import nixpkgs-pin { system = "x86_64-linux"; };
       merge = builtins.foldl' recursiveUpdate { };
     in
     merge [
