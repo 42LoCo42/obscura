@@ -3,7 +3,7 @@ A personal collection of unusual things
 
 ## Enable binary cache
   * substituter: https://attic.eleonora.gay/default (public)
-  * public key:  `default:XPg5h4CW7EI+JTHIwsCTDSw+KxNHQoujFcUoc7a0mDQ=`
+  * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
 ## Packages
 

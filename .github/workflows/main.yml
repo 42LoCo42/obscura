@@ -18,7 +18,7 @@ jobs:
         with:
           extra_nix_config: |
             substituters = https://cache.nixos.org https://42loco42.cachix.org https://attic.eleonora.gay/default
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ= default:XPg5h4CW7EI+JTHIwsCTDSw+KxNHQoujFcUoc7a0mDQ=
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= 42loco42.cachix.org-1:6HvWFER3RdTSqEZDznqahkqaoI6QCOiX2gRpMMsThiQ= default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=
 
       - name: Run CI
         run: nix run .#ci
