@@ -28,6 +28,7 @@
           # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
 
           "9mount" = pkgs.callPackage ./packages/9mount { };
+          # k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
           SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
@@ -37,12 +38,12 @@
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
           gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           jade = pkgs.callPackage ./packages/jade.nix { };
-          # k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
           libhpke = pkgs.callPackage ./packages/libhpke { };
           lone = pkgs.callPackage ./packages/lone { };
           m9u = pkgs.callPackage ./packages/m9u.nix { };
           msp-cgt = pkgs.callPackage ./packages/msp-cgt.nix { };
           mspgcc-ti = pkgs.callPackage ./packages/mspgcc-ti.nix { };
+          photoview = pkgs.callPackage ./packages/photoview.nix { };
           prettier-plugin-go-template = pkgs.callPackage ./packages/prettier-plugin-go-template.nix { };
           pug = pkgs.callPackage ./packages/pug { };
           redis-json = pkgs.callPackage ./packages/redis-json { };
