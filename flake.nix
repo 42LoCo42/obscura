@@ -111,6 +111,7 @@
             inherit (packages)
               jade
               my-htop
+              photoview
               pug
               ;
           };
