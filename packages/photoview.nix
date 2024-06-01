@@ -3,7 +3,7 @@
 , dlib
 , exiftool
 , fetchFromGitHub
-, ffmpeg
+, ffmpeg-headless
 , libheif
 , libjpeg
 , makeBinaryWrapper
@@ -12,18 +12,19 @@
 , runCommand
 }:
 let
-  name = "photoview";
+  pname = "photoview";
   version = "ddacba8";
 
   src = fetchFromGitHub {
-    owner = name;
-    repo = name;
+    owner = pname;
+    repo = pname;
     rev = version;
     hash = "sha256-Jdebpsya2IVI4O7Ar45n54ovKh3Y1mVdd/xC7JoSP2M=";
   };
 
   api = buildGoModule {
-    name = "${name}-${version}-api";
+    pname = "${pname}-api";
+    inherit version;
     src = "${src}/api";
     vendorHash = "sha256-Tn4OxSV41s/4n2Q3teJRJNc39s6eKW4xE9wW/CIR5Fg=";
 
@@ -41,22 +42,24 @@ let
   };
 
   ui = buildNpmPackage {
-    name = "${name}-${version}-ui";
+    pname = "${pname}-ui";
+    inherit version;
     src = "${src}/ui";
     npmDepsHash = "sha256-wUbfq+7SuJUBxfy9TxHVda8A0g4mmYCbzJT64XBN2mI=";
   };
 in
-runCommand "${name}-${version}"
+runCommand pname
 {
+  inherit pname version;
   nativeBuildInputs = [ makeBinaryWrapper ];
   meta = {
     description = "Photo gallery for self-hosted personal servers";
     homepage = "https://photoview.github.io";
-    mainProgram = name;
+    mainProgram = pname;
   };
 } ''
   makeWrapper ${api}/bin/api $out/bin/photoview                      \
-    --suffix PATH : ${ffmpeg}/bin                                    \
+    --suffix PATH : ${ffmpeg-headless}/bin                           \
     --suffix PATH : ${exiftool}/bin                                  \
     --set PHOTOVIEW_SERVE_UI 1                                       \
     --set PHOTOVIEW_UI_PATH ${ui}/lib/node_modules/photoview-ui/dist \
