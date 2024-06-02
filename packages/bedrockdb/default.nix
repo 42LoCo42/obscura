@@ -1,5 +1,4 @@
 { fetchFromGitHub
-, git
 , pcre-cpp
 , pkg-config
 , runCommand
@@ -16,8 +15,7 @@ stdenv.mkDerivation rec {
         owner = "expensify";
         repo = "bedrock";
         rev = version;
-        leaveDotGit = true;
-        hash = "sha256-g2zJs/5S+8qevk3rGJnp1P8VsCRj4q1nBsQ7pKoftDk=";
+        hash = "sha256-NzKC7RdsoU9Uz+RhqDLIbpnyg4TcWoLk7y96ftEzCBY=";
       };
 
       mbedtls = fetchFromGitHub {
@@ -37,7 +35,9 @@ stdenv.mkDerivation rec {
   patches = [ ./nixify.patch ];
   enableParallelBuilding = true;
 
-  nativeBuildInputs = [ git pkg-config ];
+  GIT_REVISION = "-DGIT_REVISION=${version}";
+
+  nativeBuildInputs = [ pkg-config ];
   buildInputs = [ pcre-cpp zlib ];
   buildFlags = "bedrock";
 
@@ -48,6 +48,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Rock solid distributed database specializing in active/active automatic failover and WAN replication";
     homepage = "https://bedrockdb.com";
-    mainProgram = "bedrockdb";
+    mainProgram = "bedrock";
   };
 }

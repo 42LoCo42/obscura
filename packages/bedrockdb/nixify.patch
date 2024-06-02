@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index fae0f898..f8d43b70 100644
+index fae0f898..6239661a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -1,14 +1,3 @@
+@@ -1,29 +1,17 @@
 -# If $CC and $CXX are defined as environment variables, those will be used here. However, if they aren't then GNU make
 -# automatically defines them as `cc` and `g++`. Ultimately, we'd like those names to work, or the environment variables
 -# to be set, but for the time being we need to override the defaults so that our existing dev environment works. This
@@ -17,12 +17,16 @@ index fae0f898..f8d43b70 100644
  # Set the optimization level from the environment, or default to -O2.
  ifndef BEDROCK_OPTIM_COMPILE_FLAG
  	BEDROCK_OPTIM_COMPILE_FLAG = -O2
-@@ -19,11 +8,13 @@ endif
- GIT_REVISION = -DGIT_REVISION=$(shell git rev-parse HEAD | grep -o '^.\{10\}')
- PROJECT = $(shell git rev-parse --show-toplevel)
+ endif
  
-+DEPS := libpcrecpp zlib
+-# Pull some variables from the git repo itself. Note that this means this build does not work if Bedrock isn't
+-# contained in a git repo.
+-GIT_REVISION = -DGIT_REVISION=$(shell git rev-parse HEAD | grep -o '^.\{10\}')
+-PROJECT = $(shell git rev-parse --show-toplevel)
++PROJECT = .
 +
++DEPS := libpcrecpp zlib
+ 
  # Set our include paths. We need this for the pre-processor to use to generate dependencies.
 -INCLUDE = -I$(PROJECT) -I$(PROJECT)/mbedtls/include
 +INCLUDE = -I$(PROJECT) -I$(PROJECT)/mbedtls/include $(shell pkg-config --cflags $(DEPS))
@@ -33,7 +37,7 @@ index fae0f898..f8d43b70 100644
  
  # Amalgamation flags
  AMALGAMATION_FLAGS = -Wno-unused-but-set-variable -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT -DSQLITE_ENABLE_NOOP_UPDATE -DSQLITE_MUTEX_ALERT_MILLISECONDS=20 -DHAVE_USLEEP=1 -DSQLITE_MAX_MMAP_SIZE=17592186044416ull -DSQLITE_SHARED_MAPPING -DSQLITE_ENABLE_NORMALIZE -DSQLITE_MAX_PAGE_COUNT=4294967294 -DSQLITE_DISABLE_PAGECACHE_OVERFLOW_STATS
-@@ -32,7 +23,7 @@ AMALGAMATION_FLAGS = -Wno-unused-but-set-variable -DSQLITE_ENABLE_FTS5 -DSQLITE_
+@@ -32,7 +20,7 @@ AMALGAMATION_FLAGS = -Wno-unused-but-set-variable -DSQLITE_ENABLE_FTS5 -DSQLITE_
  INTERMEDIATEDIR = .build
  
  # We use the same library paths and required libraries for all binaries.
@@ -42,7 +46,7 @@ index fae0f898..f8d43b70 100644
  LIBRARIES =-Wl,--start-group -lbedrock -lstuff -Wl,--end-group -ldl -lpcrecpp -lpthread -lmbedtls -lmbedx509 -lmbedcrypto -lz -lm
  
  # These targets aren't actual files.
-@@ -61,9 +52,6 @@ clean:
+@@ -61,9 +49,6 @@ clean:
  
  # Rule to build mbedtls.
  mbedtls/library/libmbedcrypto.a mbedtls/library/libmbedtls.a mbedtls/library/libmbedx509.a:
