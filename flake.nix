@@ -32,6 +32,7 @@
           SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
+          bedrockdb = pkgs.callPackage ./packages/bedrockdb { };
           capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
           e2eirc = pkgs.callPackage ./packages/e2eirc { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };

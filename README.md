@@ -13,6 +13,7 @@ A personal collection of unusual things
 |`SwayAudioIdleInhibit`|Prevent swayidle from sleeping while any application is outputting or receiving audio|https://github.com/ErikReider/SwayAudioIdleInhibit|
 |`XWaylandVideoBridge`|Utility to allow streaming Wayland windows to X applications|https://invent.kde.org/system/xwaylandvideobridge|
 |`agregore`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
+|`bedrockdb`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`e2eirc`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`flameshot-fixed`|A fork of Flameshot without selection lag, configured to work with Wayland|https://github.com/lbatalha/flameshot|

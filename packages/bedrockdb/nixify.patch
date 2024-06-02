@@ -1,0 +1,54 @@
+diff --git a/Makefile b/Makefile
+index fae0f898..f8d43b70 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,14 +1,3 @@
+-# If $CC and $CXX are defined as environment variables, those will be used here. However, if they aren't then GNU make
+-# automatically defines them as `cc` and `g++`. Ultimately, we'd like those names to work, or the environment variables
+-# to be set, but for the time being we need to override the defaults so that our existing dev environment works. This
+-# can be removed when that is resolved.
+-ifeq ($(CC),cc)
+-CC = gcc-9
+-endif
+-ifeq ($(CXX),g++)
+-CXX = g++-9
+-endif
+-
+ # Set the optimization level from the environment, or default to -O2.
+ ifndef BEDROCK_OPTIM_COMPILE_FLAG
+ 	BEDROCK_OPTIM_COMPILE_FLAG = -O2
+@@ -19,11 +8,13 @@ endif
+ GIT_REVISION = -DGIT_REVISION=$(shell git rev-parse HEAD | grep -o '^.\{10\}')
+ PROJECT = $(shell git rev-parse --show-toplevel)
+ 
++DEPS := libpcrecpp zlib
++
+ # Set our include paths. We need this for the pre-processor to use to generate dependencies.
+-INCLUDE = -I$(PROJECT) -I$(PROJECT)/mbedtls/include
++INCLUDE = -I$(PROJECT) -I$(PROJECT)/mbedtls/include $(shell pkg-config --cflags $(DEPS))
+ 
+ # Set our standard C++ compiler flags
+-CXXFLAGS = -g -std=c++17 -fpic -DSQLITE_ENABLE_NORMALIZE $(BEDROCK_OPTIM_COMPILE_FLAG) -Wall -Werror -Wformat-security  -Wno-error=deprecated-declarations $(INCLUDE)
++CXXFLAGS = -g -std=c++17 -fpic -DSQLITE_ENABLE_NORMALIZE $(BEDROCK_OPTIM_COMPILE_FLAG) -Wall -Wformat-security  -Wno-error=deprecated-declarations $(INCLUDE)
+ 
+ # Amalgamation flags
+ AMALGAMATION_FLAGS = -Wno-unused-but-set-variable -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_PREUPDATE_HOOK -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT -DSQLITE_ENABLE_NOOP_UPDATE -DSQLITE_MUTEX_ALERT_MILLISECONDS=20 -DHAVE_USLEEP=1 -DSQLITE_MAX_MMAP_SIZE=17592186044416ull -DSQLITE_SHARED_MAPPING -DSQLITE_ENABLE_NORMALIZE -DSQLITE_MAX_PAGE_COUNT=4294967294 -DSQLITE_DISABLE_PAGECACHE_OVERFLOW_STATS
+@@ -32,7 +23,7 @@ AMALGAMATION_FLAGS = -Wno-unused-but-set-variable -DSQLITE_ENABLE_FTS5 -DSQLITE_
+ INTERMEDIATEDIR = .build
+ 
+ # We use the same library paths and required libraries for all binaries.
+-LIBPATHS =-L$(PROJECT) -Lmbedtls/library
++LIBPATHS =-L$(PROJECT) -Lmbedtls/library $(shell pkg-config --libs $(DEPS))
+ LIBRARIES =-Wl,--start-group -lbedrock -lstuff -Wl,--end-group -ldl -lpcrecpp -lpthread -lmbedtls -lmbedx509 -lmbedcrypto -lz -lm
+ 
+ # These targets aren't actual files.
+@@ -61,9 +52,6 @@ clean:
+ 
+ # Rule to build mbedtls.
+ mbedtls/library/libmbedcrypto.a mbedtls/library/libmbedtls.a mbedtls/library/libmbedx509.a:
+-	git submodule init
+-	git submodule update
+-	cd mbedtls && git checkout -q v2.26.0
+ 	cd mbedtls && $(MAKE) no_test
+ 
+ # We select all of the cpp files (and manually add sqlite3.c) that will be in libstuff.
