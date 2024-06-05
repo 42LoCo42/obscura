@@ -2,12 +2,6 @@
   description = "A personal collection of unusual things";
 
   inputs = {
-    # nce.url = "github:snowfallorg/nixos-conf-editor";
-    # nce.inputs.nixpkgs.follows = "nixpkgs";
-
-    # nsc.url = "github:snowfallorg/nix-software-center";
-    # nsc.inputs.nixpkgs.follows = "nixpkgs";
-
     nixpkgs-pin.url = "github:nixos/nixpkgs/a0c9e3aee1000ac2bfb0e5b98c94c946a5d180a9";
     nixpkgs-new.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
@@ -21,14 +15,7 @@
 
       mkPackages = system:
         let pkgs = import nixpkgs-pin { inherit system; }; in rec {
-          # argon-kg = self.inputs.argon-kg.outputs.defaultPackage.${system};
-          # boomer = pkgs.callPackage ./packages/boomer.nix { inherit nimblePkgs; };
-          # certbot-dns-duckdns = pkgs.callPackage ./packages/certbot-dns-duckdns.nix { };
-          # musializer = pkgs.callPackage ./packages/musializer.nix { };
-          # vulnix = pkgs.callPackage ./packages/vulnix.nix { };
-
           "9mount" = pkgs.callPackage ./packages/9mount { };
-          # k0s-bin = pkgs.callPackage ./packages/k0s-bin.nix { };
           SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
@@ -56,16 +43,6 @@
             meta.description = "A patched version of the foot terminal emulator that brings back fullscreen transparency";
             meta.homepage = "https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix";
           };
-
-          # nixos-conf-editor = nce.packages.${system}.nixos-conf-editor // {
-          #   meta.description = "A libadwaita/gtk4 app for editing NixOS configurations";
-          #   meta.homepage = "https://github.com/snowfallorg/nixos-conf-editor";
-          # };
-
-          # nix-software-center = nsc.packages.${system}.nix-software-center // {
-          #   meta.description = "A simple gtk4/libadwaita software center to easily install and manage nix packages";
-          #   meta.homepage = "https://github.com/snowfallorg/nix-software-center";
-          # };
 
           my-htop = pkgs.htop.overrideAttrs (old: rec {
             version = "5d778ea";
