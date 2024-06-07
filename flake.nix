@@ -16,7 +16,6 @@
       mkPackages = system:
         let pkgs = import nixpkgs-pin { inherit system; }; in rec {
           "9mount" = pkgs.callPackage ./packages/9mount { };
-          SwayAudioIdleInhibit = pkgs.callPackage ./packages/SwayAudioIdleInhibit.nix { };
           XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
           bedrockdb = pkgs.callPackage ./packages/bedrockdb { };

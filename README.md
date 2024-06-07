@@ -10,7 +10,6 @@ A personal collection of unusual things
 | Name | Description | Homepage |
 |------|-------------|----------|
 |`9mount`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
-|`SwayAudioIdleInhibit`|Prevent swayidle from sleeping while any application is outputting or receiving audio|https://github.com/ErikReider/SwayAudioIdleInhibit|
 |`XWaylandVideoBridge`|Utility to allow streaming Wayland windows to X applications|https://invent.kde.org/system/xwaylandvideobridge|
 |`agregore`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`bedrockdb`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
