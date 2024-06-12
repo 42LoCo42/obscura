@@ -10,7 +10,6 @@ A personal collection of unusual things
 | Name | Description | Homepage |
 |------|-------------|----------|
 |`9mount`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
-|`XWaylandVideoBridge`|Utility to allow streaming Wayland windows to X applications|https://invent.kde.org/system/xwaylandvideobridge|
 |`agregore`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`bedrockdb`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
@@ -18,7 +17,6 @@ A personal collection of unusual things
 |`flameshot-fixed`|A fork of Flameshot without selection lag, configured to work with Wayland|https://github.com/lbatalha/flameshot|
 |`foot-transparent`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
-|`gtk4-layer-shell`|A library to desktop components for Wayland using the Layer Shell protocol and GTK4|https://github.com/wmww/gtk4-layer-shell|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
@@ -26,7 +24,6 @@ A personal collection of unusual things
 |`msp-cgt`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`my-htop`|htop with sorting in tree mode fixed|https://htop.dev|
-|`my-lzbt`|Secure Boot for NixOS - pinned to v0.3.0|https://github.com/nix-community/lanzaboote|
 |`my-ncmpcpp`|ncmpcpp except the media library always shows Albums - Songs|https://rybczak.net/ncmpcpp/|
 |`photoview`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`prettier-plugin-go-template`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|

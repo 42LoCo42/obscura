@@ -11,19 +11,16 @@
       inherit (nixpkgs-pin.lib) mapAttrsToList pipe recursiveUpdate;
 
       nyx = builtins.getFlake "github:notashelf/nyxpkgs/a9c2ef2ea7c4b7e5036f7c60108df2bbcfc9a3c4?narHash=sha256-NiL7KfpHhUx7zLVFKtwPz7d9uJq/ABQEqf1y/lTWSGI=";
-      lanza030 = builtins.getFlake "github:nix-community/lanzaboote/64b903ca87d18cef2752c19c098af275c6e51d63?narHash=sha256-Fb5TeRTdvUlo/5Yi2d%2BFC8a6KoRLk2h1VE0/peMhWPs%3D";
 
       mkPackages = system:
-        let pkgs = import nixpkgs-pin { inherit system; }; in rec {
+        let pkgs = import nixpkgs-pin { inherit system; }; in {
           "9mount" = pkgs.callPackage ./packages/9mount { };
-          XWaylandVideoBridge = pkgs.callPackage ./packages/XWaylandVideoBridge.nix { };
           agregore = pkgs.callPackage ./packages/agregore { };
           bedrockdb = pkgs.callPackage ./packages/bedrockdb { };
           capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
           e2eirc = pkgs.callPackage ./packages/e2eirc { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
-          gtk4-layer-shell = pkgs.callPackage ./packages/gtk4-layer-shell.nix { };
           jade = pkgs.callPackage ./packages/jade.nix { };
           libhpke = pkgs.callPackage ./packages/libhpke { };
           lone = pkgs.callPackage ./packages/lone { };
@@ -36,7 +33,7 @@
           redis-json = pkgs.callPackage ./packages/redis-json { };
           sae_pk_gen = pkgs.callPackage ./packages/sae_pk_gen.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
-          wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { inherit gtk4-layer-shell; };
+          wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { };
 
           foot-transparent = nyx.packages.${system}.foot-transparent // {
             meta.description = "A patched version of the foot terminal emulator that brings back fullscreen transparency";
@@ -52,13 +49,6 @@
             };
             meta = old.meta // {
               description = "htop with sorting in tree mode fixed";
-            };
-          });
-
-          my-lzbt = lanza030.packages.${system}.lzbt.overrideAttrs (_: {
-            meta = {
-              description = "Secure Boot for NixOS - pinned to v0.3.0";
-              homepage = "https://github.com/nix-community/lanzaboote";
             };
           });
 
@@ -100,8 +90,6 @@
           "9mount" = import ./packages/9mount/module.nix {
             packages = self.outputs.packages;
           };
-
-          inherit (lanza030.nixosModules) lanzaboote;
         };
 
         templates = let dir = ./templates; in pipe dir [
