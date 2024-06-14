@@ -30,7 +30,7 @@ jobs:
           new="$(sha256sum flake.lock)"
 
           if [ "$old" != "$new" ]; then
-            nix run -L .#nvidia
+            nix run .#nvidia.ci
           fi
         env:
           ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}

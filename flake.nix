@@ -64,28 +64,31 @@
 
       pkgs = import nixpkgs-pin { system = "x86_64-linux"; };
       merge = builtins.foldl' recursiveUpdate { };
+
+      mkCi = attr: pkgs.writeShellApplication {
+        name = "ci";
+        runtimeInputs = with pkgs; [ attic-client jq nix-eval-jobs ];
+        text = ''
+          attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
+
+          nix-eval-jobs                                       \
+            --check-cache-status                              \
+            --force-recurse                                   \
+            --workers "$(nproc)"                              \
+            --flake ".#${attr}"                               \
+          | jq -r 'if .isCached then empty else .drvPath end' \
+          | xargs -P "$(nproc)" -I% nix-store --realise %     \
+          | tee /dev/stderr                                   \
+          | xargs attic push default
+        '';
+      };
     in
     merge [
       (mkPackageSet "x86_64-linux")
-
-      (
-        let
-          system = "aarch64-linux";
-          packages = mkPackages system;
-        in
-        {
-          packages.${system} = {
-            inherit (packages)
-              jade
-              my-htop
-              photoview
-              pug
-              ;
-          };
-        }
-      )
-
+      (mkPackageSet "aarch64-linux") # opportunistic, not all packages will build
       {
+        overlay = _: prev: mkPackages prev.system;
+
         nixosModules = {
           "9mount" = import ./packages/9mount/module.nix {
             packages = self.outputs.packages;
@@ -116,23 +119,7 @@
           '')
         ];
 
-        ci = pkgs.writeShellApplication {
-          name = "ci";
-          runtimeInputs = with pkgs; [ attic-client jq nix-eval-jobs ];
-          text = ''
-            attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
-
-            nix-eval-jobs                                       \
-              --check-cache-status                              \
-              --force-recurse                                   \
-              --workers "$(nproc)"                              \
-              --flake .#packages.${pkgs.system}                 \
-            | jq -r 'if .isCached then empty else .drvPath end' \
-            | xargs -P "$(nproc)" -I% nix-store --realise %     \
-            | tee /dev/stderr                                   \
-            | xargs attic push default
-          '';
-        };
+        ci = mkCi "packages.${pkgs.system}";
 
         nvidia =
           let
@@ -143,26 +130,19 @@
 
             nvidia = pkgs-new.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
 
-            targets = [
+            targets = pipe [
               nvidia.stable
               nvidia.stable.persistenced
               nvidia.stable.settings
               pkgs-new.nvtopPackages.nvidia
+            ] [
+              (map (x: { inherit (x) name; value = x; }))
+              builtins.listToAttrs
             ];
 
-            out = pkgs.linkFarmFromDrvs "nvidia" targets;
+            ci = mkCi "nvidia.targets";
           in
-          pkgs.writeShellApplication {
-            name = "nvidia";
-            runtimeInputs = with pkgs; [ attic-client ];
-            text = ''
-              attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
-
-              realpath ${out}/* \
-              | tee /dev/stderr \
-              | xargs attic push default
-            '';
-          };
+          { inherit targets ci; };
       }
     ];
 }
