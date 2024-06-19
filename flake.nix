@@ -35,6 +35,7 @@
           redis-json = pkgs.callPackage ./packages/redis-json { };
           sae_pk_gen = pkgs.callPackage ./packages/sae_pk_gen.nix { };
           samloader = pkgs.callPackage ./packages/samloader.nix { };
+          statsite = pkgs.callPackage ./packages/statsite { };
           wayland-shell = pkgs.callPackage ./packages/wayland-shell.nix { };
 
           foot-transparent = nyx.packages.${system}.foot-transparent // {

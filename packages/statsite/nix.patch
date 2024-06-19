@@ -1,0 +1,51 @@
+diff --git a/Makefile.am b/Makefile.am
+index 68dabee..28bb5d8 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -39,8 +39,8 @@ bin_PROGRAMS = statsite
+ # This adds the sinks on make install, also allows for make uninstall if needed
+ nobase_pkgdata_DATA = sinks/*
+ 
+-configdir = /etc/statsite
+-nobase_dist_config_DATA = statsite.conf.example
++# configdir = /etc/statsite
++# nobase_dist_config_DATA = statsite.conf.example
+ 
+ 
+ 
+diff --git a/deps/ae/Makefile b/deps/ae/Makefile
+index 2d4206e..0385df8 100644
+--- a/deps/ae/Makefile
++++ b/deps/ae/Makefile
+@@ -3,7 +3,6 @@ SOURCES=\
+ 
+ CFLAGS   = -g -std=c99 -Wpointer-arith
+ LDFLAGS  =
+-CC = /usr/bin/gcc
+ 
+ OBJECTS=$(SOURCES:%.c=%.o)
+ 
+diff --git a/deps/inih/Makefile b/deps/inih/Makefile
+index 749a125..958bc9e 100644
+--- a/deps/inih/Makefile
++++ b/deps/inih/Makefile
+@@ -3,7 +3,6 @@ SOURCES=\
+ 
+ CFLAGS   = -O3
+ LDFLAGS  =
+-CC = /usr/bin/gcc
+ 
+ OBJECTS=$(SOURCES:%.c=%.o)
+ 
+diff --git a/deps/murmurhash/Makefile b/deps/murmurhash/Makefile
+index 259e570..727658f 100644
+--- a/deps/murmurhash/Makefile
++++ b/deps/murmurhash/Makefile
+@@ -3,7 +3,6 @@ SOURCES=\
+ 
+ CFLAGS   = -std=c99 -O3
+ LDFLAGS  =
+-CC = /usr/bin/gcc
+ 
+ OBJECTS=$(SOURCES:%.c=%.o)
+ 
