@@ -13,11 +13,13 @@
       nyx = builtins.getFlake "github:notashelf/nyxpkgs/a9c2ef2ea7c4b7e5036f7c60108df2bbcfc9a3c4?narHash=sha256-NiL7KfpHhUx7zLVFKtwPz7d9uJq/ABQEqf1y/lTWSGI=";
 
       mkPackages = system:
-        let pkgs = import nixpkgs-pin { inherit system; }; in {
+        let pkgs = import nixpkgs-pin { inherit system; }; in rec {
           "9mount" = pkgs.callPackage ./packages/9mount { };
           agregore = pkgs.callPackage ./packages/agregore { };
+          argtable2 = pkgs.callPackage ./packages/argtable2.nix { };
           bedrockdb = pkgs.callPackage ./packages/bedrockdb { };
           capnp-go = pkgs.callPackage ./packages/capnp-go.nix { };
+          comskip = pkgs.callPackage ./packages/comskip.nix { inherit argtable2; };
           e2eirc = pkgs.callPackage ./packages/e2eirc { };
           flameshot-fixed = pkgs.callPackage ./packages/flameshot-fixed.nix { };
           fusepod = pkgs.callPackage ./packages/fusepod.nix { };
