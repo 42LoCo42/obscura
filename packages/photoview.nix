@@ -4,6 +4,7 @@
 , exiftool
 , fetchFromGitHub
 , ffmpeg-headless
+, lib
 , libheif
 , libjpeg
 , makeBinaryWrapper
@@ -13,13 +14,13 @@
 }:
 let
   pname = "photoview";
-  version = "ddacba8";
+  version = "v2.4.0";
 
   src = fetchFromGitHub {
     owner = pname;
     repo = pname;
     rev = version;
-    hash = "sha256-Jdebpsya2IVI4O7Ar45n54ovKh3Y1mVdd/xC7JoSP2M=";
+    hash = "sha256-ZfvBdQlyqONsrviZGL22Kt+AiPaVWwdoREDUrHDYyIs=";
   };
 
   api = buildGoModule {
@@ -47,8 +48,11 @@ let
     src = "${src}/ui";
     npmDepsHash = "sha256-wUbfq+7SuJUBxfy9TxHVda8A0g4mmYCbzJT64XBN2mI=";
   };
+
+  path = lib.makeBinPath [ exiftool ffmpeg-headless ];
 in
-runCommand pname
+runCommand
+  pname
 {
   inherit pname version;
   nativeBuildInputs = [ makeBinaryWrapper ];
@@ -59,8 +63,7 @@ runCommand pname
   };
 } ''
   makeWrapper ${api}/bin/api $out/bin/photoview                      \
-    --suffix PATH : ${ffmpeg-headless}/bin                           \
-    --suffix PATH : ${exiftool}/bin                                  \
+    --suffix PATH : ${path}                                          \
     --set PHOTOVIEW_SERVE_UI 1                                       \
     --set PHOTOVIEW_UI_PATH ${ui}/lib/node_modules/photoview-ui/dist \
     --set PHOTOVIEW_FACE_RECOGNITION_MODELS_PATH ${api}/models
