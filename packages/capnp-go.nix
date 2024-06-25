@@ -1,10 +1,8 @@
-{ buildGoModule
-, fetchFromGitHub
-}: buildGoModule rec {
+pkgs: pkgs.buildGoModule rec {
   pname = "capnp-go";
   version = "3.0.0-alpha.30";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "capnproto";
     repo = "go-capnp";
     rev = "v${version}";

@@ -1,21 +1,8 @@
-{ fetchFromGitHub
-, rustPlatform
-
-, pkg-config
-
-, cairo
-, gdk-pixbuf
-, glib
-, graphene
-, gtk4
-, gtk4-layer-shell
-, harfbuzz
-, pango
-}: rustPlatform.buildRustPackage rec {
+pkgs: pkgs.rustPlatform.buildRustPackage rec {
   pname = "wayland-shell";
   version = "0";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "nilsherzig";
     repo = pname;
     rev = "0c1947cb0d7eb0f74973ec14a79e28f9ac71b9af";
@@ -23,11 +10,11 @@
   };
   cargoHash = "sha256-WoQrjwa6/JFQo9KH50qbzf/LomDqn7BZ8DWn9V8BZLw=";
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     pkg-config
   ];
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     cairo
     gdk-pixbuf
     glib

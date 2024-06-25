@@ -1,38 +1,27 @@
-{ fetchFromGitHub
-, fetchurl
-, lib
-, mkYarnModules
-, runCommand
-, stdenvNoCC
-
-, electron
-, makeBinaryWrapper
-, nodejs
-, yarn
-}:
+pkgs:
 let
-  inherit (lib) getExe mapAttrsToList pipe;
+  inherit (pkgs.lib) getExe mapAttrsToList pipe;
 
   pname = "agregore";
   version = "2.4.0";
 
   src =
     let
-      raw = fetchFromGitHub {
+      raw = pkgs.fetchFromGitHub {
         owner = "AgregoreWeb";
         repo = "agregore-browser";
         rev = "v${version}";
         hash = "sha256-jDwdBSZdz/hXDeNBpw35WBXAzhlYjTplbZaBfVO+IBg=";
       };
     in
-    runCommand "patch" { } ''
+    pkgs.runCommand "patch" { } ''
       cp -r ${raw} $out
       chmod -R +w $out
       cd $out
       patch -p1 < ${./fix.patch}
     '';
 
-  modules = mkYarnModules {
+  modules = pkgs.mkYarnModules {
     inherit pname version;
     packageJSON = "${src}/package.json";
     yarnLock = "${src}/yarn.lock";
@@ -44,7 +33,7 @@ let
     builtins.fromJSON
     (mapAttrsToList (name: val:
       let
-        file = fetchurl {
+        file = pkgs.fetchurl {
           url = builtins.replaceStrings [ "{version}" ] [ val.version ] val.url;
           hash = val.hash or "";
         };
@@ -53,10 +42,10 @@ let
     (builtins.concatStringsSep "\n")
   ];
 in
-stdenvNoCC.mkDerivation {
+pkgs.stdenvNoCC.mkDerivation {
   inherit pname version src;
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     makeBinaryWrapper
     nodejs
     yarn
@@ -73,7 +62,7 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/agregore
     cp -r app build package.json ${modules}/node_modules $out/agregore
 
-    makeWrapper "${getExe electron}" $out/bin/agregore \
+    makeWrapper "${getExe pkgs.electron}" $out/bin/agregore \
       --chdir $out/agregore --add-flags "."
   '';
 

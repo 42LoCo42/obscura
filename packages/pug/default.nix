@@ -1,9 +1,9 @@
-{ mkYarnPackage, fetchFromGitHub, ... }: mkYarnPackage rec {
+pkgs: pkgs.mkYarnPackage rec {
   pname = "pug3-cli";
   version = "0e28930";
   name = "${pname}-${version}";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "tokilabs";
     repo = pname;
     rev = version;

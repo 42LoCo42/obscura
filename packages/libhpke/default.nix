@@ -1,16 +1,8 @@
-{ fetchFromGitHub
-, stdenv
-
-, meson
-, ninja
-, pkg-config
-
-, libressl
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "hpke";
   version = "4eef470";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "oktaysm";
     repo = pname;
     rev = version;
@@ -19,13 +11,13 @@
 
   patches = [ ./fix-include.patch ];
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     meson
     ninja
     pkg-config
   ];
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     libressl
   ];
 

@@ -1,10 +1,8 @@
-{ fetchurl
-, stdenv
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "msp-cgt";
   version = "21.6.1";
 
-  src = fetchurl {
+  src = pkgs.fetchurl {
     url = "https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-p4jWEYpR8n/21.6.1.LTS/ti_cgt_msp430_21.6.1.LTS_linux-x64_installer.bin";
     hash = "sha256-Ja/V3T1MxWDR76UcLUkqUIVIgt42YDejIpHbEfHFd94=";
   };

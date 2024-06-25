@@ -1,18 +1,15 @@
-{ fetchFromGitHub
-
-, python3
-}: python3.pkgs.buildPythonApplication {
+pkgs: pkgs.python3.pkgs.buildPythonApplication {
   pname = "samloader";
   version = "master";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "samloader";
     repo = "samloader";
     rev = "0e53d8032699a4039ea6f5310ebec05f8f417f07";
     hash = "sha256-viMM1voK/qayQ+ouIlYgV5NoYnc+6dJqEaf9ikZHMPY=";
   };
 
-  propagatedBuildInputs = with python3.pkgs; [
+  propagatedBuildInputs = with pkgs.python3.pkgs; [
     pycryptodomex
     requests
     tqdm

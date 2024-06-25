@@ -1,9 +1,7 @@
-{ buildGoModule
-, fetchFromGitHub
-}: buildGoModule rec {
+pkgs: pkgs.buildGoModule rec {
   pname = "e2eirc";
   version = "0e3198a";
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "novus0rdo";
     repo = pname;
     rev = version;

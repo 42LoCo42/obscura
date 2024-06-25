@@ -1,12 +1,8 @@
-{ rustPlatform
-, fetchFromGitHub
-
-, clang
-}: rustPlatform.buildRustPackage rec {
+pkgs: pkgs.rustPlatform.buildRustPackage rec {
   pname = "redis-json";
   version = "2.6.8";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     repo = "RedisJSON";
     owner = "RedisJSON";
     rev = "v${version}";
@@ -22,7 +18,7 @@
 
   patches = [ ./rustflags.patch ];
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     clang
     rustPlatform.bindgenHook
   ];

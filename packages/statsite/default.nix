@@ -1,12 +1,8 @@
-{ autoreconfHook
-, fetchFromGitHub
-, pkg-config
-, stdenv
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "statsite";
   version = "bf68fa2";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = pname;
     repo = pname;
     rev = version;
@@ -14,7 +10,7 @@
   };
   patches = [ ./nix.patch ];
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     autoreconfHook
     pkg-config
   ];

@@ -1,27 +1,19 @@
-{ fetchFromGitHub
-, stdenv
-
-, pkg-config
-
-, fuse
-, libgpod
-, taglib
-}: stdenv.mkDerivation {
+pkgs: pkgs.stdenv.mkDerivation {
   pname = "fusepod";
   version = "0.5.2";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "keegancsmith";
     repo = "FUSEPod";
     rev = "ab85982";
     hash = "sha256-r2+iQPzjX82utqPtHpkBgaw5d/ds3pEY1Q8TQR5SIqo=";
   };
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     pkg-config
   ];
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     fuse
     libgpod
     taglib

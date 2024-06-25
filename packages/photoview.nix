@@ -1,36 +1,23 @@
-{ buildGoModule
-, buildNpmPackage
-, dlib
-, exiftool
-, fetchFromGitHub
-, ffmpeg-headless
-, lib
-, libheif
-, libjpeg
-, makeBinaryWrapper
-, openblas
-, pkg-config
-, runCommand
-}:
+pkgs:
 let
   pname = "photoview";
   version = "v2.4.0";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = pname;
     repo = pname;
     rev = version;
     hash = "sha256-ZfvBdQlyqONsrviZGL22Kt+AiPaVWwdoREDUrHDYyIs=";
   };
 
-  api = buildGoModule {
+  api = pkgs.buildGoModule {
     pname = "${pname}-api";
     inherit version;
     src = "${src}/api";
     vendorHash = "sha256-Tn4OxSV41s/4n2Q3teJRJNc39s6eKW4xE9wW/CIR5Fg=";
 
-    nativeBuildInputs = [ pkg-config ];
-    buildInputs = [
+    nativeBuildInputs = with pkgs; [ pkg-config ];
+    buildInputs = with pkgs; [
       dlib
       libheif
       libjpeg
@@ -42,20 +29,22 @@ let
     '';
   };
 
-  ui = buildNpmPackage {
+  ui = pkgs.buildNpmPackage {
     pname = "${pname}-ui";
     inherit version;
     src = "${src}/ui";
     npmDepsHash = "sha256-wUbfq+7SuJUBxfy9TxHVda8A0g4mmYCbzJT64XBN2mI=";
+
+    VERSION = version;
+    BUILD_DATE = "0";
   };
 
-  path = lib.makeBinPath [ exiftool ffmpeg-headless ];
+  path = with pkgs; lib.makeBinPath [ exiftool ffmpeg-headless ];
 in
-runCommand
-  pname
+pkgs.runCommand pname
 {
   inherit pname version;
-  nativeBuildInputs = [ makeBinaryWrapper ];
+  nativeBuildInputs = with pkgs; [ makeBinaryWrapper ];
   meta = {
     description = "Photo gallery for self-hosted personal servers";
     homepage = "https://photoview.github.io";

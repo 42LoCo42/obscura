@@ -1,8 +1,4 @@
-{ fetchgit
-, stdenv
-
-, libixp
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "m9u";
   version = "36493de";
 
@@ -13,13 +9,13 @@
   #   hash = null;
   # };
 
-  src = fetchgit {
+  src = pkgs.fetchgit {
     url = "https://github.com/sqweek/m9u/";
     rev = version;
     hash = "sha256-TKV8lgGttCMCfTiMPb90kWJ57vr8VkNVEzy6pMx3yXk=";
   };
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     libixp
   ];
 

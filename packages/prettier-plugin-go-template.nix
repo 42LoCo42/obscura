@@ -1,9 +1,7 @@
-{ fetchFromGitHub
-, buildNpmPackage
-}: buildNpmPackage rec {
+pkgs: pkgs.buildNpmPackage rec {
   pname = "prettier-plugin-go-template";
   version = "d91c82e";
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "NiklasPor";
     repo = pname;
     rev = version;

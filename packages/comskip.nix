@@ -1,26 +1,20 @@
-{ argtable2
-, autoreconfHook
-, fetchFromGitHub
-, ffmpeg-headless
-, pkg-config
-, stdenv
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "comskip";
   version = "2ef8684";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "erikkaashoek";
     repo = pname;
     rev = version;
     hash = "sha256-4ef/YZpaiSp3VeSiU6mRR38GjkrzxboI0/VXQ5QQiUM=";
   };
 
-  nativeBuildInputs = [
+  nativeBuildInputs = with pkgs; [
     autoreconfHook
     pkg-config
   ];
 
-  buildInputs = [
+  buildInputs = with pkgs; [
     argtable2
     ffmpeg-headless
   ];

@@ -1,17 +1,16 @@
-{ fetchFromGitHub, stdenv, pkg-config, openssl }:
-stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "sae_pk_gen";
   version = "72e2975";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "vanhoefm";
     repo = "hostap-wpa3";
     rev = version;
     hash = "sha256-zveLNcZN7+L1iw3i9tq8fOgCh7VdMTg8B2PEoJ2fGwQ=";
   };
 
-  nativeBuildInputs = [ pkg-config ];
-  buildInputs = [ openssl ];
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+  buildInputs = with pkgs; [ openssl ];
 
   buildPhase = ''
     cd hostapd

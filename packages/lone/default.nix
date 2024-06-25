@@ -1,13 +1,8 @@
-{ fetchFromGitHub
-, stdenv
-
-, clang
-, mold
-}: stdenv.mkDerivation rec {
+pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "lone";
   version = "fca96b0";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "lone-lang";
     repo = pname;
     rev = version;
@@ -17,8 +12,8 @@
 
   buildPhase = ''
     make                                                       \
-      CC="${clang}/bin/clang"                                  \
-      LD="${mold}/bin/mold"                                    \
+      CC="${pkgs.clang}/bin/clang"                                  \
+      LD="${pkgs.mold}/bin/mold"                                    \
       CFLAGS="-fstack-protector -Wl,--spare-program-headers,2" \
       lone
     make tools

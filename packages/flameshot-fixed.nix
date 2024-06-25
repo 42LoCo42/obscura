@@ -1,26 +1,21 @@
-{ fetchFromGitHub
-, stdenv
-
-, cmake
-, libsForQt5
-}: stdenv.mkDerivation {
+pkgs: pkgs.stdenv.mkDerivation {
   pname = "flameshot";
   version = "master";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "lbatalha";
     repo = "flameshot";
     rev = "84acbdafd0a81839e9e98351eb339bbe1ba1bf54";
     hash = "sha256-O3hvWVyOD+YJU8ZfkcGPRBN2gYOqfS9rixtJyxLA3Tk=";
   };
 
-  nativeBuildInputs = with libsForQt5; [
+  nativeBuildInputs = with pkgs; [
     cmake
-    qttools
-    wrapQtAppsHook
+    libsForQt5.qttools
+    libsForQt5.wrapQtAppsHook
   ];
 
-  buildInputs = with libsForQt5; [
+  buildInputs = with pkgs.libsForQt5; [
     kguiaddons
     qtbase
   ];
