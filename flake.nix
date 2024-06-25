@@ -37,10 +37,9 @@
               name = builtins.replaceStrings [ ".nix" ] [ "" ] file;
               value = import "${dir}/${file}" pkgs;
             }))
-            (x: { packages.${system} = x; })
           ];
         in
-        packages;
+        { packages.${system} = packages; };
 
       allPackages = merge (map mkPackages
         [ "x86_64-linux" "aarch64-linux" ]);
