@@ -47,7 +47,31 @@
       ##########################################
 
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      nvidia =
+        let
+          nvidia = pkgs.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
+        in
+        pipe [
+          nvidia.stable
+          nvidia.stable.persistenced
+          nvidia.stable.settings
+          pkgs.nvtopPackages.nvidia
+        ] [
+          (map (x: {
+            name = x.pname or
+              (builtins.replaceStrings
+                [ "-${x.version}-${x.kernelVersion}" ] [ "" ]
+                x.name);
+            value = x;
+          }))
+          builtins.listToAttrs
+          (x: { ${system} = x; })
+        ];
 
       rawMatrix = pipe self.githubActions.matrix [
         builtins.toJSON
@@ -58,7 +82,10 @@
       overlay = _: prev: self.packages.${prev.system};
 
       githubActions = nix-github-actions.lib.mkGithubMatrix {
-        checks = getAttrs [ system ] self.packages;
+        checks = merge [
+          (getAttrs [ system ] self.packages)
+          nvidia
+        ];
       };
 
       nixosModules."9mount" = import ./packages/9mount/module.nix {
@@ -128,31 +155,4 @@
         '';
       };
     };
-
-  #     ci = mkCi "packages.${pkgs.system}";
-
-  #     nvidia =
-  #       let
-  #         pkgs-new = import nixpkgs-new {
-  #           inherit (pkgs) system;
-  #           config.allowUnfree = true;
-  #         };
-
-  #         nvidia = pkgs-new.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
-
-  #         targets = pipe [
-  #           nvidia.stable
-  #           nvidia.stable.persistenced
-  #           nvidia.stable.settings
-  #           pkgs-new.nvtopPackages.nvidia
-  #         ] [
-  #           (map (x: { inherit (x) name; value = x; }))
-  #           builtins.listToAttrs
-  #         ];
-
-  #         ci = mkCi "nvidia.targets";
-  #       in
-  #       { inherit targets ci; };
-  #   }
-  # ];
 }
