@@ -48,6 +48,11 @@
 
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+
+      rawMatrix = pipe self.githubActions.matrix [
+        builtins.toJSON
+        (pkgs.writeText "rawMatrix")
+      ];
     in
     allPackages // {
       overlay = _: prev: self.packages.${prev.system};
@@ -86,20 +91,40 @@
         '')
       ];
 
-      ci = pkgs.writeShellApplication {
-        name = "ci";
-        runtimeInputs = with pkgs; [ attic-client curl ];
+      matrix = pkgs.writeShellApplication {
+        name = "matrix";
+        runtimeInputs = with pkgs; [ curl jq parallel ];
+        text = ''
+          check() {
+            read -r attr os <<< "$1"
+            nar="$(nix eval --raw ".#$attr" | cut -b 12-43)"
+
+            if curl -fs "https://attic.eleonora.gay/default/$nar.narinfo" > /dev/null; then
+              state="[1;32mCACHE[m"
+            else
+              state="[1;31mBUILD[m"
+              printf '{"attr":"%s","os":["%s"]}\n' "$attr" "$os"
+            fi
+
+            echo "[$state] $nar $attr" >&3
+          }
+          export -f check
+
+          < ${rawMatrix}                             \
+            jq -r '.include[] | "\(.attr) \(.os[])"' \
+          | parallel check 3>&2 2>/dev/null          \
+          | jq -cs '{"include": .}'
+        '';
+      };
+
+      build = pkgs.writeShellApplication {
+        name = "build";
+        runtimeInputs = with pkgs; [ attic-client ];
         text = ''
           attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
 
-          nar="$(nix eval -L --raw ".#$1" | cut -b 12-43)"
-          echo "$1 is $nar"
-          if curl -fs "https://attic.eleonora.gay/default/$nar.narinfo" > /dev/null; then
-            echo "$1 is already cached!"
-          else
-            nix build -L --no-link --print-out-paths ".#$1" \
-            | xargs attic push default
-          fi
+          nix build -L --no-link --print-out-paths ".#$1" \
+          | xargs attic push default
         '';
       };
     };
