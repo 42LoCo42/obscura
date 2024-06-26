@@ -34,4 +34,5 @@ A personal collection of unusual things
 |`sae_pk_gen`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`statsite`|C implementation of statsd|https://github.com/statsite/statsite|
+|`steel`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
