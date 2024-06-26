@@ -2,7 +2,7 @@
 A personal collection of unusual things
 
 ## Enable binary cache
-  * substituter: https://attic.eleonora.gay/default (public)
+  * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
 ## Packages
