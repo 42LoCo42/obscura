@@ -19,6 +19,7 @@ A personal collection of unusual things
 |`flameshot-fixed`|A fork of Flameshot without selection lag, configured to work with Wayland|https://github.com/lbatalha/flameshot|
 |`foot-transparent`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
+|`hybrid-bar`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
