@@ -140,7 +140,7 @@
           < ${rawMatrix}                             \
             jq -r '.include[] | "\(.attr) \(.os[])"' \
           | parallel check 3>&2 2>/dev/null          \
-          | jq -cs '{"include": .}'
+          | jq -cs 'if . == [] then empty else {"include": .} end'
         '';
       };
 

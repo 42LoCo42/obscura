@@ -43,6 +43,7 @@ jobs:
 
   nix-build:
     needs: nix-matrix
+    if: ${{ needs.nix-matrix.outputs.matrix != '' }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix: ${{fromJSON(needs.nix-matrix.outputs.matrix)}}
