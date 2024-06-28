@@ -21,7 +21,7 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
     gtk3
   ];
 
-  checkPhase = ""; # checks make build take twice as long
+  doCheck = false; # checks make build take twice as long
 
   meta = {
     description = "A status bar focused on wlroots Wayland compositors";
