@@ -1,0 +1,30 @@
+name: Update nixpkgs input
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: DeterminateSystems/nix-installer-action@v12
+
+      - name: Update nixpkgs
+        run: nix flake update nixpkgs
+
+      - name: Commit flake update
+        uses: planetscale/ghcommit-action@v0.1.39
+        with:
+          commit_message: "🤖 Update nixpkgs"
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
