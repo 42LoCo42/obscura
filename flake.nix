@@ -56,21 +56,11 @@
         let
           nvidia = pkgs.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
         in
-        pipe [
+        pkgs.linkFarmFromDrvs "nvidia" [
           nvidia.stable
           nvidia.stable.persistenced
           nvidia.stable.settings
           pkgs.nvtopPackages.nvidia
-        ] [
-          (map (x: {
-            name = x.pname or
-              (builtins.replaceStrings
-                [ "-${x.version}-${x.kernelVersion}" ] [ "" ]
-                x.name);
-            value = x;
-          }))
-          builtins.listToAttrs
-          (x: { ${system} = x; })
         ];
 
       rawMatrix = pipe self.githubActions.matrix [
@@ -84,7 +74,7 @@
       githubActions = nix-github-actions.lib.mkGithubMatrix {
         checks = merge [
           (getAttrs [ system ] self.packages)
-          nvidia
+          { ${system} = { inherit nvidia; }; }
         ];
       };
 
