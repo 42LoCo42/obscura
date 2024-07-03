@@ -34,6 +34,7 @@ A personal collection of unusual things
 |`redis-json`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
 |`sae_pk_gen`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
+|`souk`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|

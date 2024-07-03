@@ -1,0 +1,39 @@
+diff --git a/meson.build b/meson.build
+index 3a508c0..aed0484 100644
+--- a/meson.build
++++ b/meson.build
+@@ -22,7 +22,7 @@ dependency('libadwaita-1', version: '>=1.1.0')
+ name       = 'Souk'
+ base_id    = 'de.haeckerfelix.Souk'
+ app_id     = 'de.haeckerfelix.Souk'
+-vcs_tag    = run_command('git', 'rev-parse', '--short', 'HEAD').stdout().strip()
++vcs_tag    = get_option('vcs_tag')
+ profile    = get_option('profile')
+ datadir    = join_paths(get_option('prefix'), get_option('datadir'))
+ localedir  = join_paths(get_option('prefix'), get_option('localedir'))
+@@ -41,11 +41,11 @@ if profile == 'development'
+ endif
+ 
+ # Vendor all Rust dependencies for release tarballs
+-meson.add_dist_script(
+-  'build-aux/dist-vendor.sh',
+-  meson.project_source_root(),
+-  join_paths(meson.project_build_root(), 'meson-dist', meson.project_name() + '-' + meson.project_version())
+-)
++# meson.add_dist_script(
++#   'build-aux/dist-vendor.sh',
++#   meson.project_source_root(),
++#   join_paths(meson.project_build_root(), 'meson-dist', meson.project_name() + '-' + meson.project_version())
++# )
+ 
+ subdir('data')
+ subdir('src')
+diff --git a/meson_options.txt b/meson_options.txt
+index 4c5cc39..de269b3 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -7,3 +7,4 @@ option (
+   ],
+   value: 'default'
+ )
++option('vcs_tag', type: 'string')
