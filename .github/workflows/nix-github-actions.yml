@@ -31,8 +31,15 @@ jobs:
       matrix: ${{fromJSON(needs.nix-matrix.outputs.matrix)}}
     steps:
       - uses: actions/checkout@v4
+
       - uses: DeterminateSystems/nix-installer-action@v12
+        with:
+          extra-conf: |
+            substituters = https://cache.nixos.org https://attic.eleonora.gay/default
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=
+
       - uses: DeterminateSystems/magic-nix-cache-action@v7
+
       - run: nix run .#build -- "${{ matrix.attr }}"
         env:
           ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
