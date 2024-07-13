@@ -55,12 +55,19 @@
       nvidia =
         let
           nvidia = pkgs.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
+          mkNvidia = nvidia: [
+            nvidia
+            nvidia.persistenced
+            nvidia.settings
+          ];
         in
-        pkgs.linkFarmFromDrvs "nvidia" [
-          nvidia.stable
-          nvidia.stable.persistenced
-          nvidia.stable.settings
-          pkgs.nvtopPackages.nvidia
+        pipe [
+          (mkNvidia nvidia.production)
+          (mkNvidia nvidia.stable)
+          [ pkgs.nvtopPackages.nvidia ]
+        ] [
+          builtins.concatLists
+          (pkgs.linkFarmFromDrvs "nvidia")
         ];
 
       rawMatrix = pipe self.githubActions.matrix [
