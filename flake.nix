@@ -76,8 +76,6 @@
       ];
     in
     allPackages // {
-      overlay = _: prev: self.packages.${prev.system};
-
       githubActions = nix-github-actions.lib.mkGithubMatrix {
         checks = merge [
           (getAttrs [ system ] self.packages)
