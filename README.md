@@ -23,6 +23,7 @@ A personal collection of unusual things
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
+|`lz4json`|C decompress tool for mozilla lz4json format|https://github.com/andikleen/lz4json|
 |`m9u`|A 9P music server|https://sqweek.net/code/m9u/|
 |`msp-cgt`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
