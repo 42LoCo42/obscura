@@ -138,16 +138,5 @@
           | jq -cs 'if . == [] then empty else {"include": .} end'
         '';
       };
-
-      build = pkgs.writeShellApplication {
-        name = "build";
-        runtimeInputs = with pkgs; [ attic-client ];
-        text = ''
-          attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
-
-          nix build -L --no-link --print-out-paths ".#$1" \
-          | xargs attic push default
-        '';
-      };
     };
 }
