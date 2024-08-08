@@ -125,7 +125,8 @@
               state="[1;32mCACHE[m"
             else
               state="[1;31mBUILD[m"
-              printf '{"attr":"%s","os":["%s"]}\n' "$attr" "$os"
+              jq -cn '{attr: $ARGS.positional[0], os: $ARGS.positional[1]}' \
+                --args "$attr" "$os"
             fi
 
             echo "[$state] $nar $attr" >&3

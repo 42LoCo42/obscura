@@ -50,6 +50,4 @@ jobs:
           cache: default
           token: ${{ secrets.ATTIC_TOKEN }}
 
-      - run: nix build -L "${{ matrix.attr }}"
-        env:
-          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+      - run: nix build -L ".#${{ matrix.attr }}"
