@@ -17,7 +17,6 @@ A personal collection of unusual things
 |`comskip`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`dinit`|Service monitoring / init system|https://github.com/davmac314/dinit|
 |`e2eirc`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
-|`flameshot-fixed`|A fork of Flameshot without selection lag, configured to work with Wayland|https://github.com/lbatalha/flameshot|
 |`foot-transparent`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`hybrid-bar`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
