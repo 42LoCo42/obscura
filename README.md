@@ -37,4 +37,5 @@ A personal collection of unusual things
 |`souk`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
+|`turnstile`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
