@@ -1,12 +1,12 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "dinit";
-  version = "0.18.0";
+  version = "2024-08-06";
 
   src = pkgs.fetchFromGitHub {
     owner = "davmac314";
     repo = pname;
-    rev = "v${version}";
-    hash = "sha256-AaLfsoSXNKrVEIKgfP6eSWLbGNK4QLr3dnc9MXEoEWM=";
+    rev = "3867cf1766134980d2c3cd6f441276217af498e9";
+    hash = "sha256-6CJaoga5Pu+eRGuaGDsRZk26+hKEIWkNm0WrCIpEiV0=";
   };
 
   nativeBuildInputs = with pkgs; [
