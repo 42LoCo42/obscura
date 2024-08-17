@@ -22,7 +22,6 @@ A personal collection of unusual things
 |`hybrid-bar`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
-|`lix`|A modern, delicious implementation of the Nix package manager|https://lix.systems|
 |`lone`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`lz4json`|C decompress tool for mozilla lz4json format|https://github.com/andikleen/lz4json|
 |`m9u`|A 9P music server|https://sqweek.net/code/m9u/|

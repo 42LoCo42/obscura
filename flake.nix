@@ -2,16 +2,13 @@
   description = "A personal collection of unusual things";
 
   inputs = {
-    lix.url = "github:lix-project/lix/2.91.0";
-    lix.inputs.nixpkgs.follows = "nixpkgs";
-
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nix-github-actions.url = "github:nix-community/nix-github-actions";
     nix-github-actions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-github-actions, ... }:
+  outputs = { self, nixpkgs, nix-github-actions }:
     let
       inherit (nixpkgs.lib)
         getAttrs
@@ -31,10 +28,7 @@
 
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [
-              (_: _: packages)
-              (_: _: { inherit (self) inputs; })
-            ];
+            overlays = [ (_: _: packages) ];
           };
 
           packages = pipe dir [
