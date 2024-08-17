@@ -1,0 +1,53 @@
+diff --git a/Makefile.in b/Makefile.in
+index 02a915b..9667b98 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -3,12 +3,12 @@ PKGNAME		= pcr-oracle-$(VERSION)
+ 
+ CCOPT		= -O0 -g
+ FIRSTBOOTDIR	= /usr/share/jeos-firstboot
+-CFLAGS		= -Wall @TSS2_ESYS_CFLAGS@ @JSON_CFLAGS@ $(CCOPT)
++CFLAGS		= -Wall @TSS2_ESYS_CFLAGS@ @JSON_C_CFLAGS@ $(CCOPT)
+ TSS2_LINK	= -ltss2-esys -ltss2-tctildr -ltss2-rc -ltss2-mu -lcrypto
+-JSON_LINK	= -L@JSON_LIBDIR@ @JSON_LIBS@
++JSON_LINK	= -L@JSON_C_LIBDIR@ @JSON_C_LIBS@
+ TOOLS		= pcr-oracle
+ 
+-MANDIR		= @MANDIR@
++MANDIR		= /share/man
+ MAN8DIR		= $(MANDIR)/man8
+ MANPAGES	= man/pcr-oracle.8
+ 
+diff --git a/microconf/stage3/00-platform b/microconf/stage3/00-platform
+index 32c5197..42285a1 100644
+--- a/microconf/stage3/00-platform
++++ b/microconf/stage3/00-platform
+@@ -77,7 +77,6 @@ else
+ 	if [ -z "$uc_os_vendor" ]; then
+ 		echo "no"
+ 		echo "Unable to detect platform OS. Build may or may not work" >&2
+-		exit 1
+ 	fi
+ 
+ 	echo "$uc_os_vendor"
+@@ -86,7 +85,7 @@ fi
+ ##################################################################
+ # Detect cpu word size
+ ##################################################################
+-case $(arch) in
++case $(uname -m) in
+ x86_64|aarch64|pp64*|s390x)
+ 	__uc_arch_lib=lib64;;
+ *)
+diff --git a/microconf/stage3/05-json b/microconf/stage3/05-json
+index 54ee1a4..4062d0f 100644
+--- a/microconf/stage3/05-json
++++ b/microconf/stage3/05-json
+@@ -2,6 +2,6 @@
+ # libjson version
+ ##################################################################
+ if [ -z "$uc_with_libjson" -o "$uc_with_libjson" = "detect" ]; then
+-	uc_pkg_config_check_package json
++	uc_pkg_config_check_package json-c
+ fi
+ 
