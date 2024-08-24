@@ -54,7 +54,7 @@
 
       nvidia =
         let
-          nvidia = pkgs.zfs.latestCompatibleLinuxPackages.nvidiaPackages;
+          nvidia = pkgs.zfsUnstable.latestCompatibleLinuxPackages.nvidiaPackages;
           mkNvidia = nvidia: [
             nvidia
             nvidia.persistenced
