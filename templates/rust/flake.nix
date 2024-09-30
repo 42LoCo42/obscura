@@ -3,23 +3,22 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        toml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
+
+        cargoNix = import ./Cargo.nix {
+          inherit pkgs;
+
+          buildRustCrateForPkgs = _: args: pkgs.buildRustCrate (args // {
+            extraRustcOpts = args.extraRustcOpts ++
+              [ "-C" "link-arg=-fuse-ld=mold" ];
+            nativeBuildInputs = with pkgs; [ mold ];
+          });
+        };
       in
       rec {
-        packages.default = pkgs.rustPlatform.buildRustPackage {
-          pname = toml.package.name;
-          version = toml.package.version;
-          src = ./.;
-          cargoLock.lockFile = ./Cargo.lock;
-        };
+        packages.default = cargoNix.rootCrate.build;
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ packages.default ];
-          packages = with pkgs; [
-            clippy
-            rust-analyzer
-            rustfmt
-          ];
         };
       });
 }
