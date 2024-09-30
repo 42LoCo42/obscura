@@ -33,6 +33,9 @@
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ packages.default ];
+          packages = [
+            rustToolchain
+          ];
         };
       });
 }
