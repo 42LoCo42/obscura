@@ -1,34 +1,38 @@
 {
-  inputs.rust-overlay.url = "github:oxalica/rust-overlay";
-  inputs.rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.rust-overlay.inputs.flake-utils.follows = "flake-utils";
+  inputs = {
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = { flake-utils, nixpkgs, rust-overlay, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs { inherit system overlays; };
-        toml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ (import rust-overlay) ];
+        };
+
         rustToolchain = pkgs.rust-bin.selectLatestNightlyWith (t: t.default);
-        rustPlatform = pkgs.makeRustPlatform {
-          rustc = rustToolchain;
-          cargo = rustToolchain;
+
+        cargoNix = import ./Cargo.nix {
+          inherit pkgs;
+
+          buildRustCrateForPkgs = _: args: pkgs.buildRustCrate (args // {
+            rustc = rustToolchain;
+            cargo = rustToolchain;
+
+            extraRustcOpts = args.extraRustcOpts ++
+              [ "-C" "link-arg=-fuse-ld=mold" ];
+
+            nativeBuildInputs = with pkgs; [ mold ];
+          });
         };
       in
       rec {
-        packages.default = rustPlatform.buildRustPackage {
-          pname = toml.package.name;
-          version = toml.package.version;
-          src = ./.;
-          cargoLock.lockFile = ./Cargo.lock;
-        };
+        packages.default = cargoNix.rootCrate.build;
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ packages.default ];
-          packages = with pkgs; [
-            rust-analyzer
-            rustToolchain
-          ];
         };
       });
 }
