@@ -41,5 +41,6 @@ A personal collection of unusual things
 |`statsite`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
 |`turnstile`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
+|`uad-ng`|Tool to debloat non-rooted Android devices|https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation|
 |`vencloud`|Vencord API|https://github.com/Vencord/Vencloud|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
