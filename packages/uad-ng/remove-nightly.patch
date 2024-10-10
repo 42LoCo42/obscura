@@ -1,0 +1,87 @@
+diff --git a/src/core/theme.rs b/src/core/theme.rs
+index e9fc989..794e810 100644
+--- a/src/core/theme.rs
++++ b/src/core/theme.rs
+@@ -48,10 +48,6 @@ pub struct ColorPalette {
+ impl Theme {
+     pub const ALL: [Self; 4] = [Self::Auto, Self::Lupin, Self::Dark, Self::Light];
+ 
+-    #[allow(
+-        clippy::unreadable_literal,
+-        reason = "https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/pull/578#discussion_r1759653408"
+-    )]
+     #[must_use]
+     pub fn palette(self) -> ColorPalette {
+         const DARK: ColorPalette = ColorPalette {
+diff --git a/src/core/uad_lists.rs b/src/core/uad_lists.rs
+index 9a3cdd5..56902a3 100644
+--- a/src/core/uad_lists.rs
++++ b/src/core/uad_lists.rs
+@@ -9,10 +9,6 @@ use std::path::PathBuf;
+ 
+ pub const LIST_FNAME: &str = "uad_lists.json";
+ 
+-#[allow(
+-    clippy::large_include_file,
+-    reason = "https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/discussions/608"
+-)]
+ // not `const`, because it's too big
+ pub static DATA: &str = include_str!("../../resources/assets/uad_lists.json");
+ // TODO: use `const_format` crate
+@@ -203,7 +199,6 @@ pub fn load_debloat_lists(remote: bool) -> Result<PackageHashMap, PackageHashMap
+                 Ok(data) => {
+                     // TODO: max resp size is 10MB, list is ~1.3MB;
+                     // TODO: https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/discussions/608
+-                    #[warn(clippy::expect_used, reason = "this will panic if GH servers rate-limit the user, or many other reasons.")]
+                     let text = data.into_string().expect("response should be Ok type");
+                     fs::write(cached_uad_lists.clone(), &text).expect("Unable to write file");
+                     let list: PackageHashMap = serde_json::from_str(&text).expect("Unable to parse");
+diff --git a/src/core/update.rs b/src/core/update.rs
+index bd4c24e..2f2e4e1 100644
+--- a/src/core/update.rs
++++ b/src/core/update.rs
+@@ -54,7 +54,6 @@ impl std::fmt::Display for SelfUpdateStatus {
+ 
+ /// Download a file from the internet
+ #[cfg(feature = "self-update")]
+-#[allow(clippy::unused_async, reason = "`.call` is equivalent to `.await`")]
+ pub async fn download_file<T: ToString + Send>(url: T, dest_file: PathBuf) -> Result<(), String> {
+     let url = url.to_string();
+     debug!("downloading file from {}", &url);
+diff --git a/src/gui/views/list.rs b/src/gui/views/list.rs
+index 7729709..3e142e7 100644
+--- a/src/gui/views/list.rs
++++ b/src/gui/views/list.rs
+@@ -44,7 +44,6 @@ pub enum LoadingState {
+ }
+ 
+ #[derive(Default, Debug, Clone)]
+-#[allow(clippy::struct_excessive_bools, reason = "Not a state-machine")]
+ pub struct List {
+     pub loading_state: LoadingState,
+     pub uad_lists: PackageHashMap,
+@@ -226,8 +225,6 @@ impl List {
+                 Command::none()
+             }
+             Message::List(i_package, row_message) => {
+-                #[expect(unused_must_use, reason = "side-effect")]
+-                #[expect(clippy::shadow_unrelated, reason = "same-type")]
+                 {
+                     self.phone_packages[i_user][i_package]
+                         .update(&row_message)
+@@ -851,7 +848,6 @@ impl List {
+             .map(|(i, _)| i)
+             .collect();
+     }
+-    #[expect(clippy::unused_async, reason = "1 call-site")]
+     async fn load_packages(uad_list: PackageHashMap, user_list: Vec<User>) -> Vec<Vec<PackageRow>> {
+         if user_list.len() <= 1 {
+             vec![fetch_packages(&uad_list, None)]
+@@ -863,7 +859,6 @@ impl List {
+         }
+     }
+ 
+-    #[expect(clippy::unused_async, reason = "1 call-site")]
+     async fn init_apps_view(remote: bool, phone: Phone) -> (PackageHashMap, UadListState) {
+         let uad_lists = load_debloat_lists(remote);
+         match uad_lists {
