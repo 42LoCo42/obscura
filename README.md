@@ -15,7 +15,6 @@ A personal collection of unusual things
 |`bedrockdb`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`comskip`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
-|`dinit`|Service monitoring / init system|https://github.com/davmac314/dinit|
 |`e2eirc`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`foot-transparent`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
