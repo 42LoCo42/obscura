@@ -16,7 +16,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
 
   buildInputs = with pkgs; [
     argtable2
-    ffmpeg-headless
+    ffmpeg_6-headless
   ];
 
   enableParallelBuilding = true;
