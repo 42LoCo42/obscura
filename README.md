@@ -43,4 +43,5 @@ A personal collection of unusual things
 |`turnstile`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`uad-ng`|Tool to debloat non-rooted Android devices|https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation|
 |`vencloud`|Vencord API|https://github.com/Vencord/Vencloud|
+|`vwifi`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
