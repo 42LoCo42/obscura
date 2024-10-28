@@ -10,6 +10,7 @@ A personal collection of unusual things
 | Name | Description | Homepage |
 |------|-------------|----------|
 |`9mount`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
+|`ImageColorizer`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
 |`agregore`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`argtable2`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`bedrockdb`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
