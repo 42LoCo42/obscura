@@ -31,6 +31,7 @@ A personal collection of unusual things
 |`msp-cgt`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`my-htop`|htop with sorting in tree mode fixed|https://htop.dev|
+|`nchess`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`pcr-oracle`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`prettier-plugin-go-template`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
