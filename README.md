@@ -1,4 +1,4 @@
-# obscura
+# obscura [![Build all outputs](https://github.com/42LoCo42/obscura/actions/workflows/build.yml/badge.svg)](https://github.com/42LoCo42/obscura/actions/workflows/build.yml)
 A personal collection of unusual things
 
 ## Enable binary cache
