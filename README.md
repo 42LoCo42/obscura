@@ -20,6 +20,7 @@ A personal collection of unusual things
 |`fusepod`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`go-transcode`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`hybrid-bar`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
+|`i915ovmfPkg`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
 |`jade`|Pug template engine for Go|https://github.com/Joker/jade|
 |`libhpke`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`libhydrogen`|A lightweight, secure, easy-to-use crypto library suitable for constrained environments|https://libhydrogen.org|
