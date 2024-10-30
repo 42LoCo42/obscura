@@ -105,12 +105,21 @@
       readme = pipe self.packages.${pkgs.system} [
         (mapAttrsToList (name: p:
           "|`${name}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
-        (builtins.concatStringsSep "\n")
-        (s: pkgs.writeText "readme"
-          (builtins.readFile ./README.md.in + s + "\n"))
-        (s: pkgs.writeShellScriptBin "readme" ''
-          install -m644 ${s} README.md
-        '')
+        (x: pipe x [
+          (builtins.concatStringsSep "\n")
+          (s: pipe ./README.md.in [
+            builtins.readFile
+            (builtins.replaceStrings
+              [ "@NUM@" ]
+              [ (toString (builtins.length x)) ])
+            (x: x + s + "\n")
+          ])
+          (s: pkgs.writeShellScriptBin "readme" ''
+            cat <<\EOF > README.md
+            ${s}
+            EOF
+          '')
+        ])
       ];
 
       matrix = pkgs.writeShellApplication {

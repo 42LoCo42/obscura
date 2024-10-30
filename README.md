@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## Packages
+## 39 Packages
 
 | Name | Description | Homepage |
 |------|-------------|----------|
@@ -48,3 +48,4 @@ A personal collection of unusual things
 |`vencloud`|Vencord API|https://github.com/Vencord/Vencloud|
 |`vwifi`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`wayland-shell`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
+
