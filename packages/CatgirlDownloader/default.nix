@@ -8,6 +8,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     rev = version;
     hash = "sha256-u5Rea2JkeLA5AOys9JfvLi6mfKbElbfZWdWVErUl1BU=";
   };
+  patches = [ ./configdir.patch ];
 
   nativeBuildInputs = with pkgs; [
     desktop-file-utils

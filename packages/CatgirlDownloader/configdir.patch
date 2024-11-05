@@ -1,0 +1,14 @@
+diff --git a/src/preferences.py b/src/preferences.py
+index 0cdaa82e6b..c89c1112db 100644
+--- a/src/preferences.py
++++ b/src/preferences.py
+@@ -8,7 +8,8 @@
+             "nsfw": False,
+         }
+         self.directory = GLib.get_user_config_dir()
+-        self.file = os.path.join(self.directory, "config.json")
++        self.file = os.path.join(self.directory, "catgirldownloader/config.json")
++        os.makedirs(os.path.dirname(self.file), exist_ok = True)
+         if not os.path.exists(self.file):
+         	f = open(self.file, "w+")
+         	f.write(json.dumps(self.preferences))
