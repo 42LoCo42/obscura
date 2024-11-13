@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 40 Packages
+## 41 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -17,6 +17,7 @@ A personal collection of unusual things
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`comskip`|`2ef8684`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
+|`devzat`|`2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`e2eirc`|`0e3198a`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`foot-transparent`|`2024-03-14-unstable`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
