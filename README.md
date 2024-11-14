@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 41 Packages
+## 40 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -46,7 +46,6 @@ A personal collection of unusual things
 |`statsite`|`bf68fa2`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|`0.6.0`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
-|`uad-ng`|`1.1.0`|Tool to debloat non-rooted Android devices|https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`vwifi`|`6.3`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`wayland-shell`|`0`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
