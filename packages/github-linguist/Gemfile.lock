@@ -9,6 +9,7 @@ GEM
       mini_mime (~> 1.0)
       rugged (~> 1.0)
     mini_mime (1.1.5)
+    ostruct (0.6.1)
     rugged (1.7.2)
 
 PLATFORMS
@@ -17,6 +18,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-linguist (= 8.0.1)
+  ostruct
 
 BUNDLED WITH
    2.5.16
