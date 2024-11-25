@@ -11,34 +11,27 @@
             ;
         };
       in
-      {
-        packages.default = pkgs.stdenvNoCC.mkDerivation {
+      rec {
+        packages.default = pkgs.writeShellApplication {
           name = "pdf";
-          src = ./.;
 
-          nativeBuildInputs = with pkgs; [
+          runtimeInputs = with pkgs; [
             emacs29-nox
             parallel
             tex-env
           ];
 
-          buildPhase = ''
-            parallel \
-              env HOME=/build emacs \
-                --batch \
-                --visit "{}" \
-                -f org-latex-export-to-pdf \
+          text = ''
+            parallel emacs                \
+              --batch                     \
+              --visit "{}"                \
+              -f org-latex-export-to-pdf \
               ::: ./*.org
-          '';
-
-          installPhase = ''
-            mkdir -p $out
-            cp ./*.pdf $out
           '';
         };
 
         devShells.default = pkgs.mkShell {
-          packages = [ tex-env ];
+          packages = [ packages.default ];
         };
       });
 }
