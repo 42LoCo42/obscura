@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 41 Packages
+## 42 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -21,6 +21,7 @@ A personal collection of unusual things
 |`e2eirc`|`0e3198a`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`foot-transparent`|`2024-03-14-unstable`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
+|`github-linguist`|`8.0.1`|Tool used by GitHub to detect repository languages|https://github.com/github-linguist/linguist|
 |`go-transcode`|`2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
 |`hybrid-bar`|`e5d7dbc`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
