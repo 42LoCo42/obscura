@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 43 Packages
+## 44 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -36,6 +36,7 @@ A personal collection of unusual things
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`my-htop`|`5d778ea`|htop with sorting in tree mode fixed|https://htop.dev|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
+|`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`prettier-plugin-go-template`|`d91c82e`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
