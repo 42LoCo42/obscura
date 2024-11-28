@@ -49,13 +49,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config = {
-          allowUnfree = true;
-
-          # TODO for nvtop to build
-          # remove when https://nixpk.gs/pr-tracker.html?pr=358415 clears
-          allowUnsupportedSystem = true;
-        };
+        config.allowUnfree = true;
       };
 
       nvidia =
