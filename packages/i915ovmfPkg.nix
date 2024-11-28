@@ -1,4 +1,11 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs:
+let
+  # edk2 version 202408.01
+  pkgs-fixed = import
+    (builtins.getFlake "github:nixos/nixpkgs/8edf06bea5bcbee082df1b7369ff973b91618b8d")
+    { inherit (pkgs) system; };
+in
+pkgs.stdenv.mkDerivation rec {
   pname = "i915ovmfPkg";
   version = "1.0.0";
 
@@ -30,7 +37,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   ];
 
   postUnpack = ''
-    rsync -a ${pkgs.edk2}/ ${pkgs.edk2.src}/ edk2/
+    rsync -a ${pkgs-fixed.edk2}/ ${pkgs.edk2.src}/ edk2/
   '';
 
   enableParallelBuilding = true;
