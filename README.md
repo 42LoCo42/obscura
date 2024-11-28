@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 42 Packages
+## 43 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -41,6 +41,7 @@ A personal collection of unusual things
 |`prettier-plugin-go-template`|`d91c82e`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|`2.6.8`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
+|`rom-parser`|`2017-03-31`|Parse & change GPU VBIOS files|https://github.com/awilliam/rom-parser|
 |`sae_pk_gen`|`72e2975`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|`master`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|
