@@ -9,7 +9,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     rev = version;
     hash = "sha256-iPoDZFY1lTvj41HrwYf+VepCw4Esn/rtz7Tyg0fPdpQ=";
   };
-  patches = [ ./vcs_tag.patch ];
+  patches = [
+    # let nix supply vcs_tag
+    ./vcs_tag.patch
+  ];
 
   mesonFlags = [ "-Dvcs_tag=${version}" ];
 

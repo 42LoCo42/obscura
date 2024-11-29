@@ -148,5 +148,29 @@
           | jq -cs 'if . == [] then empty else {"include": .} end'
         '';
       };
+
+      hammer = pkgs.writeShellApplication {
+        name = "hammer";
+        runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
+        text = pipe self.packages.${pkgs.system} [
+          (mapAttrsToList (n: _: n))
+          (builtins.concatStringsSep "\n")
+          (x: ''
+            if [ -n "''${1-}" ]; then
+              parallel nix build -L '.#{}' << EOF
+            ${x}
+            EOF
+            fi
+
+            xargs nixpkgs-hammer -f \
+              ${pkgs.writeText "default.nix" ''
+                _: (builtins.getFlake "git+file://''${builtins.getEnv "PWD"}").packages.''${builtins.currentSystem}
+              ''} \
+            << EOF |& grep -Ev '^error: build log' | less
+            ${x}
+            EOF
+          '')
+        ];
+      };
     };
 }

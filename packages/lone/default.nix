@@ -8,7 +8,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     rev = version;
     hash = "sha256-RdWDxPMQ4A6fO3DRDL7Z21NkXxdXf/dkaJsHEoR1LSM=";
   };
-  patches = [ ./shebang.patch ];
+  patches = [
+    # patch shellscript shebangs: /usr/bin/bash -> /bin/sh
+    ./shebang.patch
+  ];
 
   buildPhase = ''
     make                                                       \

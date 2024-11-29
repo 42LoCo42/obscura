@@ -9,7 +9,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-Sd/Ih3EWNEo3JrWejd51b6t/TStK+ZYlSEgAz48Pc5Y=";
   };
 
-  patches = [ ./fix-include.patch ];
+  patches = [
+    # include stdarg.h src/hpke/hpke.c to fix build
+    ./fix-include.patch
+  ];
 
   nativeBuildInputs = with pkgs; [
     meson

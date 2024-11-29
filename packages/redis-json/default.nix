@@ -16,7 +16,10 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
     };
   };
 
-  patches = [ ./rustflags.patch ];
+  patches = [
+    # fix rustflags syntax in .cargo/config.toml
+    ./rustflags.patch
+  ];
 
   nativeBuildInputs = with pkgs; [
     clang

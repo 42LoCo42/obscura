@@ -25,7 +25,14 @@ pkgs: pkgs.stdenv.mkDerivation rec {
       cp -r ${mbedtls} $out/mbedtls
     '';
 
-  patches = [ ./nixify.patch ];
+  patches = [
+    # don't hardcode gcc version
+    # don't try to discover project root via git
+    # explicitly specify dependencies
+    # disable -Werror; project can't build with it
+    # don't try to update mbedtls dependency (we already provide the correct version)
+    ./nixify.patch
+  ];
   enableParallelBuilding = true;
 
   GIT_REVISION = "-DGIT_REVISION=${version}";

@@ -7,7 +7,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-gg2AubR40F7LAirWWEd7N8/CQUqGacOvF9GSpSIGTBc=";
   };
 
-  patches = [ ./unpriv.patch ];
+  patches = [
+    # don't apply root:users and setuid permissions to installed binaries
+    ./unpriv.patch
+  ];
   installPhase = "make prefix=$out install";
 
   meta = {

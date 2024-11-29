@@ -8,7 +8,10 @@ pkgs: pkgs.buildNpmPackage rec {
     rev = version;
     hash = "sha256-7qvHsP4fyrkOSTzl9zx1s/idFGBew8E0jpsedLiatOs=";
   };
-  patches = [ ./package-lock.patch ];
+  patches = [
+    # provide package-lock.json
+    ./package-lock.patch
+  ];
 
   npmDepsHash = "sha256-6wbu2Rgy7aP1L99YE8KXjfwUaJmu869TEWQJdiHBzX8=";
   dontNpmBuild = true;

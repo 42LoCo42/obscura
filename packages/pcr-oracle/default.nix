@@ -8,7 +8,13 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     rev = version;
     hash = "sha256-RcKxpmXWv/XJTVauDuykjIvUOO5TwqsKEqykEO6b3pk=";
   };
-  patches = [ ./fix.patch ];
+  patches = [
+    # use json-c instead of ambiguous "json" library
+    # specify man directory
+    # don't crash on unknown distro
+    # obtain CPU arch from uname -m
+    ./fix.patch
+  ];
 
   nativeBuildInputs = with pkgs; [
     getopt

@@ -8,7 +8,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     rev = version;
     hash = "sha256-Qnc4ml+/GDeyj0IckKWmrYGhfe4OLwRBSBPi73UzoZk=";
   };
-  patches = [ ./nix.patch ];
+  patches = [
+    # don't hardcode paths to configdir (would be created during install) or gcc
+    ./nix.patch
+  ];
 
   nativeBuildInputs = with pkgs; [
     autoreconfHook
