@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 44 Packages
+## 46 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -23,6 +23,7 @@ A personal collection of unusual things
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`github-linguist`|`8.0.1`|Tool used by GitHub to detect repository languages|https://github.com/github-linguist/linguist|
 |`go-transcode`|`2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
+|`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
 |`hybrid-bar`|`e5d7dbc`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
@@ -32,6 +33,7 @@ A personal collection of unusual things
 |`lone`|`fca96b0`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`lz4json`|`c44c510`|C decompress tool for mozilla lz4json format|https://github.com/andikleen/lz4json|
 |`m9u`|`36493de`|A 9P music server|https://sqweek.net/code/m9u/|
+|`modest`|`0.0.6-devel`|A fast HTML renderer implemented as a pure C99 library with no outside dependencies|https://github.com/lexborisov/Modest|
 |`msp-cgt`|`21.6.1`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`my-htop`|`5d778ea`|htop with sorting in tree mode fixed|https://htop.dev|
