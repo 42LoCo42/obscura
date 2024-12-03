@@ -157,7 +157,7 @@
           (builtins.concatStringsSep "\n")
           (x: ''
             if [ -n "''${1-}" ]; then
-              parallel nix build -L '.#{}' << EOF
+              parallel nix build -L --no-link '.#{}' << EOF
             ${x}
             EOF
             fi
