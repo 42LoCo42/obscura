@@ -63,7 +63,7 @@
         in
         pipe [
           (mkNvidia nvidia.production)
-          (mkNvidia nvidia.stable)
+          # (mkNvidia nvidia.stable)
           [ pkgs.nvtopPackages.nvidia ]
         ] [
           builtins.concatLists
