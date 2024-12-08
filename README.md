@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 48 Packages
+## 51 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -14,8 +14,10 @@ A personal collection of unusual things
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
 |`agregore`|`2.4.0`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
+|`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
+|`chronometer`|`1`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
 |`comskip`|`2ef8684`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`devzat`|`2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`e2eirc`|`0e3198a`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
@@ -42,6 +44,7 @@ A personal collection of unusual things
 |`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
+|`pinlist`|`n/a`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`prettier-plugin-go-template`|`d91c82e`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|`2.6.8`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
