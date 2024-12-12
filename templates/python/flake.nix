@@ -1,6 +1,6 @@
 {
   inputs = {
-    pyproject.url = "pyproject-nix/build-system-pkgs";
+    pyproject.url = "github:pyproject-nix/build-system-pkgs";
     pyproject.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -9,16 +9,20 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        inherit (pkgs.lib) composeManyExtensions;
+        inherit (pkgs.lib) composeManyExtensions pipe;
         inherit (pkgs.lib.fileset) toSource unions;
         inherit (pyproject.inputs) pyproject-nix uv2nix;
 
-        pname = "example";
+        pname = pipe ./pyproject.toml [
+          builtins.readFile
+          builtins.fromTOML
+          (x: x.project.name)
+        ];
 
         src = toSource {
           root = ./.;
           fileset = unions [
-            ./main.py
+            ./${pname}.py
             ./pyproject.toml
             ./uv.lock
           ];
@@ -42,7 +46,20 @@
         venv = pythonSet.mkVirtualEnv pname workspace.deps.default;
       in
       {
-        packages.default = pythonSet.${pname};
+        packages.default = pkgs.stdenv.mkDerivation {
+          inherit pname;
+          inherit (pythonSet.${pname}) version;
+          dontUnpack = true;
+
+          installPhase = ''
+            mkdir -p $out/bin
+            cat << EOF > $out/bin/${pname}
+            #!${venv}/bin/python
+            import ${pname}
+            EOF
+            chmod +x $out/bin/${pname}
+          '';
+        };
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [ venv uv ];
