@@ -23,7 +23,7 @@ pkgs: pkgs.buildGoModule rec {
     pipe ./db-helper.sh [
       (x: pkgs.writeShellApplication {
         name = "${pname}-db-helper";
-        runtimeInputs = with pkgs; [ dbmate ];
+        runtimeInputs = with pkgs; [ coreutils dbmate ];
         text = builtins.readFile x;
       })
       (x: ''

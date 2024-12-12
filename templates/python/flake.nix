@@ -1,29 +1,51 @@
 {
-  outputs = { flake-utils, nixpkgs, ... }:
+  inputs = {
+    pyproject.url = "pyproject-nix/build-system-pkgs";
+    pyproject.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { flake-utils, nixpkgs, pyproject, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        python = pkgs.python3;
-        pyenv = python.withPackages (p: with p; [
-        ]);
-      in
-      rec {
-        packages.default = python.pkgs.buildPythonApplication {
-          pname = "example";
-          version = "1";
-          src = ./.;
-          buildInputs = [
-            pyenv
+
+        inherit (pkgs.lib) composeManyExtensions;
+        inherit (pkgs.lib.fileset) toSource unions;
+        inherit (pyproject.inputs) pyproject-nix uv2nix;
+
+        pname = "example";
+
+        src = toSource {
+          root = ./.;
+          fileset = unions [
+            ./main.py
+            ./pyproject.toml
+            ./uv.lock
           ];
         };
 
+        workspace = uv2nix.lib.workspace.loadWorkspace {
+          workspaceRoot = "${src}";
+        };
+
+        overlay = workspace.mkPyprojectOverlay {
+          sourcePreference = "wheel";
+        };
+
+        pythonSet = (pkgs.callPackage pyproject-nix.build.packages {
+          python = pkgs.python312;
+        }).overrideScope (composeManyExtensions [
+          pyproject.overlays.default
+          overlay
+        ]);
+
+        venv = pythonSet.mkVirtualEnv pname workspace.deps.default;
+      in
+      {
+        packages.default = pythonSet.${pname};
+
         devShells.default = pkgs.mkShell {
-          inputsFrom = [ packages.default ];
-          packages = with pkgs; with python.pkgs; [
-            black
-            ipython
-            python-lsp-server
-          ];
+          packages = with pkgs; [ venv uv ];
         };
       });
 }

@@ -1,2 +1,4 @@
-/.direnv
-/result
+*.egg-info
+.direnv
+__pycache__
+result
