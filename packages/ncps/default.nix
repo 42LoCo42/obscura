@@ -1,22 +1,22 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "ncps";
-  version = "0.0.13";
+  version = "0.0.14";
 
   src = (pkgs.fetchFromGitHub {
     owner = "kalbasit";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-PEylbJRZudBToIkXtVDk/rSQL9LUd8IGiRfa5qQ4aUk=";
+    hash = "sha256-/LFsOKzZ8p2MUyM5vg5JQR8g91KxbY3aaWbi198eULw=";
   }).overrideAttrs (old: {
     postFetch = old.postFetch + ''
       cd $out
       find -name '*_test.go' -delete
-      rm -rf testdata devbox.lock
+      rm -rf testdata
     '';
   });
 
   ldflags = [ "-s" "-w" ];
-  vendorHash = "sha256-RRbiiSo8n/Xtms80rSbXuU8X1Rxe+XYWC6gk2lmhz/8=";
+  vendorHash = "sha256-OIvCNOH9HvSP06JpfaMYXwf3teHhTw/HOeHrhEB7tNQ=";
 
   postInstall =
     let inherit (pkgs.lib) getExe pipe; in

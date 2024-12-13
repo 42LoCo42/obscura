@@ -42,7 +42,7 @@ A personal collection of unusual things
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`my-htop`|`5d778ea`|htop with sorting in tree mode fixed|https://htop.dev|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
-|`ncps`|`0.0.13`|Nix binary cache proxy service -- with local caching and signing|https://github.com/kalbasit/ncps|
+|`ncps`|`0.0.14`|Nix binary cache proxy service -- with local caching and signing|https://github.com/kalbasit/ncps|
 |`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
