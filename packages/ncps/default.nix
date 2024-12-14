@@ -1,12 +1,12 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "ncps";
-  version = "0.0.14";
+  version = "0.0.15";
 
   src = (pkgs.fetchFromGitHub {
     owner = "kalbasit";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-/LFsOKzZ8p2MUyM5vg5JQR8g91KxbY3aaWbi198eULw=";
+    hash = "sha256-f1JXUkalDiZDJZ2uvJ4+5twTtYfBW7n8H7ta3chpP6w=";
   }).overrideAttrs (old: {
     postFetch = old.postFetch + ''
       cd $out
@@ -16,7 +16,7 @@ pkgs: pkgs.buildGoModule rec {
   });
 
   ldflags = [ "-s" "-w" ];
-  vendorHash = "sha256-OIvCNOH9HvSP06JpfaMYXwf3teHhTw/HOeHrhEB7tNQ=";
+  vendorHash = "sha256-8PnrhLhFOrhVnP2uhVAQYCGfxRBzMYOGSJ7Vvvkrp2k=";
 
   postInstall =
     let inherit (pkgs.lib) getExe pipe; in
