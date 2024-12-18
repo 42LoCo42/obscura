@@ -18,8 +18,8 @@ if [ -z "$cache" ]; then
 	exit 1
 fi
 
-db="$cache/var/ncps/db/db.sqlite"
+db="$cache/db.sqlite"
 mkdir -p "$(dirname "$db")"
 dbmate --url "sqlite:$db" --migrations-dir "@src@/db/migrations" up
 
-exec "@bin@" "${args[@]}"
+exec "@bin@" "${args[@]}" --cache-database-url "sqlite:$db"
