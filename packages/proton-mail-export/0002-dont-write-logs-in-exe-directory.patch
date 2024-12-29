@@ -1,0 +1,44 @@
+From 95ee52657a7b0861d6ce830a57089625f5ee33f1 Mon Sep 17 00:00:00 2001
+From: Leon Schumacher <leonsch@protonmail.com>
+Date: Sun, 29 Dec 2024 19:28:56 +0100
+Subject: [PATCH 2/2] dont write logs in exe directory
+
+---
+ cli/bin/main.cpp | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/cli/bin/main.cpp b/cli/bin/main.cpp
+index 4bd6124..17d74f2 100644
+--- a/cli/bin/main.cpp
++++ b/cli/bin/main.cpp
+@@ -261,19 +261,7 @@ public:
+ };
+ 
+ std::filesystem::path getOutputPath() {
+-#if !defined(__APPLE__)
+-    std::filesystem::path execPath;
+-    try {
+-        execPath = etcpp::getExecutableDir();
+-    } catch (const std::exception& e) {
+-        std::cerr << "Failed to get executable directory: " << e.what() << std::endl;
+-        std::cerr << "Will user working directory instead" << std::endl;
+-    }
+-
+-    return execPath;
+-#else
+-    return getMacOSDownloadsDir() / "proton-mail-export-cli";
+-#endif
++    return std::filesystem::current_path();
+ }
+ 
+ 
+@@ -745,4 +733,4 @@ int main(int argc, const char** argv) {
+         return EXIT_FAILURE;
+     }
+     return EXIT_SUCCESS;
+-}
+\ No newline at end of file
++}
+-- 
+2.47.0
+
