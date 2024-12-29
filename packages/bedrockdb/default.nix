@@ -1,4 +1,4 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs: pkgs.gcc13Stdenv.mkDerivation rec {
   pname = "bedrockdb";
   version = "2023-10-25";
 
