@@ -55,7 +55,7 @@ A personal collection of unusual things
 |`sae_pk_gen`|`72e2975`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|`master`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|
-|`sillysecrets`|`1.3.0`|A very silly secrets manager|https://github.com/42LoCo42/sillysecrets|
+|`sillysecrets`|`1.4.0`|A very silly secrets manager|https://github.com/42LoCo42/sillysecrets|
 |`souk`|`66608041`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|`bf68fa2`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|`0.6.0`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
