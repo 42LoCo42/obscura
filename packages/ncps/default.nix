@@ -1,12 +1,12 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "ncps";
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = (pkgs.fetchFromGitHub {
     owner = "kalbasit";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-D32U5vCmRaHSdRUH7X8bLPQXaRj/rWZtdlJgVBdWhZU=";
+    hash = "sha256-91xSRjZuWb5RlM/fJLB6c3QtvD1aiunPygrP5I2lRDI=";
   }).overrideAttrs (old: {
     postFetch = old.postFetch + ''
       cd $out
