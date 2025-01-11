@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 55 Packages
+## 56 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -31,6 +31,7 @@ A personal collection of unusual things
 |`hybrid-bar`|`e5d7dbc`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
 |`jade`|`2a11849`|Pug template engine for Go|https://github.com/Joker/jade|
+|`knock`|`0.8`|A port-knocking daemon|https://github.com/jvinet/knock|
 |`lanzaboote`|`0.4.1`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
 |`libhpke`|`4eef470`|HPKE implementation in C|https://github.com/oktaysm/hpke|
