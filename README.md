@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 56 Packages
+## 57 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -39,6 +39,7 @@ A personal collection of unusual things
 |`lone`|`fca96b0`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`lz4json`|`c44c510`|C decompress tool for mozilla lz4json format|https://github.com/andikleen/lz4json|
 |`m9u`|`36493de`|A 9P music server|https://sqweek.net/code/m9u/|
+|`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`modest`|`0.0.6-devel`|A fast HTML renderer implemented as a pure C99 library with no outside dependencies|https://github.com/lexborisov/Modest|
 |`msp-cgt`|`21.6.1`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
