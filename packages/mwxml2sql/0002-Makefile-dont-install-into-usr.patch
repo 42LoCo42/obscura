@@ -1,0 +1,27 @@
+From 38f5a9e8815e028788e664480e24bcf7c939b78c Mon Sep 17 00:00:00 2001
+From: Leon Schumacher <leonsch@protonmail.com>
+Date: Fri, 17 Jan 2025 10:52:38 +0100
+Subject: [PATCH 2/2] Makefile: dont install into /usr
+
+---
+ xmlfileutils/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/xmlfileutils/Makefile b/xmlfileutils/Makefile
+index 8b11209..e394d5d 100644
+--- a/xmlfileutils/Makefile
++++ b/xmlfileutils/Makefile
+@@ -10,8 +10,8 @@ NAME_MWXML2SQL = "convert MediaWiki XML dump file to MySQL INSERT commands"
+ NAME_SQL2TXT   = "convert MySQL INSERT commands to tab-separated data"
+ NAME_SQLFILTER = "filter MySQL INSERT commands with fields matching values"
+ 
+-BINDIR         = $(DESTDIR)$(PREFIX)/usr/bin/
+-MANDIR         = $(DESTDIR)$(PREFIX)/usr/share/man/man1/
++BINDIR         = $(DESTDIR)$(PREFIX)/bin/
++MANDIR         = $(DESTDIR)$(PREFIX)/share/man/man1/
+ 
+ CC=gcc
+ LDFLAGS=
+-- 
+2.47.0
+

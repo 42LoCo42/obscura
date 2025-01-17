@@ -1,0 +1,50 @@
+From a58b67c8eeabc7ced0f41129ed41bbf48ceea804 Mon Sep 17 00:00:00 2001
+From: Leon Schumacher <leonsch@protonmail.com>
+Date: Fri, 17 Jan 2025 10:47:13 +0100
+Subject: [PATCH 1/2] Makefile: remove hardcoded tool paths
+
+---
+ xmlfileutils/Makefile | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
+
+diff --git a/xmlfileutils/Makefile b/xmlfileutils/Makefile
+index 7f0f770..8b11209 100644
+--- a/xmlfileutils/Makefile
++++ b/xmlfileutils/Makefile
+@@ -13,10 +13,6 @@ NAME_SQLFILTER = "filter MySQL INSERT commands with fields matching values"
+ BINDIR         = $(DESTDIR)$(PREFIX)/usr/bin/
+ MANDIR         = $(DESTDIR)$(PREFIX)/usr/share/man/man1/
+ 
+-GZIP           = /bin/gzip
+-HELP2MAN       = /usr/bin/help2man
+-SHELL          = /bin/sh
+-
+ CC=gcc
+ LDFLAGS=
+ #LDFLAGS= -g
+@@ -41,16 +37,16 @@ sqlfilter: sqlfilter.o filebuffers.o sqlutils.o
+ manpages: mwxml2sql.1.gz sql2txt.1.gz sqlfilter.1.gz
+ 
+ mwxml2sql.1.gz: mwxml2sql
+-	$(HELP2MAN) --section 1 --no-info --name $(NAME_MWXML2SQL) \
+-	            --no-discard-stderr ./mwxml2sql | $(GZIP) > mwxml2sql.1.gz
++	help2man --section 1 --no-info --name $(NAME_MWXML2SQL) \
++	            --no-discard-stderr ./mwxml2sql | gzip > mwxml2sql.1.gz
+ 
+ sql2txt.1.gz: sql2txt
+-	$(HELP2MAN) --section 1 --no-info --name $(NAME_SQL2TXT) \
+-	            --no-discard-stderr ./sql2txt | $(GZIP) > sql2txt.1.gz
++	help2man --section 1 --no-info --name $(NAME_SQL2TXT) \
++	            --no-discard-stderr ./sql2txt | gzip > sql2txt.1.gz
+ 
+ sqlfilter.1.gz: sqlfilter
+-	$(HELP2MAN) --section 1 --no-info --name $(NAME_SQLFILTER) \
+-	            --no-discard-stderr ./sqlfilter | $(GZIP) > sqlfilter.1.gz
++	help2man --section 1 --no-info --name $(NAME_SQLFILTER) \
++	            --no-discard-stderr ./sqlfilter | gzip > sqlfilter.1.gz
+ 
+ install: mwxml2sql sql2txt sqlfilter
+ 	install --directory                      $(BINDIR)
+-- 
+2.47.0
+
