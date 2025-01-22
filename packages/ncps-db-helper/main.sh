@@ -20,6 +20,6 @@ fi
 
 db="$cache/db.sqlite"
 mkdir -p "$(dirname "$db")"
-dbmate --url "sqlite:$db" --migrations-dir "@src@/db/migrations" up
+dbmate --url "sqlite:$db" --migrations-dir "@mgr@" up
 
 exec "@bin@" "${args[@]}" --cache-database-url "sqlite:$db"

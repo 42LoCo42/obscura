@@ -15,7 +15,7 @@ A personal collection of unusual things
 |`SDL3`|`3.1.6`|Simple Directmedia Layer|https://libsdl.org|
 |`agregore`|`2.4.0`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
-|`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
+|`avh`|``|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`chronometer`|`1`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
@@ -46,11 +46,11 @@ A personal collection of unusual things
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`my-htop`|`5d778ea`|htop with sorting in tree mode fixed|https://htop.dev|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
-|`ncps`|`0.1.1`|Nix binary cache proxy service -- with local caching and signing|https://github.com/kalbasit/ncps|
+|`ncps-db-helper`|``|Wrap ncps with automatic database creation||
 |`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
-|`pinlist`|`n/a`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
+|`pinlist`|``|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`prettier-plugin-go-template`|`d91c82e`|Fixes prettier formatting for go templates|https://github.com/NiklasPor/prettier-plugin-go-template|
 |`proton-mail-export`|`1.0.4`|Proton Mail Export allows you to export your emails as eml files|https://github.com/ProtonMail/proton-mail-export|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
