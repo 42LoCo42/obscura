@@ -5,14 +5,13 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 58 Packages
+## 57 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
 |`9mount`|`1.3`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
 |`CatgirlDownloader`|`0.2.7`|A GTK4 application that downloads images of catgirls based on https://nekos.moe|https://github.com/NyarchLinux/CatgirlDownloader|
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
-|`SDL3`|`3.1.6`|Simple Directmedia Layer|https://libsdl.org|
 |`agregore`|`2.4.0`|A minimal browser for the distributed web|https://github.com/AgregoreWeb/agregore-browser|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avh`|``|AvH video storage|https://github.com/42LoCo42/avh|
