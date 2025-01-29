@@ -31,7 +31,7 @@ A personal collection of unusual things
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
 |`jade`|`2a11849`|Pug template engine for Go|https://github.com/Joker/jade|
 |`knock`|`0.8`|A port-knocking daemon|https://github.com/jvinet/knock|
-|`lanzaboote`|`0.4.1`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
+|`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
 |`libhpke`|`4eef470`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`libhydrogen`|`2024-05-09`|A lightweight, secure, easy-to-use crypto library suitable for constrained environments|https://libhydrogen.org|

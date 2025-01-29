@@ -1,7 +1,7 @@
 pkgs:
-let src = builtins.getFlake "github:nix-community/lanzaboote/b627ccd97d0159214cee5c7db1412b75e4be6086"; in
+let src = builtins.getFlake "github:nix-community/lanzaboote/a65905a09e2c43ff63be8c0e86a93712361f871e"; in
 (pkgs.linkFarmFromDrvs "lanzaboote" (with src.packages.${pkgs.system}; [ stub tool ])).overrideAttrs {
-  version = "0.4.1";
+  version = "0.4.2";
   meta = {
     description = "Secure Boot for NixOS";
     homepage = "https://github.com/nix-community/lanzaboote";
