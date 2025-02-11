@@ -23,6 +23,7 @@ jobs:
         name: Generate Nix Matrix
         run: |
           set -Eeu
+          export XDG_CACHE_HOME="$HOME/.cache"
           matrix="$(nix run .#matrix)"
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
 
