@@ -16,7 +16,10 @@
           in
           {
             name = "${repo}/${rev}";
-            path = pkgs.fetchFromGitHub { inherit owner repo rev hash; };
+            path = pkgs.fetchFromGitHub {
+              inherit owner repo rev hash;
+              name = repo;
+            };
           }))) [
           # put typst packages here e.g. "touying-typ/touying/0.5.5/<hash>"
           # if last part is missing, the hash will be calculated
