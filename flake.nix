@@ -126,9 +126,19 @@
         name = "matrix";
         runtimeInputs = with pkgs; [ curl jq parallel ];
         text = ''
+          getnar() {
+            { nix eval --quiet --raw ".#$1" 2>&1 1>&3 3>&- \
+            | grep -Ev "warning|ignored"; } 3>&1 1>&2 | cut -b 12-43
+          }
+          export -f getnar
+
           check() {
             read -r attr os <<< "$1"
-            nar="$(nix eval --raw ".#$attr" | cut -b 12-43)"
+            nar="$(getnar "$attr")"
+            if [ -z "$nar" ]; then
+              echo "FATAL: empty NAR for '$attr'" >&2
+              exit 1
+            fi
 
             if curl -fs "https://attic.eleonora.gay/default/$nar.narinfo" > /dev/null; then
               state="[1;32mCACHE[m"
@@ -138,13 +148,13 @@
                 --args "$attr" "$os"
             fi
 
-            echo "[$state] $nar $attr" >&3
+            echo "[$state] $nar $attr" >&2
           }
           export -f check
 
           < ${rawMatrix}                             \
             jq -r '.include[] | "\(.attr) \(.os[])"' \
-          | parallel check 3>&2 2>/dev/null          \
+          | parallel check                           \
           | jq -cs 'if . == [] then empty else {"include": .} end'
         '';
       };
