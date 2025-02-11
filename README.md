@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 57 Packages
+## 58 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -35,6 +35,7 @@ A personal collection of unusual things
 |`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
 |`libhpke`|`4eef470`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`libhydrogen`|`2024-05-09`|A lightweight, secure, easy-to-use crypto library suitable for constrained environments|https://libhydrogen.org|
+|`liboprf`|`0.6.1-unstable-2025-01-25`|library providing OPRF and Threshold OPRF based on libsodium|https://github.com/stef/liboprf|
 |`lone`|`fca96b0`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`lz4json`|`c44c510`|C decompress tool for mozilla lz4json format|https://github.com/andikleen/lz4json|
 |`m9u`|`36493de`|A 9P music server|https://sqweek.net/code/m9u/|
