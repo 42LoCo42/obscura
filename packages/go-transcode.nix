@@ -10,7 +10,7 @@ pkgs: pkgs.buildGoModule rec {
   };
   vendorHash = "sha256-y1qLY3OM64yeTCdGnTaD2nkgkqunY5V61WfsqvzZptg=";
 
-  CGO_ENABLED = "0";
+  env.CGO_ENABLED = "0";
   ldflags = [ "-s" "-w" ];
   stripAllList = [ "bin" ];
 

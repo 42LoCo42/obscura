@@ -18,7 +18,7 @@ pkgs: pkgs.buildGoModule rec {
 
   vendorHash = "sha256-2FYYKZu80yXaaIrn1kH94llzL3NrjW6VgqmDnVnEF6Q=";
 
-  CGO_ENABLED = "0";
+  env.CGO_ENABLED = "0";
   ldflags = [ "-s" "-w" ];
 
   meta = {

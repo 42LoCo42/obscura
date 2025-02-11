@@ -9,7 +9,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   };
 
   patches = [
+    # remove Makefile-dspecified (/usr)/bin/* paths for common tools
     ./0001-Makefile-remove-hardcoded-tool-paths.patch
+
+    # remove forced installation into /usr
     ./0002-Makefile-dont-install-into-usr.patch
   ];
 

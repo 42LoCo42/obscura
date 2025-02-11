@@ -20,7 +20,11 @@ pkgs.stdenv.mkDerivation {
   inherit pname version src;
 
   patches = [
+    # vcpkg is useless when we can just provide dependencies ourselves
     ./0001-cmake-disable-vcpkg.patch
+
+    # for some reason, the tool tries to write logs to the directory
+    # of its own executable, which on Nix is obviously readonly
     ./0002-dont-write-logs-in-exe-directory.patch
   ];
 

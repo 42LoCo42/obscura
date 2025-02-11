@@ -15,7 +15,7 @@ pkgs: pkgs.buildGoModule rec {
     "./plugin"
   ];
 
-  CGO_ENABLED = "0";
+  env.CGO_ENABLED = "0";
   ldflags = [ "-s" "-w" ];
   stripAllList = [ "bin" ];
 
