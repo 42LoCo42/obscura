@@ -37,7 +37,7 @@ pkgs.stdenv.mkDerivation rec {
   ];
 
   postUnpack = ''
-    rsync -a ${pkgs-fixed.edk2}/ ${pkgs.edk2.src}/ edk2/
+    rsync -a ${pkgs-fixed.edk2}/ ${pkgs-fixed.edk2.src}/ edk2/
   '';
 
   enableParallelBuilding = true;
