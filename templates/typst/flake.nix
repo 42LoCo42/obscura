@@ -3,42 +3,56 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        inherit (builtins) elemAt length;
-        inherit (pkgs.lib) flip splitString;
+        inherit (pkgs.lib) flatten flip hasPrefix mapAttrsToList pipe;
+        mal = mapAttrsToList;
 
-        deps = (xs: pkgs.linkFarm "deps" (flip map xs (x:
-          let
-            parts = splitString "/" x;
-            owner = elemAt parts 0;
-            repo = elemAt parts 1;
-            rev = elemAt parts 2;
-            hash = if length parts < 4 then "" else elemAt parts 3;
-          in
-          {
-            name = "${repo}/${rev}";
-            path = pkgs.fetchFromGitHub {
-              inherit owner repo rev hash;
-              name = repo;
+        deps = (flip pipe [
+          (mal (namespace: mal (pname: mal (version: x: {
+            name = "${namespace}/${pname}/${version}";
+            path = if hasPrefix "/" x then x else
+            pkgs.fetchzip {
+              url = "https://packages.typst.org/${namespace}/${pname}-${version}.tar.gz";
+              stripRoot = false;
+              hash = x;
             };
-          }))) [
-          # put typst packages here e.g. "touying-typ/touying/0.5.5/<hash>"
-          # if last part is missing, the hash will be calculated
-        ];
+          }))))
+          flatten
+          (pkgs.linkFarm "deps")
+        ]) {
+          # put (namespaced!) packages here
+
+          # example - using the https://packages.typst.org registry
+          preview = {
+            touying."0.5.5" = "sha256-4hVqQUBo7HKfMVV6GC7zcTY0shxPTPN04BnkD5LxKnE=";
+          };
+
+          # example - using a custom package
+          local = {
+            iu."1.0.0" = (pkgs.fetchFromGitHub {
+              owner = "42LoCo42";
+              repo = "typkg";
+              rev = "376325f4c8bb9d88456b100256d907b0bea9b1c6";
+              hash = "sha256-RVWuUiZlM3orswLPg3qOTGZNLOXAAA8l8lJryIy9PNE=";
+            }) + /iu/1.0.0;
+          };
+        };
       in
-      {
-        packages.default = pkgs.stdenv.mkDerivation {
-          name = "typst-compile";
-          src = ./.;
-
-          nativeBuildInputs = with pkgs; [ typst ];
-
-          buildPhase = ''
-            mkdir packages $out
-            ln -s ${deps} packages/preview
-            export TYPST_PACKAGE_CACHE_PATH="$PWD/packages"
-
-            for i in ./*.typ; do typst compile "$i" "$out/''${i%typ}pdf"; done
+      rec {
+        packages.default = pkgs.writeShellApplication {
+          name = "pdf";
+          runtimeInputs = with pkgs; [ typst ];
+          text = ''
+            for i in ./*.typ; do
+              typst compile "$i" "''${i%typ}pdf"
+            done
           '';
+        };
+
+        devShells.default = pkgs.mkShell {
+          TYPST_PACKAGE_CACHE_PATH = deps;
+          shellHook = "unset SOURCE_DATE_EPOCH";
+
+          packages = with pkgs; [ typst packages.default ];
         };
       });
 }
