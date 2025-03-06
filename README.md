@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 62 Packages
+## 63 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -62,6 +62,7 @@ A personal collection of unusual things
 |`samloader`|`master`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|
 |`sillysecrets`|`1.4.0`|A very silly secrets manager|https://github.com/42LoCo42/sillysecrets|
+|`socket-activate`|`0.1-unstable-2020-07-16`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/cherti/socket-activate|
 |`souk`|`66608041`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|`bf68fa2`|C implementation of statsd|https://github.com/statsite/statsite|
 |`steel`|`0.6.0`|An embedded scheme interpreter in Rust|https://github.com/mattwparas/steel|
