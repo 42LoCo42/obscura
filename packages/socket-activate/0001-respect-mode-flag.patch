@@ -1,0 +1,48 @@
+From 266d41e9844ef9e43b2a451b0c6f176c63382435 Mon Sep 17 00:00:00 2001
+From: Leon Schumacher <leonsch@protonmail.com>
+Date: Thu, 6 Mar 2025 13:21:36 +0100
+Subject: [PATCH 1/2] respect mode flag
+
+---
+ socket-activate.go | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
+
+diff --git a/socket-activate.go b/socket-activate.go
+index eae0c29..59b4dd3 100644
+--- a/socket-activate.go
++++ b/socket-activate.go
+@@ -13,7 +13,7 @@ import (
+ )
+ 
+ var (
+-	mode               = flag.String("m", "tcp", "mode, available: tcp")
++	mode               = flag.String("m", "tcp", "mode, available: tcp, unix")
+ 	targetUnit         = flag.String("u", "null.service", "corresponding unit")
+ 	destinationAddress = flag.String("a", "127.0.0.1:80", "destination address")
+ 	timeout            = flag.Duration("t", 0, "inactivity timeout after which to stop the unit again")
+@@ -91,13 +91,6 @@ func startTCPProxy(activityMonitor chan<- bool) {
+ 	}
+ 	defer l.Close()
+ 
+-	var sock_type string
+-	if _, err := os.Stat(*destinationAddress); err != nil {
+-		sock_type = "unix"
+-	} else {
+-		sock_type = "tcp"
+-	}
+-
+ 	for {
+ 		activityMonitor <- true
+ 		connOutwards, err := l.Accept()
+@@ -109,7 +102,7 @@ func startTCPProxy(activityMonitor chan<- bool) {
+ 		var connBackend net.Conn
+ 		var tryCount uint
+ 		for tryCount = 0; tryCount < *retries; tryCount++ {
+-			connBackend, err = net.Dial(sock_type, *destinationAddress)
++			connBackend, err = net.Dial(*mode, *destinationAddress)
+ 			if err != nil {
+ 				fmt.Println(err)
+ 				time.Sleep(100 * time.Millisecond)
+-- 
+2.48.1
+
