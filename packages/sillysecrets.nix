@@ -1,8 +1,8 @@
 pkgs:
-let src = builtins.getFlake "github:42loco42/sillysecrets/38606ed36836f4c277cb3a2f539237b3d35f6b97"; in
+let src = builtins.getFlake "github:42loco42/sillysecrets/4f7701a66a3a46343e342e47cdab76178dd604ec"; in
 src.packages.${pkgs.system}.default.overrideAttrs (old: {
   meta = old.meta // {
-    description = "A very silly secrets manager";
+    description = "The silliest secret manager! :3";
     homepage = "https://github.com/42LoCo42/sillysecrets";
   };
 })
