@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 63 Packages
+## 64 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -26,6 +26,7 @@ A personal collection of unusual things
 |`foot-transparent`|`2024-03-14-unstable`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`github-linguist`|`8.0.1`|Tool used by GitHub to detect repository languages|https://github.com/github-linguist/linguist|
+|`glfw3-minecraft-extra`|`3.4`|A GLFW Fork that runs on Wayland Natively over X11 with more compatible features just to play Minecraft|https://github.com/BoyOrigin/glfw-wayland|
 |`go-transcode`|`2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
