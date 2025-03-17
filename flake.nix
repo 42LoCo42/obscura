@@ -103,8 +103,12 @@
       ##########################################
 
       readme = pipe self.packages.${pkgs.system} [
-        (mapAttrsToList (name: p:
-          "|`${name}`|`${p.version or ""}`|${p.meta.description or ""}|${p.meta.homepage or ""}|"))
+        (mapAttrsToList (name: p: "|" + builtins.concatStringsSep "|" [
+          "`${name}`"
+          "`${p.version or "n/a"}`"
+          "${p.meta.description or "n/a"}"
+          "${p.meta.homepage or "n/a"}"
+        ] + "|"))
         (x: pipe x [
           (builtins.concatStringsSep "\n")
           (s: pipe ./README.md.in [

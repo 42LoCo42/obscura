@@ -13,7 +13,7 @@ A personal collection of unusual things
 |`CatgirlDownloader`|`0.2.7`|A GTK4 application that downloads images of catgirls based on https://nekos.moe|https://github.com/NyarchLinux/CatgirlDownloader|
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
-|`avh`|``|AvH video storage|https://github.com/42LoCo42/avh|
+|`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
 |`caddyfile-language-server`|`0.4.0`|Caddyfile language server|https://github.com/caddyserver/vscode-caddyfile|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
@@ -49,11 +49,11 @@ A personal collection of unusual things
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
-|`ncps-db-helper`|``|Wrap ncps with automatic database creation||
+|`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
-|`pinlist`|``|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
+|`pinlist`|`n/a`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`proton-mail-export`|`1.0.4`|Proton Mail Export allows you to export your emails as eml files|https://github.com/ProtonMail/proton-mail-export|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|`2.6.8`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
