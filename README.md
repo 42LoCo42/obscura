@@ -5,13 +5,14 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 64 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
 |`9mount`|`1.3`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
 |`CatgirlDownloader`|`0.2.7`|A GTK4 application that downloads images of catgirls based on https://nekos.moe|https://github.com/NyarchLinux/CatgirlDownloader|
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
+|`anubis`|`0-unstable-2025-03-18`|Weighs the soul of incoming HTTP requests using proof-of-work to stop AI crawlers|https://github.com/TecharoHQ/anubis|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
@@ -22,7 +23,7 @@ A personal collection of unusual things
 |`devzat`|`2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`e2eirc`|`0e3198a`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`ferroxide`|`0.4.0-unstable-2025-02-12`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
-|`flameshot-grim`|`12.1.0-unstable-2025-02-12`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
+|`flameshot-grim`|`12.1.0-unstable-2025-03-10`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
 |`foot-transparent`|`2024-03-14-unstable`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`github-linguist`|`8.0.1`|Tool used by GitHub to detect repository languages|https://github.com/github-linguist/linguist|
