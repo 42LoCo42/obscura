@@ -1,17 +1,16 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "anubis";
-  version = "0-unstable-2025-03-18";
+  version = "1.12.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "TecharoHQ";
     repo = pname;
-    rev = "726221c5c62391d2c4d9792532e23b328d14fe5a";
-    hash = "sha256-CPMnv7N4eNn1Ol0ZDv2vKRzn7hB4rUT7Chr5MeuWsCY=";
+    rev = "v${version}";
+    hash = "sha256-GNdDUVsJG4/hfixHXP9KgRHJ51NerjpU2s/9SBcKq4I=";
   };
 
-  subPackages = [ "cmd/anubis" ];
-
   ldflags = [ "-s" "-w" ];
+  subPackages = [ "cmd/anubis" ];
   vendorHash = "sha256-jw/iDhOYxx82sO3o9G5c6HfSpm1hAl6f3y5Y7vbfA7U=";
 
   meta = {
