@@ -1,12 +1,12 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "anubis";
-  version = "1.12.1";
+  version = "1.13.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "TecharoHQ";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-GNdDUVsJG4/hfixHXP9KgRHJ51NerjpU2s/9SBcKq4I=";
+    hash = "sha256-Wx/twf8rObOohuM6x0vz8O578JpaGk30r9ZZH1LNgvU=";
   };
 
   ldflags = [ "-s" "-w" ];
