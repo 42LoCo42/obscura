@@ -12,7 +12,7 @@ A personal collection of unusual things
 |`9mount`|`1.3`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
 |`CatgirlDownloader`|`0.2.7`|A GTK4 application that downloads images of catgirls based on https://nekos.moe|https://github.com/NyarchLinux/CatgirlDownloader|
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
-|`anubis`|`1.13.0`|Weighs the soul of incoming HTTP requests using proof-of-work to stop AI crawlers|https://github.com/TecharoHQ/anubis|
+|`anubis`|`1.14.2`|Weighs the soul of incoming HTTP requests using proof-of-work to stop AI crawlers|https://github.com/TecharoHQ/anubis|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
