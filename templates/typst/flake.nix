@@ -31,28 +31,31 @@
             iu."1.0.0" = (pkgs.fetchFromGitHub {
               owner = "42LoCo42";
               repo = "typkg";
-              rev = "376325f4c8bb9d88456b100256d907b0bea9b1c6";
-              hash = "sha256-RVWuUiZlM3orswLPg3qOTGZNLOXAAA8l8lJryIy9PNE=";
+              rev = "6d10f256eaa0624a9c149f16bc00d7ce5c0840d8";
+              hash = "sha256-3MLXOjxaBxubqrxIkib6Sf4Iud8zctPU6OT5jc4cFTw=";
             }) + /iu/1.0.0;
           };
         };
       in
-      rec {
-        packages.default = pkgs.writeShellApplication {
+      {
+        packages.default = pkgs.stdenv.mkDerivation {
           name = "pdf";
-          runtimeInputs = with pkgs; [ typst ];
-          text = ''
+          src = ./.;
+
+          SOURCE_DATE_EPOCH = 1742943600 + 3600; # 2025-03-26
+          TYPST_PACKAGE_CACHE_PATH = deps;
+          TYPST_FONT_PATHS = builtins.concatStringsSep ":" (with pkgs; [
+            liberation_ttf
+          ]);
+
+          nativeBuildInputs = with pkgs; [ typst ];
+
+          installPhase = ''
+            mkdir $out
             for i in ./*.typ; do
-              typst compile "$i" "''${i%typ}pdf"
+              typst compile "$i" "$out/''${i%typ}pdf"
             done
           '';
-        };
-
-        devShells.default = pkgs.mkShell {
-          TYPST_PACKAGE_CACHE_PATH = deps;
-          shellHook = "unset SOURCE_DATE_EPOCH";
-
-          packages = with pkgs; [ typst packages.default ];
         };
       });
 }
