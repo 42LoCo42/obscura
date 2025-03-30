@@ -12,7 +12,6 @@ A personal collection of unusual things
 |`9mount`|`1.3`|A set of SUID tools for mounting 9p filesystems via v9fs|https://sqweek.net/code/9mount|
 |`CatgirlDownloader`|`0.2.7`|A GTK4 application that downloads images of catgirls based on https://nekos.moe|https://github.com/NyarchLinux/CatgirlDownloader|
 |`ImageColorizer`|`2021-10-31`|Make any wallpaper fit any terminal colorscheme|https://github.com/kiddae/ImageColorizer|
-|`anubis`|`1.14.2`|Weighs the soul of incoming HTTP requests using proof-of-work to stop AI crawlers|https://github.com/TecharoHQ/anubis|
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avh`|`n/a`|AvH video storage|https://github.com/42LoCo42/avh|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
@@ -33,6 +32,7 @@ A personal collection of unusual things
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
 |`hybrid-bar`|`e5d7dbc`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
+|`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`jade`|`2a11849`|Pug template engine for Go|https://github.com/Joker/jade|
 |`knock`|`0.8`|A port-knocking daemon|https://github.com/jvinet/knock|
 |`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
