@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 65 Packages
+## 64 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -72,6 +72,5 @@ A personal collection of unusual things
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`vwifi`|`6.3`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`waybar-ipfix`|`0.12.0`|Highly customizable Wayland bar for Sway and Wlroots based compositors|https://github.com/alexays/waybar|
-|`wayland-shell`|`0`|Small-scale replacement of the GNOME Shell|https://github.com/nilsherzig/wayland-shell|
 |`zfullfs`|`1.0.1`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
 
