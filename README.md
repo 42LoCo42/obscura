@@ -35,7 +35,7 @@ A personal collection of unusual things
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`jade`|`2a11849`|Pug template engine for Go|https://github.com/Joker/jade|
 |`knock`|`0.8`|A port-knocking daemon|https://github.com/jvinet/knock|
-|`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
+|`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/42LoCo42/lanzaboote|
 |`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
 |`libhpke`|`4eef470`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`libhydrogen`|`2024-05-09`|A lightweight, secure, easy-to-use crypto library suitable for constrained environments|https://libhydrogen.org|
