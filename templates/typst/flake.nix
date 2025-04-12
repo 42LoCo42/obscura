@@ -31,8 +31,8 @@
             iu."1.0.0" = (pkgs.fetchFromGitHub {
               owner = "42LoCo42";
               repo = "typkg";
-              rev = "6d10f256eaa0624a9c149f16bc00d7ce5c0840d8";
-              hash = "sha256-3MLXOjxaBxubqrxIkib6Sf4Iud8zctPU6OT5jc4cFTw=";
+              rev = "10ef245354ed02b0e04b88d863d423e608aaf795";
+              hash = "sha256-zbAOZf/HuRjTRgKpQD1oLsqXToVPl3A6ni3P/5oEIlo=";
             }) + /iu/1.0.0;
           };
         };
