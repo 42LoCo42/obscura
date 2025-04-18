@@ -2,9 +2,7 @@
   description = "A personal collection of unusual things";
 
   inputs = {
-    # TODO wait for https://nixpk.gs/pr-tracker.html?pr=398268
-    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/bc27118dc756edc5e2633f7a787878ae98b6b4cb";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nix-github-actions.url = "github:nix-community/nix-github-actions";
     nix-github-actions.inputs.nixpkgs.follows = "nixpkgs";
