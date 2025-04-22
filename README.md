@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 64 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -60,6 +60,7 @@ A personal collection of unusual things
 |`redis-json`|`2.6.8`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
 |`rgssad`|`0.11`|Provide an interface to RGSS (ruby game scripting system) archive files|https://metacpan.org/dist/Archive-Rgssad|
 |`rom-parser`|`2017-03-31`|Parse & change GPU VBIOS files|https://github.com/awilliam/rom-parser|
+|`rustdesk-api`|`2.6.15`|Custom Rustdesk Api Server|https://github.com/lejianwen/rustdesk-api|
 |`sae_pk_gen`|`72e2975`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|`master`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|
