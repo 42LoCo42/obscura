@@ -24,6 +24,7 @@ jobs:
           nix flake update
           new="$(sha256sum flake.lock)"
           if [ "$old" != "$new" ]; then
+            nix run ".#update"
             echo "trigger-build=true" >> $GITHUB_OUTPUT
           fi
 

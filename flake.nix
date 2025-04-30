@@ -3,15 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    nix-github-actions.url = "github:nix-community/nix-github-actions";
-    nix-github-actions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nix-github-actions }:
+  outputs = { self, nixpkgs }:
     let
       inherit (nixpkgs.lib)
-        getAttrs
+        concatLines
+        getExe
         mapAttrs'
         mapAttrsToList
         pipe
@@ -50,19 +48,35 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
 
-      rawMatrix = pipe self.githubActions.matrix [
-        builtins.toJSON
-        (pkgs.writeText "rawMatrix")
+      readme = pipe self.packages.${system} [
+        (mapAttrsToList (k: v: builtins.replaceStrings [ "\n" ] [ " " ]
+          ("|" + builtins.concatStringsSep "|" [
+            "`${k}`"
+            "`${v.version or "n/a"}`"
+            "${v.meta.description or "n/a"}"
+            "${v.meta.homepage or "n/a"}"
+          ] + "|")))
+        (rows: pipe rows [
+          concatLines
+          (body: pipe ./README.md.in [
+            builtins.readFile
+            (builtins.replaceStrings
+              [ "@NUM@" ] [ (toString (builtins.length rows)) ])
+            (head: head + body)
+          ])
+        ])
+      ];
+
+      hashes = pipe self.packages.${system} [
+        (mapAttrsToList (k: v: builtins.concatStringsSep " " [
+          ''packages.${system}."${k}"''
+          (builtins.substring 11 32 v.outPath)
+        ]))
+        concatLines
+        builtins.unsafeDiscardStringContext
       ];
     in
     allPackages // {
-      # githubActions = nix-github-actions.lib.mkGithubMatrix {
-      #   checks = merge [
-      #     (getAttrs [ system ] self.packages)
-      #     { ${system} = { inherit nvidia; }; }
-      #   ];
-      # };
-
       nixosModules."9mount" = import ./packages/9mount/module.nix {
         packages = self.packages;
       };
@@ -82,91 +96,45 @@
 
       ##########################################
 
-      readme = pipe self.packages.${pkgs.system} [
-        (mapAttrsToList (name: p:
-          builtins.replaceStrings [ "\n" ] [ " " ]
-            ("|" + builtins.concatStringsSep "|" [
-              "`${name}`"
-              "`${p.version or "n/a"}`"
-              "${p.meta.description or "n/a"}"
-              "${p.meta.homepage or "n/a"}"
-            ] + "|")))
-        (x: pipe x [
-          (builtins.concatStringsSep "\n")
-          (s: pipe ./README.md.in [
-            builtins.readFile
-            (builtins.replaceStrings
-              [ "@NUM@" ]
-              [ (toString (builtins.length x)) ])
-            (x: x + s + "\n")
-          ])
-          (s: pkgs.writeShellScriptBin "readme" ''
-            cat <<\EOF > README.md
-            ${s}
-            EOF
-          '')
-        ])
-      ];
+      inherit readme hashes;
 
-      matrix = pkgs.writeShellApplication {
-        name = "matrix";
-        runtimeInputs = with pkgs; [ curl jq parallel ];
-        text = ''
-          getnar() {
-            { nix eval --quiet --raw ".#$1" 2>&1 1>&3 3>&- \
-            | grep -Ev "warning|ignored"; } 3>&1 1>&2 | cut -b 12-43
-          }
-          export -f getnar
+      apps.${system} = (builtins.mapAttrs (_: x: {
+        type = "app";
+        program = getExe x;
+      })) rec {
+        default = update;
 
-          check() {
-            read -r attr os <<< "$1"
-            nar="$(getnar "$attr")"
-            if [ -z "$nar" ]; then
-              echo "FATAL: empty NAR for '$attr'" >&2
-              exit 1
-            fi
+        update = pkgs.writeShellApplication {
+          name = "update";
+          text = ''
+            cat ${pkgs.writeText "README.md" readme} > README.md
+            cat ${pkgs.writeText "hashes"    hashes} > hashes
+          '';
+        };
 
-            if curl -fs "https://attic.eleonora.gay/default/$nar.narinfo" > /dev/null; then
-              state="[1;32mCACHE[m"
-            else
-              state="[1;31mBUILD[m"
-              jq -cn '{attr: $ARGS.positional[0], os: $ARGS.positional[1]}' \
-                --args "$attr" "$os"
-            fi
+        hammer = pkgs.writeShellApplication {
+          name = "hammer";
+          runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
+          text = pipe self.packages.${pkgs.system} [
+            (mapAttrsToList (n: _: n))
+            (builtins.concatStringsSep "\n")
+            (x: ''
+              if [ -n "''${1-}" ]; then
+                parallel nix build -L --no-link '.#{}' << EOF
+              ${x}
+              EOF
+              fi
 
-            echo "[$state] $nar $attr" >&2
-          }
-          export -f check
-
-          < ${rawMatrix}                             \
-            jq -r '.include[] | "\(.attr) \(.os[])"' \
-          | parallel check                           \
-          | jq -cs 'if . == [] then empty else {"include": .} end'
-        '';
-      };
-
-      hammer = pkgs.writeShellApplication {
-        name = "hammer";
-        runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
-        text = pipe self.packages.${pkgs.system} [
-          (mapAttrsToList (n: _: n))
-          (builtins.concatStringsSep "\n")
-          (x: ''
-            if [ -n "''${1-}" ]; then
-              parallel nix build -L --no-link '.#{}' << EOF
-            ${x}
-            EOF
-            fi
-
-            xargs nixpkgs-hammer -f \
-              ${pkgs.writeText "default.nix" ''
-                _: (builtins.getFlake "git+file://''${builtins.getEnv "PWD"}").packages.''${builtins.currentSystem}
-              ''} \
-            << EOF |& grep -Ev '^error: build log' | less
-            ${x}
-            EOF
-          '')
-        ];
+              xargs nixpkgs-hammer -f \
+                ${pkgs.writeText "default.nix" ''
+                  _: (builtins.getFlake "git+file://''${builtins.getEnv "PWD"}").packages.''${builtins.currentSystem}
+                ''} \
+              << EOF |& grep -Ev '^error: build log' | less
+              ${x}
+              EOF
+            '')
+          ];
+        };
       };
     };
 }

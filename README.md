@@ -23,7 +23,7 @@ A personal collection of unusual things
 |`e2eirc`|`0e3198a`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`email-oauth2-proxy`|`2025-03-14`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
-|`flameshot-grim`|`12.1.0-unstable-2025-03-10`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
+|`flameshot-grim`|`12.1.0-unstable-2025-04-07`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
 |`foot-transparent`|`2024-03-14-unstable`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://github.com/NotAShelf/nyxpkgs/blob/main/pkgs/applications/terminal-emulators/foot-transparent/default.nix|
 |`fusepod`|`0.5.2`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`github-linguist`|`8.0.1`|Tool used by GitHub to detect repository languages|https://github.com/github-linguist/linguist|
@@ -76,4 +76,3 @@ A personal collection of unusual things
 |`vwifi`|`6.3`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`waybar-ipfix`|`0.12.0`|Highly customizable Wayland bar for Sway and Wlroots based compositors|https://github.com/alexays/waybar|
 |`zfullfs`|`1.0.1`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
-
