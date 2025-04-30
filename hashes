@@ -32,7 +32,7 @@ packages.x86_64-linux."libhydrogen" gpxg7wz15bqx982rcdds5hag4habzdxb
 packages.x86_64-linux."libopaque" l30c1kjaaaxx9sysfwyyw6m61krmhkip
 packages.x86_64-linux."liboprf" c0pclb0hbw8ii1k9gf3a710gbdfc091j
 packages.x86_64-linux."lix-fix-help" 1i0sg92xbbsja3inshc3nsk32s3k2k8c
-packages.x86_64-linux."lone" bfjwc705qwfasa57sgvd6am3bg4y8hyd
+packages.x86_64-linux."lone" 7h75jqjlig6m4a8f950r88wzzywdcb1i
 packages.x86_64-linux."m9u" nmrn3gz8i9rmnjaz4y3ylp6y6fkdx47b
 packages.x86_64-linux."mc-monitor" x3vayl41cjk69kq7d3kashpyy9f5mcsm
 packages.x86_64-linux."modest" 698q05hhchj1s2pcax76xqqimdfl8lsr
@@ -42,7 +42,7 @@ packages.x86_64-linux."mwxml2sql" cy81lz6akah211bcndamxx7l4l7hfb0v
 packages.x86_64-linux."nchess" i0mc1fx8bar80y5kssykgnlvgrq4f8gh
 packages.x86_64-linux."ncps-db-helper" 36i97nrc2galzadwq0la706bvx9hnwm8
 packages.x86_64-linux."nvflash" 1wpf76s31hz1w6960ab06s478ihiqcr0
-packages.x86_64-linux."nvidia" 6i581by7dh7559zlvrx2q7chp1pbfxji
+packages.x86_64-linux."nvidia" 7pg5mrkljjcfx0j0x8iz1yd8k7fl461y
 packages.x86_64-linux."pcr-oracle" 1pw4nwszmhj5ys2phnd5bjly9qpf46gs
 packages.x86_64-linux."photoview" 3jvzzng5cq4bkzldbpmm13wzsd3frkqi
 packages.x86_64-linux."pinlist" 5iz1lnaagbsxracgfwhah91336l1s8d1
@@ -63,5 +63,5 @@ packages.x86_64-linux."steel" xnqiaixns85w4696hn8ql6kx52jblcck
 packages.x86_64-linux."turnstile" zc8hswb2nv51ac1plfh4gnqgi100n5j1
 packages.x86_64-linux."vencloud" yhldv5bla703kj226lw2j5g5jjmfjwnq
 packages.x86_64-linux."vwifi" s6s7pvi8rzcmqz83mh9jbmrflb1c3kzn
-packages.x86_64-linux."waybar-ipfix" 64bjlrwvwpqbv6p60hv3zznwbjlx8x9d
+packages.x86_64-linux."waybar-ipfix" 2nlg7km2pkxm254p0jgh40r0g623p443
 packages.x86_64-linux."zfullfs" ds8hx0p2qjfjhzyy4y27yj6ih7g58k53
