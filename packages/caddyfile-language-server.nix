@@ -2,7 +2,7 @@ pkgs:
 let
   inherit (pkgs.lib) getExe;
 
-  node = pkgs.nodejs_18;
+  node = pkgs.nodejs;
   pnpm = pkgs.pnpm_8;
 
   pname = "caddyfile-language-server";
