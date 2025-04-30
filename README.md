@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 66 Packages
+## 67 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -53,6 +53,7 @@ A personal collection of unusual things
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`nvflash`|`5.833.0`|NVIDIA NVFlash is used to flash the graphics card BIOS on Ampere, Turing, Pascal and all older NVIDIA cards|https://www.techpowerup.com/download/nvidia-nvflash|
+|`nvidia`|`570.144`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`pinlist`|`n/a`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|

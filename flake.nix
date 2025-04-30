@@ -28,6 +28,7 @@
 
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [ (_: _: packages) ];
           };
 
@@ -47,28 +48,7 @@
       ##########################################
 
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      nvidia =
-        let
-          nvidia = pkgs.linuxPackages_zen.nvidiaPackages;
-          mkNvidia = nvidia: [
-            nvidia
-            nvidia.persistenced
-            nvidia.settings
-          ];
-        in
-        pipe [
-          (mkNvidia nvidia.production)
-          # (mkNvidia nvidia.stable)
-          [ pkgs.nvtopPackages.nvidia ]
-        ] [
-          builtins.concatLists
-          (pkgs.linkFarmFromDrvs "nvidia")
-        ];
+      pkgs = import nixpkgs { inherit system; };
 
       rawMatrix = pipe self.githubActions.matrix [
         builtins.toJSON
@@ -76,12 +56,12 @@
       ];
     in
     allPackages // {
-      githubActions = nix-github-actions.lib.mkGithubMatrix {
-        checks = merge [
-          (getAttrs [ system ] self.packages)
-          { ${system} = { inherit nvidia; }; }
-        ];
-      };
+      # githubActions = nix-github-actions.lib.mkGithubMatrix {
+      #   checks = merge [
+      #     (getAttrs [ system ] self.packages)
+      #     { ${system} = { inherit nvidia; }; }
+      #   ];
+      # };
 
       nixosModules."9mount" = import ./packages/9mount/module.nix {
         packages = self.packages;
