@@ -65,15 +65,17 @@
             (head: head + body)
           ])
         ])
+        (pkgs.writeText "README.md")
       ];
 
       hashes = pipe self.packages.${system} [
         (mapAttrsToList (k: v: builtins.concatStringsSep " " [
-          ''packages.${system}."${k}"''
           (builtins.substring 11 32 v.outPath)
+          ''packages.${system}."${k}"''
         ]))
         concatLines
         builtins.unsafeDiscardStringContext
+        (pkgs.writeText "hashes")
       ];
     in
     allPackages // {
@@ -107,8 +109,8 @@
         update = pkgs.writeShellApplication {
           name = "update";
           text = ''
-            cat ${pkgs.writeText "README.md" readme} > README.md
-            cat ${pkgs.writeText "hashes"    hashes} > hashes
+            cat ${readme} > README.md
+            cat ${hashes} > hashes
           '';
         };
 
