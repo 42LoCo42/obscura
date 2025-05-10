@@ -1,12 +1,12 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "zfullfs";
-  version = "1.0.1";
+  version = "1.1.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = pname;
     rev = version;
-    hash = "sha256-5SHXBNEStmQmp41E4lMJpy7/tFJVukvKMeJeuXO7N0g=";
+    hash = "sha256-ORDyOsifgJFp9noD7Lg1tvCp7NgAucSDkqBp1cf1NEM=";
   };
 
   nativeBuildInputs = with pkgs; [

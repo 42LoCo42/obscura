@@ -75,4 +75,4 @@ A personal collection of unusual things
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`vwifi`|`6.3`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`waybar-ipfix`|`0.12.0`|Highly customizable Wayland bar for Sway and Wlroots based compositors|https://github.com/alexays/waybar|
-|`zfullfs`|`1.0.1`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
+|`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
