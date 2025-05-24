@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 63 Packages
+## 62 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -69,6 +69,5 @@ A personal collection of unusual things
 |`statsite`|`bf68fa2`|C implementation of statsd|https://github.com/statsite/statsite|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
-|`vwifi`|`6.3`|Simulator of WiFi (802.11) interfaces to communicate between several Virtual Machines|https://github.com/Raizo62/vwifi|
 |`waybar-ipfix`|`0.12.0`|Highly customizable Wayland bar for Sway and Wlroots based compositors|https://github.com/alexays/waybar|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
