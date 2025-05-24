@@ -1,9 +1,10 @@
 pkgs:
 let
   # edk2 version 202408.01
-  pkgs-fixed = import
-    (builtins.getFlake "github:nixos/nixpkgs/8edf06bea5bcbee082df1b7369ff973b91618b8d")
-    { inherit (pkgs) system; };
+  pkgs-fixed = (import (fetchTarball {
+    url = "https://github.com/nixos/nixpkgs/tarball/8edf06bea5bcbee082df1b7369ff973b91618b8d";
+    sha256 = "0zwkwkiifcbzsmfn932nkgvhaj91n3hqg05fqss8s79bdwk6w35i";
+  })) { inherit (pkgs) system; };
 in
 pkgs.stdenv.mkDerivation rec {
   pname = "i915ovmfPkg";
@@ -46,7 +47,9 @@ pkgs.stdenv.mkDerivation rec {
   installPhase = ''
     source config
     ROM_FILE="i915ovmf.rom"
-    cp "$WORKSPACE/Build/i915ovmf/''${BUILD_TYPE}_GCC5/X64/$ROM_FILE" $out
+    install -Dm444 \
+      "$WORKSPACE/Build/i915ovmf/''${BUILD_TYPE}_GCC5/X64/$ROM_FILE" \
+      "$out/$ROM_FILE"
   '';
 
   meta = {

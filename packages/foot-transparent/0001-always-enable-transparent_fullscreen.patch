@@ -1,0 +1,75 @@
+From 21cc2b27927064c0f3db70cea65717802bcd8841 Mon Sep 17 00:00:00 2001
+From: Fazzi <faaris.ansari@proton.me>
+Date: Fri, 18 Apr 2025 21:15:19 +0100
+Subject: [PATCH] always enable transparent_fullscreen
+
+Adapted from https://codeberg.org/fazzi/foot/commit/492b9abd2c6b7215f191fd658c3945772e0f0499
+
+Signed-off-by: Leon Schumacher <leonsch@protonmail.com>
+---
+ config.c | 1 +
+ config.h | 2 ++
+ render.c | 8 +++++---
+ 3 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/config.c b/config.c
+index 07f781d6..d1fad7e7 100644
+--- a/config.c
++++ b/config.c
+@@ -3389,6 +3389,7 @@ config_load(struct config *conf, const char *conf_path,
+             },
+             .multiplier = 3.,
+         },
++        .transparent_fullscreen = true,
+         .colors = {
+             .fg = default_foreground,
+             .bg = default_background,
+diff --git a/config.h b/config.h
+index 7cf6f6f5..2ab21716 100644
+--- a/config.h
++++ b/config.h
+@@ -237,6 +237,8 @@ struct config {
+ 
+     enum { STARTUP_WINDOWED, STARTUP_MAXIMIZED, STARTUP_FULLSCREEN } startup_mode;
+ 
++    bool transparent_fullscreen;
++
+     bool dpi_aware;
+     bool gamma_correct;
+     struct config_font_list fonts[4];
+diff --git a/render.c b/render.c
+index a41eee0c..61bace38 100644
+--- a/render.c
++++ b/render.c
+@@ -768,7 +768,8 @@ render_cell(struct terminal *term, pixman_image_t *pix,
+             _bg = swap;
+         }
+ 
+-        else if (!term->window->is_fullscreen && term->colors.alpha != 0xffff) {
++        else if ((!term->window->is_fullscreen || term->conf->transparent_fullscreen)
++            && term->colors.alpha != 0xffff) {
+             switch (term->conf->colors.alpha_mode) {
+             case ALPHA_MODE_DEFAULT: {
+                 if (cell->attrs.bg_src == COLOR_DEFAULT) {
+@@ -1234,7 +1235,7 @@ render_margin(struct terminal *term, struct buffer *buf,
+     const uint32_t _bg = !term->reverse ? term->colors.bg : term->colors.fg;
+     uint16_t alpha = term->colors.alpha;
+ 
+-    if (term->window->is_fullscreen) {
++    if (term->window->is_fullscreen && !term->conf->transparent_fullscreen) {
+         /* Disable alpha in fullscreen - see render_cell() for details */
+         alpha = 0xffff;
+     }
+@@ -3269,7 +3270,8 @@ grid_render(struct terminal *term)
+     xassert(term->height > 0);
+ 
+     struct buffer_chain *chain = term->render.chains.grid;
+-    bool use_alpha = !term->window->is_fullscreen &&
++    bool use_alpha = (!term->window->is_fullscreen ||
++                     term->conf->transparent_fullscreen) &&
+                      term->colors.alpha != 0xffff;
+     struct buffer *buf = shm_get_buffer(
+         chain, term->width, term->height, use_alpha);
+-- 
+2.49.0
+
