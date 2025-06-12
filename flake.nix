@@ -79,8 +79,15 @@
       ];
     in
     allPackages // {
-      nixosModules."9mount" = import ./packages/9mount/module.nix {
-        packages = self.packages;
+      nixosModules = {
+        "9mount" = import ./packages/9mount/module.nix {
+          packages = self.packages;
+        };
+
+        lanzaboote = builtins.concatStringsSep "" [
+          (import ./packages/lanzaboote/source.nix)
+          "/nix/modules/lanzaboote.nix"
+        ];
       };
 
       templates = let dir = ./templates; in pipe dir [
