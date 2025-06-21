@@ -1,6 +1,6 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "go-transcode";
-  version = "2024-09-22";
+  version = "0.4.2-unstable-2024-09-22";
 
   src = pkgs.fetchFromGitHub {
     owner = "m1k1o";

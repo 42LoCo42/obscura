@@ -5,7 +5,7 @@ pkgs: pkgs.buildNpmPackage rec {
   src = pkgs.fetchFromGitHub {
     owner = "tokilabs";
     repo = "pug3-cli";
-    rev = version;
+    tag = version;
     hash = "sha256-7qvHsP4fyrkOSTzl9zx1s/idFGBew8E0jpsedLiatOs=";
   };
   patches = [

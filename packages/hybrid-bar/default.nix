@@ -1,11 +1,11 @@
 pkgs: pkgs.rustPlatform.buildRustPackage rec {
   pname = "hybrid-bar";
-  version = "e5d7dbc";
+  version = "0.4.9-unstable-2024-05-09";
 
   src = pkgs.fetchFromGitHub {
     owner = "vars1ty";
     repo = "hybridbar";
-    rev = version;
+    rev = "e5d7dbc4a2cc39fceed14947a03ce9cf9d4c128e";
     hash = "sha256-pkKUhNBE/EV9YsTfJ7k9A8WPHhhGnEmaYJ/ymFdnlrI=";
   };
 
@@ -26,6 +26,6 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
   meta = {
     description = "A status bar focused on wlroots Wayland compositors";
     homepage = "https://github.com/vars1ty/HybridBar";
-    mainProgram = "hybrid-bar";
+    mainProgram = pname;
   };
 }

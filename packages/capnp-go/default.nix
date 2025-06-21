@@ -5,7 +5,7 @@ pkgs: pkgs.buildGoModule rec {
   src = pkgs.fetchFromGitHub {
     owner = "capnproto";
     repo = "go-capnp";
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-f3fiVf3ihZOrTMZUPwSy+v4EX4cuIvJXaYMvLKzPgSg=";
   };
 

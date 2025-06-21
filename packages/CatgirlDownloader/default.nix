@@ -5,9 +5,10 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "NyarchLinux";
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-u5Rea2JkeLA5AOys9JfvLi6mfKbElbfZWdWVErUl1BU=";
   };
+
   patches = [
     # use ~/.config/catgirldownloader/config.json instead of ~/.config/config.json
     ./configdir.patch

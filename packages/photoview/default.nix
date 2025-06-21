@@ -6,7 +6,7 @@ let
   src = pkgs.fetchFromGitHub {
     owner = pname;
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-ZfvBdQlyqONsrviZGL22Kt+AiPaVWwdoREDUrHDYyIs=";
   };
 

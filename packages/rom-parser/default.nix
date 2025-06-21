@@ -1,6 +1,6 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "rom-parser";
-  version = "2017-03-31";
+  version = "0-unstable-2017-03-31";
 
   src = pkgs.fetchFromGitHub {
     owner = "awilliam";

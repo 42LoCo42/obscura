@@ -2,15 +2,20 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "9mount";
   version = "1.3";
 
-  src = pkgs.fetchurl {
-    url = "http://sqweek.net/9p/9mount-${version}.tar.gz";
-    hash = "sha256-gg2AubR40F7LAirWWEd7N8/CQUqGacOvF9GSpSIGTBc=";
+  src = pkgs.fetchFromGitHub {
+    owner = "sqweek";
+    repo = pname;
+    tag = version;
+    hash = "sha256-TMiBvz+Eu/vD6SGLkg36rj0TJQ6ZdvLiSU2iENh8vQg=";
   };
 
   patches = [
     # don't apply root:users and setuid permissions to installed binaries
     ./unpriv.patch
   ];
+
+  enableParallelBuilding = true;
+
   installPhase = "make prefix=$out install";
 
   meta = {

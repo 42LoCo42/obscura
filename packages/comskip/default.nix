@@ -1,11 +1,11 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "comskip";
-  version = "2ef8684";
+  version = "0.83-unstable-2024-06-07";
 
   src = pkgs.fetchFromGitHub {
     owner = "erikkaashoek";
     repo = pname;
-    rev = version;
+    rev = "2ef86841cd84df66fe0e674f300ee49cef6e097a";
     hash = "sha256-4ef/YZpaiSp3VeSiU6mRR38GjkrzxboI0/VXQ5QQiUM=";
   };
 
@@ -24,6 +24,6 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "A free commercial detector";
     homepage = "https://github.com/erikkaashoek/Comskip";
-    mainProgram = "comskip";
+    mainProgram = pname;
   };
 }

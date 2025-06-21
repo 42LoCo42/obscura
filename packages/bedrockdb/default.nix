@@ -7,14 +7,14 @@ pkgs: pkgs.gcc13Stdenv.mkDerivation rec {
       bedrockdb = pkgs.fetchFromGitHub {
         owner = "expensify";
         repo = "bedrock";
-        rev = version;
+        tag = version;
         hash = "sha256-NzKC7RdsoU9Uz+RhqDLIbpnyg4TcWoLk7y96ftEzCBY=";
       };
 
       mbedtls = pkgs.fetchFromGitHub {
         owner = "ARMmbed";
         repo = "mbedtls";
-        rev = "v2.26.0";
+        tag = "v2.26.0";
         hash = "sha256-VbgYI7I6BxcuW9EvRr0CXVPsRBNlsIl3Pti8/XK9nGk=";
       };
     in

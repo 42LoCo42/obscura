@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "okirch";
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-RcKxpmXWv/XJTVauDuykjIvUOO5TwqsKEqykEO6b3pk=";
   };
   patches = [

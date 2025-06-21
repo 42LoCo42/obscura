@@ -2,7 +2,7 @@ pkgs:
 let py = pkgs.python3Packages; in
 py.buildPythonPackage rec {
   pname = "ImageColorizer";
-  version = "2021-10-31";
+  version = "1.2-unstable-2021-10-31";
 
   src = pkgs.fetchFromGitHub {
     owner = "kiddae";

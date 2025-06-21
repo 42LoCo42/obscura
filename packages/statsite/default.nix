@@ -1,13 +1,14 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "statsite";
-  version = "bf68fa2";
+  version = "0.8.0-unstable-2019-10-22";
 
   src = pkgs.fetchFromGitHub {
     owner = pname;
     repo = pname;
-    rev = version;
+    rev = "bf68fa2d3d107edcface16571e90ce71d3ede0f8";
     hash = "sha256-Qnc4ml+/GDeyj0IckKWmrYGhfe4OLwRBSBPi73UzoZk=";
   };
+
   patches = [
     # don't hardcode paths to configdir (would be created during install) or gcc
     ./nix.patch
@@ -23,6 +24,6 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "C implementation of statsd";
     homepage = "https://github.com/statsite/statsite";
-    mainProgram = "statsite";
+    mainProgram = pname;
   };
 }

@@ -5,7 +5,7 @@ pkgs: pkgs.buildGoModule rec {
   src = pkgs.fetchFromGitHub {
     owner = "vencord";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-u++1qWH04MKipnTGo04FVS+HYcx52AWZpBcjiFMp+mY=";
   };
 

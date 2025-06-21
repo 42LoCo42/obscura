@@ -1,11 +1,11 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "sae_pk_gen";
-  version = "72e2975";
+  version = "0-unstable-2022-07-17";
 
   src = pkgs.fetchFromGitHub {
     owner = "vanhoefm";
     repo = "hostap-wpa3";
-    rev = version;
+    rev = "72e297507b896702e6635540f5b241ec5e02ed06";
     hash = "sha256-zveLNcZN7+L1iw3i9tq8fOgCh7VdMTg8B2PEoJ2fGwQ=";
   };
 

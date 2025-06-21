@@ -16,7 +16,7 @@ pkgs.stdenv.mkDerivation rec {
 
       owner = "x78x79x82x79";
       repo = pname;
-      rev = "v${version}";
+      tag = "v${version}";
       hash = "sha256-uTCyidJspWw/YopowIkLFmLTmP66FfV9zjaVPm1MNCQ=";
     })
     (pkgs.fetchFromGitHub rec {

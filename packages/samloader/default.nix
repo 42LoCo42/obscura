@@ -1,6 +1,6 @@
-pkgs: pkgs.python3.pkgs.buildPythonApplication {
+pkgs: pkgs.python3.pkgs.buildPythonApplication rec {
   pname = "samloader";
-  version = "master";
+  version = "0.4.1-unstable-2023-06-19";
 
   src = pkgs.fetchFromGitHub {
     owner = "samloader";
@@ -20,5 +20,6 @@ pkgs: pkgs.python3.pkgs.buildPythonApplication {
   meta = {
     description = "Download Samsung firmware from official servers";
     homepage = "https://github.com/samloader/samloader";
+    mainProgram = pname;
   };
 }

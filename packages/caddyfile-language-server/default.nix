@@ -15,7 +15,7 @@ pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "caddyserver";
     repo = "vscode-caddyfile";
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-IusP9Z3e8mQ0mEhI1o1zIqPDB/i0pqlMfnt6M8bzb2w=";
   };
 

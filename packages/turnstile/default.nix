@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "chimera-linux";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-XJ3SQSoYFwGVhmqODaJnPkTfkmNKRgcRZtt+B5KXo0c=";
   };
 

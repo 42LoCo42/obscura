@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "coderobe";
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-0ZqIQYi5r4PbMWgxbo6OViNxbsAwyq8XNzrWu42qxB4=";
   };
 

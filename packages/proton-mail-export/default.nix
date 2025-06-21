@@ -6,7 +6,7 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "ProtonMail";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-AbIS7iB5y1+vOfvAgw8mRNRTvuzdE2ML6Izod+BMCUE=";
   };
 

@@ -7,7 +7,7 @@ p.buildPythonApplication rec {
   src = pkgs.fetchFromGitHub {
     owner = "simonrob";
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-dCrH+xb5mT+OrA/S1ANW/ffyxXCi9Zb75RMO575ux/o=";
   };
 

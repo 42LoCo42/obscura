@@ -1,6 +1,6 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "modest";
-  version = "0.0.6-devel";
+  version = "0.0.6-unstable-2021-08-03";
 
   src = pkgs.fetchFromGitHub {
     owner = "lexborisov";

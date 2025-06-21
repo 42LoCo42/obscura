@@ -16,7 +16,7 @@ pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "Salvoxia";
     repo = pname;
-    rev = version;
+    tag = version;
     hash = "sha256-mtKXkCysjseaKE++Ijcynio4fc55iRSpIMae0gLZyRQ=";
   };
 

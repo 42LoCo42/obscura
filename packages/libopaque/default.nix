@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "stef";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-DK2HcWWys7EaKLIYJayt2e7nA9q9miLLTt41CS5iC3E=";
   };
 

@@ -1,6 +1,6 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "devzat";
-  version = "2024-08-29";
+  version = "0-unstable-2024-08-29";
 
   src = pkgs.fetchFromGitHub {
     owner = "quackduck";
@@ -8,6 +8,7 @@ pkgs: pkgs.buildGoModule rec {
     rev = "226f630955059f6b31e95f211fb0147a59d8edd5";
     hash = "sha256-EP6WDRiuG4AS9obdWhEoppsGwvs6JnkfA7tAhH969Sw=";
   };
+
   vendorHash = "sha256-SIG6eC6qwf5mFP99t4QzljhGYbnPfspcg7V3Bvk6p3A=";
 
   excludedPackages = [

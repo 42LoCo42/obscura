@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "spinojara";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-9YdpJ2A9yrYp6X0AXtWWzXsnz8X8Tj7BUxg5CRPeopw=";
   };
 

@@ -1,6 +1,6 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "chronometer";
-  version = "1";
+  version = "0-unstable-2024-10-02";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";

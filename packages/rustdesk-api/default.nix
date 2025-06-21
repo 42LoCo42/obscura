@@ -31,7 +31,7 @@ let
     src = pkgs.fetchFromGitHub {
       inherit owner;
       repo = pname;
-      rev = "v${version}";
+      tag = "v${version}";
       hash = "sha256-13Hj1lf0PYQs+HowtfgFKf7f0sZwSZqJZbLVtzlV/XY=";
     };
 

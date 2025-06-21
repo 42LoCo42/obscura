@@ -5,7 +5,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "bramstein";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-wMB5B7kpARsZEXKF7XTdQP0+zbz97WS9GTI16hIQtxo=";
   };
 

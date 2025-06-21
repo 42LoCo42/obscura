@@ -15,7 +15,7 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "tattoy-org";
     repo = pname;
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-F8X5qtWm/uFFyPnZ7f3spmJGOepmDo0ITs25mQvC69c=";
   };
 

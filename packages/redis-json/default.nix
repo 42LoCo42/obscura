@@ -5,7 +5,7 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
   src = pkgs.fetchFromGitHub {
     repo = "RedisJSON";
     owner = "RedisJSON";
-    rev = "v${version}";
+    tag = "v${version}";
     hash = "sha256-uOgLsmagNxkQz+SokZLvRd/b4TAbzaKJ3x/a3ezVooM=";
   };
 

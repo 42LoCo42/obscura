@@ -3,7 +3,7 @@ let
   patches = (pkgs.fetchFromGitHub {
     owner = "BoyOrigin";
     repo = "glfw-wayland";
-    rev = "2024-03-07";
+    tag = "2024-03-07";
     hash = "sha256-kvWP34rOD4HSTvnKb33nvVquTGZoqP8/l+8XQ0h3b7Y=";
   }) + /patches;
 in
