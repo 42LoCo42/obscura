@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 62 Packages
+## 63 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -66,6 +66,7 @@ A personal collection of unusual things
 |`socket-activate`|`0.1.3-unstable-2023-05-19`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
 |`souk`|`0-unstable-2024-04-07`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
+|`swaybg_webp`|`1.2.1`|Wallpaper tool for Wayland compositors|https://github.com/swaywm/swaybg|
 |`tattoy`|`0.1.2`|A text-based compositor for modern terminals|https://tattoy.sh|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
