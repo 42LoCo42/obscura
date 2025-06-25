@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 64 Packages
+## 63 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -71,5 +71,4 @@ A personal collection of unusual things
 |`tattoy`|`0.1.2`|A text-based compositor for modern terminals|https://tattoy.sh|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
-|`waybar-ipfix`|`0.13.0`|Highly customizable Wayland bar for Sway and Wlroots based compositors|https://github.com/alexays/waybar|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
