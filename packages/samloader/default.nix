@@ -1,4 +1,5 @@
-pkgs: pkgs.python3.pkgs.buildPythonApplication rec {
+pkgs:
+let py = pkgs.python3.pkgs; in py.buildPythonApplication rec {
   pname = "samloader";
   version = "0.4.1-unstable-2023-06-19";
 
@@ -9,7 +10,13 @@ pkgs: pkgs.python3.pkgs.buildPythonApplication rec {
     hash = "sha256-viMM1voK/qayQ+ouIlYgV5NoYnc+6dJqEaf9ikZHMPY=";
   };
 
-  propagatedBuildInputs = with pkgs.python3.pkgs; [
+  pyproject = true;
+
+  build-system = with py; [
+    setuptools
+  ];
+
+  dependencies = with py; [
     pycryptodomex
     requests
     tqdm
