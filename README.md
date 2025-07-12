@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 64 Packages
+## 63 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -50,7 +50,6 @@ A personal collection of unusual things
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`nix-tree-next`|`0.6.3`|Interactively browse a Nix store paths dependencies|https://github.com/utdemir/nix-tree|
 |`nvidia`|`570.169`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
-|`pam_rssh_next`|`1.2.0`|PAM module for authenticating via ssh-agent, written in Rust|https://github.com/z4yx/pam_rssh|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`pinlist`|`0-unstable-2024-08-25`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
