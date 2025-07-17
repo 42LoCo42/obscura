@@ -1,4 +1,12 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs:
+let
+  # last known good libgpod 0.8.3 (using gettext 0.22.5)
+  pkgs-fixed = (import (fetchTarball {
+    url = "https://github.com/nixos/nixpkgs/tarball/be9e214982e20b8310878ac2baa063a961c1bdf6";
+    sha256 = "sha256-HM791ZQtXV93xtCY+ZxG1REzhQenSQO020cu6rHtAPk=";
+  })) { inherit (pkgs) system; };
+in
+pkgs.stdenv.mkDerivation rec {
   pname = "fusepod";
   version = "0.5.2-unstable-2022-01-11";
 
@@ -17,8 +25,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
 
   buildInputs = with pkgs; [
     fuse
-    libgpod
     taglib
+
+    pkgs-fixed.libgpod
   ];
 
   meta = {
