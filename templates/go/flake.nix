@@ -6,6 +6,8 @@
           pname = "example";
           version = "0.0.1";
           src = ./.;
+
+          ldflags = ["-s" "-w"];
           vendorHash = "";
         };
 

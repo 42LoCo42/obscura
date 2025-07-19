@@ -29,6 +29,7 @@
 
           pnpmDeps = pkgs.pnpm.fetchDeps {
             inherit pname version src;
+            fetcherVersion = 2;
             hash = "";
           };
 
