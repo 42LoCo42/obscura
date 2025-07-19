@@ -24,7 +24,7 @@ A personal collection of unusual things
 |`email-oauth2-proxy`|`2025-03-14`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
 |`flameshot-grim`|`12.1.0-unstable-2025-05-04`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
-|`foot-transparent`|`1.22.3`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
+|`foot-transparent`|`1.23.0`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`glfw3-minecraft-extra`|`3.4`|A GLFW Fork that runs on Wayland Natively over X11 with more compatible features just to play Minecraft|https://github.com/BoyOrigin/glfw-wayland|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
@@ -49,7 +49,7 @@ A personal collection of unusual things
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
-|`nvidia`|`570.169`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`570.172.08`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`pinlist`|`0-unstable-2024-08-25`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
