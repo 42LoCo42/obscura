@@ -1,8 +1,8 @@
 pkgs:
 let
   spectrum = fetchTarball {
-    url = "https://spectrum-os.org/git/spectrum/snapshot/spectrum-37c8663fab86fdb202fece339ef7ac7177ffc201.tar.zst";
-    sha256 = "sha256-XoHSo6GEElzRUOYAEg/jlh5c8TDsyDESFIux3nU/NMc=";
+    url = "https://spectrum-os.org/git/spectrum/snapshot/spectrum-f2f6d7d2a36fd37910335654b8fc69fb01934cb3.tar.zst";
+    sha256 = "sha256-aOmICRVaK7e3kPfJiN8KySMNkaFC+JxJGhWNhi668/4=";
   };
 in
 import "${spectrum}/pkgs/cloud-hypervisor" {
