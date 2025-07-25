@@ -17,7 +17,7 @@ A personal collection of unusual things
 |`caddyfile-language-server`|`0.4.0`|Caddyfile language server|https://github.com/caddyserver/vscode-caddyfile|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
-|`cloud-hypervisor-graphics`|`46.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
+|`cloud-hypervisor-graphics`|`47.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
