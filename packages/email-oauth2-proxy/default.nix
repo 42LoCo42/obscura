@@ -2,14 +2,19 @@ pkgs:
 let p = pkgs.python3.pkgs; in
 p.buildPythonApplication rec {
   pname = "email-oauth2-proxy";
-  version = "2025-03-14";
+  version = "2025-06-25";
 
   src = pkgs.fetchFromGitHub {
     owner = "simonrob";
     repo = pname;
     tag = version;
-    hash = "sha256-dCrH+xb5mT+OrA/S1ANW/ffyxXCi9Zb75RMO575ux/o=";
+    hash = "sha256-0/Ln3CJ50HrABZAyZPYEr2dUiAs44Nua4Q/OO8TnPvo=";
   };
+
+  patches = [
+    # allow appending raw text to the permission_url
+    ./url-append.patch
+  ];
 
   pyproject = true;
 

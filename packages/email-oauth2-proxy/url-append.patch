@@ -1,0 +1,39 @@
+diff --git a/emailproxy.py b/emailproxy.py
+index 1a76c72255..0394d31365 100644
+--- a/emailproxy.py
++++ b/emailproxy.py
+@@ -741,6 +741,7 @@
+ 
+         config = AppConfig.get()
+         permission_url = AppConfig.get_option_with_catch_all_fallback(config, username, 'permission_url')
++        url_append = config.get(username, 'url_append', fallback = '')
+         token_url = AppConfig.get_option_with_catch_all_fallback(config, username, 'token_url')
+         oauth2_scope = AppConfig.get_option_with_catch_all_fallback(config, username, 'oauth2_scope')
+         oauth2_resource = AppConfig.get_option_with_catch_all_fallback(config, username, 'oauth2_resource')
+@@ -901,7 +902,7 @@
+                         code_verifier = OAuth2Helper.generate_code_verifier()
+                         code_challenge = OAuth2Helper.generate_code_challenge(code_verifier)
+ 
+-                    permission_url = OAuth2Helper.construct_oauth2_permission_url(permission_url, redirect_uri,
++                    permission_url = OAuth2Helper.construct_oauth2_permission_url(permission_url, url_append, redirect_uri,
+                                                                                   client_id, oauth2_scope, username,
+                                                                                   state, code_challenge)
+ 
+@@ -1091,7 +1092,7 @@
+         RESPONSE_QUEUE.put(token_request)
+ 
+     @staticmethod
+-    def construct_oauth2_permission_url(permission_url, redirect_uri, client_id, scope, username, state,
++    def construct_oauth2_permission_url(permission_url, url_append, redirect_uri, client_id, scope, username, state,
+                                         code_challenge):
+         """Constructs and returns the URL to request permission for this client to access the given scope, hinting
+         the username where possible (note that delegated accounts without direct login enabled will need to select the
+@@ -1106,7 +1107,7 @@
+         if not redirect_uri:  # unlike other interactive flows, DAG doesn't involve a (known) final redirect
+             del params['redirect_uri']
+         param_pairs = ['%s=%s' % (param, OAuth2Helper.oauth2_url_escape(value)) for param, value in params.items()]
+-        return '%s?%s' % (permission_url, '&'.join(param_pairs))
++        return '%s?%s%s' % (permission_url, '&'.join(param_pairs), url_append)
+ 
+     @staticmethod
+     def start_device_authorisation_grant(permission_url):
