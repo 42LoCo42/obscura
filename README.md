@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 63 Packages
+## 64 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -20,6 +20,7 @@ A personal collection of unusual things
 |`cloud-hypervisor-graphics`|`47.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
+|`drasl`|`3.1.1-unstable-2025-07-27`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`email-oauth2-proxy`|`2025-06-25`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
