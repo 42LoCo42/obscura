@@ -25,7 +25,7 @@ A personal collection of unusual things
 |`email-oauth2-proxy`|`2025-06-25`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
 |`flameshot-grim`|`12.1.0-unstable-2025-05-04`|Powerful yet simple to use screenshot software|https://github.com/flameshot-org/flameshot|
-|`foot-transparent`|`1.23.0`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
+|`foot-transparent`|`1.23.1`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`glfw3-minecraft-extra`|`3.4`|A GLFW Fork that runs on Wayland Natively over X11 with more compatible features just to play Minecraft|https://github.com/BoyOrigin/glfw-wayland|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
