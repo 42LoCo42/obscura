@@ -53,7 +53,7 @@ A personal collection of unusual things
 |`nvidia`|`570.172.08`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
-|`pinlist`|`1.1.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
+|`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`proton-mail-export`|`1.0.4`|Proton Mail Export allows you to export your emails as eml files|https://github.com/ProtonMail/proton-mail-export|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`redis-json`|`2.6.8`|RedisJSON - a JSON data type for Redis|https://github.com/RedisJSON/RedisJSON|
