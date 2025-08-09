@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 64 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -69,6 +69,7 @@ A personal collection of unusual things
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
 |`swaybg_webp`|`1.2.1`|Wallpaper tool for Wayland compositors|https://github.com/swaywm/swaybg|
 |`tattoy`|`0.1.2`|A text-based compositor for modern terminals|https://tattoy.sh|
+|`tinyauth`|`3.6.2`|The simplest way to protect your apps with a login screen|https://tinyauth.app|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
