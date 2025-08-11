@@ -1,11 +1,11 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "socket-activate";
-  version = "0.1.3-unstable-2023-05-19";
+  version = "0.1.3";
 
   src = pkgs.fetchFromGitHub {
     owner = "mupuf";
     repo = pname;
-    rev = "3d111f28e0ce614cf84e5164a77ee1697d5deb24";
+    tag = "v${version}";
     hash = "sha256-mYxFxYsSl2Tgb7fX2znQ2EKfo04n/cwrPU/eperWUdQ=";
   };
 

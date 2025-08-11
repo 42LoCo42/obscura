@@ -65,7 +65,7 @@ A personal collection of unusual things
 |`samloader`|`0.4.1-unstable-2023-06-19`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|
 |`sillysecrets`|`2.1.4`|The silliest secret manager! :3|https://github.com/42LoCo42/sillysecrets|
-|`socket-activate`|`0.1.3-unstable-2023-05-19`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
+|`socket-activate`|`0.1.3`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
 |`souk`|`0-unstable-2024-04-07`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
 |`swaybg_webp`|`1.2.1`|Wallpaper tool for Wayland compositors|https://github.com/swaywm/swaybg|
