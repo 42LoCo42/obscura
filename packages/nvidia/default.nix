@@ -5,9 +5,11 @@ pkgs.lib.pipe driver [
   (pkgs.linkFarmFromDrvs "nvidia")
   (x: x // {
     inherit (driver) version;
+
     meta = {
       description = "nvidia driver & nvtop metapackage";
       homepage = "https://www.nvidia.com";
+      broken = pkgs.hostPlatform.isAarch64;
     };
   })
 ]

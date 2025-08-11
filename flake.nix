@@ -17,6 +17,8 @@
         attrNames
         concatLines
         concatStringsSep
+        filterAttrs
+        flip
         foldl'
         getExe
         length
@@ -41,12 +43,8 @@
 
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [ (_: _: packages) ];
-
-            config = {
-              allowUnfree = true;
-              allowBroken = true;
-            };
           };
 
           packages = pipe dir [
@@ -88,7 +86,10 @@
       ];
 
       hashes = pipe self.packages [
-        (mapAttrs (_: mapAttrs (_: x: substring 11 32 x.outPath)))
+        (mapAttrs (_: flip pipe [
+          (filterAttrs (_: x: !x.meta.broken))
+          (mapAttrs (_: x: substring 11 32 x.outPath))
+        ]))
         toJSON
         unsafeDiscardStringContext
         (x: pkgs.runCommand "hashes" { } ''

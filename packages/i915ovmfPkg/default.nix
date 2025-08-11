@@ -55,5 +55,6 @@ pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "VBIOS for Intel GPU Passthrough";
     homepage = "https://github.com/x78x79x82x79/i915ovmfPkg";
+    broken = pkgs.hostPlatform.isAarch64;
   };
 }
