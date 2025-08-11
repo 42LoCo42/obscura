@@ -1,33 +1,22 @@
 pkgs: pkgs.stdenv.mkDerivation rec {
   pname = "lone";
-  version = "0-unstable-2023-12-27";
+  version = "0-unstable-2024-12-26";
 
   src = pkgs.fetchFromGitHub {
     owner = "lone-lang";
     repo = pname;
-    rev = version;
-    hash = "sha256-RdWDxPMQ4A6fO3DRDL7Z21NkXxdXf/dkaJsHEoR1LSM=";
+    rev = "27f9e5c9dd2915feb316b1a7738b51170485175f";
+    hash = "sha256-rIsAGrRSZ6iBAjrmFi0II8LTgT3uF0rRjEVkQ17G4do=";
   };
-
-  patches = [
-    # patch shellscript shebangs: /usr/bin/bash -> /bin/sh
-    ./shebang.patch
-  ];
 
   enableParallelBuilding = true;
 
-  buildPhase = ''
-    make                                                       \
-      CC="${pkgs.clang}/bin/clang"                             \
-      LD="${pkgs.mold}/bin/mold"                               \
-      CFLAGS="-fstack-protector -Wl,--spare-program-headers,2" \
-      lone
-    make tools
-  '';
+  patchPhase = "patchShebangs scripts";
+  buildPhase = "make all";
 
   installPhase = ''
     mkdir -p $out/bin
-    cp build/x86_64/{lone,tools/lone-embed} $out/bin
+    cp build/${pkgs.hostPlatform.linuxArch}/{lone,tools/lone-embed} $out/bin
   '';
 
   meta = {

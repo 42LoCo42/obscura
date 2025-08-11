@@ -42,7 +42,7 @@ A personal collection of unusual things
 |`libhpke`|`0.1-unstable-2023-07-28`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`libopaque`|`0.99.8`|c implementation of the OPAQUE protocol|https://github.com/stef/libopaque|
 |`liboprf`|`0.6.1-unstable-2025-01-25`|library providing OPRF and Threshold OPRF based on libsodium|https://github.com/stef/liboprf|
-|`lone`|`0-unstable-2023-12-27`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
+|`lone`|`0-unstable-2024-12-26`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`m9u`|`0-unstable-2021-09-12`|A 9P music server|https://sqweek.net/code/m9u/|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`modest`|`0.0.6-unstable-2021-08-03`|A fast HTML renderer implemented as a pure C99 library with no outside dependencies|https://github.com/lexborisov/Modest|
