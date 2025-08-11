@@ -7,16 +7,31 @@
 
   outputs = { self, nixpkgs }:
     let
+      inherit (builtins)
+        readDir
+        toJSON
+        unsafeDiscardStringContext
+        ;
+
       inherit (nixpkgs.lib)
+        attrNames
         concatLines
+        concatStringsSep
+        foldl'
         getExe
+        length
+        listToAttrs
+        mapAttrs
         mapAttrs'
         mapAttrsToList
         pipe
+        readFile
         recursiveUpdate
+        replaceStrings
+        substring
         ;
 
-      merge = builtins.foldl' recursiveUpdate { };
+      merge = foldl' recursiveUpdate { };
 
       ##########################################
 
@@ -26,14 +41,18 @@
 
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfree = true;
             overlays = [ (_: _: packages) ];
+
+            config = {
+              allowUnfree = true;
+              allowBroken = true;
+            };
           };
 
           packages = pipe dir [
-            builtins.readDir
+            readDir
             (mapAttrs' (file: _: {
-              name = builtins.replaceStrings [ ".nix" ] [ "" ] file;
+              name = replaceStrings [ ".nix" ] [ "" ] file;
               value = import "${dir}/${file}" pkgs;
             }))
           ];
@@ -49,8 +68,8 @@
       pkgs = import nixpkgs { inherit system; };
 
       readme = pipe self.packages.${system} [
-        (mapAttrsToList (k: v: builtins.replaceStrings [ "\n" ] [ " " ]
-          ("|" + builtins.concatStringsSep "|" [
+        (mapAttrsToList (k: v: replaceStrings [ "\n" ] [ " " ]
+          ("|" + concatStringsSep "|" [
             "`${k}`"
             "`${v.version or "n/a"}`"
             "${v.meta.description or "n/a"}"
@@ -59,23 +78,24 @@
         (rows: pipe rows [
           concatLines
           (body: pipe ./README.md.in [
-            builtins.readFile
-            (builtins.replaceStrings
-              [ "@NUM@" ] [ (toString (builtins.length rows)) ])
+            readFile
+            (replaceStrings
+              [ "@NUM@" ] [ (toString (length rows)) ])
             (head: head + body)
           ])
         ])
         (pkgs.writeText "README.md")
       ];
 
-      hashes = pipe self.packages.${system} [
-        (mapAttrsToList (k: v: builtins.concatStringsSep " " [
-          (builtins.substring 11 32 v.outPath)
-          ''packages.${system}."${k}"''
-        ]))
-        concatLines
-        builtins.unsafeDiscardStringContext
-        (pkgs.writeText "hashes")
+      hashes = pipe self.packages [
+        (mapAttrs (_: mapAttrs (_: x: substring 11 32 x.outPath)))
+        toJSON
+        unsafeDiscardStringContext
+        (x: pkgs.runCommand "hashes" { } ''
+          ${getExe pkgs.jq} <<\EOF > $out
+          ${x}
+          EOF
+        '')
       ];
     in
     allPackages // {
@@ -84,15 +104,15 @@
           packages = self.packages;
         };
 
-        lanzaboote = builtins.concatStringsSep "" [
+        lanzaboote = concatStringsSep "" [
           (import ./packages/lanzaboote/source.nix)
           "/nix/modules/lanzaboote.nix"
         ];
       };
 
       templates = let dir = ./templates; in pipe dir [
-        builtins.readDir
-        builtins.attrNames
+        readDir
+        attrNames
         (map (name: {
           inherit name;
           value = {
@@ -100,14 +120,14 @@
             path = "${dir}/${name}";
           };
         }))
-        builtins.listToAttrs
+        listToAttrs
       ];
 
       ##########################################
 
       inherit readme hashes;
 
-      apps.${system} = (builtins.mapAttrs (_: x: {
+      apps.${system} = (mapAttrs (_: x: {
         type = "app";
         program = getExe x;
       })) rec {
@@ -117,7 +137,7 @@
           name = "update";
           text = ''
             cat ${readme} > README.md
-            cat ${hashes} > hashes
+            cat ${hashes} > hashes.json
           '';
         };
 
@@ -126,7 +146,7 @@
           runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
           text = pipe self.packages.${pkgs.system} [
             (mapAttrsToList (n: _: n))
-            (builtins.concatStringsSep "\n")
+            (concatStringsSep "\n")
             (x: ''
               if [ -n "''${1-}" ]; then
                 parallel nix build -L --no-link '.#{}' << EOF
@@ -136,7 +156,7 @@
 
               xargs nixpkgs-hammer -f \
                 ${pkgs.writeText "default.nix" ''
-                  _: (builtins.getFlake "git+file://''${builtins.getEnv "PWD"}").packages.''${builtins.currentSystem}
+                  _: (getFlake "git+file://''${getEnv "PWD"}").packages.''${currentSystem}
                 ''} \
               << EOF |& grep -Ev '^error: build log' | less
               ${x}
