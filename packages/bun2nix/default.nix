@@ -17,10 +17,10 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
     openssl
   ];
 
-  cargoLock.lockFile = "${src}/Cargo.lock";
+  cargoHash = "sha256-K9rXGHyQ/uzj3iDZ3uI+wFOIvMVI+klZu2GhSDk7GLY=";
 
   meta = {
-    description = "A fast rust based bun lockfile to nix expression converter.";
+    description = "A fast rust based bun lockfile to nix expression converter";
     homepage = "https://github.com/baileyluTCD/bun2nix";
     mainProgram = pname;
   };

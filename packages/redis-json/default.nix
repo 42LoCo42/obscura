@@ -9,12 +9,7 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
     hash = "sha256-uOgLsmagNxkQz+SokZLvRd/b4TAbzaKJ3x/a3ezVooM=";
   };
 
-  cargoLock = {
-    lockFile = "${src}/Cargo.lock";
-    outputHashes = {
-      "ijson-0.1.3" = "sha256-GFNNGsXWXS3BWsYffxhAnWtPh7rboGWJ1FmSHSidNmI=";
-    };
-  };
+  cargoHash = "sha256-N9AC9HKpKmYAM3UH81nkcOr9CH2W8MtbbtyK/YaoO5s=";
 
   patches = [
     # fix rustflags syntax in .cargo/config.toml

@@ -17,11 +17,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
 
   mesonFlags = [ "-Dvcs_tag=${version}" ];
 
-  cargoDeps = pkgs.rustPlatform.importCargoLock {
-    lockFile = "${src}/Cargo.lock";
-    outputHashes = {
-      "libflatpak-0.3.0" = "sha256-UIrWnBVTpvdIv5CYKi6LpY08G+FAluT7X0JR9o68Nsg=";
-    };
+  cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+    inherit src;
+    hash = "sha256-QQfUntBcQY12zh5gE+R+wfWuOwc7meqk015qi7mnKNs=";
   };
 
   nativeBuildInputs = with pkgs; [
