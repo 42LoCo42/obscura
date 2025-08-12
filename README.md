@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 66 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -15,7 +15,7 @@ A personal collection of unusual things
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avahi-proxy`|`1.0.2-unstable-2025-06-24`|Multicast DNS Proxy written in Go|https://github.com/muhammadn/avahi-proxy|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
-|`bun2nix`|`1.5.1`|A fast rust based bun lockfile to nix expression converter.|https://github.com/baileyluTCD/bun2nix|
+|`bun2nix`|`1.5.1`|A fast rust based bun lockfile to nix expression converter|https://github.com/baileyluTCD/bun2nix|
 |`caddyfile-language-server`|`0.4.0`|Caddyfile language server|https://github.com/caddyserver/vscode-caddyfile|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
@@ -33,7 +33,6 @@ A personal collection of unusual things
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
-|`hybrid-bar`|`0.4.9-unstable-2024-05-09`|A status bar focused on wlroots Wayland compositors|https://github.com/vars1ty/HybridBar|
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`jade`|`1.1.3-unstable-2023-08-09`|Pug template engine for Go|https://github.com/Joker/jade|
