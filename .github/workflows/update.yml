@@ -25,9 +25,9 @@ jobs:
           new="$(sha256sum flake.lock)"
 
           if [ "$old" != "$new" ]; then
-            old="$(sha256sum hashes)"
+            old="$(sha256sum hashes.json)"
             nix run ".#update"
-            new="$(sha256sum hashes)"
+            new="$(sha256sum hashes.json)"
 
             if [ "$old" != "$new" ]; then
               echo "trigger-build=true" >> $GITHUB_OUTPUT
