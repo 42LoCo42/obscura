@@ -1,4 +1,6 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs:
+let inherit (pkgs.lib) filter hasInfix; in
+pkgs.stdenv.mkDerivation rec {
   pname = "mvisor";
   version = "2.7.3-unstable-2025-08-08";
 
@@ -25,10 +27,27 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     gtk3
     openssl
     pixman
-    virglrenderer
     yaml-cpp
     zlib
     zstd
+
+    (virglrenderer.overrideAttrs (old: {
+      version = "0.10.4";
+
+      src = pkgs.fetchFromGitLab {
+        domain = "gitlab.freedesktop.org";
+        owner = "virgl";
+        repo = "virglrenderer";
+        rev = "8df4cba170940dad9350a99900293adbcef39b6c";
+        hash = "sha256-D4pMokM2nnnL1iJDupAY+Q1L3p0wD6RsfKxxNqZFE0U=";
+      };
+
+      mesonFlags = filter
+        (x: !hasInfix "drm-renderers" x)
+        (old.mesonFlags or [ ]);
+
+      env.NIX_CFLAGS_COMPILE = "-Wno-error=enum-int-mismatch";
+    }))
   ];
 
   mesonFlags = let inherit (pkgs.lib) mesonBool; in [
