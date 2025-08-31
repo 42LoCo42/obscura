@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 65 Packages
+## 66 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -48,6 +48,7 @@ A personal collection of unusual things
 |`modest`|`0.0.6-unstable-2021-08-03`|A fast HTML renderer implemented as a pure C99 library with no outside dependencies|https://github.com/lexborisov/Modest|
 |`msp-cgt`|`21.6.1`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
+|`mvisor`|`2.7.3-unstable-2025-08-08`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
