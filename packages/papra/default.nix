@@ -60,13 +60,17 @@ pkgs.stdenv.mkDerivation rec {
     echo "[1;32mCleaning up dangling symlinks...[m"
     find $out -xtype l -ls -delete
 
+    echo "[1;32mCleaning up binaries...[m"
+    find $out/app -name 'bin' -or -name '.bin' | sort -u | xargs rm -rf
+
     echo "[1;32mGenerating launcher...[m"
     cat << EOF > $out/bin/${pname}
     #!${pkgs.runtimeShell} -e
     export PATH="${makeBinPath (with pkgs; [ nodejs tsx ])}:\$PATH"
-    tsx $out/app/apps/papra-server/src/scripts/migrate-up.script.ts
     export SERVER_SERVE_PUBLIC_DIR=true
-    exec node $out/app/apps/papra-server/dist/index.js
+    cd $out/app/apps/papra-server
+    tsx src/scripts/migrate-up.script.ts
+    exec node dist/index.js
     EOF
     chmod +x $out/bin/${pname}
   '';
