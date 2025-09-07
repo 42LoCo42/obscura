@@ -3,7 +3,7 @@ let driver = pkgs.linuxPackages_zen.nvidiaPackages.production; in
 pkgs.lib.pipe driver [
   (nvidia: [
     nvidia
-    # nvidia.persistenced # TODO currently broken https://github.com/nixOS/nixpkgs/issues/437066
+    nvidia.persistenced
     nvidia.settings
     pkgs.nvtopPackages.full
   ])
