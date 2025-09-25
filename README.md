@@ -22,7 +22,7 @@ A personal collection of unusual things
 |`cloud-hypervisor-graphics`|`48.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
-|`drasl`|`3.2.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
+|`drasl`|`3.3.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`eepers`|`1.3-unstable-2024-05-26`|Simple Turn-based Game|https://github.com/tsoding/eepers|
 |`email-oauth2-proxy`|`2025-06-25`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
