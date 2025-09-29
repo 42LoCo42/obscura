@@ -1,12 +1,12 @@
 pkgs: pkgs.buildGoModule rec {
   pname = "sillysecrets";
-  version = "2.1.4";
+  version = "2.1.5";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = pname;
     tag = version;
-    hash = "sha256-YZwQDK+4weicsJ1yalolferLQxtrC1aGefSFYR0Dbv0=";
+    hash = "sha256-BukBrphXi2APd6Rsij2ZyClsrv6TK3p63BAcK1aNb1w=";
   };
 
   ldflags = [ "-s" "-w" ];
