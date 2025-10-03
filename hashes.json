@@ -60,7 +60,7 @@
     "tinyauth": "y5jzwid9cpcrr8pcv608krgij3ijgq9s",
     "turnstile": "4a2m4b8x6mmdxqd59g5gk5ygck59wqjq",
     "vencloud": "a2vhflkajixr5wl7bs0zqmfqp34acpif",
-    "zfullfs": "y849055mjhjhzymycblw7jb0wmrjp1pq",
+    "zfullfs": "m2rlzahkqnr33hjzhncdzdb72yqrpzdn",
     "zxing-cpp-tools": "ima4pbqbzabxbddjzv60lwv3zh1jwv43"
   },
   "x86_64-linux": {
@@ -107,7 +107,7 @@
     "mwxml2sql": "j1jh8l1axi2bp1dyn25xmkzp5ni7ixm5",
     "nchess": "rvjwlbjyp65xggzdzl1a2n2bk3v631an",
     "ncps-db-helper": "7gavkfc22f4ixpbyg73lk8ny735vbjym",
-    "nvidia": "9400h90ydwqawksxk9c34ricw6gm1l3l",
+    "nvidia": "vf6mh0xyp9s7r3ya4n7wd1yyy3903xxs",
     "papra": "rrqznc9vj9k4idgdpqdqlbyn6c6vrz61",
     "pcr-oracle": "v4m8q25ilrv4fs3yi89sg5g1d0nzsnbc",
     "photoview": "phsq4z168gvym36jnb3xp60mryqhb7w1",
@@ -129,7 +129,7 @@
     "tinyauth": "1xy7bf1ah0vai17swqhb1fpp6wc3bwz1",
     "turnstile": "jll9wxhjichr0mgsc85kna6y28x3v8bk",
     "vencloud": "9366y8s3nhpwc7lxlmysng3np8qdnyyf",
-    "zfullfs": "1ai5spy8nfzqg9c3i7rvadvs6vdksk2l",
+    "zfullfs": "v1hr0pgdbmc4rdb9n7y1afykjxmhp3b2",
     "zxing-cpp-tools": "n0zi41a0832aw7k810qnqyxjjdzik22p"
   }
 }
