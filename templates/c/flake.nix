@@ -16,7 +16,6 @@
           inputsFrom = [ packages.default ];
           packages = with pkgs; [
             bear
-            clang-tools
           ];
         };
       });

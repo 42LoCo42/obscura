@@ -7,14 +7,14 @@
           version = "0.0.1";
           src = ./.;
 
-          ldflags = ["-s" "-w"];
+          ldflags = [ "-s" "-w" ];
           vendorHash = "";
         };
 
         devShells.default = pkgs.mkShell {
           inputsFrom = [ packages.default ];
           packages = with pkgs; [
-            gopls
+
           ];
         };
       });
