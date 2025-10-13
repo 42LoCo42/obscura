@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 68 Packages
+## 69 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -21,6 +21,7 @@ A personal collection of unusual things
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
 |`cloud-hypervisor-graphics`|`48.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
+|`datetime`|`0.2.0`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`drasl`|`3.3.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
