@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 68 Packages
+## 67 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -41,7 +41,6 @@ A personal collection of unusual things
 |`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/42LoCo42/lanzaboote|
 |`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
 |`libhpke`|`0.1-unstable-2023-07-28`|HPKE implementation in C|https://github.com/oktaysm/hpke|
-|`libopaque`|`0.99.8`|c implementation of the OPAQUE protocol|https://github.com/stef/libopaque|
 |`lone`|`0-unstable-2024-12-26`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`m9u`|`0-unstable-2021-09-12`|A 9P music server|https://sqweek.net/code/m9u/|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
