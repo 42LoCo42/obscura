@@ -14,7 +14,8 @@ pkgs.lib.pipe driver [
     meta = {
       description = "nvidia driver & nvtop metapackage";
       homepage = "https://www.nvidia.com";
-      broken = pkgs.hostPlatform.isAarch64;
+      # broken = pkgs.hostPlatform.isAarch64;
+      broken = true; # TODO https://hydra.nixos.org/job/nixpkgs/trunk/linuxPackages_zen.kernel.x86_64-linux
     };
   })
 ]
