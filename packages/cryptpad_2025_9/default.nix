@@ -20,12 +20,12 @@ let
     hash = "sha256-+53jzvmGltD1yjXAimLl8zL1V4YDc1qF1PUFSeyiUm8=";
   }).outPath;
 in
-cryptpad.overrideAttrs (new: old: rec {
+cryptpad.overrideAttrs (new: old: {
   version = "2025.9.0";
 
   src = pkgs.fetchFromGitHub {
     inherit (old.src) owner repo;
-    tag = version;
+    tag = new.version;
     hash = "sha256-veLtKjrk1CZe2u3MkozsPK98hyhdsWbQGUxh8oWjLXg=";
   };
 

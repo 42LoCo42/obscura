@@ -21,6 +21,7 @@ in
 (pkgs0.linkFarm "hyprland-patched" (with pkgs1; [
   { name = "hyprland"; /****************/ path = hyprland; }
   { name = "hypr-dynamic-cursors"; /****/ path = hyprlandPlugins.hypr-dynamic-cursors; }
+  { name = "hyprfocus"; /***************/ path = hyprlandPlugins.hyprfocus; }
   { name = "hyprwinwrap"; /*************/ path = hyprlandPlugins.hyprwinwrap; }
   { name = "xdg-desktop-portal-hyprland"; path = xdg-desktop-portal-hyprland; }
 ])).overrideAttrs {
