@@ -1,5 +1,7 @@
 pkgs0:
 let
+  inherit (pkgs0.lib) attrValues pipe;
+
   pkgs1 = pkgs0.extend (_: prev: {
     hyprland = prev.hyprland.overrideAttrs (old: {
       patches = (old.patches or [ ]) ++ [
@@ -18,17 +20,23 @@ let
     });
   });
 in
-(pkgs0.linkFarm "hyprland-patched" (with pkgs1; [
-  { name = "hyprland"; /****************/ path = hyprland; }
-  { name = "hypr-dynamic-cursors"; /****/ path = hyprlandPlugins.hypr-dynamic-cursors; }
-  { name = "hyprfocus"; /***************/ path = hyprlandPlugins.hyprfocus; }
-  { name = "hyprwinwrap"; /*************/ path = hyprlandPlugins.hyprwinwrap; }
-  { name = "xdg-desktop-portal-hyprland"; path = xdg-desktop-portal-hyprland; }
-])).overrideAttrs {
-  inherit (pkgs1.hyprland) version;
+(pipe {
+  inherit (pkgs1) hyprland xdg-desktop-portal-hyprland;
+  inherit (pkgs1.hyprlandPlugins) hypr-dynamic-cursors hyprwinwrap;
 
-  meta = {
-    description = "Hyprland with LTO and Debug::log race fixes applied";
-    inherit (pkgs1.hyprland.meta) homepage;
-  };
-}
+  hyprfocus = pkgs1.hyprlandPlugins.hyprfocus.overrideAttrs (old: {
+    patches = (old.patches or [ ]) ++ [ ./hyprfocus-fullscreen.patch ];
+  });
+}) [
+  attrValues
+  (map (x: { name = x.pname; path = x; }))
+  (pkgs0.linkFarm "hyprland-patched")
+  (x: x.overrideAttrs {
+    inherit (pkgs1.hyprland) version;
+
+    meta = {
+      description = "Hyprland with LTO and Debug::log race fixes applied";
+      inherit (pkgs1.hyprland.meta) homepage;
+    };
+  })
+]
