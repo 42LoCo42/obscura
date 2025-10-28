@@ -25,7 +25,12 @@ in
   inherit (pkgs1.hyprlandPlugins) hypr-dynamic-cursors hyprwinwrap;
 
   hyprfocus = pkgs1.hyprlandPlugins.hyprfocus.overrideAttrs (old: {
-    patches = (old.patches or [ ]) ++ [ ./hyprfocus-fullscreen.patch ];
+    src = (pkgs1.fetchFromGitHub {
+      owner = "42LoCo42";
+      repo = "hyprland-plugins";
+      rev = "c24be7dba1b7d6298a866fcf99f183bc87484da7";
+      hash = "sha256-PhqTPvPFRPU6UV7N2IiLrBjuofFXzXXTqczGtKhyqSw=";
+    }) + /hyprfocus;
   });
 }) [
   attrValues
