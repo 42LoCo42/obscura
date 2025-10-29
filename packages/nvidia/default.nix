@@ -6,12 +6,9 @@ pkgs.lib.pipe driver [
     nvidia.persistenced
     nvidia.settings
 
-    (import pkgs.path {
-      inherit (pkgs) system;
-      config = pkgs.config // {
-        cudaSupport = true;
-      };
-    }).nvtopPackages.full
+    (pkgs.nvtopPackages.full.override {
+      cudatoolkit = null;
+    })
   ])
   (map (x: { name = x.pname or "nvidia"; path = x; }))
   (pkgs.linkFarm "nvidia")
