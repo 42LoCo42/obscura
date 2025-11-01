@@ -4,7 +4,7 @@ let
   pkgs-fixed = (import (fetchTarball {
     url = "https://github.com/nixos/nixpkgs/tarball/8edf06bea5bcbee082df1b7369ff973b91618b8d";
     sha256 = "0zwkwkiifcbzsmfn932nkgvhaj91n3hqg05fqss8s79bdwk6w35i";
-  })) { inherit (pkgs) system; };
+  })) { inherit (pkgs.stdenv.hostPlatform) system; };
 in
 pkgs.stdenv.mkDerivation rec {
   pname = "i915ovmfPkg";
@@ -55,6 +55,6 @@ pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "VBIOS for Intel GPU Passthrough";
     homepage = "https://github.com/x78x79x82x79/i915ovmfPkg";
-    broken = pkgs.hostPlatform.isAarch64;
+    broken = pkgs.stdenv.hostPlatform.isAarch64;
   };
 }

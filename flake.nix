@@ -145,7 +145,7 @@
         hammer = pkgs.writeShellApplication {
           name = "hammer";
           runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
-          text = pipe self.packages.${pkgs.system} [
+          text = pipe self.packages.${pkgs.stdenv.hostPlatform.system} [
             (mapAttrsToList (n: _: n))
             (concatStringsSep "\n")
             (x: ''

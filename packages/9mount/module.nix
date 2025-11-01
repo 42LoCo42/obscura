@@ -1,6 +1,6 @@
 { packages }: { config, ... }:
 let
-  system = config.nixpkgs.system;
+  system = config.nixpkgs.stdenv.hostPlatform.system;
   pkg = packages.${system}."9mount";
   mkWrapper = name: {
     inherit name;

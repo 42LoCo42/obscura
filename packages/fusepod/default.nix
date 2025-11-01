@@ -4,7 +4,7 @@ let
   pkgs-fixed = (import (fetchTarball {
     url = "https://github.com/nixos/nixpkgs/tarball/be9e214982e20b8310878ac2baa063a961c1bdf6";
     sha256 = "sha256-HM791ZQtXV93xtCY+ZxG1REzhQenSQO020cu6rHtAPk=";
-  })) { inherit (pkgs) system; };
+  })) { inherit (pkgs.stdenv.hostPlatform) system; };
 in
 pkgs.stdenv.mkDerivation rec {
   pname = "fusepod";

@@ -16,7 +16,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp build/${pkgs.hostPlatform.parsed.cpu.name}/{lone,tools/lone-embed} $out/bin
+    cp build/${pkgs.stdenv.hostPlatform.uname.processor}/{lone,tools/lone-embed} $out/bin
   '';
 
   meta = {

@@ -76,6 +76,6 @@ pkgs.stdenv.mkDerivation rec {
     description = "A mini x86 hypervisor";
     homepage = "https://github.com/tenclass/mvisor";
     mainProgram = pname;
-    broken = pkgs.hostPlatform.isAarch64;
+    broken = pkgs.stdenv.hostPlatform.isAarch64;
   };
 }

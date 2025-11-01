@@ -6,7 +6,7 @@ let
     # https://github.com/NixOS/nixpkgs/pull/434721
     url = "https://github.com/NixOS/nixpkgs/archive/06b08e536f1d219564f9512563334b913bfbbdb9.tar.gz";
     sha256 = "sha256-ZbvpT8SL2qOSuVbK2y72Bri9LZ/Scl1xk5wikCuldD4=";
-  })) { inherit (pkgs) system; }).cryptpad;
+  })) { inherit (pkgs.stdenv.hostPlatform) system; }).cryptpad;
 
   oo_ver_old = "v8.3.3.23+4";
   oo_ver_new = "v8.3.3.23+5";

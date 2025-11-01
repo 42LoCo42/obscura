@@ -18,7 +18,7 @@ pkgs.lib.pipe driver [
     meta = {
       description = "nvidia driver & nvtop metapackage";
       homepage = "https://www.nvidia.com";
-      broken = pkgs.hostPlatform.isAarch64;
+      broken = pkgs.stdenv.hostPlatform.isAarch64;
     };
   })
 ]

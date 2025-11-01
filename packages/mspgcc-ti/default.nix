@@ -29,6 +29,6 @@ pkgs.stdenv.mkDerivation {
   meta = {
     description = "Open Source Compiler for MSP Microcontrollers";
     homepage = "https://www.ti.com/tool/MSP430-GCC-OPENSOURCE";
-    broken = pkgs.hostPlatform.isAarch64;
+    broken = pkgs.stdenv.hostPlatform.isAarch64;
   };
 }

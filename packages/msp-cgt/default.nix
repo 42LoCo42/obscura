@@ -25,6 +25,6 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   meta = {
     description = "MSP430 code generation tools";
     homepage = "https://www.ti.com/tool/MSP-CGT";
-    broken = pkgs.hostPlatform.isAarch64;
+    broken = pkgs.stdenv.hostPlatform.isAarch64;
   };
 }

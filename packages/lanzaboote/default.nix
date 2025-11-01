@@ -1,7 +1,7 @@
 pkgs:
 let
   src = import ./source.nix;
-  lanza = src.packages.${pkgs.system};
+  lanza = src.packages.${pkgs.stdenv.hostPlatform.system};
   module = "${src}/nix/modules/lanzaboote.nix";
 in
 pkgs.symlinkJoin rec {
