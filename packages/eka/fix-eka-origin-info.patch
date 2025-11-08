@@ -1,0 +1,17 @@
+--- a/crates/atom/src/lib.rs
++++ b/crates/atom/src/lib.rs
+@@ -77,7 +77,13 @@
+ pub mod uri;
+ 
+ // Sets compile time constants
+-eka_root_macro::eka_origin_info!();
++const LOCK_MAJOR: u64 = 0;
++const LOCK_MINOR: u64 = 1;
++const LOCK_PATCH: u64 = 0;
++pub(crate) const LOCK_LABEL: &str = "nix-lock";
++pub(crate) const LOCK_REV: [u8; 20] = [212, 242, 97, 228, 248, 221, 67, 226, 40, 90, 133, 178, 190, 240, 60, 10, 221, 33, 150, 87];
++pub(crate) const EKA_ORIGIN_URL: &str = "https://github.com/ekala-project/eka";
++pub(crate) const EKA_ROOT_COMMIT_HASH: [u8; 20] = [74, 187, 210, 100, 75, 195, 88, 94, 155, 233, 93, 235, 39, 124, 207, 72, 246, 237, 38, 172];
+ 
+ const ATOM: &str = "atom";
+ /// The base32 alphabet used for encoding Atom hashes.
