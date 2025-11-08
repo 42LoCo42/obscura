@@ -1,4 +1,5 @@
 *.pdf
 *.tex
 /.direnv
+/.env
 /result

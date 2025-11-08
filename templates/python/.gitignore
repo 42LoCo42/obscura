@@ -1,4 +1,5 @@
 *.egg-info
 .direnv
+/.env
 __pycache__
 result
