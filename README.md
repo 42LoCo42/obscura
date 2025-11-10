@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 70 Packages
+## 71 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -54,6 +54,7 @@ A personal collection of unusual things
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
+|`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`580.95.05`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`0.9.6`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
