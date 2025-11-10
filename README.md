@@ -42,7 +42,7 @@ A personal collection of unusual things
 |`jade`|`1.1.3-unstable-2023-08-09`|Pug template engine for Go|https://github.com/Joker/jade|
 |`knock`|`0.8`|A port-knocking daemon|https://github.com/jvinet/knock|
 |`lanzaboote`|`0.4.2`|Secure Boot for NixOS|https://github.com/42LoCo42/lanzaboote|
-|`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://libdill.org|
+|`libdill`|`2.14-unstable-2022-08-10`|Structured concurrency in C|https://sustrik.github.io/libdill|
 |`libhpke`|`0.1-unstable-2023-07-28`|HPKE implementation in C|https://github.com/oktaysm/hpke|
 |`lone`|`0-unstable-2024-12-26`|The standalone Linux Lisp|https://github.com/lone-lang/lone|
 |`m9u`|`0-unstable-2021-09-12`|A 9P music server|https://sqweek.net/code/m9u/|

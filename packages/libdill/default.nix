@@ -27,6 +27,6 @@ pkgs: pkgs.stdenv.mkDerivation rec {
 
   meta = {
     description = "Structured concurrency in C";
-    homepage = "https://libdill.org";
+    homepage = "https://sustrik.github.io/libdill";
   };
 }
