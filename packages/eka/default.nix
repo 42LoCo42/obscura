@@ -1,19 +1,24 @@
 pkgs: pkgs.rustPlatform.buildRustPackage (drv: {
   pname = "eka";
-  version = "0.3.0-unstable-2025-11-08";
+  version = "0.3.0-unstable-2025-11-12";
 
   src = pkgs.fetchFromGitHub {
     owner = "ekala-project";
     repo = drv.pname;
-    rev = "047e578bc285a55c998a87acd6ebca91c2374877";
-    hash = "sha256-l5oSpg8HYtz0Yk9IYOdQiSZKNc9kzluNBd9oZBooZ/4=";
+    rev = "e699f085b1ce4c37d9706bd445223f5cb430c626";
+    hash = "sha256-6vQ8sjmja+KooKKknyJmlyZPmJSZ7NCmE9yl2JWjJUY=";
   };
 
-  cargoHash = "sha256-Sg3e8yv75dg8T9qyJM7rNz+sKH/hH1OVz92unweowyA=";
-
-  patches = [ ./fix-eka-origin-info.patch ];
+  cargoHash = "sha256-GuNN0dddo8jhMMmBRNIdbV7R0yTQOc54ci++8K51Clk=";
 
   env = {
+    # static
+    EKA_ROOT_COMMIT_HASH = "4abbd2644bc3585e9be95deb277ccf48f6ed26ac";
+    EKA_ORIGIN_URL = "https://github.com/ekala-project/eka";
+
+    # nix-lock/0.1.6
+    EKA_LOCK_REV = "e711aa1f48d877652dd2ba724d4af752be7b5371";
+
     PROTO_ROOT = pkgs.fetchFromGitHub {
       owner = "nrdxp";
       repo = "snix";
