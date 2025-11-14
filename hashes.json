@@ -11,7 +11,7 @@
     "caddyfile-language-server": "83im96kh21b0pahqxhppv2rfl4yj4p44",
     "capnp-go": "y1ids6gm4l7w5xl1rszss3kah5g1v523",
     "chronometer": "83b4zymgyr8cpadc5nhisgyjcarfdm2m",
-    "cloud-hypervisor-graphics": "mslzn6xqf2rk22ra36r8cgzpvnbgmcj1",
+    "cloud-hypervisor-graphics": "cqvjd0m7rikrr6i9dwwz29l5idm15i5a",
     "comskip": "csb5w08f58qkhs6gpdf6i0ql092g9g5n",
     "cryptpad_2025_9": "kq4wm1z2nkq0w3fdzwxyc3d8fk47ckpl",
     "datetime": "2y066frl2n8azzlbnb4g2i2v507d3sws",
@@ -63,7 +63,7 @@
     "tinyauth": "yrkr09g7q9krrf8pw104yl8rb4vvgc8v",
     "turnstile": "bhnv8fknhp36sj8j8dwwhzbr1yvynkr0",
     "vencloud": "nwi5q3ghyy7yldcf18mka8zmpmzqyiny",
-    "zfullfs": "8lzbivwcmsb9n7zqphdlcwm9glz5xxgg",
+    "zfullfs": "hhlp32lbi3pqw03a2wjp277p61w2i5b6",
     "zxing-cpp-tools": "lzph4abvfsp7zy262bvkakxh725sp2f2"
   },
   "x86_64-linux": {
@@ -78,7 +78,7 @@
     "caddyfile-language-server": "6v4pi0vb7ni0p6hai2nkgcbkk9vk2zpq",
     "capnp-go": "szpzaqv8psxal70pvaaj21wk40h2g2g8",
     "chronometer": "m4sffddzz450sncnlbq59phg0kwjgyjm",
-    "cloud-hypervisor-graphics": "1f48akn00fiizw065frr9hs9156189qq",
+    "cloud-hypervisor-graphics": "9avf2kymhpfddr4nhfpyf0avmdw595h3",
     "comskip": "f62bxb2fswy4zv2xnwp42xx2zkhg63pa",
     "cryptpad_2025_9": "lybjnvbmv63pg0ylahdwb7pv8snm1hp5",
     "datetime": "v6mn4q68rh043pb0141ym52f11mm6p4c",
@@ -112,7 +112,7 @@
     "nchess": "4l38iznqbfpih75r4vddjzq04l8vvkym",
     "ncps-db-helper": "fy5n609fvh5yl6n6hil6dss089v4linp",
     "neo4j_4": "mbxlygp6fmhy34lqcndz6anc77x7b3jp",
-    "nvidia": "qqylbjd7jdm73nnksgfgp4wzyv7ww6dn",
+    "nvidia": "60lqx2p3wkh4f3q4nn0h7lbck3xlvkzl",
     "papra": "d67yymrjfviwfmh91cfg8s7fap18jznr",
     "pcr-oracle": "0ghf9c8sxqw94f5xm0adyml2p27pn2yk",
     "photoview": "ikmzcz9pk6qjwdzc2gly57lblvvwks92",
@@ -135,7 +135,7 @@
     "tinyauth": "k342c54vglb0zijmfg49x1wz8b3n9qn1",
     "turnstile": "fx3s8x16362kj6a0v3pdzc5kd5xbj8d7",
     "vencloud": "hx012jc2n9r78nid5kywqwayg93v12nk",
-    "zfullfs": "0bjaf63jq0lanwan5zg3syh2k6mv9204",
+    "zfullfs": "1lzd18176kiiwgv6k3cg9vcs4skm62pf",
     "zxing-cpp-tools": "0n03x7cgdd9fnrfpqjficgb4gczzvnr3"
   }
 }

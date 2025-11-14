@@ -20,7 +20,7 @@ A personal collection of unusual things
 |`caddyfile-language-server`|`0.4.0`|Caddyfile language server|https://github.com/caddyserver/vscode-caddyfile|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
-|`cloud-hypervisor-graphics`|`48.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
+|`cloud-hypervisor-graphics`|`49.0`|Open source Virtual Machine Monitor (VMM) that runs on top of KVM|https://github.com/cloud-hypervisor/cloud-hypervisor|
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`cryptpad_2025_9`|`2025.9.0`|Collaborative office suite, end-to-end encrypted and open-source|https://cryptpad.org/|
 |`datetime`|`0.2.1`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
@@ -54,7 +54,7 @@ A personal collection of unusual things
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`580.95.05`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`580.105.08`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`0.9.6`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
