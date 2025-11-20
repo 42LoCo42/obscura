@@ -1,12 +1,12 @@
 pkgs: pkgs.rustPlatform.buildRustPackage rec {
   pname = "gitlogue";
-  version = "0.2.0";
+  version = "0.3.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "unhappychoice";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-b5tfYSZXvWAJMSRfKbcD7d69HyH6YRhJ9oCQUElWHfY=";
+    hash = "sha256-IKCjv33I6bM5PSp1IBXEArHgNF1hV9J+Zko0uV2OPZA=";
   };
 
   patches = [
@@ -16,7 +16,7 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
 
   cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
     inherit src patches;
-    hash = "sha256-hvKory8YQn0GlUs/qAH5PS/AlZg6z6wmVGuzz/LSgQg=";
+    hash = "sha256-QO6BFLBWUCg2PTK15mPahOci3t3LrIBLTKALguTNvZQ=";
   };
 
   nativeBuildInputs = with pkgs; [

@@ -32,7 +32,7 @@ A personal collection of unusual things
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
 |`foot-transparent`|`1.25.0`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
-|`gitlogue`|`0.2.0`|A cinematic Git commit replay tool for the terminal|https://github.com/unhappychoice/gitlogue|
+|`gitlogue`|`0.3.0`|A cinematic Git commit replay tool for the terminal|https://github.com/unhappychoice/gitlogue|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
