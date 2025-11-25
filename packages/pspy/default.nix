@@ -9,12 +9,15 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-7R4Tp0Q7wjAuTDukiehtRZOcTABr0YTnvrod9Jdwjok=";
   };
 
+  env.CGO_ENABLED = "0";
+
   ldflags = [
     "-s"
     "-w"
     "-X main.version=${version}"
     "-X main.commit=n/a"
   ];
+
   vendorHash = "sha256-mgAsy2ufMDNpeCXG/cZ10zdmzFoGfcpCzPWIABnvJWU=";
 
   meta = {
