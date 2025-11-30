@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 69 Packages
+## 68 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -15,7 +15,6 @@ A personal collection of unusual things
 |`argtable2`|`2.13`|An ANSI C command line parser|https://argtable.sourceforge.io|
 |`avahi-proxy`|`1.0.2-unstable-2025-06-24`|Multicast DNS Proxy written in Go|https://github.com/muhammadn/avahi-proxy|
 |`bedrockdb`|`2023-10-25`|Rock solid distributed database specializing in active/active automatic failover and WAN replication|https://bedrockdb.com|
-|`bloodhound-ce`|`8.3.0`|Six Degrees of Domain Admin|https://github.com/SpecterOps/BloodHound|
 |`bun2nix`|`1.5.1`|A fast rust based bun lockfile to nix expression converter|https://github.com/baileyluTCD/bun2nix|
 |`caddyfile-language-server`|`0.4.0`|Caddyfile language server|https://github.com/caddyserver/vscode-caddyfile|
 |`capnp-go`|`3.0.0-alpha.30`|Cap'n Proto library and code generator for Go|https://github.com/capnproto/go-capnp|
