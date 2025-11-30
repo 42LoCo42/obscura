@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 68 Packages
+## 67 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -64,7 +64,6 @@ A personal collection of unusual things
 |`rgssad`|`0.11`|Provide an interface to RGSS (ruby game scripting system) archive files|https://metacpan.org/dist/Archive-Rgssad|
 |`rom-parser`|`0-unstable-2017-03-31`|Parse & change GPU VBIOS files|https://github.com/awilliam/rom-parser|
 |`rustdesk-api`|`2.6.15`|Custom Rustdesk Api Server|https://github.com/lejianwen/rustdesk-api|
-|`rusthound-ce`|`2.4.3-unstable-2025-11-04`|Active Directory data ingestor for BloodHound Community Edition written in Rust|https://github.com/g0h4n/RustHound-CE|
 |`sae_pk_gen`|`0-unstable-2022-07-17`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`samloader`|`0.4.1-unstable-2023-06-19`|Download Samsung firmware from official servers|https://github.com/samloader/samloader|
 |`sfnt2woff-zopfli`|`1.3.1`|WOFF utilities with Zopfli compression|https://github.com/bramstein/sfnt2woff-zopfli|

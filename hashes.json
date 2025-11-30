@@ -50,7 +50,6 @@
     "rgssad": "91qw5rw6pzbzlrbsiky3n2s074yjv8nh",
     "rom-parser": "h1q16np8yklc3gvby6y6pp2mqh22ffqa",
     "rustdesk-api": "9vchxkcsv677cic67m0nm4n8vp83pv6j",
-    "rusthound-ce": "njsfzy11c7a9dpdxs6xppw90jn4dvrcj",
     "sae_pk_gen": "l079hlvkch0i83s4aii1aj2zk1dln5r2",
     "samloader": "zw7j4cdb004p95yjx5wk35jn5z3h55lp",
     "sfnt2woff-zopfli": "28gl5j8178ln5hac701nrzzflp60ak00",
@@ -61,7 +60,7 @@
     "tinyauth": "0iscal2njsglbjjsgq0yx9wwjigwv6xm",
     "turnstile": "q3xj07lggcphp2n05b0mfh6xdvgl4mrz",
     "vencloud": "v7zl5f4xpaf82jf3w7afycfnhvvihdyp",
-    "zfullfs": "zcr5wyglnq0v2llg2vgslv2gvp7h8hwp",
+    "zfullfs": "rci1ajbzra3acsy0y2lv0mpghlckcl8q",
     "zxing-cpp-tools": "s5gv7ssw236zxdig7kdc1rhzg038bcpg"
   },
   "x86_64-linux": {
@@ -120,7 +119,6 @@
     "rgssad": "kqivkgfhk9pqhl39x6iphipmkc57f20k",
     "rom-parser": "hlh24k1x2wwqrma4kyddivr74wpll8fi",
     "rustdesk-api": "z01mvlg4cqdrpwh56kinr0ml702gzvyp",
-    "rusthound-ce": "ignn1kp43a1s8na2bdymxl1zj2ba47rb",
     "sae_pk_gen": "dc8blr6wwqnkpa0a4nm680cv1r3xr8bm",
     "samloader": "7vwlbgj43ykz6m6cyll5s9ai4grr6b5c",
     "sfnt2woff-zopfli": "2qwxpia8za5c5xqan844zk7i7hb996ay",
@@ -131,7 +129,7 @@
     "tinyauth": "vap6drpqb3xi4p5csyrq4jdxcknyr9rh",
     "turnstile": "d9y85xyrm4166m8zv9yc5mhzlri0z5lw",
     "vencloud": "rnzll17sfa29vw4kqb7c38a84yh8p2gp",
-    "zfullfs": "981m4bx7w6x9kfxpfmvy9z20d9wakycl",
+    "zfullfs": "1cpa21in9vkwli1slss40n6h2rrfr21b",
     "zxing-cpp-tools": "mws6h652gv9vk5z7r4pc6lpsv9zqgjmp"
   }
 }
