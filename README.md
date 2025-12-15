@@ -52,7 +52,7 @@ A personal collection of unusual things
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`580.105.08`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`580.119.02`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`0.9.6`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
 |`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
