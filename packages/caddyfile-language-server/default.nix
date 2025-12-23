@@ -2,9 +2,6 @@ pkgs:
 let
   inherit (pkgs.lib) getExe;
 
-  node = pkgs.nodejs;
-  pnpm = pkgs.pnpm_8;
-
   pname = "caddyfile-language-server";
   pkg = "@caddyserver/${pname}";
 in
@@ -19,11 +16,15 @@ pkgs.stdenv.mkDerivation rec {
     hash = "sha256-IusP9Z3e8mQ0mEhI1o1zIqPDB/i0pqlMfnt6M8bzb2w=";
   };
 
-  nativeBuildInputs = [ node pnpm.configHook ];
+  nativeBuildInputs = with pkgs; [
+    nodejs
+    pnpm_8
+    pnpmConfigHook
+  ];
 
   pnpmWorkspaces = [ pkg ];
 
-  pnpmDeps = pnpm.fetchDeps {
+  pnpmDeps = pkgs.fetchPnpmDeps {
     inherit pname version src pnpmWorkspaces;
     fetcherVersion = 2;
     hash = "sha256-1Hxb1MsuQLj9LsWW4tZ3JL79Kdu0qQB/bwIswRHUdHk=";
@@ -32,7 +33,7 @@ pkgs.stdenv.mkDerivation rec {
   buildPhase = ''
     pnpm --filter=${pkg} build
 
-    echo '#!${getExe node}'           >  ${pname}
+    echo '#!${getExe pkgs.nodejs}'    >  ${pname}
     cat packages/server/dist/index.js >> ${pname}
   '';
 

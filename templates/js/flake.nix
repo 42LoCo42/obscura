@@ -24,10 +24,11 @@
 
           nativeBuildInputs = with pkgs; [
             nodejs
-            pnpm.configHook
+            pnpm
+            pnpmConfigHook
           ];
 
-          pnpmDeps = pkgs.pnpm.fetchDeps {
+          pnpmDeps = pkgs.fetchPnpmDeps {
             inherit pname version src;
             fetcherVersion = 2;
             hash = "";

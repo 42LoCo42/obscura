@@ -13,7 +13,8 @@ pkgs.stdenv.mkDerivation rec {
 
   nativeBuildInputs = with pkgs; [
     nodejs
-    pnpm.configHook
+    pnpm
+    pnpmConfigHook
 
     # for sharp build:
     node-gyp
@@ -25,7 +26,7 @@ pkgs.stdenv.mkDerivation rec {
     vips
   ];
 
-  pnpmDeps = pkgs.pnpm.fetchDeps {
+  pnpmDeps = pkgs.fetchPnpmDeps {
     inherit pname version src;
     fetcherVersion = 2;
     hash = "sha256-HNJuXmdsHF2Q1F50vL7na65i9gdqvRKFwqVBzfgUs+Q=";

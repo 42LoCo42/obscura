@@ -19,10 +19,11 @@ let
 
     nativeBuildInputs = with pkgs; [
       nodejs
-      pnpm.configHook
+      pnpm
+      pnpmConfigHook
     ];
 
-    pnpmDeps = pkgs.pnpm.fetchDeps {
+    pnpmDeps = pkgs.fetchPnpmDeps {
       inherit (x) pname version src patchPhase;
       fetcherVersion = 2;
       hash = "sha256-6pGMzkEsv6wI0yR0qUBu3P802Pkm75R+Sp6csVe5Ub4=";
