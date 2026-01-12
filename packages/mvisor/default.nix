@@ -1,6 +1,6 @@
 pkgs:
 let inherit (pkgs.lib) filter hasInfix; in
-pkgs.stdenv.mkDerivation rec {
+pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "mvisor";
   version = "2.7.3-unstable-2025-08-08";
 

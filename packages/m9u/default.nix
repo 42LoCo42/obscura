@@ -1,4 +1,4 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs: pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "m9u";
   version = "0-unstable-2021-09-12";
 

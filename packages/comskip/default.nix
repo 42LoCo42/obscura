@@ -1,4 +1,4 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs: pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "comskip";
   version = "0.83-unstable-2024-06-07";
 

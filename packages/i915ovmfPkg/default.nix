@@ -6,7 +6,7 @@ let
     sha256 = "0zwkwkiifcbzsmfn932nkgvhaj91n3hqg05fqss8s79bdwk6w35i";
   })) { inherit (pkgs.stdenv.hostPlatform) system; };
 in
-pkgs.stdenv.mkDerivation rec {
+pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "i915ovmfPkg";
   version = "1.0.0";
 

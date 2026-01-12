@@ -1,4 +1,4 @@
-pkgs: pkgs.stdenv.mkDerivation rec {
+pkgs: pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "libdill";
   version = "2.14-unstable-2022-08-10";
 
