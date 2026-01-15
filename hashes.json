@@ -39,7 +39,7 @@
     "nchess": "y632rq33w7pyqvq8xx8x0gbq06v26p8n",
     "ncps-db-helper": "4bdk869l0yhp68hhramcgbf6fc6gb77p",
     "neo4j_4": "mvsk0jhphfsn3hgir4k32ffr9syv6h0x",
-    "papra": "cg4w4bkh0n5acx2y16szmc2zzbr3fkwb",
+    "papra": "k3s5f5gcvfj14rz42633y4jln23c3aas",
     "pcr-oracle": "ffcqvf3gh4z8c63zys4cx0kykgqlgw7r",
     "photoview": "k4jw7ysdqmhk76f6x3w5b7rbw82jv5z7",
     "pinlist": "x89hy8fz2l68fsy8vz5g6ha1nm97phvd",
@@ -60,7 +60,7 @@
     "tinyauth": "rwk9v89hflgfg887ixpa5z4wlaa98qha",
     "turnstile": "w3rg1zqf43s1bqvwjpafq7ag6bbkg0gq",
     "vencloud": "z6ykv281814i5ws3dwkamz0rdjv5ghyv",
-    "zfullfs": "py0bdlv8w0lcn5mf9q7vpbcg76gkd244",
+    "zfullfs": "g516q3bwqpcvpvrdkcbb1fbqd22jy40i",
     "zxing-cpp-tools": "mc8vym3vr4xab7a4cpqzrz4vyg3pm1s1"
   },
   "x86_64-linux": {
@@ -108,7 +108,7 @@
     "ncps-db-helper": "1x3fkwzsnxhvry9y5xk2bzypdrhfw9k7",
     "neo4j_4": "1a22vy4nj08f70kc2zsi5svj3ajh3a47",
     "nvidia": "qbala26ll0amfcbqpmis2cjz5ry0flda",
-    "papra": "jcmivzh1v0iypfnrsd7n0kkqacjia3zs",
+    "papra": "kk8sqdn4ixcvzxm3zdf3g2rqdr5g59pd",
     "pcr-oracle": "7dmmqslflpwrym208as4hghcsvdzsazw",
     "photoview": "p8rzzykhy9rvxx64ijxv9fblq5jnjix8",
     "pinlist": "ygyqqh19jsg1zzk4p5p1aqmlwc7jf8nf",
@@ -129,7 +129,7 @@
     "tinyauth": "jkbkj2rraliwc6qhqdvag9a0yal932xz",
     "turnstile": "5b86c4pj2z6nymilkwh4a0w0dfgb4l9g",
     "vencloud": "b778i5kj921qw3zwzfrj4z2mfkqzynf2",
-    "zfullfs": "6i75dxi5p655fi5h1qjjg61fr1rkh7dp",
+    "zfullfs": "gdn84ymhw72w2a9ipq7dag490wj9mibf",
     "zxing-cpp-tools": "5xvc5fjlpssb5i79jslyvqshx1272a5q"
   }
 }
