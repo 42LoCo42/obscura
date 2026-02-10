@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 66 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -28,7 +28,6 @@ A personal collection of unusual things
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`email-oauth2-proxy`|`2025-10-04`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
-|`foot-transparent`|`1.25.0`|A patched version of the foot terminal emulator that brings back fullscreen transparency|https://codeberg.org/fazzi/foot|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
 |`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
