@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 67 Packages
+## 68 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -25,6 +25,7 @@ A personal collection of unusual things
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
 |`drasl`|`3.3.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
+|`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eepers`|`1.3-unstable-2024-05-26`|Simple Turn-based Game|https://github.com/tsoding/eepers|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`email-oauth2-proxy`|`2025-10-04`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
