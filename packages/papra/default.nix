@@ -1,14 +1,16 @@
+# based on https://github.com/NixOS/nixpkgs/pull/485134
+
 pkgs:
 let inherit (pkgs.lib) makeBinPath; in
 pkgs.stdenv.mkDerivation rec {
   pname = "papra";
-  version = "0.9.6";
+  version = "26.1.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "papra-hq";
     repo = pname;
-    tag = "@papra/app-server@${version}";
-    hash = "sha256-NHo1jWFcRZurNSYtT5CN3+HS2ZTmFZvu+OSIgM0GrVg=";
+    tag = "@papra/app@${version}";
+    hash = "sha256-erFJoOv/e46juheFaiNaVb8PhW778vUgcA3a8moeS+k=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -28,52 +30,56 @@ pkgs.stdenv.mkDerivation rec {
 
   pnpmDeps = pkgs.fetchPnpmDeps {
     inherit pname version src;
-    fetcherVersion = 2;
-    hash = "sha256-HNJuXmdsHF2Q1F50vL7na65i9gdqvRKFwqVBzfgUs+Q=";
+    fetcherVersion = 3;
+    pnpmWorkspaces = [
+      "@papra/app-client..."
+      "@papra/app-server..."
+    ];
+    hash = "sha256-Rs9b30v+WUCZ/6zeavEDw9xVuSff+QcCsWLvnPvi4RY=";
   };
 
-  buildPhase = ''
-    echo "[1;32mBuilding app components...[m"
-    pnpm --filter @papra/app-client... run build
-    pnpm --filter @papra/app-server... run build
+  env = {
+    SHARP_FORCE_GLOBAL_LIBVIPS = 1;
+    npm_config_nodedir = pkgs.nodejs;
+  };
 
-    echo "[1;32mBuilding production dependencies...[m"
+  postPatch = ''
+    substituteInPlace apps/papra-server/src/modules/app/static-assets/static-assets.routes.ts \
+      --replace-fail "./public" "$out/lib/public" \
+      --replace-fail "public/index.html" "$out/lib/public/index.html"
+  '';
+
+  buildPhase = ''
     export MAKEFLAGS="-j$NIX_BUILD_CORES"
-    pnpm config set nodedir ${pkgs.nodejs}
-    pnpm install                    \
-      --filter @papra/app-server... \
-      --force                       \
-      --frozen-lockfile             \
-      --offline                     \
-      --prod
+    pnpm config set inject-workspace-packages true
+
+    pushd node_modules/sharp
+    pnpm run install
+    popd
+
+    pnpm --filter "@papra/app-client..." run build
+    pnpm --filter "@papra/app-server..." run build
   '';
 
   installPhase = ''
-    echo "[1;32mInstalling app components...[m"
-    mkdir -p                          $out/{app/{apps,packages},bin}
-    cp -r apps/papra-server           $out/app/apps
-    cp -r apps/papra-client/dist      $out/app/apps/papra-server/public
-    cp -r packages/{lecture,webhooks} $out/app/packages
+    mkdir -p $out/{bin,lib}
 
-    echo "[1;32mInstalling dependencies...[m"
-    cp -r node_modules $out/app
+    pnpm deploy --filter=@papra/app-server --prod $out/lib/
 
-    echo "[1;32mCleaning up dangling symlinks...[m"
-    find $out -xtype l -ls -delete
+    mkdir -p $out/lib/public
+    cp -r apps/papra-client/dist/* $out/lib/public/
 
-    echo "[1;32mCleaning up binaries...[m"
-    find $out/app -name 'bin' -or -name '.bin' | sort -u | xargs rm -rf
-
-    echo "[1;32mGenerating launcher...[m"
-    cat << EOF > $out/bin/${pname}
+    cat << EOF > $out/bin/papra
     #!${pkgs.runtimeShell} -e
-    export PATH="${makeBinPath (with pkgs; [ nodejs tsx ])}:\$PATH"
+
+    export PATH="${makeBinPath (with pkgs; [ nodejs tsx ])}"
+    export NODE_PATH=$out/lib/node_modules
     export SERVER_SERVE_PUBLIC_DIR=true
-    cd $out/app/apps/papra-server
-    tsx src/scripts/migrate-up.script.ts
-    exec node dist/index.js
+
+    tsx $out/lib/src/scripts/migrate-up.script.ts
+    exec node $out/lib/dist/index.js
     EOF
-    chmod +x $out/bin/${pname}
+    chmod +x $out/bin/papra
   '';
 
   meta = {
