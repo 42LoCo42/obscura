@@ -1,3 +1,5 @@
+# TODO https://github.com/NixOS/nixpkgs/pull/465533
+
 pkgs:
 let
   inherit (pkgs.lib) makeBinPath;

@@ -1,3 +1,5 @@
+# TODO https://github.com/NixOS/nixpkgs/pull/476356
+
 pkgs:
 let
   pname = "tinyauth";

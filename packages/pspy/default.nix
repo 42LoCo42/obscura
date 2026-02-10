@@ -1,3 +1,5 @@
+# TODO https://github.com/NixOS/nixpkgs/pull/465624
+
 pkgs: pkgs.buildGoModule rec {
   pname = "pspy";
   version = "1.2.1";

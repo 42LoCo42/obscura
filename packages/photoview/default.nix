@@ -1,3 +1,5 @@
+# TODO https://github.com/NixOS/nixpkgs/pull/488876
+
 pkgs:
 let
   pname = "photoview";

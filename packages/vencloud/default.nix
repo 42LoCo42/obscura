@@ -1,3 +1,5 @@
+# TODO https://github.com/NixOS/nixpkgs/pull/374132
+
 pkgs: pkgs.buildGoModule rec {
   pname = "vencloud";
   version = "0.0.1";
