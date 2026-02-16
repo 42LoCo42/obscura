@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 65 Packages
+## 66 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -72,5 +72,6 @@ A personal collection of unusual things
 |`tinyauth`|`3.6.2`|The simplest way to protect your apps with a login screen|https://tinyauth.app|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
+|`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
 |`zxing-cpp-tools`|`2.3.0`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
