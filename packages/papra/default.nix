@@ -4,13 +4,13 @@ pkgs:
 let inherit (pkgs.lib) makeBinPath; in
 pkgs.stdenv.mkDerivation rec {
   pname = "papra";
-  version = "26.1.0";
+  version = "26.2.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "papra-hq";
     repo = pname;
     tag = "@papra/app@${version}";
-    hash = "sha256-erFJoOv/e46juheFaiNaVb8PhW778vUgcA3a8moeS+k=";
+    hash = "sha256-5vSRQnsnLQ8beHOpKYQxZiOhaB8KgLATAWqyRoveW8M=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -35,7 +35,7 @@ pkgs.stdenv.mkDerivation rec {
       "@papra/app-client..."
       "@papra/app-server..."
     ];
-    hash = "sha256-Rs9b30v+WUCZ/6zeavEDw9xVuSff+QcCsWLvnPvi4RY=";
+    hash = "sha256-NQakyRlL6deG13yt+FlmVcVvEkNWHW0Lhf/3NecfwaE=";
   };
 
   env = {
