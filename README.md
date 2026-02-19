@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 66 Packages
+## 65 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -53,7 +53,6 @@ A personal collection of unusual things
 |`nvidia`|`580.126.09`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`26.2.0`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pcr-oracle`|`0.5.4`|Predict TPM PCR values for future boot|https://github.com/okirch/pcr-oracle|
-|`photoview`|`v2.4.0`|Photo gallery for self-hosted personal servers|https://photoview.github.io|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pmemstat`|`0-unstable-2025-10-15`|Proportional Memory Status - shows memory consumption of Linux process by PID and groupings|https://github.com/joedefen/pmemstat|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
