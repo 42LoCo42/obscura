@@ -22,7 +22,9 @@ in
 (pkgs.writeShellApplication {
   name = pname;
   runtimeInputs = [ run ];
-  text = "appimage-run ${img}";
+  text = ''
+    appimage-run ${img} --no-sandbox "$@"
+  '';
 }).overrideAttrs {
   inherit pname version;
 
