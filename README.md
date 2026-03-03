@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 66 Packages
+## 67 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -48,6 +48,7 @@ A personal collection of unusual things
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
 |`mvisor`|`2.7.3-unstable-2025-08-08`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
+|`my-aseprite`|`1.3.17`|Animated sprite editor & pixel art tool|https://www.aseprite.org/|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
 |`ncps-db-helper`|`n/a`|Wrap ncps with automatic database creation|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
