@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 67 Packages
+## 66 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -27,7 +27,7 @@ A personal collection of unusual things
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`email-oauth2-proxy`|`2025-10-04`|An IMAP/POP/SMTP proxy that transparently adds OAuth 2.0 authentication for email clients that don't support this method |https://github.com/simonrob/email-oauth2-proxy|
-|`fastfetch-zfs`|`2.59.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
+|`fastfetch-zfs`|`2.60.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
@@ -70,7 +70,6 @@ A personal collection of unusual things
 |`socket-activate`|`0.1.3`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
 |`souk`|`0-unstable-2024-04-07`|Independent Flatpak App Store|https://gitlab.gnome.org/haecker-felix/souk|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
-|`tinyauth`|`3.6.2`|The simplest way to protect your apps with a login screen|https://tinyauth.app|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
