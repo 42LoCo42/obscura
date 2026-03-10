@@ -18,7 +18,7 @@
     "edex-ui": "78gvln7sfz2p0lsg5h74gwbl91fxa2cd",
     "eka": "ypkgsfp793q5g74k58z2v7idvh7wj5wn",
     "email-oauth2-proxy": "wb5jy5rx5dg5i10l23q3qq6nabq7lp8a",
-    "fastfetch-zfs": "njwvbbjypjgbhliwd50hr86gffr5nh08",
+    "fastfetch-zfs": "k4dsij89c1v4y7yby1hkl0rn71kfpgk9",
     "ferroxide": "l0pqanl82g1v5226snp6rny37b5fniz7",
     "fusepod": "7bhr9awqnivrx0pklrq7rijg4hjaqz79",
     "go-transcode": "7ay77j5y8dv00ynzbd6hsknvld7a4fwz",
@@ -59,7 +59,7 @@
     "turnstile": "phhm6b4wj9cv205hr3ya2q2m4j4b6365",
     "vencloud": "glz0igfz075az4g40bkbxaycfvh48w8v",
     "waybar-weather": "y8bxqj71m9kbzczqbdma6swx92jk84na",
-    "zfullfs": "dy60d9ffdm89l1i7cgrjj7x705sj2sbs",
+    "zfullfs": "wplq2sbspcqhc9vhbb51xajmxb5gi9sy",
     "zxing-cpp-tools": "s703q3mzajnhpl71hq2fcnhk3ikh0h3m"
   },
   "x86_64-linux": {
@@ -81,7 +81,7 @@
     "edex-ui": "p7l1gm631pihb2fxq8jsmv1045hm6149",
     "eka": "0qy3hb51rq28y2xjl4j1whay6m3vrl7r",
     "email-oauth2-proxy": "yclhgcybzp65zfy4kf52yfcglb4l8qn7",
-    "fastfetch-zfs": "n0qslprw6cmy6y6n9f4p5nn6qxmms0bp",
+    "fastfetch-zfs": "f9gghj7j4f2r95jq7l252frphid4mrkd",
     "ferroxide": "wrjvcqjj1hp6nhrvlgvi5z7v613znfam",
     "fusepod": "pa3d8a5k36q6kk2pzdl8j473g52b56r9",
     "go-transcode": "czx5mgxcm4fkx4n7qg85vjjx827jw2c2",
@@ -127,7 +127,7 @@
     "turnstile": "4jlyv8pl398r7v2kisfrx2khdln9qm2v",
     "vencloud": "w21f7505y9kbayrji4rycgrzmgdf5gqk",
     "waybar-weather": "c024g9gdbs27sfjnajkjhl0dqwji04r8",
-    "zfullfs": "la72skbshi8qnpnygjw4aiclm9n7r5qs",
+    "zfullfs": "1xq49fv3vcrv6kc134ilgvd3gir73n71",
     "zxing-cpp-tools": "ahg4lwayln0ax4ji6w43rm2vixlqly3q"
   }
 }
