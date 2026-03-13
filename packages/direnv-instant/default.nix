@@ -1,5 +1,7 @@
 pkgs:
 let
+  inherit (pkgs.lib) mkDefault;
+
   src = pkgs.fetchFromGitHub {
     owner = "Mic92";
     repo = "direnv-instant";
@@ -14,7 +16,10 @@ let
     passthru = {
       module = hm: {
         imports = [ "${src}/home.nix" ];
-        programs.direnv-instant.package = pkg;
+        programs.direnv-instant = {
+          enable = mkDefault true;
+          package = mkDefault pkg;
+        };
       };
     };
 
