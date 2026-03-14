@@ -16,10 +16,7 @@ let
     passthru = {
       module = hm: {
         imports = [ "${src}/home.nix" ];
-        programs.direnv-instant = {
-          enable = mkDefault true;
-          package = mkDefault pkg;
-        };
+        programs.direnv-instant.package = mkDefault pkg;
       };
     };
 
