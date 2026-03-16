@@ -22,6 +22,7 @@
           nativeBuildInputs = with pkgs; [
             meson
             ninja
+            pkg-config
           ];
 
           buildInputs = with pkgs; [
