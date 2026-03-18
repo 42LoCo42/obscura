@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 67 Packages
+## 68 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -32,6 +32,7 @@ A personal collection of unusual things
 |`ferroxide`|`0.5.0`|A community fork of https://github.com/emersion/hydroxide|https://github.com/acheong08/ferroxide|
 |`fusepod`|`0.5.2-unstable-2022-01-11`|A userspace filesystem which mounts your iPod.|https://github.com/keegancsmith/FUSEPod|
 |`go-transcode`|`0.4.2-unstable-2024-09-22`|On-demand transcoding origin server for live inputs and static files in Go using ffmpeg|https://github.com/m1k1o/go-transcode|
+|`gomuks-web-2603`|`0.2603.0`|Matrix client written in Go|https://github.com/gomuks/gomuks|
 |`hq`|`3.2`|A HTML processor inspired by jq|https://github.com/coderobe/hq|
 |`htmgo`|`1.0.5`|A lightweight pure go way to build interactive websites / web applications using go & htmx|https://htmgo.dev|
 |`i915ovmfPkg`|`1.0.0`|VBIOS for Intel GPU Passthrough|https://github.com/x78x79x82x79/i915ovmfPkg|
