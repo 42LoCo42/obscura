@@ -106,20 +106,22 @@
           packages = self.packages;
         };
 
+        lanzaboote = join "" [
+          (import ./packages/lanzaboote/source.nix)
+          "/nix/modules/lanzaboote.nix"
+        ];
+      };
+
+      homeModules = {
         direnv-instant = { pkgs, ... }: {
           imports = singleton (join "" [
             (import ./packages/direnv-instant/source.nix)
-            "/nixos.nix"
+            "/home.nix"
           ]);
 
           programs.direnv-instant.package =
             allPackages.packages.${pkgs.stdenv.system}.direnv-instant;
         };
-
-        lanzaboote = join "" [
-          (import ./packages/lanzaboote/source.nix)
-          "/nix/modules/lanzaboote.nix"
-        ];
       };
 
       templates = let dir = ./templates; in pipe dir [
