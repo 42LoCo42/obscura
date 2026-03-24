@@ -1,0 +1,4 @@
+* Legacy package collection
+These packages have outlived their usefulness to direct consumers of Obscura.
+They will not be maintained anymore, but might serve as an inspiration
+to other maintainers who wish to adopt them.

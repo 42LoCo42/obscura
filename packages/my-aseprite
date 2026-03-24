@@ -1,5 +1,0 @@
-pkgs: pkgs.aseprite.overrideAttrs (old: {
-  meta = old.meta // {
-    unfree = false;
-  };
-})
