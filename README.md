@@ -22,7 +22,7 @@ A personal collection of unusual things
 |`comskip`|`0.83-unstable-2024-06-07`|A free commercial detector|https://github.com/erikkaashoek/Comskip|
 |`datetime`|`0.2.1`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`devzat`|`0-unstable-2024-08-29`|Custom SSH server for chatting|https://github.com/quackduck/devzat|
-|`direnv-instant`|`1.1.0-unstable-2026-03-10`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
+|`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`drasl`|`3.3.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|

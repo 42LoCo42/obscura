@@ -1,28 +1,14 @@
-pkgs:
-let
-  inherit (pkgs.lib) mkDefault;
+pkgs: pkgs.rustPlatform.buildRustPackage (drv: {
+  pname = "direnv-instant";
+  version = "1.1.0-unstable-2026-03-22";
 
-  src = pkgs.fetchFromGitHub {
-    owner = "Mic92";
-    repo = "direnv-instant";
-    rev = "fc2eb8e6ac541d24266ad0016fdbd306c8420660";
-    hash = "sha256-Ufnl7F9RLoFkWpcNY72jUH+K3p9FUfnlyJXeABFholw=";
+  src = import ./source.nix;
+
+  cargoHash = "sha256-WDTOqbYEyjTMhH33JHeZLIeGR1av0atNjIltMNmXcoI=";
+
+  meta = {
+    description = "Non-blocking direnv integration daemon with tmux support";
+    homepage = "https://github.com/Mic92/direnv-instant";
+    mainProgram = drv.pname;
   };
-
-  pkg = (pkgs.callPackage src { }).overrideAttrs (old: {
-    version = "1.1.0-unstable-2026-03-10";
-    __intentionallyOverridingVersion = true;
-
-    passthru = {
-      module = hm: {
-        imports = [ "${src}/home.nix" ];
-        programs.direnv-instant.package = mkDefault pkg;
-      };
-    };
-
-    meta = old.meta // {
-      homepage = "https://github.com/Mic92/direnv-instant";
-    };
-  });
-in
-pkg
+})

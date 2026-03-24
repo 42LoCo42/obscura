@@ -16,11 +16,11 @@
       inherit (nixpkgs.lib)
         attrNames
         concatLines
-        concatStringsSep
         filterAttrs
         flip
         foldl'
         getExe
+        join
         length
         listToAttrs
         mapAttrs
@@ -30,6 +30,7 @@
         readFile
         recursiveUpdate
         replaceStrings
+        singleton
         substring
         ;
 
@@ -67,7 +68,7 @@
 
       readme = pipe self.packages.${system} [
         (mapAttrsToList (k: v: replaceStrings [ "\n" ] [ " " ]
-          ("|" + concatStringsSep "|" [
+          ("|" + join "|" [
             "`${k}`"
             "`${v.version or "n/a"}`"
             "${v.meta.description or "n/a"}"
@@ -105,7 +106,17 @@
           packages = self.packages;
         };
 
-        lanzaboote = concatStringsSep "" [
+        direnv-instant = { pkgs, ... }: {
+          imports = singleton (join "" [
+            (import ./packages/direnv-instant/source.nix)
+            "/nixos.nix"
+          ]);
+
+          programs.direnv-instant.package =
+            allPackages.packages.${pkgs.stdenv.system}.direnv-instant;
+        };
+
+        lanzaboote = join "" [
           (import ./packages/lanzaboote/source.nix)
           "/nix/modules/lanzaboote.nix"
         ];
@@ -147,7 +158,7 @@
           runtimeInputs = with pkgs; [ jq nixpkgs-hammering parallel ];
           text = pipe self.packages.${pkgs.stdenv.hostPlatform.system} [
             (mapAttrsToList (n: _: n))
-            (concatStringsSep "\n")
+            (join "\n")
             (x: ''
               if [ -n "''${1-}" ]; then
                 parallel nix build -L --no-link '.#{}' << EOF
