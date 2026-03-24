@@ -2,13 +2,13 @@ pkgs:
 let inherit (pkgs.lib) filter hasInfix; in
 pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "mvisor";
-  version = "2.7.3-unstable-2025-08-08";
+  version = "2.7.3-unstable-2025-09-04";
 
   src = pkgs.fetchFromGitHub {
     owner = "tenclass";
     repo = pname;
-    rev = "5b2646b25c41a2d3f4152982947d27bc11710069";
-    hash = "sha256-9RTo6/XsjLX0EDg6KTcg8lhd1gtENpWlrABKiyvjsKA=";
+    rev = "8f9f37dbd32ac7a98a2f30ab1b5d54f32b407b06";
+    hash = "sha256-nQyCPoKJ34tTbNA2eflFfk3EtAJBvcodpxOe6tcAH58=";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -49,6 +49,8 @@ pkgs.gcc14Stdenv.mkDerivation rec {
       env.NIX_CFLAGS_COMPILE = "-Wno-error=enum-int-mismatch";
     }))
   ];
+
+  env.NIX_CFLAGS_COMPILE = "-Wno-error=unused-result";
 
   mesonFlags = let inherit (pkgs.lib) mesonBool; in [
     (mesonBool "gtk" true)

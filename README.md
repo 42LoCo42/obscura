@@ -47,7 +47,7 @@ A personal collection of unusual things
 |`modest`|`0.0.6-unstable-2021-08-03`|A fast HTML renderer implemented as a pure C99 library with no outside dependencies|https://github.com/lexborisov/Modest|
 |`msp-cgt`|`21.6.1`|MSP430 code generation tools|https://www.ti.com/tool/MSP-CGT|
 |`mspgcc-ti`|`9.3.1.11`|Open Source Compiler for MSP Microcontrollers|https://www.ti.com/tool/MSP430-GCC-OPENSOURCE|
-|`mvisor`|`2.7.3-unstable-2025-08-08`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
+|`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`mwxml2sql`|`2017-11-02`|Convert Mediawiki XML dumps to SQL|https://gerrit.wikimedia.org/g/operations/dumps/import-tools|
 |`my-aseprite`|`1.3.17`|Animated sprite editor & pixel art tool|https://www.aseprite.org/|
 |`nchess`|`0.0`|A curses based, UCI compatible, chess gui|https://github.com/spinojara/nchess|
