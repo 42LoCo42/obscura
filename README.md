@@ -25,7 +25,7 @@ A personal collection of unusual things
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`580.142`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`595.58.03`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`26.2.0`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
