@@ -10,7 +10,7 @@ pkgs: pkgs.stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = with pkgs; [
-    nodePackages.typescript
+    typescript
   ];
 
   buildPhase = ''
