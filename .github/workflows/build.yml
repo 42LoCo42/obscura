@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: DeterminateSystems/nix-installer-action@v21
+      - uses: DeterminateSystems/nix-installer-action@v22
         with:
           extra-conf: |
             substituters = https://cache.nixos.org https://nix-community.cachix.org
