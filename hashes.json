@@ -34,6 +34,7 @@
   "x86_64-linux": {
     "avahi-proxy": "3hrhpqqdfs5qig5m0z5p3g4hf783yr2z",
     "bun2nix": "hr24bxcbr90zkhqiphv66yqaika6gs1l",
+    "ceserver": "j3fpfadnnssbsmj8pcglppz3mzf7p3k3",
     "chronometer": "l06ycjrv1m4hghi57gn258r2dl8ig8gc",
     "cloud-hypervisor-graphics": "nysp6fqps83iqjnrapraz10dbp4j37j1",
     "datetime": "ccnciypwck25l63mlxc2gr4igr4iy12j",

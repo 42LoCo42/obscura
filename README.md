@@ -5,12 +5,13 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 32 Packages
+## 33 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
 |`avahi-proxy`|`1.0.2-unstable-2025-06-24`|Multicast DNS Proxy written in Go|https://github.com/muhammadn/avahi-proxy|
 |`bun2nix`|`1.5.1`|A fast rust based bun lockfile to nix expression converter|https://github.com/baileyluTCD/bun2nix|
+|`ceserver`|`7.5-unstable-2025-04-19`|Linux server for Cheat Engine|https://github.com/cheat-engine/cheat-engine/blob/master/Cheat%20Engine/ceserver|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
 |`cloud-hypervisor-graphics`|`n/a`|n/a|n/a|
 |`datetime`|`0.2.1`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
