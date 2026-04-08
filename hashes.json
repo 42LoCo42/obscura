@@ -10,7 +10,7 @@
     "e2eirc": "z6xwkgqkqbyxi0h4lsx5jnclw3lc5n9c",
     "edex-ui": "c5bipd3ldjsxxp51i04ksf4jy40k9110",
     "eka": "nakks2d552b32aj6bglvf93czgd7wrm6",
-    "fastfetch-zfs": "2gwis4py6g3pvhvhbbc9k2qbflv7c3kc",
+    "fastfetch-zfs": "30mksj5rxgj9d2vzshfnb6m16issm0fd",
     "immich-folder-album-creator": "h629ifccpyij8w642wv9bq34pfsrx6k9",
     "lanzaboote": "ywk10v8cbxmnaja6m6jjp8250b8grzzc",
     "mc-monitor": "4xb4h8yzrq99x4kj81lh9xphnv4j3k7n",
@@ -27,8 +27,8 @@
     "turnstile": "br4g267c0pjc9gax0c3p1vj87i2sa2xd",
     "vencloud": "jw9b57fdirmv29hvnd5kbbd9k2j0x1zk",
     "waybar-weather": "w7mckcc0xmlpsn5q04bcn7vfhij5pldm",
-    "yellowcake": "gn0rsvsj0lpvc5ra4c2fdk9flnklrazi",
-    "zfullfs": "hzfvjrgrg1q960hlbpry0yrb38a86iws",
+    "yellowcake": "j2i89hihsylg7dpm7s412l217kg0sf69",
+    "zfullfs": "x6y2bl8j12darz2xii3rk5hxlhxhw73n",
     "zxing-cpp-tools": "lqk7d5wply7ng5c3jk2x2kxmpajrnxx5"
   },
   "x86_64-linux": {
@@ -43,7 +43,7 @@
     "e2eirc": "qwq67wijnq57c5r592pksynn2wck1zx1",
     "edex-ui": "k12n42hr3k7lfrn7wds42148gacxzrs6",
     "eka": "y1f2xx19rw8wkis2nal5c4mdw1a3rxir",
-    "fastfetch-zfs": "2akj6bwv9sccjjsww1sdw437q0drf536",
+    "fastfetch-zfs": "r63s0b7x2w8f37kyypwss8lxvb2b7nz9",
     "immich-folder-album-creator": "fcijgi605il4g2abwzr6807znrd4k09z",
     "lanzaboote": "cqc3z38awi9imzp6d8yvg6g4cwmx51i5",
     "mc-monitor": "ck2hsa5p38b15s3s72ndy7b1jajxdb4g",
@@ -62,8 +62,8 @@
     "turnstile": "yif0z3i8pbpm5bdl22qslfdmmfa7swm4",
     "vencloud": "028cbrhvq6l9gdncakm3wyjws9gpydx0",
     "waybar-weather": "8b4lh9xvi5rbyll9kva8pcjgbpbxbww5",
-    "yellowcake": "pjnzvam2xjzczm98sqib7zi4j9pwa5af",
-    "zfullfs": "sz9wkmxdqlix8xwc5lxjg1sqgm3qc8l8",
+    "yellowcake": "2flssbcbz3kbl4wfxf9jrqzs15980i27",
+    "zfullfs": "rq9ibpsd0mjg0pkv7lkdgz3zsj2d4bly",
     "zxing-cpp-tools": "nl0f7v4z7n62pfzlvhaz0sd30v7y0c50"
   }
 }
