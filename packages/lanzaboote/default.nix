@@ -1,23 +1,21 @@
 pkgs:
 let
-  src = import ./source.nix;
-  lanza = src.packages.${pkgs.stdenv.hostPlatform.system};
-  module = "${src}/nix/modules/lanzaboote.nix";
+  src = import (import ./source.nix) {
+    inherit (pkgs.stdenv) system;
+  };
+
+  lanza = src.packages;
 in
 pkgs.symlinkJoin rec {
-  pname = lanza.tool.name;
-  inherit (lanza.stub) version;
+  inherit (lanza.lzbt) pname version;
 
-  paths = with lanza; [ stub tool ];
+  paths = with lanza; [ lzbt stub ];
 
-  passthru = {
-    inherit module;
-    inherit (lanza) stub tool;
-  };
+  passthru = { inherit (lanza) lzbt stub; };
 
   meta = {
     description = "Secure Boot for NixOS";
-    homepage = "https://github.com/42LoCo42/lanzaboote";
+    homepage = "https://github.com/nix-community/lanzaboote";
     mainProgram = pname;
   };
 }
