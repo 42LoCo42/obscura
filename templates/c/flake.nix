@@ -28,6 +28,10 @@
           buildInputs = with pkgs; [
           ];
 
+          preConfigure = ''
+            meson rewrite kwargs set project / version "$version"
+          '';
+
           mesonBuildType = "release";
           mesonFlags = [ "--werror" ];
         };

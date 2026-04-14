@@ -2,7 +2,7 @@ run: build
 	./build/example
 
 build:
-	if [ ! -d build ]; then just _wipe; fi
+	if [ ! -d build ] || [ ! -f build/meson-private/coredata.dat ]; then just _wipe; fi
 	meson compile -C build
 
 wipe: _wipe

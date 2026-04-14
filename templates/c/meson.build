@@ -2,7 +2,8 @@ project(
 	'example',
 	'c',
 	default_options: {
-		'buildtype': 'debugoptimized',  #
+		'c_std': 'c23',
+		'buildtype': 'debugoptimized',
 		'warning_level': '3',
 	},
 )
@@ -10,7 +11,12 @@ project(
 executable(
 	'example',
 	'src/main.c',
-	c_args: [],
+	c_args: [
+		'-DVERSION="@0@"'.format(meson.project_version()),
+		'-Wno-empty-translation-unit',
+		'-Wno-pragma-once-outside-header',
+	],
 	link_args: [],
+	dependencies: [],
 	install: true,
 )
