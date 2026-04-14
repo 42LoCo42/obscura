@@ -33,7 +33,7 @@ A personal collection of unusual things
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`rom-parser`|`0-unstable-2017-03-31`|Parse & change GPU VBIOS files|https://github.com/awilliam/rom-parser|
 |`sae_pk_gen`|`0-unstable-2022-07-17`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
-|`sillysecrets`|`2.1.5`|The silliest secret manager! :3|https://github.com/42LoCo42/sillysecrets|
+|`sillysecrets`|`2.2.0`|The silliest secret manager! :3|https://github.com/42LoCo42/sillysecrets|
 |`socket-activate`|`0.1.3`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
 |`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
