@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 34 Packages
+## 35 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -21,6 +21,7 @@ A personal collection of unusual things
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`fastfetch-zfs`|`2.61.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
+|`grimmory`|`2.3.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`lanzaboote`|`1.0.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
