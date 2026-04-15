@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 33 Packages
+## 34 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -25,6 +25,7 @@ A personal collection of unusual things
 |`lanzaboote`|`1.0.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
+|`my-hypr-plugins`|`0.54.3`|All the Hyprland plugins I use|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.58.03`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`papra`|`26.2.0`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
