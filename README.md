@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 35 Packages
+## 34 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -29,7 +29,6 @@ A personal collection of unusual things
 |`my-hypr-plugins`|`0.54.3`|All the Hyprland plugins I use|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.58.03`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
-|`papra`|`26.2.0`|The minimalistic document archiving platform|https://github.com/papra-hq/papra|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
