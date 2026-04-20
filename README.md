@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 34 Packages
+## 35 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -23,6 +23,7 @@ A personal collection of unusual things
 |`fastfetch-zfs`|`2.61.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
 |`grimmory`|`2.3.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
+|`keysmash`|`1.1.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.0.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
