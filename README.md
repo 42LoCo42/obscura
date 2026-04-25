@@ -20,7 +20,7 @@ A personal collection of unusual things
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
-|`fastfetch-zfs`|`2.61.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
+|`fastfetch-zfs`|`2.62.0`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
 |`grimmory`|`2.3.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`keysmash`|`1.1.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
