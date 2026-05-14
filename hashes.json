@@ -4,7 +4,7 @@
     "bun2nix": "r1jx8m9pghmvr7i7s0hlvskimaj8c3a5",
     "chronometer": "9s1p3i49r0pjrcy1msq6z0h0p1hsikw3",
     "cloud-hypervisor-graphics": "12gyv9z8jzggwzivqi7wj7bvjnhbs0la",
-    "datetime": "ds7gsd4f67m3cgwndz2zb339gqb24ida",
+    "datetime": "pck9fk1qm7cma2zxmkrppbsgc2srliqq",
     "direnv-instant": "ldmgjr8z6y0y7z5hx0q8x4if0bax3wjy",
     "drasl": "ri2va4vkzd5cfla373z9wlis1lgjgayp",
     "e2eirc": "rwbicjdxkmgn63abq8ny51l1kh8syzhs",
@@ -29,7 +29,7 @@
     "turnstile": "bvmkgn18a22ja7xi3m05qi0n0d7rnzkg",
     "vencloud": "2v8bgj18kb3ff7srfy0s8v6x7l9pnvf3",
     "waybar-weather": "9yf5m6rmx4jn3dnq5kvgmb1dv8fq8s3w",
-    "yellowcake": "66fyz7i41dg2lbm5q6k739sy3qpr71mg",
+    "yellowcake": "mw1avgqp6s85ki9vhbfvlddw996k5a8q",
     "zfullfs": "shyjfjgr9cf8psp29bhaa7lv4z2ga72d",
     "zxing-cpp-tools": "dqayd8k0hdkvpgwxd4bkfxgwd80cwikv"
   },
@@ -39,7 +39,7 @@
     "ceserver": "czgiv4jmwi1jn1ljpclzfjy2wmhh5khh",
     "chronometer": "0vz2dcmlj7mpz6p9fdka1m4jh5dlcpgw",
     "cloud-hypervisor-graphics": "kgay40949nw3y7b659cw7r6l0pmjb1w7",
-    "datetime": "bqflglkcd88fgv9vkh7k8fvz9dy3vysp",
+    "datetime": "4yp0n8gi13bmlq21mmspfg9x6iklgcwy",
     "direnv-instant": "2cm4y45wqvmbcg48l5fnc16aznsssa9l",
     "drasl": "6wfjfxyh0qg2x82mij1wqc5z9yy51lkp",
     "e2eirc": "lj09j1f6yrmg20b1s0vjhnm647gs0lv7",
@@ -66,7 +66,7 @@
     "turnstile": "s0yd4p1677pwp63agl9av9nvw22x21lk",
     "vencloud": "kr2a0m4mnnjbc9avbmk1xy350pfq0qsn",
     "waybar-weather": "bph7yr4l75b6dg4kx2nbl4pvz8jkmac0",
-    "yellowcake": "9yd7zrhnh0kr5wsqbwkjczaipvr1pwiq",
+    "yellowcake": "qzw95mv78vnzv2dpvqxp2qjc9m09f4v2",
     "zfullfs": "jykzq4yzha62ns3rhfp4xb2dlb4zmzqg",
     "zxing-cpp-tools": "044230i6yjrzh8b7sl3c0wg28n644vx1"
   }
