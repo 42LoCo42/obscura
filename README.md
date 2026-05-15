@@ -20,14 +20,14 @@ A personal collection of unusual things
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
-|`fastfetch-zfs`|`2.62.1`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
+|`fastfetch-zfs`|`2.63.1`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
 |`grimmory`|`3.0.3`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`keysmash`|`1.1.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.0.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
-|`my-hypr-plugins`|`0.54.3`|All the Hyprland plugins I use|n/a|
+|`my-hypr-plugins`|`0.55.1`|All the Hyprland plugins I use|n/a|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.71.05`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
