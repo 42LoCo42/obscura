@@ -5,8 +5,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "hyprwm";
     repo = "hyprland-plugins";
-    rev = "3e38db916aaecba0a7c7698c6df0c68acb89f312";
-    hash = "sha256-1baTmNmnYJwSKyim7pJoy5s5dYnO3BdU/oZHoJa06sI=";
+    rev = "eaf18d55d51cef00818c5a4fdd4170f8cc2de4dc";
+    hash = "sha256-d2wOUZlOqGAW9mwlpq7c/YlneW2ZDJt9d/2bq7mnKdM=";
   };
 
   build = pluginName: pkgs.hyprlandPlugins.mkHyprlandPlugin {
@@ -24,7 +24,18 @@ in
 (pkgs.linkFarm "my-hypr-plugins" {
   hyprfocus = build "hyprfocus";
   hyprwinwrap = build "hyprwinwrap";
-  inherit (pkgs.hyprlandPlugins) hypr-dynamic-cursors;
+
+  hypr-dynamic-cursors = pkgs.hyprlandPlugins.hypr-dynamic-cursors.overrideAttrs (old: {
+    version = "0-unstable-2026-03-12";
+
+    src = pkgs.fetchFromGitHub {
+      inherit (old.src) owner repo;
+      rev = "47f3da0dc5d97f51c2307070fd1d547efbdae6a3";
+      hash = "sha256-LATqyui3+kV7MJG07E2OsWbnv7BLHwmHS0aYW7r9dAI=";
+    };
+
+    enableParallelBuilding = true;
+  });
 }).overrideAttrs (old: {
   name = "${old.name}-${version}";
 
