@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.0.3";
+  version = "3.1.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-dWZcCX0Tp+yPp+4vBERYEwu+rysCzJ9QfMQhD65t1vQ=";
+    hash = "sha256-qBccjV+0zT34WNTjucvGC+jR6WuZGfClEMyR8YUD0iU=";
   };
 
   yarn = pkgs.yarn-berry_4;
@@ -16,6 +16,10 @@ let
     pname = "${pname}-frontend";
     inherit version src;
     sourceRoot = "${src.name}/frontend";
+
+    patches = [
+      ./yarn-4.14-support.patch
+    ];
 
     nativeBuildInputs = with pkgs; [
       nodejs
@@ -26,8 +30,8 @@ let
     missingHashes = ./missing-hashes.json;
 
     offlineCache = yarn.fetchYarnBerryDeps {
-      inherit (drv) src sourceRoot missingHashes;
-      hash = "sha256-YU7OMdcwkwyJl84j0L0gUhHfngdpBaiHzgRydkeJC+s=";
+      inherit (drv) src sourceRoot patches missingHashes;
+      hash = "sha256-AAy5d9QnZWqCI9IPBMTEMNPRRef5gBYbBAAOsoMl7RI=";
     };
 
     buildPhase = ''

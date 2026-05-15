@@ -14,14 +14,14 @@ A personal collection of unusual things
 |`ceserver`|`7.5-unstable-2025-04-19`|Linux server for Cheat Engine|https://github.com/cheat-engine/cheat-engine/blob/master/Cheat%20Engine/ceserver|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
 |`cloud-hypervisor-graphics`|`n/a`|n/a|n/a|
-|`datetime`|`0.2.1`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
+|`datetime`|`0.2.2`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`drasl`|`3.3.0`|Yggdrasil-compatible API server for Minecraft|https://github.com/unmojang/drasl|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`fastfetch-zfs`|`2.63.1`|Actively maintained, feature-rich and performance oriented, neofetch like system information tool|https://github.com/fastfetch-cli/fastfetch|
-|`grimmory`|`3.0.3`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
+|`grimmory`|`3.1.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`immich-folder-album-creator`|`0.18.5`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`keysmash`|`1.1.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.0.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
