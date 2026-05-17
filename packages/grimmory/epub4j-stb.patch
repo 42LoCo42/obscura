@@ -1,0 +1,22 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fd527f9..5dcda7c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -360,15 +360,8 @@ if(EPUB4J_NATIVE_ENABLE_IMAGE_PROCESSING)
+     endif()
+     list(APPEND IMAGE_COMPILE_DEFS EPUB4J_NATIVE_HAS_WEBP)
+ 
+-    # --- stb (header-only: stb_image_resize2.h for high-quality resampling) ---
+-    FetchContent_Declare(
+-        stb
+-        GIT_REPOSITORY https://github.com/nothings/stb.git
+-        GIT_TAG        f0569113c93ad095470c54bf34a17b36646bbbb5
+-    )
+-    FetchContent_Populate(stb)
+-    list(APPEND IMAGE_INCLUDE_DIRS ${stb_SOURCE_DIR})
+-
++	pkg_check_modules(STB REQUIRED stb)
++	list(APPEND IMAGE_INCLUDE_DIRS ${STB_INCLUDE_DIRS})
+     # Image processor source file
+     list(APPEND IMAGE_SOURCES src/image_processor.cpp)
+ endif()
