@@ -80,15 +80,16 @@ let
     meta = { };
   });
 
-  stb' = pkgs.stb.overrideAttrs (old: {
-    version = "0-unstable-2026-04-15";
+  stb' = pkgs.infuse pkgs.stb {
+    __output = {
+      version.__assign = "0-unstable-2026-04-15";
 
-    src = pkgs.fetchFromGitHub {
-      inherit (old.src) owner repo;
-      rev = "f0569113c93ad095470c54bf34a17b36646bbbb5";
-      hash = "sha256-FkTeRO/AC5itykH4uWNsE0UeQTS34VtGGoej5QJiBlg=";
+      src.__output = {
+        rev.__assign = "f0569113c93ad095470c54bf34a17b36646bbbb5";
+        hash.__assign = "sha256-FkTeRO/AC5itykH4uWNsE0UeQTS34VtGGoej5QJiBlg=";
+      };
     };
-  });
+  };
 
   epub4j = pkgs.stdenv.mkDerivation (drv: {
     pname = "epub4j";

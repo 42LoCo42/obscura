@@ -1,21 +1,18 @@
-pkgs:
-let inherit (pkgs.lib) pipe remove; in
-pkgs.kdePackages.zxing-cpp.overrideAttrs (old: {
-  cmakeFlags = pipe (old.cmakeFlags or [ ]) [
-    (remove "-DZXING_EXAMPLES=OFF")
-    (x: x ++ [ "-DZXING_EXAMPLES=ON" ])
-  ];
+pkgs: pkgs.infuse pkgs.kdePackages.zxing-cpp {
+  __output = {
+    cmakeFlags.__pipe = [
+      (pkgs.lib.remove "-DZXING_EXAMPLES=OFF")
+      (x: x ++ [ "-DZXING_EXAMPLES=ON" ])
+    ];
 
-  nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ (with pkgs; [
-    pkg-config
-  ]);
+    nativeBuildInputs.__append = with pkgs; [
+      pkg-config
+    ];
 
-  buildInputs = (old.buildInputs or [ ]) ++ (with pkgs; [
-    stb
-  ]);
+    buildInputs.__append = with pkgs; [
+      stb
+    ];
 
-  meta = {
-    description = "zxing-cpp with example reader/writer binaries";
-    inherit (old.meta) homepage;
+    meta.description.__assign = "zxing-cpp with example reader/writer binaries";
   };
-})
+}

@@ -7,13 +7,23 @@
 
   outputs = { self, nixpkgs }:
     let
-      inherit (builtins)
-        readDir
-        toJSON
-        unsafeDiscardStringContext
-        ;
+      lib = nixpkgs.lib.extend (_: lib:
+        let
+          infuse = import ./infuse.nix {
+            inherit lib;
 
-      inherit (nixpkgs.lib)
+            sugars = infuse.v1.default-sugars ++ lib.attrsToList {
+              __hijack = _: infusion: target: args:
+                target (infuse.v1.infuse args infusion);
+
+              __pipe = _: flip pipe;
+            };
+          };
+        in
+        { inherit (infuse.v1) infuse; }
+      );
+
+      inherit (lib)
         attrNames
         concatLines
         filterAttrs
@@ -27,11 +37,14 @@
         mapAttrs'
         mapAttrsToList
         pipe
+        readDir
         readFile
         recursiveUpdate
         replaceStrings
         singleton
         substring
+        toJSON
+        unsafeDiscardStringContext
         ;
 
       merge = foldl' recursiveUpdate { };
@@ -45,7 +58,10 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            overlays = [ (_: _: packages) ];
+            overlays = [
+              (_: _: packages)
+              (_: _: { inherit (lib) infuse; })
+            ];
           };
 
           packages = pipe dir [
@@ -101,11 +117,9 @@
       ];
     in
     allPackages // {
-      nixosModules = {
-        "9mount" = import ./packages/9mount/module.nix {
-          packages = self.packages;
-        };
+      inherit lib;
 
+      nixosModules = {
         lanzaboote = join "" [
           (import ./packages/lanzaboote/source.nix)
           "/nix/modules/lanzaboote.nix"

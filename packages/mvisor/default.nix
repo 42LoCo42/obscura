@@ -31,23 +31,23 @@ pkgs.gcc14Stdenv.mkDerivation rec {
     zlib
     zstd
 
-    (virglrenderer.overrideAttrs (old: {
-      version = "0.10.4";
+    (infuse virglrenderer {
+      __output = {
+        version.__assign = "0.10.4";
 
-      src = pkgs.fetchFromGitLab {
-        domain = "gitlab.freedesktop.org";
-        owner = "virgl";
-        repo = "virglrenderer";
-        rev = "8df4cba170940dad9350a99900293adbcef39b6c";
-        hash = "sha256-D4pMokM2nnnL1iJDupAY+Q1L3p0wD6RsfKxxNqZFE0U=";
+        src.__assign = pkgs.fetchFromGitLab {
+          domain = "gitlab.freedesktop.org";
+          owner = "virgl";
+          repo = "virglrenderer";
+          rev = "8df4cba170940dad9350a99900293adbcef39b6c";
+          hash = "sha256-D4pMokM2nnnL1iJDupAY+Q1L3p0wD6RsfKxxNqZFE0U=";
+        };
+
+        mesonFlags = filter (x: !hasInfix "drm-renderers" x);
+
+        env.NIX_CFLAGS_COMPILE.__assign = "-Wno-error=enum-int-mismatch";
       };
-
-      mesonFlags = filter
-        (x: !hasInfix "drm-renderers" x)
-        (old.mesonFlags or [ ]);
-
-      env.NIX_CFLAGS_COMPILE = "-Wno-error=enum-int-mismatch";
-    }))
+    })
   ];
 
   env.NIX_CFLAGS_COMPILE = "-Wno-error=unused-result";
