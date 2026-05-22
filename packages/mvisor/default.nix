@@ -43,6 +43,8 @@ pkgs.gcc14Stdenv.mkDerivation rec {
           hash = "sha256-D4pMokM2nnnL1iJDupAY+Q1L3p0wD6RsfKxxNqZFE0U=";
         };
 
+        patches.__assign = [ ];
+
         mesonFlags = filter (x: !hasInfix "drm-renderers" x);
 
         env.NIX_CFLAGS_COMPILE.__assign = "-Wno-error=enum-int-mismatch";
