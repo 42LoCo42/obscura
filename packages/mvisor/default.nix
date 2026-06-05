@@ -45,7 +45,10 @@ pkgs.gcc14Stdenv.mkDerivation rec {
 
         patches.__assign = [ ];
 
-        mesonFlags = filter (x: !hasInfix "drm-renderers" x);
+        mesonFlags.__assign = [
+          "-Dvideo=true"
+          "-Dvenus=true"
+        ];
 
         env.NIX_CFLAGS_COMPILE.__assign = "-Wno-error=enum-int-mismatch";
       };
