@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.1.0";
+  version = "3.2.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-qBccjV+0zT34WNTjucvGC+jR6WuZGfClEMyR8YUD0iU=";
+    hash = "sha256-5eBzvU6BcEJXUzyZSt5ZgWFzEz0uctYcZ97eOj91WK0=";
   };
 
   yarn = pkgs.yarn-berry_4;
@@ -31,7 +31,7 @@ let
 
     offlineCache = yarn.fetchYarnBerryDeps {
       inherit (drv) src sourceRoot patches missingHashes;
-      hash = "sha256-AAy5d9QnZWqCI9IPBMTEMNPRRef5gBYbBAAOsoMl7RI=";
+      hash = "sha256-Z47ARHqLU8bovjuF/zMuu+zQMiDNG/0IapK/55iSviA=";
     };
 
     buildPhase = ''
@@ -153,6 +153,8 @@ in
 '').overrideAttrs {
   inherit pname version;
   name = "${pname}-${version}";
+
+  passthru = { inherit frontend backend; };
 
   meta = {
     mainProgram = pname;
