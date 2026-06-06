@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 38 Packages
+## 39 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -30,6 +30,7 @@ A personal collection of unusual things
 |`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.55.2`|All the Hyprland plugins I use|n/a|
+|`my-nom`|`2.1.8`|Processes output of Nix commands to show helpful and pretty information|https://code.maralorn.de/maralorn/nix-output-monitor|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.71.05`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
