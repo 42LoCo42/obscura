@@ -2,7 +2,6 @@ pkgs:
 let
   inherit (pkgs.lib) getExe;
   pnpm = pkgs.pnpm_10;
-  inherit (pnpm) nodejs;
 in
 pkgs.stdenv.mkDerivation (drv: {
   pname = "datetime";
@@ -40,7 +39,7 @@ pkgs.stdenv.mkDerivation (drv: {
 
   env = {
     SHARP_FORCE_GLOBAL_LIBVIPS = 1;
-    npm_config_nodedir = nodejs;
+    npm_config_nodedir = pkgs.nodejs;
   };
 
   buildPhase = ''
