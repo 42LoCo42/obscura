@@ -26,10 +26,10 @@ A personal collection of unusual things
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`my-ergochat`|`2.18.0`|Modern IRC server (daemon/ircd) written in Go|https://github.com/ergochat/ergo|
-|`my-fastfetch`|`2.63.1`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
+|`my-fastfetch`|`2.64.2`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
 |`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
-|`my-hypr-plugins`|`0.55.2`|All the Hyprland plugins I use|n/a|
+|`my-hypr-plugins`|`0.55.3`|All the Hyprland plugins I use|n/a|
 |`my-nom`|`2.1.8`|Processes output of Nix commands to show helpful and pretty information|https://code.maralorn.de/maralorn/nix-output-monitor|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
