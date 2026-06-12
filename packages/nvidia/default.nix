@@ -7,7 +7,7 @@ pkgs.lib.pipe driver [
     nvidia.settings
 
     (pkgs.nvtopPackages.full.override {
-      cudatoolkit = null;
+      cudaPackages.cuda_nvml_dev = null;
     })
   ])
   (map (x: { name = x.pname or "nvidia"; path = x; }))
