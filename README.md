@@ -33,7 +33,7 @@ A personal collection of unusual things
 |`my-nom`|`2.1.8`|Processes output of Nix commands to show helpful and pretty information|https://code.maralorn.de/maralorn/nix-output-monitor|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`595.80`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`595.84`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
