@@ -1,45 +1,42 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.2.0";
+  version = "3.2.2";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-5eBzvU6BcEJXUzyZSt5ZgWFzEz0uctYcZ97eOj91WK0=";
+    hash = "sha256-oh9qD7APvT/mFHSWKUgl/4lKN8RQRkix7kEN33wd3Jc=";
   };
 
-  yarn = pkgs.yarn-berry_4;
+  pnpm = pkgs.pnpm_11;
+  gradle = pkgs.gradle_9;
 
   frontend = pkgs.stdenv.mkDerivation (drv: {
     pname = "${pname}-frontend";
     inherit version src;
-    sourceRoot = "${src.name}/frontend";
-
-    patches = [
-      ./yarn-4.14-support.patch
-    ];
 
     nativeBuildInputs = with pkgs; [
       nodejs
-      yarn
-      yarn.yarnBerryConfigHook
+      pnpm
+      pnpmConfigHook
     ];
 
-    missingHashes = ./missing-hashes.json;
-
-    offlineCache = yarn.fetchYarnBerryDeps {
-      inherit (drv) src sourceRoot patches missingHashes;
-      hash = "sha256-Z47ARHqLU8bovjuF/zMuu+zQMiDNG/0IapK/55iSviA=";
+    pnpmDeps = pkgs.fetchPnpmDeps {
+      inherit (drv) pname version src;
+      inherit pnpm;
+      fetcherVersion = 4;
+      hash = "sha256-XeBqAEKEHe+qQivHX5thsn3xRYYDruwHL/5pYgGDlZI=";
     };
 
     buildPhase = ''
-      yarn run build:prod
+      CI=1 NG_CLI_ANALYTICS=false \
+      pnpm -C frontend run build:prod
     '';
 
     installPhase = ''
-      cp -r dist/grimmory/browser $out
+      cp -r frontend/dist/grimmory/browser $out
     '';
   });
 
@@ -48,9 +45,9 @@ let
     inherit version src;
     sourceRoot = "${src.name}/backend";
 
-    nativeBuildInputs = with pkgs; [
-      gradle_9
-      temurin-bin-25
+    nativeBuildInputs = [
+      gradle
+      gradle.jdk
     ];
 
     mitmCache = pkgs.gradle.fetchDeps {
