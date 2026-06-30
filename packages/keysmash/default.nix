@@ -9,13 +9,13 @@ let
 in
 pkgs.stdenv.mkDerivation (drv: {
   pname = "keysmash";
-  version = "1.1.0";
+  version = "1.2.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = drv.pname;
     tag = drv.version;
-    hash = "sha256-9Qv9/cJH8KDjHKur3X0K7hfw5+RMVpu4H6mZDnF14Vk=";
+    hash = "sha256-wbomW79rJ8R797sLc2yFakRzD4OSAWDWwccsFg9XGyM=";
   };
 
   nativeBuildInputs = with pkgs; [
