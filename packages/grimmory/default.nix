@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.2.2";
+  version = "3.2.4";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-oh9qD7APvT/mFHSWKUgl/4lKN8RQRkix7kEN33wd3Jc=";
+    hash = "sha256-RiERszsb/oGsXja6EWoGSVGQ0T2KIfWBXqnDOFcoiQU=";
   };
 
   pnpm = pkgs.pnpm_11;
@@ -27,7 +27,7 @@ let
       inherit (drv) pname version src;
       inherit pnpm;
       fetcherVersion = 4;
-      hash = "sha256-XeBqAEKEHe+qQivHX5thsn3xRYYDruwHL/5pYgGDlZI=";
+      hash = "sha256-S/Q4+kSOIrL7JSebH0XWGCCMaegre9Fx63RbuIs5P9s=";
     };
 
     buildPhase = ''
