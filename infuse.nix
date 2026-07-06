@@ -1,6 +1,6 @@
 ############################################################################
 #
-# version 2.4
+# version 2.6
 #
 # `infuse.nix` is a "deep" version of both `.override` and `.overrideAttrs` which
 # generalizes both `lib.pipe` and `recursiveUpdate`.  It can be used as a leaner,
@@ -25,7 +25,7 @@
 #       (builtins.fetchGit {
 #         url  = "https://codeberg.org/amjoseph/infuse.nix";
 #         name = "infuse.nix";
-#         ref  = "refs/tags/v2.4";
+#         ref  = "refs/tags/v2.6";
 #         rev  = "";
 #         shallow = true;
 #         publicKey = "F0B74D717CDE8412A3E0D4D5F29AC8080DA8E1E0";
@@ -107,12 +107,15 @@
 # __underlay  # pre-extend an overlay by adding another one before it (see note)
 # __overlay   # post-extend an overlay by adding another one after it (see note)
 #
+# __filter    # apply .filter (lists) or .filterAttrs (attrs)
+#
 # __prepend   # prepend a string or list to the target value
 # __append    # append a string or list to the target value
 #
 # __input     # invoke .override (see note)
 # __output    # invoke .overrideAttrs (see note)
 #
+# __attrs     # `infuse target { __attrs  = f; }` is the same as `infuse target (lib.mapAttrs     f )`
 # __values    # `infuse target { __values = f; }` is the same as `infuse target (lib.mapAttrs (_: f))`
 # __infuse    # `infuse target { __infuse = f; }` is the same as `infuse target f`
 #
@@ -356,6 +359,25 @@ let
             msg = "applied to unsupported type: ${typeOf overlay}";
           };
 
+      __filter = path: infusion:
+        assert !(lib.isFunction infusion) ->
+          throw-error {
+            inherit path;
+            func = "filter";
+            msg = "tried to infuse a non-function of type ${typeOf infusion}";
+          };
+        val:
+        if isList val then
+          lib.filter infusion val
+        else if isAttrs val then
+          lib.filterAttrs infusion val
+        else
+          throw-error {
+            inherit path;
+            func = "filter";
+            msg = "applied to unsupported type: ${typeOf val}";
+          };
+
       __prepend = path: infusion:
         if isString infusion then
           with-default "" (string: assert isString string; infusion + string)
@@ -380,24 +402,48 @@ let
             msg = "applied to unsupported type: ${typeOf infusion}";
           };
 
-      __input = path: infusion:
-        if isNonFunctorAttrs infusion
-        then __input path (previousArgs: flip-infuse path infusion previousArgs)
-        else if isFunction infusion
-        then old:
-          if old?override then old.override infusion
-          else if isFunction old then arg: old (infusion arg)
-          else
-            throw-error {
-              inherit path;
-              func = "input";
-              msg = "attempted to infuse a function to __input attribute of a ${typeOf infusion}";
-            }
+      __input = path: infusion':
+        let
+          infusion-desugared = desugar path infusion';
+          infusion =
+            if isNonFunctorAttrs infusion'
+            then previousArgs:
+              flip-infuse-desugared path infusion-desugared previousArgs
+            else if isFunction infusion'
+            then infusion'
+            else
+              throw-error {
+                inherit path;
+                func = "input";
+                msg = "infused an unsupported type to __input: ${typeOf infusion'}";
+              };
+          check-args = args:
+            if !(isNonFunctorAttrs infusion') then true else
+            lib.flip lib.all (lib.attrNames infusion-desugared)
+              (arg: assert
+              (!(args?${arg})) ->
+              throw-error {
+                inherit path;
+                func = "input";
+                msg = ''
+                  infused to __input.${arg} of a function which has no argument named ${arg}.
+                  - if you meant to add arguments to a function which allows extraneous arguments
+                    (i.e. `{ ... }:`) you must do this manually";
+                  - if you were trying to infuse to a function argument which has a default
+                    ({ foo ? 3 }: ...), nixpkgs' lib.makeOverridable doesn't let you do that.
+                '';
+              }; true);
+        in
+        old:
+        if old?override
+        then assert check-args old.override.__functionArgs; old.override infusion
+        else if isFunction old
+        then assert check-args (lib.functionArgs old); arg: old (infusion arg)
         else
           throw-error {
             inherit path;
             func = "input";
-            msg = "infused an unsupported type to __input: ${typeOf infusion}";
+            msg = "attempted to infuse a function to __input attribute of a ${typeOf old}";
           };
 
       __output = path: infusion:
@@ -422,7 +468,7 @@ let
           else
             throw-error {
               inherit path;
-              func = "input";
+              func = "output";
               msg = "attempted to infuse to __output of an unsupported type: ${typeOf target}";
             }
         else
@@ -438,6 +484,12 @@ let
         in
         lib.mapAttrs (_: flip-infuse-desugared path infusion');
 
+      __attrs = path: infusion:
+        let
+          infusion' = desugar (path ++ [ "__attrs" ]) infusion;
+        in
+        lib.mapAttrs (flip-infuse-desugared path infusion');
+
       __infuse = path: infusion:
         desugar path infusion;
 
@@ -448,11 +500,13 @@ let
       (nameValuePair "__assign" __assign)
       (nameValuePair "__underlay" __underlay)
       (nameValuePair "__overlay" __overlay)
+      (nameValuePair "__filter" __filter)
       (nameValuePair "__prepend" __prepend)
       (nameValuePair "__append" __append)
       (nameValuePair "__input" __input)
       (nameValuePair "__output" __output)
       (nameValuePair "__values" __values)
+      (nameValuePair "__attrs" __attrs)
       (nameValuePair "__infuse" __infuse)
     ];
 
@@ -493,7 +547,7 @@ let
         {
           inherit path;
           func = "desugar";
-          msg = "infusion contains __-prefixed attrnames which are not in the sugar-map: ${filter (name: !(hasAttr sugar-map name)) (attrNames infusion)}";
+          msg = "infusion contains __-prefixed attrnames which are not in the sugar-map: ${toString (filter (name: !(sugar-map?${name})) (attrNames infusion))}";
         }
     else
       map
