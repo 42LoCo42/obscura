@@ -5,13 +5,13 @@ let
 in
 pkgs.stdenv.mkDerivation (drv: {
   pname = "datetime";
-  version = "0.2.2";
+  version = "0.2.3";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = "what-datetime-is-it-right-now-dot-com";
     tag = drv.version;
-    hash = "sha256-6/9Na4f7h5xPZjWVcVAx6zd810Q1VsK3BDrFY5kjQw4=";
+    hash = "sha256-pQI8bTG0a58WDSUfHoul2T5sPdRsb6KrlcDbKkyOePY=";
   };
 
   nativeBuildInputs = with pkgs; [
