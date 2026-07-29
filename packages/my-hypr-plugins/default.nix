@@ -2,37 +2,39 @@ pkgs:
 let
   inherit (pkgs.hyprland) version;
   plugins = pkgs.hyprlandPlugins;
+in
+(pkgs.linkFarm "my-hypr-plugins" {
+  inherit (plugins) hyprfocus;
 
-  src = pkgs.fetchFromGitHub {
-    owner = "hyprwm";
-    repo = "hyprland-plugins";
-    rev = "eaf18d55d51cef00818c5a4fdd4170f8cc2de4dc";
-    hash = "sha256-d2wOUZlOqGAW9mwlpq7c/YlneW2ZDJt9d/2bq7mnKdM=";
-  };
+  hyprwinwrap = plugins.mkHyprlandPlugin (drv: {
+    pluginName = "hyprwinwrap";
+    version = "0.56";
 
-  build = pluginName: plugins.mkHyprlandPlugin {
-    inherit pluginName version src;
-    sourceRoot = "${src.name}/${pluginName}";
+    src = pkgs.fetchFromGitHub {
+      owner = "gen3vra";
+      repo = drv.pname;
+      tag = drv.version;
+      hash = "sha256-9MdwossojhQccorcZcPxi+xaNOYGESZ0B3N6T/tNnzI=";
+    };
 
     nativeBuildInputs = with pkgs; [
       meson
       ninja
     ];
 
-    meta = { };
-  };
-in
-(pkgs.linkFarm "my-hypr-plugins" {
-  hyprfocus = build "hyprfocus";
-  hyprwinwrap = build "hyprwinwrap";
+    meta = {
+      description = "Display any window as a wallpaper in Hyprland";
+      homepage = "https://github.com/gen3vra/hyprwinwrap";
+    };
+  });
 
   hypr-dynamic-cursors = pkgs.infuse plugins.hypr-dynamic-cursors {
     __output = {
-      version.__assign = "0-unstable-2026-03-12";
+      version.__assign = "0-unstable-2026-07-21";
 
       src.__output = {
-        rev.__assign = "47f3da0dc5d97f51c2307070fd1d547efbdae6a3";
-        hash.__assign = "sha256-LATqyui3+kV7MJG07E2OsWbnv7BLHwmHS0aYW7r9dAI=";
+        rev.__assign = "f5ba36c7622098b53bf62ddb8ddf03b914abbdf8";
+        hash.__assign = "sha256-HKzJtEkafkWjTx35spDp6pm1oClN7vIipJ2wwU4ocNY=";
       };
 
       enableParallelBuilding.__assign = true;
