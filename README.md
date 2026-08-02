@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 41 Packages
+## 39 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -13,7 +13,6 @@ A personal collection of unusual things
 |`bun2nix`|`1.5.1`|A fast rust based bun lockfile to nix expression converter|https://github.com/baileyluTCD/bun2nix|
 |`ceserver`|`7.5-unstable-2025-04-19`|Linux server for Cheat Engine|https://github.com/cheat-engine/cheat-engine/blob/master/Cheat%20Engine/ceserver|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
-|`cloud-hypervisor-graphics`|`n/a`|n/a|n/a|
 |`datetime`|`0.2.3`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
@@ -32,7 +31,6 @@ A personal collection of unusual things
 |`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.1`|All the Hyprland plugins I use|n/a|
-|`my-nom`|`2.2.0`|Processes output of Nix commands to show helpful and pretty information|https://code.maralorn.de/maralorn/nix-output-monitor|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.84`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
