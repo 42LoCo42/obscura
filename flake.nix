@@ -5,31 +5,17 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { nixpkgs, self }:
     let
-      lib = nixpkgs.lib.extend (_: lib:
-        let
-          infuse = import ./infuse.nix {
-            inherit lib;
-
-            sugars = infuse.v1.default-sugars ++ lib.attrsToList {
-              __hijack = _: infusion: target: args:
-                target (infuse.v1.infuse args infusion);
-
-              __pipe = _: flip pipe;
-            };
-          };
-        in
-        { inherit (infuse.v1) infuse; }
-      );
-
       inherit (lib)
         attrNames
+        attrsToList
         concatLines
         filterAttrs
         flip
         foldl'
         getExe
+        isFunction
         join
         length
         listToAttrs
@@ -48,6 +34,32 @@
         ;
 
       merge = foldl' recursiveUpdate { };
+
+      lib = nixpkgs.lib.extend (_: lib:
+        let
+          infuse-lib = import ./infuse.nix {
+            inherit lib;
+
+            sugars = infuse-lib.v1.default-sugars ++ attrsToList {
+              __hijack = _: infusion: target: args:
+                target (infuse args infusion);
+
+              __extend = _: infusion: target:
+                target.extend (next: prev: infuse prev (
+                  if isFunction infusion then
+                    if isFunction (infusion next) then infusion next prev
+                    else infusion prev
+                  else infusion
+                ));
+
+              __pipe = _: flip pipe;
+            };
+          };
+
+          inherit (infuse-lib.v1) infuse;
+        in
+        { inherit infuse; }
+      );
 
       ##########################################
 
@@ -153,7 +165,7 @@
 
       ##########################################
 
-      inherit readme hashes;
+      inherit hashes readme;
 
       apps.${system} = (mapAttrs (_: x: {
         type = "app";
