@@ -47,4 +47,4 @@ A personal collection of unusual things
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
 |`yellowcake`|`1.2.13.0`|Modern, cross-platform mod manager for Nuclear Option|https://github.com/NaghDiefallah/Yellowcake|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
-|`zxing-cpp-tools`|`2.3.0`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
+|`zxing-cpp-tools`|`3.0.2`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
