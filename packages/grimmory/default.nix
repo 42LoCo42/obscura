@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.2.4";
+  version = "3.3.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
     tag = "v${version}";
-    hash = "sha256-RiERszsb/oGsXja6EWoGSVGQ0T2KIfWBXqnDOFcoiQU=";
+    hash = "sha256-PO+JVYQPKtoY4oxkd/TGrT0L2/Mm1rI65fj5Zg3iCbw=";
   };
 
   pnpm = pkgs.pnpm_11;
@@ -15,7 +15,7 @@ let
 
   frontend = pkgs.stdenv.mkDerivation (drv: {
     pname = "${pname}-frontend";
-    inherit version src;
+    inherit src version;
 
     nativeBuildInputs = with pkgs; [
       nodejs
@@ -24,10 +24,10 @@ let
     ];
 
     pnpmDeps = pkgs.fetchPnpmDeps {
-      inherit (drv) pname version src;
+      inherit (drv) pname src version;
       inherit pnpm;
       fetcherVersion = 4;
-      hash = "sha256-S/Q4+kSOIrL7JSebH0XWGCCMaegre9Fx63RbuIs5P9s=";
+      hash = "sha256-W7RoxYZ87vWDvVApflrDDD7lzpYEVymm+L7AuZ6WZ20=";
     };
 
     buildPhase = ''
@@ -42,13 +42,19 @@ let
 
   backend = pkgs.stdenv.mkDerivation (drv: {
     pname = "${pname}-backend";
-    inherit version src;
+    inherit src version;
     sourceRoot = "${src.name}/backend";
 
     nativeBuildInputs = [
       gradle
       gradle.jdk
     ];
+
+    # https://github.com/nixOS/nixpkgs/issues/365375
+    gradleUpdateScript = ''
+      gradle nixDownloadDeps -Dos.arch=amd64
+      gradle nixDownloadDeps -Dos.arch=aarch64
+    '';
 
     mitmCache = pkgs.gradle.fetchDeps {
       pkg = drv.finalPackage;
@@ -151,7 +157,7 @@ in
   inherit pname version;
   name = "${pname}-${version}";
 
-  passthru = { inherit frontend backend; };
+  passthru = { inherit backend frontend; };
 
   meta = {
     mainProgram = pname;
