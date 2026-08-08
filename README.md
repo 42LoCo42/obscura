@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 39 Packages
+## 38 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -42,7 +42,6 @@ A personal collection of unusual things
 |`sillysecrets`|`2.2.0`|The silliest secret manager! :3|https://github.com/42LoCo42/sillysecrets|
 |`socket-activate`|`0.1.3`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
-|`turnstile`|`0.1.10`|Independent session/login tracker|https://github.com/chimera-linux/turnstile|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
 |`yellowcake`|`1.2.13.0`|Modern, cross-platform mod manager for Nuclear Option|https://github.com/NaghDiefallah/Yellowcake|
