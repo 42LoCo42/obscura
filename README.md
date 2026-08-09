@@ -18,7 +18,7 @@ A personal collection of unusual things
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
-|`grimmory`|`3.3.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
+|`grimmory`|`3.3.1`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
 |`hda-emu`|`0.2.6-unstable-2026-06-04`|ALSA HD-audio driver debugging & testing tool|https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/hda-emu.git|
 |`immich-folder-album-creator`|`1.0.0`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
