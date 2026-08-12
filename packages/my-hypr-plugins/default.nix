@@ -30,11 +30,11 @@ in
 
   hypr-dynamic-cursors = pkgs.infuse plugins.hypr-dynamic-cursors {
     __output = {
-      version.__assign = "0-unstable-2026-07-21";
+      version.__assign = "0-unstable-2026-08-06";
 
       src.__output = {
-        rev.__assign = "f5ba36c7622098b53bf62ddb8ddf03b914abbdf8";
-        hash.__assign = "sha256-HKzJtEkafkWjTx35spDp6pm1oClN7vIipJ2wwU4ocNY=";
+        rev.__assign = "5a224284872208b5324759d535d65061043725de";
+        hash.__assign = "sha256-BQjuQplkQFA30/7evDxmEAvr2ArIG09JffEBQhuzo80=";
       };
 
       enableParallelBuilding.__assign = true;
