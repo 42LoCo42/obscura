@@ -30,10 +30,10 @@ A personal collection of unusual things
 |`my-fastfetch`|`2.66.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
 |`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
-|`my-hypr-plugins`|`0.56.1`|All the Hyprland plugins I use|n/a|
+|`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`595.84`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`595.91.07`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
