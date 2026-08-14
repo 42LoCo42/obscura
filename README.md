@@ -27,7 +27,7 @@ A personal collection of unusual things
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`my-ergochat`|`2.19.0`|Modern IRC server (daemon/ircd) written in Go|https://github.com/ergochat/ergo|
-|`my-fastfetch`|`2.66.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
+|`my-fastfetch`|`2.67.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
 |`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
@@ -46,4 +46,4 @@ A personal collection of unusual things
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
 |`yellowcake`|`1.2.13.0`|Modern, cross-platform mod manager for Nuclear Option|https://github.com/NaghDiefallah/Yellowcake|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
-|`zxing-cpp-tools`|`3.0.2`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
+|`zxing-cpp-tools`|`3.1.1`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
