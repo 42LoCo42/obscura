@@ -44,17 +44,20 @@
               __hijack = _: infusion: target: args:
                 target (infuse args infusion);
 
-              __extend = _: infusion: target:
-                target.extend (next: prev: infuse prev (
-                  if isFunction infusion then
-                    if isFunction (infusion next) then infusion next prev
-                    else infusion prev
-                  else infusion
-                ));
+              __extend = overrideTwo "extend";
+              __scope = overrideTwo "overrideScope";
 
               __pipe = _: flip pipe;
             };
           };
+
+          overrideTwo = name: _: infusion: target:
+            target.${name} (next: prev: infuse prev (
+              if isFunction infusion then
+                if isFunction (infusion next) then infusion next prev
+                else infusion prev
+              else infusion
+            ));
 
           inherit (infuse-lib.v1) infuse;
         in
