@@ -9,6 +9,9 @@ pkgs: pkgs.rustPlatform.buildRustPackage (drv: {
     hash = "sha256-6vQ8sjmja+KooKKknyJmlyZPmJSZ7NCmE9yl2JWjJUY=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   cargoHash = "sha256-GuNN0dddo8jhMMmBRNIdbV7R0yTQOc54ci++8K51Clk=";
 
   env = {

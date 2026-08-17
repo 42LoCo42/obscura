@@ -9,6 +9,9 @@ pkgs: pkgs.rustPlatform.buildRustPackage rec {
     hash = "sha256-rUpcATQ0LiY8IYRndqTlPUhF4YGJH3lM2aMOs5vBDGM=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     pkg-config
   ];

@@ -7,6 +7,9 @@ pkgs: pkgs.stdenv.mkDerivation (drv: {
     hash = "sha256-q4B1iizv1EpLjFHH9bBQzX040Jq59Ugce8W5+y5ZAsA=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     autoreconfHook
   ];

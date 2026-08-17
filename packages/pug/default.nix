@@ -8,6 +8,10 @@ pkgs: pkgs.buildNpmPackage rec {
     tag = version;
     hash = "sha256-7qvHsP4fyrkOSTzl9zx1s/idFGBew8E0jpsedLiatOs=";
   };
+
+  __structuredAttrs = true;
+  strictDeps = true;
+
   patches = [
     # provide package-lock.json
     ./package-lock.patch

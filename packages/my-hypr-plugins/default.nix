@@ -17,6 +17,9 @@ in
       hash = "sha256-9MdwossojhQccorcZcPxi+xaNOYGESZ0B3N6T/tNnzI=";
     };
 
+    __structuredAttrs = true;
+    strictDeps = true;
+
     nativeBuildInputs = with pkgs; [
       meson
       ninja

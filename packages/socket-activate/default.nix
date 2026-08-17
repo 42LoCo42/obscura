@@ -9,6 +9,9 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-mYxFxYsSl2Tgb7fX2znQ2EKfo04n/cwrPU/eperWUdQ=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   patches = [
     # disable broken mode autoconfig
     ./0001-respect-mode-flag.patch

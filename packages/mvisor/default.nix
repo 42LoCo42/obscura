@@ -1,6 +1,4 @@
-pkgs:
-let inherit (pkgs.lib) filter hasInfix; in
-pkgs.gcc14Stdenv.mkDerivation rec {
+pkgs: pkgs.gcc14Stdenv.mkDerivation rec {
   pname = "mvisor";
   version = "2.7.3-unstable-2025-09-04";
 
@@ -10,6 +8,9 @@ pkgs.gcc14Stdenv.mkDerivation rec {
     rev = "8f9f37dbd32ac7a98a2f30ab1b5d54f32b407b06";
     hash = "sha256-nQyCPoKJ34tTbNA2eflFfk3EtAJBvcodpxOe6tcAH58=";
   };
+
+  __structuredAttrs = true;
+  strictDeps = true;
 
   nativeBuildInputs = with pkgs; [
     acpica-tools
@@ -27,6 +28,7 @@ pkgs.gcc14Stdenv.mkDerivation rec {
     gtk3
     openssl
     pixman
+    protobuf
     yaml-cpp
     zlib
     zstd
@@ -66,7 +68,7 @@ pkgs.gcc14Stdenv.mkDerivation rec {
   ];
 
   mesonInstallFlags = [
-    "--destdir ${placeholder "out"}"
+    "--destdir=${placeholder "out"}"
   ];
 
   postInstall = ''

@@ -4,6 +4,9 @@ pkgs: pkgs.rustPlatform.buildRustPackage (drv: {
 
   src = import ./source.nix;
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   cargoHash = "sha256-WDTOqbYEyjTMhH33JHeZLIeGR1av0atNjIltMNmXcoI=";
 
   meta = {

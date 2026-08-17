@@ -9,6 +9,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-ORDyOsifgJFp9noD7Lg1tvCp7NgAucSDkqBp1cf1NEM=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     pkg-config
   ];

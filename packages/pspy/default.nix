@@ -11,6 +11,9 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-7R4Tp0Q7wjAuTDukiehtRZOcTABr0YTnvrod9Jdwjok=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   env.CGO_ENABLED = "0";
 
   ldflags = [

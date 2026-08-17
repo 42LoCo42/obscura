@@ -17,6 +17,9 @@ let
     pname = "${pname}-frontend";
     inherit src version;
 
+    __structuredAttrs = true;
+    strictDeps = true;
+
     nativeBuildInputs = with pkgs; [
       nodejs
       pnpm
@@ -44,6 +47,9 @@ let
     pname = "${pname}-backend";
     inherit src version;
     sourceRoot = "${src.name}/backend";
+
+    __structuredAttrs = true;
+    strictDeps = true;
 
     nativeBuildInputs = [
       gradle
@@ -104,6 +110,9 @@ let
       tag = "v${drv.version}";
       hash = "sha256-qZttIPbI1iI6rtyk8dGa/4EplyhB/lH27w8KeiEu8OM=";
     };
+
+    __structuredAttrs = true;
+    strictDeps = true;
 
     sourceRoot = "${src.name}/epub4j-native/cpp";
 

@@ -9,6 +9,9 @@ pkgs: pkgs.buildDotnetModule (drv: {
     hash = "sha256-JZ4lp6FvyIG1FP4lNI9mHlQNuk1Hw5xTgZZC/ZvUehY=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   prePatch = ''
     grep -Rl AppContext.BaseDirectory \
     | xargs sed -i 's|AppContext.BaseDirectory|Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Yellowcake")|g'

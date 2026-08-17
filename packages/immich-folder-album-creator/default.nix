@@ -14,6 +14,9 @@ let
       hash = "sha256-/5Lc+rhkEXx+6Z6BZ88UyLvfScnAj2nx6NBQRnsetNs=";
     };
 
+    __structuredAttrs = true;
+    strictDeps = true;
+
     pyproject = true;
 
     build-system = with py; [

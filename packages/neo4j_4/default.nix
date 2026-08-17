@@ -14,6 +14,9 @@ pkgs.stdenv.mkDerivation rec {
     hash = "sha256-qeA6lP8gqvwtJSMdJgJ0Iy2MMrtGhhUIOa4A6traSNg=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     makeWrapper
   ];

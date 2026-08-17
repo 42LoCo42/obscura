@@ -18,6 +18,9 @@ pkgs.stdenv.mkDerivation (drv: {
     hash = "sha256-wbomW79rJ8R797sLc2yFakRzD4OSAWDWwccsFg9XGyM=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     meson
     ninja

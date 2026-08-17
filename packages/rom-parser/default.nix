@@ -9,6 +9,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-SSG959zEgFzQpGqMZsX3KXrGKUt7AaSqk2/pux8By+4=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   installPhase = ''
     for i in rom-parser rom-fixer; do
       install -Dm755 $i $out/bin/$i

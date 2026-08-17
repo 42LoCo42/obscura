@@ -14,6 +14,9 @@ pkgs.stdenv.mkDerivation (drv: {
     hash = "sha256-pQI8bTG0a58WDSUfHoul2T5sPdRsb6KrlcDbKkyOePY=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     makeBinaryWrapper
 
@@ -32,7 +35,7 @@ pkgs.stdenv.mkDerivation (drv: {
 
   pnpmDeps = pkgs.fetchPnpmDeps {
     inherit pnpm;
-    inherit (drv) pname version src;
+    inherit (drv) pname src version;
     fetcherVersion = 3;
     hash = "sha256-kDCSZAoJNenjgCZlcrb8Tx3ZaZRpbYOt2jTGfuy0xkg=";
   };

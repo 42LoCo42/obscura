@@ -9,6 +9,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-G8qOfKPKtU1ukPSPsH9z6cbsLqWHdha0l5Ymwx7m5Zk=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   nativeBuildInputs = with pkgs; [
     typescript
   ];

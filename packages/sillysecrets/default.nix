@@ -9,6 +9,9 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-yDcmUKFbD3xPv1PKFKv0knsg1ZAeGYlSjzyKwdO7rgU=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   ldflags = [ "-s" "-w" ];
   vendorHash = "sha256-XIh0+k/CJ4RrRw9+Lvl/BKPh4TM5g+gY2jnrWwFvfTs=";
 

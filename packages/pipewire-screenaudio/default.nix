@@ -9,6 +9,9 @@ pkgs: pkgs.rustPlatform.buildRustPackage (drv: {
     hash = "sha256-oCUH7p46BNEaUnd/asY1eT7ZY6uVwrZVyJMM/zUNkqc=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   sourceRoot = "${drv.src.name}/native/connector-rs";
 
   cargoHash = "sha256-RDxVY9GnXxUuDefzrrb69MTCB3L+c7vMAaEmwJruWWY=";

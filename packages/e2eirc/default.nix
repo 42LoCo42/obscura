@@ -9,6 +9,9 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-qaLNd40NUIi4ox4jIkzkotUBl0NUuR/0UsmhIOnKaz8=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   patches = [
     # provide go.mod & go.sum
     ./go-mod-sum.patch

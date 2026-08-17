@@ -9,6 +9,9 @@ pkgs: pkgs.stdenv.mkDerivation (drv: {
     hash = "sha256-wQ0LR8rbG1KVIk0Lg1Iokm8Nf2+D/4DgMCQXC854T5E=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   sourceRoot = "${drv.src.name}/Cheat Engine/ceserver";
 
   prePatch =
@@ -27,7 +30,7 @@ pkgs: pkgs.stdenv.mkDerivation (drv: {
 
   enableParallelBuilding = true;
 
-  makeFlags = [ "-C gcc" ];
+  makeFlags = [ "-Cgcc" ];
 
   installPhase = ''
     install -Dm755 {gcc,$out/bin}/${drv.pname}

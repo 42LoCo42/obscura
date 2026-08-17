@@ -11,6 +11,9 @@ pkgs: pkgs.buildGoModule rec {
     hash = "sha256-u++1qWH04MKipnTGo04FVS+HYcx52AWZpBcjiFMp+mY=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   vendorHash = "sha256-4g3mGMhsBaJ4N8SEj56sjAgfH5v8J2RD5c5tMLk5hGU=";
 
   postInstall = ''

@@ -9,6 +9,9 @@ pkgs: pkgs.stdenv.mkDerivation rec {
     hash = "sha256-Qnc4ml+/GDeyj0IckKWmrYGhfe4OLwRBSBPi73UzoZk=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   patches = [
     # don't hardcode paths to configdir (would be created during install) or gcc
     ./nix.patch

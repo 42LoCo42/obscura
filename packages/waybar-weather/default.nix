@@ -9,6 +9,9 @@ pkgs: pkgs.buildGo126Module (drv: {
     hash = "sha256-Cgo5xbuMmgZhxNiYTJ859vANakMAlQxgfT9XdAaHglI=";
   };
 
+  __structuredAttrs = true;
+  strictDeps = true;
+
   subPackages = [ "cmd/${drv.pname}" ];
   ldflags = [ "-s" "-w" ];
   vendorHash = "sha256-QdT0vKnCO+7DezbH8NUgPV18p6zmIMmLkK2XGWL8+3o=";
