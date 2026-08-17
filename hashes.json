@@ -8,7 +8,7 @@
     "e2eirc": "9w7hidivz5cmvb49s5pl9k1g2s7yar4v",
     "edex-ui": "a67dc42sf6lz07hvjqmldp647cmlxrfc",
     "eka": "6vchn29mm456k0rb9fl9rjvsyzf1yn23",
-    "grimmory": "vyjcc7n5mpd4giqh5y2ym6mly1l6kg03",
+    "grimmory": "x7jg6aw0296720x9bf7iymghml3an87n",
     "gst-instruments": "nsn4b5y87jbmakc2119vkn1w9h3mlsh2",
     "hda-emu": "b2lw51w4l37pvwaw70fy61zy0vr8mxj8",
     "immich-folder-album-creator": "gplzrcv21bnhprqlvplm34h4im8pnwzj",
@@ -16,7 +16,7 @@
     "lanzaboote": "bpsx1ii8sv2pw5ppzbbi4b226vi57nl3",
     "mc-monitor": "sv3yh05r0fyjg5gvwds505g9wgwcac1l",
     "my-ergochat": "clik10a96mhn1gii0q57hf03r8i0vg7k",
-    "my-fastfetch": "66ng2dsxail9q1xin5qwnqkgq67jdlbf",
+    "my-fastfetch": "l42h4r6vdfa8fx8jivkgw6xkxxfm9ziw",
     "my-gamja": "dqf9cs2p7vqrkh5hgnvfjzavpbbyxzaf",
     "my-hydroxide": "6xjmm4k922gj1mr61lv68sjhhsypwrd0",
     "my-hypr-plugins": "8i94bk6q6lga62g9dndwx3x4anxmr1yc",
@@ -35,7 +35,7 @@
     "vencloud": "pdh6l1630xgbb7i0i2vp00zfxmjfrsnl",
     "waybar-weather": "vvx1isvqh3rwhifdbzl3g2v43k3p9l4l",
     "yellowcake": "jp3giy8fi1gwvm4iamjwcjcgy2bcy768",
-    "zfullfs": "1pqqlf66kcprfzdcq1chpri8sclqaww5",
+    "zfullfs": "di78lzn67yi0fwdh8pcwz04wrm3wrq9c",
     "zxing-cpp-tools": "rswkl5adnl142bq2zvqmnljqdfnk8wr7"
   },
   "x86_64-linux": {
@@ -48,7 +48,7 @@
     "e2eirc": "0w1m8y3l6jwi2dxyhxby67j6jd6rdcxh",
     "edex-ui": "4arhsn46rj59x0ysbcs38kqb2ihg6q17",
     "eka": "9gf32i39gaaxnxazzqm03py7jgpfvr2x",
-    "grimmory": "hxvqyqcwjqi83ii2gsgsl3l0nc3b6qk4",
+    "grimmory": "05313jhg8lc0v831bd3as5q3nq9dvh00",
     "gst-instruments": "k71anpwkxp5msxxxmkz3mvgydl8n9wh7",
     "hda-emu": "pbnzfjz20n4b7wp1mmkc93alvlp1s7vs",
     "immich-folder-album-creator": "d01x6vkar2yv2iy1jhljyxj6i6vgyn1r",
@@ -57,7 +57,7 @@
     "mc-monitor": "ljna52qxj1h4lwalq2i9ys0i1c79xcg2",
     "mvisor": "nsm7irlbvjrf17zfl1hmh1gd7513rb39",
     "my-ergochat": "9lmrk4blncsbqp028hw3nr9sbak02792",
-    "my-fastfetch": "yc2k1z2y316z48ichb56m6sq65kmgxs3",
+    "my-fastfetch": "rs9vhf2f0dfqsm0qpxidcg4ccbwvlp87",
     "my-gamja": "65bb8m2gyb9953f646ppn3m1rzqvyh3y",
     "my-hydroxide": "arvmdc5jnk6k9jicnzgph42avflzvnac",
     "my-hypr-plugins": "095kh6146g880fmax2s4509i4mhjyv4w",
@@ -77,7 +77,7 @@
     "vencloud": "861i3z60zvzg03rg56ib0pwgksdk5rzb",
     "waybar-weather": "5gkpvjvc3gw8vzfizc97qg2pkg64v55g",
     "yellowcake": "sdi0ivlczi7x5idm3rpk68bmzjkmyybv",
-    "zfullfs": "4xkybr55blfl8kjdr3kx876d7naz2bxh",
+    "zfullfs": "hsghy445mbwh75mp59mwwwq093b51sfg",
     "zxing-cpp-tools": "cm1q2vii8kdkjj55q1jk02bb1f64mj0c"
   }
 }
