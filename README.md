@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 40 Packages
+## 39 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -17,7 +17,6 @@ A personal collection of unusual things
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
-|`eka`|`0.3.0-unstable-2025-11-12`|A command-line tool for decentralized software dependency management using the Atom Protocol|https://github.com/ekala-project/eka|
 |`grimmory`|`3.3.1`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
 |`hda-emu`|`0.2.6-unstable-2026-06-04`|ALSA HD-audio driver debugging & testing tool|https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/hda-emu.git|
