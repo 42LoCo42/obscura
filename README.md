@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 39 Packages
+## 38 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -31,7 +31,6 @@ A personal collection of unusual things
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
-|`my-syncstorage-rs`|`0.23.3`|Mozilla Sync Storage built with Rust|https://github.com/mozilla-services/syncstorage-rs|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nvidia`|`595.91.07`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
