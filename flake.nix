@@ -45,6 +45,7 @@
                 target (infuse args infusion);
 
               __extend = overrideTwo "extend";
+              __python = overrideTwo "overridePythonAttrs";
               __scope = overrideTwo "overrideScope";
 
               __pipe = _: flip pipe;
