@@ -32,7 +32,7 @@ A personal collection of unusual things
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
-|`nvidia`|`595.91.07`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`595.99.02`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pipewire-screenaudio`|`0.4.2`|Extension to passthrough pipewire audio to WebRTC Screenshare|https://github.com/IceDBorn/pipewire-screenaudio|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
