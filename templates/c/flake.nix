@@ -42,7 +42,9 @@
           inputsFrom = [ packages.default ];
           packages = with pkgs; [
             clang-tools
+            gdb
             just
+            valgrind
           ];
         };
       });
