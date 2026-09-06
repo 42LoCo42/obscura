@@ -1,7 +1,7 @@
 {
   "aarch64-linux": {
     "avahi-proxy": "lkimmy72d70qhkhph30vksx37bjb62bx",
-    "bun2nix": "0g26bl4b5j7mwpmvm81hr55ywc0r7nj5",
+    "bun2nix": "mdn89qpg33limy6pji6xzjn7yvrfswgz",
     "chronometer": "qb5nydksga8lmd6m9h1df0a9ignwpb41",
     "datetime": "pld4gycqwz0603lgl66ss82qkmf175mj",
     "direnv-instant": "pgd32l1m05ln452z412diviiv9q04lsf",
@@ -38,7 +38,7 @@
   },
   "x86_64-linux": {
     "avahi-proxy": "94rhl2jpvhmrq1h5h3m6hn5a49j25j8d",
-    "bun2nix": "3ddykgijxr2fvpb7jgf133jdjc3cqln0",
+    "bun2nix": "3vlys37q8kfv5ycwdfbnngmlmmbs9wrq",
     "ceserver": "g6v9c0ngl09fq1ygllk63i1vm4ng60cl",
     "chronometer": "pvg0cx6n5l5pir1csdwkrmm010w4q2m8",
     "datetime": "bnyy5klr7bjd9cnynqj3vcplbhj23x9r",

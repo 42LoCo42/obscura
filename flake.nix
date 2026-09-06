@@ -76,7 +76,20 @@
             config.allowUnfree = true;
             overlays = [
               (_: _: packages)
-              (_: _: { inherit (lib) infuse; })
+
+              (_: prev: {
+                inherit (lib) infuse;
+
+                flake-parts = pipe 0 [
+                  (_: prev.fetchzip {
+                    url = "https://github.com/hercules-ci/flake-parts/archive/31729ca8cbdb4fa927b34e5f4353e6a83f39e993.tar.gz";
+                    hash = "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=";
+                  })
+                  (x: (import "${x}/flake.nix").outputs {
+                    nixpkgs-lib = { inherit lib; };
+                  })
+                ];
+              })
             ];
           };
 

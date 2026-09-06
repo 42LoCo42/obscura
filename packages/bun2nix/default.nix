@@ -1,30 +1,51 @@
-pkgs: pkgs.rustPlatform.buildRustPackage rec {
+pkgs:
+let
   pname = "bun2nix";
-  version = "1.5.1";
+  version = "2.1.2";
 
   src = pkgs.fetchFromGitHub {
-    owner = "baileyluTCD";
+    owner = "nix-community";
     repo = pname;
     tag = version;
-    hash = "sha256-rUpcATQ0LiY8IYRndqTlPUhF4YGJH3lM2aMOs5vBDGM=";
+
+    postFetch = ''
+      rm -rfv $out/nix/dev/{devshell,formatter}.nix
+
+      cat << EOF > $out/nix/dev/systems.nix
+      { systems = [ "x86_64-linux" "aarch64-linux" ]; }
+      EOF
+    '';
+
+    hash = "sha256-fNBobEJh+qg7wfxptav6tP1AZOQGlST+lLVXY0wPNIU=";
   };
 
-  __structuredAttrs = true;
-  strictDeps = true;
+  inherit (pkgs.stdenv) system;
 
-  nativeBuildInputs = with pkgs; [
-    pkg-config
-  ];
+  inputs = {
+    self = {
+      outPath = src;
+      inherit inputs;
+    } // outputs;
 
-  buildInputs = with pkgs; [
-    openssl
-  ];
+    inherit (pkgs) flake-parts;
 
-  cargoHash = "sha256-K9rXGHyQ/uzj3iDZ3uI+wFOIvMVI+klZu2GhSDk7GLY=";
+    nixpkgs = {
+      _type = "flake";
+      outPath = "";
+      legacyPackages.${system} = pkgs // {
+        stdenvNoCC = pkgs.stdenv;
+      };
+    };
+  };
 
-  meta = {
-    description = "A fast rust based bun lockfile to nix expression converter";
-    homepage = "https://github.com/baileyluTCD/bun2nix";
-    mainProgram = pname;
+  outputs = (import "${src}/flake.nix").outputs inputs;
+  packages = outputs.packages.${system};
+in
+pkgs.infuse packages.bun2nix {
+  __output = {
+    postInstall.__append = ''
+      mkdir -p $out/libexec
+      ln -s ${packages.cacheEntryCreator}/bin/cache_entry_creator $out/libexec
+    '';
   };
 }
