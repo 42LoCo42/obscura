@@ -13,7 +13,7 @@ A personal collection of unusual things
 |`bun2nix`|`2.1.2`|A fast rust based bun lockfile to nix expression converter.|https://github.com/nix-community/bun2nix|
 |`ceserver`|`7.5-unstable-2025-04-19`|Linux server for Cheat Engine|https://github.com/cheat-engine/cheat-engine/blob/master/Cheat%20Engine/ceserver|
 |`chronometer`|`0-unstable-2024-10-02`|The Chronometer of Endless Whimsy!|https://github.com/42LoCo42/chronometer|
-|`datetime`|`0.2.3`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
+|`datetime`|`0.2.4`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
