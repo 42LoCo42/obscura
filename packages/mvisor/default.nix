@@ -57,9 +57,8 @@ pkgs: pkgs.gcc14Stdenv.mkDerivation rec {
     })
   ];
 
-  env.NIX_CFLAGS_COMPILE = "-Wno-error=unused-result";
-
   mesonFlags = let inherit (pkgs.lib) mesonBool; in [
+    (mesonBool "werror" false)
     (mesonBool "gtk" true)
     (mesonBool "qxl" true)
     (mesonBool "sdl" true)
