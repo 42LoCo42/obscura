@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 36 Packages
+## 37 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -24,6 +24,7 @@ A personal collection of unusual things
 |`keysmash`|`1.2.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.1.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
+|`molecule`|`1.2.0`|Matrix call widget with system audio sharing|https://github.com/42LoCo42/molecule|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`my-fastfetch`|`2.68.1`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
