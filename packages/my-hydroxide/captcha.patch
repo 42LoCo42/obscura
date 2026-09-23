@@ -1,0 +1,489 @@
+https://patch-diff.githubusercontent.com/raw/Jahroots/hydroxide/pull/1
+Removed the manual captcha entry method because it breaks/confuses TOTP entry
+
+diff --git a/README.md b/README.md
+index 50db2c1a..af02d16e 100644
+--- a/README.md
++++ b/README.md
+@@ -50,6 +50,11 @@ retrieve e-mails from ProtonMail. You can do so with this command:
+ hydroxide auth <username>
+ ```
+
++ProtonMail may ask you to complete a human verification challenge (CAPTCHA). In
++that case hydroxide serves the challenge on a local HTTP server and prints its
++`http://127.0.0.1:<port>` address: open it in a web browser and complete the
++CAPTCHA, and hydroxide will resume logging in on its own.
++
+ Once you're logged in, a "bridge password" will be printed. Don't close your
+ terminal yet, as this password is not stored anywhere by hydroxide and will be
+ needed when configuring your e-mail client.
+diff --git a/cmd/hydroxide/humanverify.go b/cmd/hydroxide/humanverify.go
+new file mode 100644
+index 00000000..c317d40a
+--- /dev/null
++++ b/cmd/hydroxide/humanverify.go
+@@ -0,0 +1,261 @@
++package main
++
++import (
++	"bytes"
++	"fmt"
++	"io"
++	"log"
++	"net"
++	"net/http"
++	"net/url"
++	"os"
++	"strings"
++
++	"github.com/emersion/hydroxide/protonmail"
++)
++
++// ProtonMail's CAPTCHA challenge is an HTML page meant to be embedded in an
++// iframe by ProtonMail's web clients: once the challenge is completed, the page
++// sends the resulting token to its parent window with postMessage. It refuses
++// to be embedded by anything other than ProtonMail's own domains, but when it's
++// opened as a top-level document the message is delivered to the page itself.
++//
++// hydroxide serves the challenge from a local HTTP server with a small script
++// injected, which listens for that message and sends the token back to us.
++
++const captchaPath = "/core/v4/captcha"
++
++// apiPathPrefix is the prefix of the paths we proxy through to the API itself.
++// The challenge page loads the rest of its resources from the root of
++// ProtonMail's API subdomain instead.
++const apiPathPrefix = "/core/"
++
++// tokenPath is where the injected script posts the completed token. It's
++// prefixed so that it can't collide with a ProtonMail API path, which is
++// proxied through to the API.
++const tokenPath = "/hydroxide/token"
++
++const injectedScript = `<script>
++window.addEventListener("message", function(event) {
++	if (!event.data || event.data.type !== "pm_captcha") {
++		return;
++	}
++	var req = new XMLHttpRequest();
++	req.open("POST", ` + "`" + tokenPath + "`" + `);
++	req.send(event.data.token);
++	document.body.textContent = "Verification complete, you can close this tab and go back to hydroxide.";
++}, false);
++</script>`
++
++// humanVerifyServer serves the CAPTCHA challenge to a local web browser.
++type humanVerifyServer struct {
++	client *http.Client
++	// rootURL is the ProtonMail API endpoint, assetsURL is the root of its API
++	// subdomain, from which the challenge page loads its own resources
++	rootURL   *url.URL
++	assetsURL *url.URL
++	token     string // the challenge token
++	tokens    chan string
++}
++
++// apiSubdomainURL returns the root of the API subdomain for an API endpoint,
++// e.g. https://mail-api.proton.me/ for https://mail.proton.me/api.
++func apiSubdomainURL(rootURL *url.URL) *url.URL {
++	u := *rootURL
++	u.Path = ""
++	u.RawQuery = ""
++
++	name, rest, ok := strings.Cut(u.Hostname(), ".")
++	if !ok || strings.HasSuffix(name, "-api") {
++		return &u
++	}
++
++	host := name + "-api." + rest
++	if port := u.Port(); port != "" {
++		host = net.JoinHostPort(host, port)
++	}
++	u.Host = host
++	return &u
++}
++
++func (s *humanVerifyServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
++	log.Printf("human verification: %v %v", r.Method, r.URL.RequestURI())
++
++	switch {
++	case r.URL.Path == tokenPath:
++		s.receiveToken(w, r)
++	case r.URL.Path == "/favicon.ico":
++		// Requested by the browser on its own. Don't forward it upstream,
++		// which would reply with a confusing JSON error
++		http.NotFound(w, r)
++	case strings.HasPrefix(r.URL.Path, apiPathPrefix):
++		s.proxy(w, r, s.rootURL)
++	case r.URL.Path == "/":
++		s.serveChallenge(w, r)
++	default:
++		// Resources loaded by the challenge page itself
++		s.proxy(w, r, s.assetsURL)
++	}
++}
++
++// upstreamURL returns the URL of p on base. Unlike path.Join, it preserves a
++// trailing slash, which the challenge page's resources are sensitive to.
++func upstreamURL(base *url.URL, p, rawQuery string) string {
++	u := *base
++	u.Path = strings.TrimSuffix(base.Path, "/") + p
++	u.RawQuery = rawQuery
++	return u.String()
++}
++
++func (s *humanVerifyServer) serveChallenge(w http.ResponseWriter, r *http.Request) {
++	u := upstreamURL(s.rootURL, captchaPath, url.Values{
++		"Token":             {s.token},
++		"ForceWebMessaging": {"1"},
++	}.Encode())
++
++	req, err := http.NewRequestWithContext(r.Context(), http.MethodGet, u, nil)
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusInternalServerError)
++		return
++	}
++
++	resp, err := s.client.Do(req)
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusBadGateway)
++		return
++	}
++	defer resp.Body.Close()
++
++	if resp.StatusCode != http.StatusOK {
++		log.Printf("human verification: failed to fetch the challenge from %v: %v", u, resp.Status)
++	}
++
++	b, err := io.ReadAll(resp.Body)
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusBadGateway)
++		return
++	}
++
++	// The challenge page has a Content-Security-Policy which forbids the
++	// injected script, and it isn't sent back to the browser anyway
++	if i := bytes.LastIndex(b, []byte("</body>")); i >= 0 {
++		b = append(b[:i:i], append([]byte(injectedScript), b[i:]...)...)
++	} else {
++		b = append(b, []byte(injectedScript)...)
++	}
++
++	w.Header().Set("Content-Type", "text/html; charset=utf-8")
++	w.WriteHeader(resp.StatusCode)
++	w.Write(b)
++}
++
++func (s *humanVerifyServer) receiveToken(w http.ResponseWriter, r *http.Request) {
++	if r.Method != http.MethodPost {
++		http.Error(w, "expected a POST request", http.StatusMethodNotAllowed)
++		return
++	}
++
++	b, err := io.ReadAll(io.LimitReader(r.Body, 4096))
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusBadRequest)
++		return
++	}
++
++	token := strings.TrimSpace(string(b))
++	if token == "" {
++		http.Error(w, "empty verification token", http.StatusBadRequest)
++		return
++	}
++
++	select {
++	case s.tokens <- token:
++	default:
++	}
++	w.WriteHeader(http.StatusNoContent)
++}
++
++// proxy forwards a request from the challenge page to ProtonMail.
++func (s *humanVerifyServer) proxy(w http.ResponseWriter, r *http.Request, base *url.URL) {
++	u := upstreamURL(base, r.URL.Path, r.URL.RawQuery)
++
++	req, err := http.NewRequestWithContext(r.Context(), r.Method, u, r.Body)
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusInternalServerError)
++		return
++	}
++	for k, values := range r.Header {
++		if k == "Host" || k == "Cookie" || k == "Origin" || k == "Referer" {
++			continue
++		}
++		req.Header[k] = values
++	}
++
++	resp, err := s.client.Do(req)
++	if err != nil {
++		http.Error(w, err.Error(), http.StatusBadGateway)
++		return
++	}
++	defer resp.Body.Close()
++
++	for k, values := range resp.Header {
++		switch k {
++		case "Content-Security-Policy", "X-Frame-Options", "Set-Cookie":
++			continue
++		}
++		w.Header()[k] = values
++	}
++	w.Header().Set("Access-Control-Allow-Origin", "*")
++	w.WriteHeader(resp.StatusCode)
++	io.Copy(w, resp.Body)
++}
++
++// askHumanVerification asks the user to complete a human verification challenge
++// in a web browser, then configures c to send the completed challenge along
++// with subsequent requests.
++func askHumanVerification(c *protonmail.Client, details *protonmail.HumanVerificationDetails) error {
++	if !details.HasMethod(protonmail.HumanVerificationCaptcha) {
++		return fmt.Errorf("ProtonMail requires human verification, but hydroxide only supports the CAPTCHA method (offered: %v)", strings.Join(details.Methods, ", "))
++	}
++
++	rootURL, err := url.Parse(c.RootURL)
++	if err != nil {
++		return fmt.Errorf("failed to parse API endpoint: %v", err)
++	}
++
++	httpClient := c.HTTPClient
++	if httpClient == nil {
++		httpClient = http.DefaultClient
++	}
++
++	s := &humanVerifyServer{
++		client:    httpClient,
++		rootURL:   rootURL,
++		assetsURL: apiSubdomainURL(rootURL),
++		token:     details.Token,
++		tokens:    make(chan string, 1),
++	}
++
++	ln, err := net.Listen("tcp", "127.0.0.1:0")
++	if err != nil {
++		return fmt.Errorf("failed to listen for human verification: %v", err)
++	}
++	defer ln.Close()
++
++	go func() {
++		if err := http.Serve(ln, s); err != nil {
++			log.Printf("human verification server stopped: %v", err)
++		}
++	}()
++
++	fmt.Fprintf(os.Stderr, "ProtonMail requires human verification.\n")
++	fmt.Fprintf(os.Stderr, "Open the following URL in a web browser and complete the CAPTCHA:\n\n")
++	fmt.Fprintf(os.Stderr, "\thttp://%v/\n\n", ln.Addr())
++	fmt.Fprintf(os.Stderr, "Waiting for the CAPTCHA to be completed...\n")
++
++	token := <-s.tokens
++	c.HumanVerification = &protonmail.HumanVerification{
++		Token: token,
++		Type:  protonmail.HumanVerificationCaptcha,
++	}
++	return nil
++}
+diff --git a/cmd/hydroxide/main.go b/cmd/hydroxide/main.go
+index b32780fd..c0bb6956 100644
+--- a/cmd/hydroxide/main.go
++++ b/cmd/hydroxide/main.go
+@@ -4,11 +4,13 @@ import (
+ 	"bufio"
+ 	"bytes"
+ 	"crypto/tls"
++	"errors"
+ 	"flag"
+ 	"fmt"
+ 	"io"
+ 	"log"
+ 	"net/http"
++	"net/http/cookiejar"
+ 	"os"
+
+ 	"github.com/ProtonMail/go-crypto/openpgp"
+@@ -41,10 +43,17 @@ var (
+ )
+
+ func newClient() *protonmail.Client {
++	// ProtonMail ties human verification to a session cookie
++	jar, err := cookiejar.New(nil)
++	if err != nil {
++		log.Fatal(err)
++	}
++
+ 	return &protonmail.Client{
+ 		RootURL:    apiEndpoint,
+ 		AppVersion: appVersion,
+ 		Debug:      debug,
++		HTTPClient: &http.Client{Jar: jar},
+ 	}
+ }
+
+@@ -67,6 +76,14 @@ func askPass(prompt string) ([]byte, error) {
+ 	return b, err
+ }
+
++func login(c *protonmail.Client, username, password string) (*protonmail.Auth, error) {
++	authInfo, err := c.AuthInfo(username)
++	if err != nil {
++		return nil, err
++	}
++	return c.Auth(username, password, authInfo)
++}
++
+ func askBridgePass() (string, error) {
+ 	if v := os.Getenv("HYDROXIDE_BRIDGE_PASS"); v != "" {
+ 		return v, nil
+@@ -288,13 +305,20 @@ func main() {
+ 				loginPassword = string(pass)
+ 			}
+
+-			authInfo, err := c.AuthInfo(username)
+-			if err != nil {
+-				log.Fatal(err)
++			var err error
++			a, err = login(c, username, loginPassword)
++			if details := protonmail.HumanVerificationDetailsFromError(err); details != nil {
++				if err := askHumanVerification(c, details); err != nil {
++					log.Fatal(err)
++				}
++				// The SRP session has been consumed, start over
++				a, err = login(c, username, loginPassword)
+ 			}
+-
+-			a, err = c.Auth(username, loginPassword, authInfo)
+ 			if err != nil {
++				var apiErr *protonmail.APIError
++				if errors.As(err, &apiErr) && apiErr.Code == protonmail.CodeHumanVerificationInvalid {
++					log.Fatal("human verification wasn't accepted, please try again")
++				}
+ 				log.Fatal(err)
+ 			}
+
+diff --git a/protonmail/protonmail.go b/protonmail/protonmail.go
+index 8093fb36..1931e202 100644
+--- a/protonmail/protonmail.go
++++ b/protonmail/protonmail.go
+@@ -4,6 +4,7 @@ package protonmail
+ import (
+ 	"bytes"
+ 	"encoding/json"
++	"errors"
+ 	"fmt"
+ 	"io"
+ 	"io/ioutil"
+@@ -30,6 +31,7 @@ func (r *resp) Err() error {
+ 		return &APIError{
+ 			Code:    r.Code,
+ 			Message: err.Message,
++			Details: err.Details,
+ 		}
+ 	}
+ 	return nil
+@@ -40,18 +42,82 @@ type maybeError interface {
+ }
+
+ type RawAPIError struct {
+-	Message string `json:"Error"`
++	Message string          `json:"Error"`
++	Details json.RawMessage `json:"Details"`
+ }
+
+ type APIError struct {
+ 	Code    int
+ 	Message string
++	Details json.RawMessage
+ }
+
+ func (err *APIError) Error() string {
+ 	return fmt.Sprintf("[%v] %v", err.Code, err.Message)
+ }
+
++// API error codes.
++const (
++	CodeHumanVerificationRequired = 9001
++	CodeHumanVerificationInvalid  = 9002
++)
++
++// Human verification methods.
++const (
++	HumanVerificationCaptcha = "captcha"
++)
++
++// HumanVerificationDetails describes a human verification challenge the API
++// wants the user to complete before it accepts the request.
++type HumanVerificationDetails struct {
++	Methods []string `json:"HumanVerificationMethods"`
++	Token   string   `json:"HumanVerificationToken"`
++}
++
++// HasMethod returns true if the API offers the provided verification method.
++func (details *HumanVerificationDetails) HasMethod(method string) bool {
++	for _, m := range details.Methods {
++		if m == method {
++			return true
++		}
++	}
++	return false
++}
++
++// HumanVerificationDetails returns the human verification challenge attached to
++// this error, if any.
++func (err *APIError) HumanVerificationDetails() *HumanVerificationDetails {
++	if err.Code != CodeHumanVerificationRequired || len(err.Details) == 0 {
++		return nil
++	}
++	details := new(HumanVerificationDetails)
++	if err := json.Unmarshal(err.Details, details); err != nil {
++		return nil
++	}
++	if details.Token == "" {
++		return nil
++	}
++	return details
++}
++
++// HumanVerificationDetailsFromError returns the human verification challenge
++// attached to err, if err is an API error requesting human verification.
++func HumanVerificationDetailsFromError(err error) *HumanVerificationDetails {
++	var apiErr *APIError
++	if !errors.As(err, &apiErr) {
++		return nil
++	}
++	return apiErr.HumanVerificationDetails()
++}
++
++// HumanVerification is a completed human verification challenge. Note that its
++// token is the one produced by completing the challenge, not the challenge
++// token from HumanVerificationDetails.
++type HumanVerification struct {
++	Token string
++	Type  string
++}
++
+ type Timestamp int64
+
+ func (t Timestamp) Time() time.Time {
+@@ -64,6 +130,10 @@ type Client struct {
+ 	AppVersion string
+ 	Debug      bool
+
++	// HumanVerification, if non-nil, is sent along with each request to prove
++	// that a human verification challenge has been completed.
++	HumanVerification *HumanVerification
++
+ 	HTTPClient *http.Client
+ 	ReAuth     func() error
+
+@@ -91,6 +161,10 @@ func (c *Client) newRequest(method, path string, body io.Reader) (*http.Request,
+
+ 	req.Header.Set("X-Pm-Appversion", c.AppVersion)
+ 	req.Header.Set(headerAPIVersion, strconv.Itoa(Version))
++	if hv := c.HumanVerification; hv != nil {
++		req.Header.Set("X-Pm-Human-Verification-Token", hv.Token)
++		req.Header.Set("X-Pm-Human-Verification-Token-Type", hv.Type)
++	}
+ 	c.setRequestAuthorization(req)
+ 	return req, nil
+ }

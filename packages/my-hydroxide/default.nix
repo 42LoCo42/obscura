@@ -2,6 +2,7 @@
 pkgs: pkgs.infuse pkgs.hydroxide {
   __output = {
     patches.__append = [
+      ./captcha.patch
       ./pagesize.patch
     ];
 
