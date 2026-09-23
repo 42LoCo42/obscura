@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 39 Packages
+## 36 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -16,7 +16,6 @@ A personal collection of unusual things
 |`datetime`|`0.2.4`|A site that tells you what date and time it is right now|https://github.com/42LoCo42/what-datetime-is-it-right-now-dot-com|
 |`directorylister`|`5.7.0`|Simple PHP-based directory lister|https://github.com/DirectoryLister/DirectoryLister|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
-|`e2eirc`|`0.0.1-unstable-2017-10-31`|E2EIRC allows you to create end to end encrpyted chat rooms on Regular (Unmodified) IRC servers and your favorite IRC client.|https://github.com/novus0rdo/e2eirc|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
 |`grimmory`|`3.5.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
@@ -26,9 +25,7 @@ A personal collection of unusual things
 |`lanzaboote`|`1.1.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
-|`my-ergochat`|`2.19.0`|Modern IRC server (daemon/ircd) written in Go|https://github.com/ergochat/ergo|
 |`my-fastfetch`|`2.68.1`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
-|`my-gamja`|`1.0.0-beta.11`|Simple IRC web client|https://codeberg.org/emersion/gamja|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
