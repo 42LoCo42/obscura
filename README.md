@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 38 Packages
+## 39 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -27,6 +27,7 @@ A personal collection of unusual things
 |`molecule`|`1.2.0`|Matrix call widget with system audio sharing|https://github.com/42LoCo42/molecule|
 |`mvisor`|`2.7.3-unstable-2025-09-04`|A mini x86 hypervisor|https://github.com/tenclass/mvisor|
 |`my-fastfetch`|`2.68.1`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
+|`my-gomuks-web`|`26.09`|Matrix client written in Go|https://github.com/tulir/gomuks|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
