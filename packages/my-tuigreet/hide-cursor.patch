@@ -1,0 +1,23 @@
+diff --git a/crates/tuigreet/src/ui/util.rs b/crates/tuigreet/src/ui/util.rs
+index 5b5aa01a21..e97a3ad1ec 100644
+--- a/crates/tuigreet/src/ui/util.rs
++++ b/crates/tuigreet/src/ui/util.rs
+@@ -20,17 +20,7 @@
+ // mode and configuration. Usually, we will show the cursor only when expecting
+ // text entries from the user.
+ pub fn should_hide_cursor(greeter: &Greeter) -> bool {
+-  greeter.working
+-    || greeter.done
+-    || (greeter.user_menu
+-      && greeter.mode == Mode::Username
+-      && greeter.username.value.is_empty())
+-    || (greeter.mode == Mode::Password && greeter.prompt.is_none())
+-    || greeter.mode == Mode::Users
+-    || greeter.mode == Mode::Sessions
+-    || greeter.mode == Mode::Power
+-    || greeter.mode == Mode::Processing
+-    || greeter.mode == Mode::Action
++    true
+ }
+ 
+ // Computes the height of the main window where we display content, depending on
