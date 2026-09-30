@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "molecule";
-  version = "1.2.0";
+  version = "1.3.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = pname;
     tag = version;
-    hash = "sha256-ENZrqlYLvUPicH8UuoC8bcOU+D4kRBS348Pe+f3li+I=";
+    hash = "sha256-gWjvJ6/rowlZb3zyYi7F93hw0Wxk35O8YX05kIUsads=";
   };
 
   frontend = pkgs.stdenv.mkDerivation (drv: {
