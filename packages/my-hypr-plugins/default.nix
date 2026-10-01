@@ -8,13 +8,13 @@ in
 
   hyprwinwrap = plugins.mkHyprlandPlugin (drv: {
     pluginName = "hyprwinwrap";
-    version = "0.56";
+    version = "0.56v2";
 
     src = pkgs.fetchFromGitHub {
       owner = "gen3vra";
       repo = drv.pname;
       tag = drv.version;
-      hash = "sha256-9MdwossojhQccorcZcPxi+xaNOYGESZ0B3N6T/tNnzI=";
+      hash = "sha256-mQ5D59pM5r8n8bSMg4Kmhl+LioRTEfoow6mRoj+k7LA=";
     };
 
     __structuredAttrs = true;
@@ -24,6 +24,10 @@ in
       meson
       ninja
     ];
+
+    patchPhase = ''
+      sed -i "/^globber/d; s|^src.*|src = ['main.cpp']|" meson.build
+    '';
 
     meta = {
       description = "Display any window as a wallpaper in Hyprland";
