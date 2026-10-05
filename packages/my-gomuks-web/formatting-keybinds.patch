@@ -1,0 +1,51 @@
+diff --git a/web/src/ui/composer/MessageComposer.tsx b/web/src/ui/composer/MessageComposer.tsx
+index 06cc6fcde9..f03b294b2e 100644
+--- a/web/src/ui/composer/MessageComposer.tsx
++++ b/web/src/ui/composer/MessageComposer.tsx
+@@ -464,6 +464,29 @@
+ 			}
+ 		}
+ 	}
++	const surroundText = (evt: React.KeyboardEvent<HTMLTextAreaElement>, code: string) => {
++		evt.preventDefault();
++
++		const inp = evt.currentTarget;
++		const beg = inp.selectionStart;
++		const end = inp.selectionEnd;
++
++		const pfx = "/htmlmd ";
++		const add = inp.value.startsWith(pfx) ? "" : pfx;
++		const len = add.length;
++
++		const x = `<${code}>`;
++		const y = `</${code}>`;
++
++		inp.value = add + inp.value.slice(0, beg)
++					+ x + inp.value.slice(beg, end) + y
++					+ inp.value.slice(end);
++
++		inp.selectionStart = beg + len + x.length;
++		inp.selectionEnd = end + len + x.length;
++
++		setState({text: inp.value});
++	}
+ 	const onComposerKeyDown = (evt: React.KeyboardEvent<HTMLTextAreaElement>) => {
+ 		const inp = evt.currentTarget
+ 		const fullKey = keyToString(evt)
+@@ -555,6 +578,16 @@
+ 				evt.stopPropagation()
+ 				roomCtx.setReplyTo(null)
+ 			}
++		} else if (fullKey === "Ctrl+e") {
++			inp.selectionStart = inp.selectionEnd = inp.value.length;
++		} else if (fullKey === "Ctrl+b") {
++			surroundText(evt, "b");
++		} else if (fullKey === "Ctrl+i") {
++			surroundText(evt, "i");
++		} else if (fullKey === "Ctrl+s") {
++			surroundText(evt, "s");
++		} else if (fullKey === "Ctrl+u") {
++			surroundText(evt, "u");
+ 		}
+ 	}
+ 	const onChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
