@@ -1,13 +1,14 @@
 pkgs:
 let
   pname = "grimmory";
-  version = "3.5.0";
+  version = "3.5.0-unstable-2026-10-04";
 
   src = pkgs.fetchFromGitHub {
     owner = "grimmory-tools";
     repo = pname;
-    tag = "v${version}";
-    hash = "sha256-j9VXtqWLc13qVn89T1OmLQcAlhTP4w8AmOZINqhtNa4=";
+    # tag = "v${version}";
+    rev = "54b5562c2a7fa45e55b351b91b0282034d7de7a1";
+    hash = "sha256-KNI4uIyTCa2OfplJiP92KHnx1+aszWNzV1cz/kAahuw=";
   };
 
   pnpm = pkgs.pnpm_11;
@@ -21,6 +22,7 @@ let
     strictDeps = true;
 
     nativeBuildInputs = with pkgs; [
+      dart-sass
       nodejs
       pnpm
       pnpmConfigHook
@@ -30,8 +32,15 @@ let
       inherit (drv) pname src version;
       inherit pnpm;
       fetcherVersion = 4;
-      hash = "sha256-eAw3q2WrV1ZwPCo6+Re7tX9PyWvZn3c2xLZqDE/QKls=";
+      hash = "sha256-lNcJbQL5zj+p5FdU7/bTY9Wl8mRzD9XUlATUOb0WnJ8=";
     };
+
+    configurePhase = ''
+      runHook postConfigure
+
+      substituteInPlace node_modules/.pnpm/sass-embedded@*/*/*/dist/lib/src/compiler-path.js \
+        --replace-fail 'compilerCommand = (() => {' 'compilerCommand = (() => { return ["dart-sass"];'
+    '';
 
     buildPhase = ''
       CI=1 NG_CLI_ANALYTICS=false \

@@ -17,7 +17,7 @@ A personal collection of unusual things
 |`directorylister`|`5.7.0`|Simple PHP-based directory lister|https://github.com/DirectoryLister/DirectoryLister|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
-|`grimmory`|`3.5.0`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
+|`grimmory`|`3.5.0-unstable-2026-10-04`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
 |`hda-emu`|`0.2.6-unstable-2026-06-04`|ALSA HD-audio driver debugging & testing tool|https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/hda-emu.git|
 |`immich-folder-album-creator`|`1.0.0`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
