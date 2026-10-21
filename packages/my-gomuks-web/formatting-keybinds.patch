@@ -1,8 +1,8 @@
 diff --git a/web/src/ui/composer/MessageComposer.tsx b/web/src/ui/composer/MessageComposer.tsx
-index 06cc6fcde9..f03b294b2e 100644
+index 242073777c..6ae6ea3195 100644
 --- a/web/src/ui/composer/MessageComposer.tsx
 +++ b/web/src/ui/composer/MessageComposer.tsx
-@@ -464,6 +464,29 @@
+@@ -480,6 +480,29 @@ clear: (roomID: RoomID, threadID?: EventID) =>
  			}
  		}
  	}
@@ -32,10 +32,18 @@ index 06cc6fcde9..f03b294b2e 100644
  	const onComposerKeyDown = (evt: React.KeyboardEvent<HTMLTextAreaElement>) => {
  		const inp = evt.currentTarget
  		const fullKey = keyToString(evt)
-@@ -555,6 +578,16 @@
- 				evt.stopPropagation()
- 				roomCtx.setReplyTo(null)
+@@ -554,6 +577,24 @@ clear: (roomID: RoomID, threadID?: EventID) =>
+ 				roomCtx.setReplyTo(newReplyEvt.event_id)
+ 				evt.preventDefault()
  			}
++		} else if (fullKey === "Ctrl+c") {
++			evt.preventDefault();
++
++			const beg = inp.selectionStart;
++			inp.value += "```\n```";
++			inp.selectionStart = inp.selectionEnd = beg + 3;
++
++			setState({text: inp.value});
 +		} else if (fullKey === "Ctrl+e") {
 +			inp.selectionStart = inp.selectionEnd = inp.value.length;
 +		} else if (fullKey === "Ctrl+b") {
@@ -46,6 +54,6 @@ index 06cc6fcde9..f03b294b2e 100644
 +			surroundText(evt, "s");
 +		} else if (fullKey === "Ctrl+u") {
 +			surroundText(evt, "u");
- 		}
- 	}
- 	const onChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+ 		} else if (!editing && replyToEvt !== null) {
+ 			if (fullKey === "Ctrl+ArrowDown" && room.preferences.ctrl_arrow_reply) {
+ 				const replyToIdx = room.timeline.findIndex(item => item.event_rowid === replyToEvt.rowid)
