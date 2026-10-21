@@ -1,0 +1,143 @@
+# https://github.com/Malix-Labs/Nix_Remote-Builders-Distributed/tree/75459578edfd1ca93c073b77c112e6161e0643c1
+# before OIDC workload federation because my headscale doesn't support that yet
+
+name: "Nix Remote Builder"
+run-name: "${{ inputs.target != '' && format('Nix Remote: {0} [{1}]', inputs.target, inputs.session_id) || format('Nix Remote: [{0}]', inputs.session_id) }}"
+
+on:
+  workflow_dispatch:
+    inputs: &inputs
+      session_id:
+        description: "Unique session identifier"
+        required: true
+        type: string
+      target:
+        description: "Target or Nix command being executed"
+        type: string
+        default: ""
+      matrix:
+        description: "JSON matrix specification ({ include: [...] })"
+        required: true
+        type: string
+      environment:
+        description: "GitHub Actions environment name to source secrets from (optional)"
+        type: string
+        default: ""
+      tailscale_tags:
+        description: "Tailscale ACL tags to apply to runner nodes"
+        default: "tag:nix-builder"
+        type: string
+      timeout_startup:
+        description: "Wait for first connection in seconds"
+        default: "300"
+        type: string
+      timeout_idle:
+        description: "Idle timeout between disconnections in seconds"
+        default: "300"
+        type: string
+      timeout_linger:
+        description: "Grace period after completion signal in seconds"
+        default: "0"
+        type: string
+
+  workflow_call:
+    inputs: *inputs
+    secrets:
+      TAILSCALE_AUTHKEY:
+        description: "Tailscale Auth Key (optional if environment secret is configured)"
+        required: false
+
+jobs:
+  builder:
+    name: "Nix Builder: ${{ matrix.id }}"
+    runs-on: ${{ matrix.os }}
+    environment: ${{ inputs.environment != '' && inputs.environment || null }}
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(inputs.matrix) }}
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v7
+
+      - name: "Setup Nix and Magic Cache"
+        uses: Malix-Labs/dotfiles/.github/actions/nix-setup@main
+
+      - name: "Connect Tailscale with SSH"
+        uses: tailscale/github-action@v4
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          tags: ${{ inputs.tailscale_tags }}
+          hostname: "nix-builder-${{ inputs.session_id }}-${{ matrix.id }}"
+          args: "--ssh --login-server=https://headscale.eleonora.gay"
+
+      - name: "Watchdog: Connection & Idle Lifecycle"
+        shell: bash
+        run: |
+          TIMEOUT_STARTUP="${{ inputs.timeout_startup }}"
+          TIMEOUT_IDLE="${{ inputs.timeout_idle }}"
+          TIMEOUT_LINGER="${{ inputs.timeout_linger }}"
+
+          INTERVAL=10
+          IDLE_SECS=0
+          CONNECTED_ONCE=false
+          SIGNAL_FILE="/tmp/nix-builder-done"
+
+          echo "Builder ready on Tailnet (Tailscale SSH enabled)!"
+          echo "Watchdog config: startup=${TIMEOUT_STARTUP}s, idle=${TIMEOUT_IDLE}s, linger=${TIMEOUT_LINGER}s"
+
+          while true; do
+            # Explicit completion signal received
+            if [ -f "$SIGNAL_FILE" ]; then
+              if [ "$TIMEOUT_LINGER" -gt 0 ]; then
+                echo "Completion signal received. Lingering for ${TIMEOUT_LINGER}s..."
+                sleep "$TIMEOUT_LINGER"
+              else
+                echo "Completion signal received. Exiting immediately."
+              fi
+              break
+            fi
+
+            # Check active SSH sessions (ss on Linux, lsof on macOS)
+            if command -v ss >/dev/null 2>&1; then
+              ACTIVE_SSH=$(ss -H -t state established '( sport = :22 )' 2>/dev/null | wc -l)
+            elif command -v lsof >/dev/null 2>&1; then
+              ACTIVE_SSH=$(lsof -iTCP:22 -sTCP:ESTABLISHED 2>/dev/null | sed 1d | wc -l)
+            else
+              ACTIVE_SSH=0
+            fi
+            ACTIVE_NIX=$(pgrep -f "nix-daemon" 2>/dev/null | wc -l)
+
+            if [ "$ACTIVE_SSH" -gt 0 ] || [ "$ACTIVE_NIX" -gt 0 ]; then
+              if [ "$CONNECTED_ONCE" = false ]; then
+                echo "First client connected! Startup window satisfied."
+                CONNECTED_ONCE=true
+              elif [ "$IDLE_SECS" -gt 0 ]; then
+                echo "Connection restored! Resetting idle timer."
+              fi
+              IDLE_SECS=0
+            else
+              IDLE_SECS=$(( IDLE_SECS + INTERVAL ))
+
+              if [ "$CONNECTED_ONCE" = false ]; then
+                CURRENT_LIMIT="$TIMEOUT_STARTUP"
+                PHASE="startup connection"
+              else
+                CURRENT_LIMIT="$TIMEOUT_IDLE"
+                PHASE="idle reconnection"
+              fi
+
+              REMAINING=$(( CURRENT_LIMIT - IDLE_SECS ))
+              if [ $(( IDLE_SECS % 60 )) -eq 0 ] || [ "$IDLE_SECS" -eq "$INTERVAL" ]; then
+                echo "Waiting for ${PHASE} (idle: ${IDLE_SECS}s / ${CURRENT_LIMIT}s, remaining: ${REMAINING}s)..."
+              fi
+
+              if [ "$CURRENT_LIMIT" -gt 0 ] && [ "$IDLE_SECS" -ge "$CURRENT_LIMIT" ]; then
+                echo "Timeout of ${CURRENT_LIMIT}s exceeded during ${PHASE}. Terminating builder."
+                break
+              fi
+            fi
+
+            sleep "$INTERVAL"
+          done
+
+          echo "Builder session ended cleanly."
