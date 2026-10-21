@@ -26,7 +26,7 @@ A personal collection of unusual things
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`molecule`|`1.3.2`|Matrix call widget with system audio sharing|https://github.com/42LoCo42/molecule|
 |`my-fastfetch`|`2.70.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
-|`my-gomuks-web`|`26.09`|Matrix client written in Go|https://github.com/tulir/gomuks|
+|`my-gomuks-web`|`26.10`|Matrix client written in Go|https://github.com/tulir/gomuks|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
 |`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
