@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 39 Packages
+## 40 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -17,6 +17,7 @@ A personal collection of unusual things
 |`directorylister`|`5.7.0`|Simple PHP-based directory lister|https://github.com/DirectoryLister/DirectoryLister|
 |`direnv-instant`|`1.1.0-unstable-2026-03-22`|Non-blocking direnv integration daemon with tmux support|https://github.com/Mic92/direnv-instant|
 |`edex-ui`|`2.2.8`|A cross-platform, customizable science fiction terminal emulator|https://github.com/GitSquared/edex-ui|
+|`fastgmad`|`0.2.1`|An extremely fast reimplementation of gmad.exe and gmpublish.exe|https://github.com/WilliamVenner/fastgmad|
 |`grimmory`|`3.5.0-unstable-2026-10-04`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
 |`hda-emu`|`0.2.6-unstable-2026-06-04`|ALSA HD-audio driver debugging & testing tool|https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/hda-emu.git|
