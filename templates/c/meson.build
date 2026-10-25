@@ -11,7 +11,6 @@ project(
 
 executable(
 	'example',
-	'src/main.c',
 	sources: [
 		run_command('find', 'src', '-name', '*.c', check: true).stdout().split(),
 	],

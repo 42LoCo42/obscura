@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 40 Packages
+## 41 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -43,6 +43,7 @@ A personal collection of unusual things
 |`sae_pk_gen`|`0-unstable-2022-07-17`|SAE-PK key generator|https://github.com/vanhoefm/hostap-wpa3|
 |`sillysecrets`|`2.2.0`|The silliest secret manager! :3|https://github.com/42LoCo42/sillysecrets|
 |`socket-activate`|`0.1.3`|Socket-activate any service that doesn't support systemd's socket activation|https://github.com/mupuf/socket-activate|
+|`solo1-cli`|`0.1.1`|Python tool and library for SoloKeys Solo 1|https://github.com/solokeys/solo1-cli|
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
