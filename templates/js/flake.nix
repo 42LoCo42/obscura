@@ -17,7 +17,6 @@
               ./main.ts
               ./package.json
               ./pnpm-lock.yaml
-              ./tsconfig.json
               ./vite.config.ts
             ];
           };
@@ -30,7 +29,7 @@
 
           pnpmDeps = pkgs.fetchPnpmDeps {
             inherit pname version src;
-            fetcherVersion = 2;
+            fetcherVersion = 4;
             hash = "";
           };
 
