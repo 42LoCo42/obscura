@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 41 Packages
+## 42 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -21,6 +21,7 @@ A personal collection of unusual things
 |`grimmory`|`3.5.0-unstable-2026-10-04`|A self-hosted application for managing your book collection|https://github.com/grimmory-tools/grimmory|
 |`gst-instruments`|`0.3.2`|Easy-to-use profiler for GStreamer|https://github.com/kirushyk/gst-instruments|
 |`hda-emu`|`0.2.6-unstable-2026-06-04`|ALSA HD-audio driver debugging & testing tool|https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/hda-emu.git|
+|`headscale-sts`|`0.1.0-unstable-2026-09-28`|Workload Identity Federation for Headscale|https://github.com/fredrikekre/headscale-sts|
 |`immich-folder-album-creator`|`1.0.0`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`keysmash`|`1.2.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.1.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
