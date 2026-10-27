@@ -11,11 +11,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: $/.github/actions/nix-setup
         with:
-          ref: ${{ github.head_ref }}
-
-      - uses: DeterminateSystems/nix-installer-action@v22
+          magic-cache: false
 
       - name: Update inputs
         id: update

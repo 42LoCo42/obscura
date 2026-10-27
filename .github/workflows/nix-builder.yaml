@@ -42,31 +42,35 @@ on:
 
   workflow_call:
     inputs: *inputs
-    secrets:
-      TAILSCALE_AUTHKEY:
-        description: "Tailscale Auth Key (optional if environment secret is configured)"
-        required: false
 
 jobs:
   builder:
     name: "Nix Builder: ${{ matrix.id }}"
     runs-on: ${{ matrix.os }}
+    permissions:
+      id-token: write
     environment: ${{ inputs.environment != '' && inputs.environment || null }}
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(inputs.matrix) }}
     steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@v7
+      - uses: $/.github/actions/nix-setup
 
-      - name: "Setup Nix and Magic Cache"
-        uses: Malix-Labs/dotfiles/.github/actions/nix-setup@main
+      - name: "Mint tailscale access token"
+        id: mint
+        run: |
+          oidc=$(curl -fsS -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+                  "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://headscale.eleonora.gay/sts" \
+                  | jq -r .value)
+          key=$(curl -fsS -X POST "https://headscale.eleonora.gay/sts/authkey" \
+                  -H "Authorization: Bearer $oidc")
+          echo "::add-mask::$key"
+          echo "authkey=$key" >> "$GITHUB_OUTPUT"
 
       - name: "Connect Tailscale with SSH"
         uses: tailscale/github-action@v4
         with:
-          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-          tags: ${{ inputs.tailscale_tags }}
+          authkey: ${{ steps.mint.outputs.authkey }}
           hostname: "nix-builder-${{ inputs.session_id }}-${{ matrix.id }}"
           args: "--ssh --login-server=https://headscale.eleonora.gay"
 
