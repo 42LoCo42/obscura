@@ -36,7 +36,7 @@ index 242073777c..6ae6ea3195 100644
  				roomCtx.setReplyTo(newReplyEvt.event_id)
  				evt.preventDefault()
  			}
-+		} else if (fullKey === "Ctrl+c") {
++		} else if (fullKey === "Alt+Ctrl+c") {
 +			evt.preventDefault();
 +
 +			const beg = inp.selectionStart;
