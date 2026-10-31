@@ -1,13 +1,13 @@
 pkgs:
 let
   pname = "molecule";
-  version = "1.3.2";
+  version = "1.3.3";
 
   src = pkgs.fetchFromGitHub {
     owner = "42LoCo42";
     repo = pname;
     tag = version;
-    hash = "sha256-w8XZu8bmuZNMmKqSw6xXVURziT6E6F8aAaGOn8jyjvU=";
+    hash = "sha256-qjl7tbi+F3Jean8PrOvSf1FhbJemV2YatpDnp2HyK2c=";
   };
 
   frontend = pkgs.stdenv.mkDerivation (drv: {
@@ -37,7 +37,7 @@ let
     '';
   });
 
-  backend = pkgs.buildGoModule {
+  backend = pkgs.buildGoModule' [ "preBuild" ] {
     inherit pname version;
     src = "${src}/backend";
 

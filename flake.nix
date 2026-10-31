@@ -15,7 +15,9 @@
         filterAttrs
         flip
         foldl'
+        genAttrs
         getExe
+        infuse
         isFunction
         join
         length
@@ -97,6 +99,14 @@
                 ];
 
                 multiverse = import multiverse { inherit system; };
+
+                buildGoModule' = decouple: flip pipe [
+                  pkgs.buildGoModule
+                  (flip infuse {
+                    __output.goModules.__output =
+                      genAttrs decouple (_: { __assign = ""; });
+                  })
+                ];
               })
             ];
           };
@@ -146,7 +156,7 @@
         ]))
         toJSON
         unsafeDiscardStringContext
-        (x: pkgs.runCommand "hashes" { } ''
+        (x: pkgs.runCommandLocal "hashes" { } ''
           ${getExe pkgs.jq} <<\EOF > $out
           ${x}
           EOF
