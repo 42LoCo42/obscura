@@ -30,7 +30,7 @@ A personal collection of unusual things
 |`my-fastfetch`|`2.70.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
 |`my-gomuks-web`|`26.10`|Matrix client written in Go|https://github.com/tulir/gomuks|
 |`my-hydroxide`|`0.2.32`|Third-party, open-source ProtonMail bridge|https://github.com/emersion/hydroxide|
-|`my-hypr-plugins`|`0.56.2`|All the Hyprland plugins I use|n/a|
+|`my-hypr-plugins`|`0.57.0`|All the Hyprland plugins I use|n/a|
 |`my-prettypst`|`2.0.0`|Formatter for Typst|https://github.com/antonWetzel/prettypst|
 |`my-tuigreet`|`0.11.1`|Graphical console greeter for greetd|https://github.com/tuigreet/tuigreet|
 |`my-zoxide`|`0.10.0-unstable-2026-10-03`|Fast cd command that learns your habits|https://github.com/ajeetdsouza/zoxide|
