@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "multiverse": {
+      "locked": {
+        "lastModified": 1793420076,
+        "narHash": "sha256-OXx8ENB9bfKcRLq5szQ6rlr4T1dIV4OCCvxF5x7RE0o=",
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "rev": "91a87309e42fe53bc6ce5c0b78ea8bede172cd34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1793345420,
@@ -18,6 +33,7 @@
     },
     "root": {
       "inputs": {
+        "multiverse": "multiverse",
         "nixpkgs": "nixpkgs"
       }
     }

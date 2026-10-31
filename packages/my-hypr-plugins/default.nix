@@ -1,12 +1,16 @@
 pkgs:
 let
-  inherit (pkgs.hyprland) version;
-  plugins = pkgs.hyprlandPlugins;
+  pin = pkgs.multiverse.at (pkgs.multiverse.revOf "hyprland" "0.56.2");
+  inherit (pin) hyprland hyprlandPlugins;
+  inherit (hyprland) version;
+  pname = "my-hypr-plugins";
 in
-(pkgs.linkFarm "my-hypr-plugins" {
-  inherit (plugins) hyprfocus;
+(pkgs.infuse (pkgs.linkFarm "${pname}-${version}" {
+  # NOTE hyprfocus is already available for 0.57.0
+  inherit (hyprlandPlugins) hyprfocus;
 
-  hyprwinwrap = plugins.mkHyprlandPlugin (drv: {
+  # TODO needs release for 0.57.0
+  hyprwinwrap = hyprlandPlugins.mkHyprlandPlugin (drv: {
     pluginName = "hyprwinwrap";
     version = "0.56v2";
 
@@ -35,7 +39,8 @@ in
     };
   });
 
-  hypr-dynamic-cursors = pkgs.infuse plugins.hypr-dynamic-cursors {
+  # TODO upgrade
+  hypr-dynamic-cursors = pkgs.infuse hyprlandPlugins.hypr-dynamic-cursors {
     __output = {
       version.__assign = "0-unstable-2026-08-06";
 
@@ -47,11 +52,13 @@ in
       enableParallelBuilding.__assign = true;
     };
   };
-}).overrideAttrs (old: {
-  name = "${old.name}-${version}";
+})) {
+  __output = {
+    pname.__assign = pname;
+    version.__assign = version;
 
-  pname = old.name;
-  inherit version;
+    passthru.__merge = { inherit hyprland; };
 
-  meta.description = "All the Hyprland plugins I use";
-})
+    meta.description.__assign = "All the Hyprland plugins I use";
+  };
+}

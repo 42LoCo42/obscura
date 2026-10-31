@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-  outputs = { nixpkgs, self }:
+  outputs = { multiverse, nixpkgs, self }:
     let
       inherit (lib)
         attrNames
@@ -22,6 +23,7 @@
         mapAttrs
         mapAttrs'
         mapAttrsToList
+        mergeAttrs
         pipe
         readDir
         readFile
@@ -48,6 +50,8 @@
               __python = overrideTwo "overridePythonAttrs";
               __scope = overrideTwo "overrideScope";
 
+              __merge = _: mergeAttrs;
+
               __pipe = _: flip pipe;
             };
           };
@@ -73,7 +77,9 @@
 
           pkgs = import nixpkgs {
             inherit system;
+
             config.allowUnfree = true;
+
             overlays = [
               (_: _: packages)
 
@@ -89,6 +95,8 @@
                     nixpkgs-lib = { inherit lib; };
                   })
                 ];
+
+                multiverse = import multiverse { inherit system; };
               })
             ];
           };
