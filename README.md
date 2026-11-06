@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 42 Packages
+## 43 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -48,6 +48,7 @@ A personal collection of unusual things
 |`statsite`|`0.8.0-unstable-2019-10-22`|C implementation of statsd|https://github.com/statsite/statsite|
 |`vencloud`|`0.0.1`|Vencord API|https://github.com/Vencord/Vencloud|
 |`waybar-weather`|`0.3.0-unstable-2026-01-30`|A waybar weather module with automatic geolocation lookup|https://github.com/wneessen/waybar-weather|
+|`wgslender`|`1.5.1`|A WGSL minifier, validator, linter, reflection, and LSP|https://github.com/HugoDaniel/wgslender|
 |`yellowcake`|`1.2.13.0`|Modern, cross-platform mod manager for Nuclear Option|https://github.com/NaghDiefallah/Yellowcake|
 |`zfullfs`|`1.1.0`|Tiny FUSE filesystem that reports the total size & allocation of a ZFS pool|https://github.com/42LoCo42/zfullfs|
 |`zxing-cpp-tools`|`3.1.1`|zxing-cpp with example reader/writer binaries|https://github.com/zxing-cpp/zxing-cpp|
