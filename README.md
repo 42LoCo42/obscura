@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 43 Packages
+## 44 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -38,6 +38,7 @@ A personal collection of unusual things
 |`nvidia`|`595.112.07`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pipewire-screenaudio`|`0.4.2`|Extension to passthrough pipewire audio to WebRTC Screenshare|https://github.com/IceDBorn/pipewire-screenaudio|
+|`prometheus-podman-exporter`|`2.1.0-unstable-2026-10-25`|Prometheus exporter for podman environments|https://github.com/containers/prometheus-podman-exporter|
 |`pspy`|`1.2.1`|Monitor linux processes without root permissions|https://github.com/DominicBreuker/pspy|
 |`pug`|`3.0.1`|Pug 3 CLI interface|https://github.com/tokilabs/pug3-cli|
 |`rom-parser`|`0-unstable-2017-03-31`|Parse & change GPU VBIOS files|https://github.com/awilliam/rom-parser|
