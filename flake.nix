@@ -99,14 +99,6 @@
                 ];
 
                 multiverse = import multiverse { inherit system; };
-
-                buildGoModule' = decouple: flip pipe [
-                  pkgs.buildGoModule
-                  (flip infuse {
-                    __output.goModules.__output =
-                      genAttrs decouple (_: { __assign = ""; });
-                  })
-                ];
               })
             ];
           };

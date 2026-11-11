@@ -23,7 +23,6 @@ let
 
     pnpmDeps = pkgs.fetchPnpmDeps {
       inherit (drv) pname src version;
-      inherit (pkgs) pnpm;
       fetcherVersion = 4;
       hash = "sha256-zmJEj88JVvS+AOMsrYqVdKoujfLRVzYFPNZPTLpYnMQ=";
     };
@@ -37,7 +36,7 @@ let
     '';
   });
 
-  backend = pkgs.buildGoModule' [ "preBuild" ] {
+  backend = pkgs.buildGoModule {
     inherit pname version;
     src = "${src}/backend";
 
@@ -59,6 +58,7 @@ let
 
     tags = [ "release" ];
     ldflags = [ "-s" "-X main.version=${version}" ];
+    overrideModAttrs.preBuild = "";
     vendorHash = "sha256-0Qxw+MUYVgzgWB8vi3HBYtVXSq/btfh4ZfV/m1chNrA=";
 
     meta = {
