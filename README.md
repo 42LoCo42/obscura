@@ -5,7 +5,7 @@ A personal collection of unusual things
   * substituter: `https://attic.eleonora.gay/default`
   * public key:  `default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=`
 
-## 43 Packages
+## 44 Packages
 
 | Name | Version | Description | Homepage |
 |------|---------|-------------|----------|
@@ -25,6 +25,7 @@ A personal collection of unusual things
 |`immich-folder-album-creator`|`1.0.0`| Automatically create and populate albums in Immich from a folder structure in external libraries|https://github.com/Salvoxia/immich-folder-album-creator|
 |`keysmash`|`1.2.0`|Adds some satisfying keyboard noises when you type stuff|https://github.com/42LoCo42/keysmash|
 |`lanzaboote`|`1.1.0`|Secure Boot for NixOS|https://github.com/nix-community/lanzaboote|
+|`leveldb-cli`|`1.5.4`|A command-line interface for LevelDB|https://github.com/cions/leveldb-cli|
 |`mc-monitor`|`0.15.0`|Monitor the status of Minecraft servers|https://github.com/itzg/mc-monitor|
 |`molecule`|`1.3.3`|Matrix call widget with system audio sharing|https://github.com/42LoCo42/molecule|
 |`my-fastfetch`|`2.70.0`|fastfetch with only the modules I need|https://github.com/fastfetch-cli/fastfetch|
