@@ -28,7 +28,8 @@ pkgs: pkgs.stdenv.mkDerivation (drv: {
     typedef uint8_t __u8;
     typedef uint16_t __u16;
     typedef uint32_t __u32;
-    typedef long long unsigned int __u64;
+    typedef unsigned long long __u64;
+    typedef unsigned __int128 __u128;
     EOF
 
     # include numeric types
