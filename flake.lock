@@ -2,11 +2,11 @@
   "nodes": {
     "multiverse": {
       "locked": {
-        "lastModified": 1794496271,
-        "narHash": "sha256-GQTBW9aAw0ABejXCywUN0eA6lHrmjxYWT8yaULfKAQ4=",
+        "lastModified": 1794750163,
+        "narHash": "sha256-rNT7iIZhp5BVVwesMVd9RqGEd/A5DDf0Eb/HzoqImww=",
         "owner": "fzakaria",
         "repo": "nixpkgs-multiverse",
-        "rev": "e2b782894c4f074db679f786fb02139d8e8d7681",
+        "rev": "5c58c9e4e5c07baa613ecc427592dfc56248f4e4",
         "type": "github"
       },
       "original": {
@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794495034,
-        "narHash": "sha256-E0hYoioqUtM2XmPPvYYpJgdADF5AW9oOoPSEiM9dTHQ=",
+        "lastModified": 1794644783,
+        "narHash": "sha256-3GnIGIy15bMduoS9RnWqKTmsJLWThla42UFtm0S7+us=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2074cc672349f14240fb7ea90d509e0b643e9dd4",
+        "rev": "5d2b81a7a3be3e2f832879028e4d60abbf58e9a0",
         "type": "github"
       },
       "original": {
