@@ -1,4 +1,6 @@
-/.cache
-/.direnv
-/.env
-/result
+.cache
+.clangd
+.direnv
+.env
+result
+vgcore.*
