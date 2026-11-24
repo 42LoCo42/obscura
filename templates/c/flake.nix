@@ -40,12 +40,19 @@
           inherit stdenv;
         }) {
           inputsFrom = [ packages.default ];
+
           packages = with pkgs; [
             clang-tools
             gdb
             just
             valgrind
           ];
+
+          shellHook = ''
+            # don't fortify in debug builds
+            NIX_HARDENING_ENABLE=''${NIX_HARDENING_ENABLE/fortify/}
+            NIX_HARDENING_ENABLE=''${NIX_HARDENING_ENABLE/fortify3/}
+          '';
         };
       });
 }
