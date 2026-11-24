@@ -37,7 +37,7 @@ A personal collection of unusual things
 |`my-zoxide`|`0.10.0-unstable-2026-10-03`|Fast cd command that learns your habits|https://github.com/ajeetdsouza/zoxide|
 |`neo4j_4`|`4.4.46`|Neo4j 4.4 LTS|https://neo4j.com|
 |`nomm`|`5.6.0`|A Mod Manager for the Game Nuclear Option|https://github.com/Combat787/NOMM|
-|`nvidia`|`595.112.07`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
+|`nvidia`|`620.73.04`|nvidia driver & nvtop metapackage|https://www.nvidia.com|
 |`pinlist`|`1.2.0`|Super simple text/link pinlist tool|https://github.com/42LoCo42/pinlist|
 |`pipewire-screenaudio`|`0.4.2`|Extension to passthrough pipewire audio to WebRTC Screenshare|https://github.com/IceDBorn/pipewire-screenaudio|
 |`prometheus-podman-exporter`|`2.1.0-unstable-2026-10-25`|Prometheus exporter for podman environments|https://github.com/containers/prometheus-podman-exporter|
